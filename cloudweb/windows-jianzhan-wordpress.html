@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - 建站教程</title>
+  <title>新手小白搭建WordPress个人博客网站教程Windows版 - 建站教程</title>
+  
+    <meta name="keywords" content="腾讯云服务器,云服务器,阿里云服务器,wordpress,Windows">
   
 
+  
+    <meta name="description" content="本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环...">
   
 
   <!-- feed -->
@@ -71,7 +73,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -509,7 +511,7 @@
   </div>
   
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -518,8 +520,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">新手小白搭建WordPress个人博客网站教程Windows版</div>
   <div id="pjax-enable-cover">true</div>
   
   
@@ -528,16 +530,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("blog" == "none") { // 移除封面
+  if ("none" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("blog" == "blog") { // 半屏
+    if ("none" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("blog" == "docs") { // 全屏
+    } else if ("none" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -552,315 +554,212 @@
       
 
 <div class='l_main'>
-	
-	  <article id="archive-page" class="post article white-box reveal shadow">
-	    <section class="archive">
-	      
-	        
-	          
-						
-							
-		            
-			          <div class="archive-item archive-year mark">
-			            <h2>2020</h2>
-			          </div>
-		      		
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-css-custom.html">
-		              <time>08-05</time>
-		              <span class="title">
-		                
-		                  wordpress如何添加自定义CSS代码
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-change-address.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  如何修改wordPress后台登陆地址？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-backup-ways.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  wordpress网站手动备份和自动备份的方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiqiao-safe.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  提高wordpress网站安全性的一些方法技巧
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-secret-site.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  实现加密访问wordpress网站的两种方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-smart-load-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  一款好用的WordPress预加载插件（预加载动画）
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-backup-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  WordPress备份怎么做？推荐6款好用的备份插件
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/windows-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Windows版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/linux-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Linux版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/btweb/bt-jz-dt.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何用宝塔面板建站以及创建多个站点？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/hostweb/aliyun-xn-jz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  阿里云虚拟主机快速搭建网站视频教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiaocheng.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  Wordpress入门教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-wl-zd-nofollow.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何给wordpress文章外链自动添加nofollow
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-dm-yz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  wordpress如何用代码实现图片延迟加载？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/how-to-choose-qcloud.html">
-		              <time>07-17</time>
-		              <span class="title">
-		                
-		                  腾讯云服务器的配置如何选择？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	    </section>
-	  </article>
-	
-</div>
-<aside class='l_side'>
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/cloudweb/windows-jianzhan-wordpress.html">
+      新手小白搭建WordPress个人博客网站教程Windows版
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://yunbuy.github.io" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. J</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/cloudweb/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>云服务器建站</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月18日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环境。而且稳定性也比Windows更好一点。</p>
+<p>本文先从Windows版本说起，如需查看linux版本，请访问——<a href="https://yunbuy.github.io/cloudweb/linux-jianzhan-wordpress.html">新手小白搭建WordPress个人博客网站教程Linux版</a></p>
+<p>本文以腾讯云服务器为例</p>
+<h2 id="一、域名"><a href="#一、域名" class="headerlink" title="一、域名"></a>一、域名</h2><p>建站，首先你需要一个域名。以腾讯云为例子，访问<a href="https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">腾讯云官网</a>域名注册，选择自己喜欢的 后缀，和自己的域名，然后下单即可，便宜的一年也就几块钱，具体看自己选择的域名咯。</p>
+<p>如果不希望使用域名也可以跳过这一步。</p>
+<p><img src="https://pic.downk.cc/item/5f13036214195aa5948311cb.jpg" alt=""></p>
+<p>因为首购优惠只有一次，所以建议域名放在最后再买，可以先买<a href="https://cloud.tencent.com/act/cps/redirect?redirect=1062&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">云服务器</a>。</p>
+<a id="more"></a>
+
+<h2 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h2><p>1，选择好域名后，开始选择服务器。这里以腾讯云为例。</p>
+<p>如果你是学生或者你是第一次购买的话，是会有很大的优惠力度的<br>直达链接——<a href="https://cloud.tencent.com/act/cps/redirect?redirect=1062&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">【腾讯云官网服务器活动】</a></p>
+<p>一般选择一款入门性能的服务器1核2G就足够个人博客使用了。</p>
+<p><img src="https://pic.downk.cc/item/5f1303a314195aa594832976.jpg" alt=""></p>
+<p>服务器的配置选择，活动地域选择离你最近的，操作系统选择Windows server 2008 或者 2012 都可以。地区选择离自己最近的。</p>
+<p>选择好这些以后，其他只需要默认即可。</p>
+<h2 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h2><p>下单以后，右上角信箱会显示有你刚刚买的服务器账号和密码，拿到账号和密码。</p>
+<p><img src="https://pic.downk.cc/item/5f1303eb14195aa594833dd8.jpg" alt=""></p>
+<p>右下角选择云服务器会有服务器的IP地址，选择公网的IP地址就行。</p>
+<p><img src="https://pic.downk.cc/item/5f13042b14195aa594834ffb.jpg" alt=""></p>
+<p>按住键盘的电脑的win+R键（或者点击左下角开始，搜索运行）输入mstsc</p>
+<p><img src="https://pic.downk.cc/item/5f13043b14195aa594835575.jpg" alt=""></p>
+<p>回车进入远程连接页面</p>
+<p>计算机填写你的服务器的公网IP地址<br>用户名一般是Administrator<br>密码查看上面获取到的账号密码。</p>
+<p><img src="https://pic.downk.cc/item/5f13044b14195aa594835b33.jpg" alt=""></p>
+<p>进入服务器以后。安装xampp集成环境工具（可以在本地下载好以后，拖入服务器；也可以直接在服务器里面下载），工具从本页面下载，也可以从百度上下载站进行下载。</p>
+<p>下载地址：<a href="https://cloud.189.cn/t/JzyiYvFZ7Rr2" target="_blank" rel="noopener">下载</a></p>
+<p>刚打开安装包的时候可能会有一个提示，ok跳过即可</p>
+<p><img src="https://pic.downk.cc/item/5f13049d14195aa5948378ee.jpg" alt=""></p>
+<p>然后一路next，默认不用修改</p>
+<p><img src="https://pic.downk.cc/item/5f1304b114195aa594837f7f.jpg" alt=""></p>
+<p><img src="https://pic.downk.cc/item/5f1304c214195aa59483843d.jpg" alt=""></p>
+<p>安装好以后，他会在你服务器的这个位置：</p>
+<p><img src="https://pic.downk.cc/item/5f1304da14195aa594838aa2.jpg" alt=""></p>
+<p>这里首先不要启动先，先依次配置一下</p>
+<p><img src="https://pic.downk.cc/item/5f1304ed14195aa594838ff5.jpg" alt=""></p>
+<p>如果你发现主面板mysql 右边已经有数字，说明你的系统已经开启了对应的服务占用了当前的端口，请打开任务管理器，将mysqld.exe进程关掉。（因为使用集成工具比较好管理服务，所以建议关掉系统的，改用工具安装的Mysql服务。）</p>
+<p>如果主面板右边没有对应的数字，请跳过这一步</p>
+<p><img src="https://pic.downk.cc/item/5f13051f14195aa59483a10b.jpg" alt=""></p>
+<p><img src="https://pic.downk.cc/item/5f13053014195aa59483a688.jpg" alt=""></p>
+<p>关闭后：数字消失。</p>
+<p><img src="https://pic.downk.cc/item/5f13054c14195aa59483aef4.jpg" alt=""></p>
+<p>安装apache与Mysql服务，点击旁边的×号即可安装</p>
+<p><img src="https://pic.downk.cc/item/5f13056414195aa59483b6d4.jpg" alt=""></p>
+<p>如图即表示安装成功</p>
+<p><img src="https://pic.downk.cc/item/5f13057914195aa59483be87.jpg" alt=""></p>
+<p>然后依次点击右侧start按钮开启服务，如图即是开启成功</p>
+<p><img src="https://pic.downk.cc/item/5f13059514195aa59483c673.jpg" alt=""></p>
+<p>安装成功以后，环境这一部分已经解决。</p>
+<h2 id="四、安装WordPress程序"><a href="#四、安装WordPress程序" class="headerlink" title="四、安装WordPress程序"></a>四、安装WordPress程序</h2><p>将WordPress程序包里面的所有文件粘贴在环境根目录下</p>
+<p>程序包可以从网上下载：<a href="https://cn.wordpress.org/download/" target="_blank" rel="noopener">下载地址</a></p>
+<p><img src="https://pic.downk.cc/item/5f1305fc14195aa59483e528.jpg" alt=""></p>
+<p>返回我们的电脑，打开浏览器，输入<a href="http://xxx.xxx.xxx.xxx(服务器公有IP号):80" target="_blank" rel="noopener">http://xxx.xxx.xxx.xxx(服务器公有IP号):80</a></p>
+<p><img src="https://pic.downk.cc/item/5f13062314195aa59483f137.jpg" alt=""></p>
+<p>然后就会跳转到绑定数据库安装程序，到这里说明前面的步骤都没有问题。</p>
+<p><img src="https://pic.downk.cc/item/5f13064514195aa59483fd25.jpg" alt=""></p>
+<h2 id="五、数据库"><a href="#五、数据库" class="headerlink" title="五、数据库"></a>五、数据库</h2><p>接下来需要配置数据库的文件</p>
+<p>首先创建一个数据库给WordPress使用</p>
+<p><img src="https://pic.downk.cc/item/5f13066a14195aa5948408ad.jpg" alt=""></p>
+<p>将数据库名设置成刚刚创建的<br>数据库用户名只能是root<br>数据库密码修改成为空！！！！！！</p>
+<p>设置为空是因为，在Windows服务器下，记事本是有点毒的，内容编码不太一样，建议先留空，后续再进行修改。否则连接不上数据库的。</p>
+<p>不要设置中文！！！</p>
+<p><img src="https://pic.downk.cc/item/5f1306ca14195aa594842809.jpg" alt=""></p>
+<p>然后回到自己的电脑，点击现在开始安装</p>
+<p><img src="https://pic.downk.cc/item/5f1306d914195aa594842cda.jpg" alt=""></p>
+<p>点击提交，看到如图页面，说明已经连接上数据库没有问题了。</p>
+<p><img src="https://pic.downk.cc/item/5f1306e614195aa594843119.jpg" alt=""></p>
+<p>然后填写网站的信息。</p>
+<p><img src="https://pic.downk.cc/item/5f1306fa14195aa5948439a7.jpg" alt=""></p>
+<p>填写后，网站已经建成。</p>
+<p>网站后台http:xxx.xxx.xxx.xxx/wp-admin/</p>
+<p><img src="https://pic.downk.cc/item/5f13070a14195aa594843fd3.jpg" alt=""></p>
+<p>网站地址http:xxx.xxx.xxx.xxx(你的公有IP)</p>
+<p><img src="https://pic.downk.cc/item/5f13071c14195aa59484463c.jpg" alt=""></p>
+<h2 id="六、域名绑定"><a href="#六、域名绑定" class="headerlink" title="六、域名绑定"></a>六、域名绑定</h2><p>在我们一开始就已经买好的域名，进入域名解析</p>
+<h3 id="国内大陆服务器需要备案"><a href="#国内大陆服务器需要备案" class="headerlink" title="国内大陆服务器需要备案"></a>国内大陆服务器需要备案</h3><p>注意：国内的服务器绑定域名需要备案的哦，备案时长大概7个工作日。根据指示一步步上传站长资料即可。</p>
+<p><img src="https://pic.downk.cc/item/5f13076214195aa594845ccf.jpg" alt=""></p>
+<p><img src="https://pic.downk.cc/item/5f1307c314195aa5948479ba.jpg" alt=""></p>
+<p>然后等待十分钟，你就可以通过域名，以及www.域名访问你的网站了</p>
+<h3 id="免备案云服务器"><a href="#免备案云服务器" class="headerlink" title="免备案云服务器"></a>免备案云服务器</h3><p>如果你不想备案，想要直接就可以上线访问的话，可以选择你香港或者海外的云服务器，根据个人使用体验，腾讯云的香港云服务器比阿里云的香港服务器速度更快，体验更好。<a href="https://cloud.tencent.com/act/pro/overseas?fromSource=gwzcw.1293314.1293314.1293314&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d" target="_blank" rel="noopener">【点击进入腾讯云香港及海外云服务器优惠专区】</a>低至1.8折。</p>
+<h2 id="七、结束语"><a href="#七、结束语" class="headerlink" title="七、结束语"></a>七、结束语</h2><p>到此为止，在Windows操作系统上的WordPress建站程序已经安装完毕，你可以开始经营属于自己的网站了。<br>如果没有特殊需求，个人还是建议使用linux系统搭建网站。</p>
+<h3 id="附优惠购买链接："><a href="#附优惠购买链接：" class="headerlink" title="附优惠购买链接："></a>附优惠购买链接：</h3><p><a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">【阿里云最新优惠活动及价值2000元代金券领取地址】</a></p>
+<p><a href="https://cloud.tencent.com/act/cps/redirect?redirect=1062&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">【腾讯云最新优惠秒杀活动】</a></p>
+<p><a href="https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">【腾讯云新手代金券价值2860元大礼包】</a></p>
+<br>
+<br>
+
+<p><code>原文地址：https://xiaomoujia.cn/2020/04/19/387/</code></p>
+
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
+          
+            <p>宝塔服务器面板，一键全能部署及管理，送你￥3188礼包，<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">点我领取</a></p>
+
+          
         
+          
+            <p>阿里云服务器低至¥102元/年，安全、稳定、高效，专享1折起，限时抢各种代金券 —— <a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">立即抢购</a></p>
+
+          
         
-          <p><span id="jinrishici-sentence">建站教程</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
+      </blockquote>
     
   </div>
 </section>
@@ -870,82 +769,195 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194d514195aa59415a29d.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194f014195aa59415a9d0.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-26T21:57:35+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月26日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/qcloud/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>腾讯云服务器</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>云服务器</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>阿里云服务器</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/wordpress/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>wordpress</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Windows/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Windows</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://yunbuy.github.io/cloudweb/windows-jianzhan-wordpress.html&title=新手小白搭建WordPress个人博客网站教程Windows版 - 建站教程&summary=本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环境。而且稳定性也比Windows更好一点。
+本文先从Windows版本说起，如需查看linux版本，请访问——新手小白搭建WordPress个人博客网站教程Linux版
+本文以腾讯云服务器为例
+一、域名建站，首先你需要一个域名。以腾讯云为例子，访问腾讯云官网域名注册，选择自己喜欢的 后缀，和自己的域名，然后下单即可，便宜的一年也就几块钱，具体看自己选择的域名咯。
+如果不希望使用域名也可以跳过这一步。
+
+因为首购优惠只有一次，所以建议域名放在最后再买，可以先买云服务器。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yunbuy.github.io/cloudweb/windows-jianzhan-wordpress.html&title=新手小白搭建WordPress个人博客网站教程Windows版 - 建站教程&summary=本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环境。而且稳定性也比Windows更好一点。
+本文先从Windows版本说起，如需查看linux版本，请访问——新手小白搭建WordPress个人博客网站教程Linux版
+本文以腾讯云服务器为例
+一、域名建站，首先你需要一个域名。以腾讯云为例子，访问腾讯云官网域名注册，选择自己喜欢的 后缀，和自己的域名，然后下单即可，便宜的一年也就几块钱，具体看自己选择的域名咯。
+如果不希望使用域名也可以跳过这一步。
+
+因为首购优惠只有一次，所以建议域名放在最后再买，可以先买云服务器。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://yunbuy.github.io/cloudweb/windows-jianzhan-wordpress.html&title=新手小白搭建WordPress个人博客网站教程Windows版 - 建站教程&summary=本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环境。而且稳定性也比Windows更好一点。
+本文先从Windows版本说起，如需查看linux版本，请访问——新手小白搭建WordPress个人博客网站教程Linux版
+本文以腾讯云服务器为例
+一、域名建站，首先你需要一个域名。以腾讯云为例子，访问腾讯云官网域名注册，选择自己喜欢的 后缀，和自己的域名，然后下单即可，便宜的一年也就几块钱，具体看自己选择的域名咯。
+如果不希望使用域名也可以跳过这一步。
+
+因为首购优惠只有一次，所以建议域名放在最后再买，可以先买云服务器。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/wpweb/wp-backup-cj.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>WordPress备份怎么做？推荐6款好用的备份插件</p>
+                <p class='content'>对于使用WordPress独立建站的用户来说，网站备份是一件非常重要的事情， 定期备份站点不仅可以帮助我们保留之前的数据，更重要的是可以遇到操作失误、网站被攻击等情况时快速恢复，避免数据损失
+W...</p>
+              </a>
+            
+            
+              <a class='next' href='/cloudweb/linux-jianzhan-wordpress.html'>
+                <p class='title'>新手小白搭建WordPress个人博客网站教程Linux版<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/btweb/" href="/categories/btweb/"
-            id="categoriesbtweb"
-            ><div class='name'>宝塔面板教程</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/cloudweb/" href="/categories/cloudweb/"
-            id="categoriescloudweb"
-            ><div class='name'>云服务器建站</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/hostweb/" href="/categories/hostweb/"
-            id="categorieshostweb"
-            ><div class='name'>虚拟主机建站</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wpweb/" href="/categories/wpweb/"
-            id="categorieswpweb"
-            ><div class='name'>wordpress建站</div><div class='badge'>(10)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、域名"><span class="toc-text">一、域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、服务器"><span class="toc-text">二、服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、配置"><span class="toc-text">三、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、安装WordPress程序"><span class="toc-text">四、安装WordPress程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、数据库"><span class="toc-text">五、数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、域名绑定"><span class="toc-text">六、域名绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#国内大陆服务器需要备案"><span class="toc-text">国内大陆服务器需要备案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免备案云服务器"><span class="toc-text">免备案云服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、结束语"><span class="toc-text">七、结束语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#附优惠购买链接："><span class="toc-text">附优惠购买链接：</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CSS%E4%BB%A3%E7%A0%81/" style="font-size: 14px; color: #999">CSS代码</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/WordPress%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">WordPress加密</a> <a href="/tags/WordPress%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">WordPress后台地址</a> <a href="/tags/WordPress%E5%A4%87%E4%BB%BD/" style="font-size: 17.33px; color: #828282">WordPress备份</a> <a href="/tags/WordPress%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">WordPress安全</a> <a href="/tags/WordPress%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">WordPress预加载</a> <a href="/tags/nofollow/" style="font-size: 14px; color: #999">nofollow</a> <a href="/tags/wordpress/" style="font-size: 24px; color: #555">wordpress</a> <a href="/tags/wordpress%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">wordpress教程</a> <a href="/tags/wordpress%E7%99%BB%E9%99%86%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">wordpress登陆地址</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 20.67px; color: #6c6c6c">云服务器</a> <a href="/tags/%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 14px; color: #999">云虚拟主机</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #999">加密访问网站</a> <a href="/tags/%E5%A4%87%E4%BB%BD%E6%8F%92%E4%BB%B6/" style="font-size: 14px; color: #999">备份插件</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/" style="font-size: 14px; color: #999">宝塔面板</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">宝塔面板建站</a> <a href="/tags/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">延迟加载</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">网站加密</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/" style="font-size: 14px; color: #999">网站备份</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">网站安全</a> <a href="/tags/qcloud/" style="font-size: 20.67px; color: #6c6c6c">腾讯云服务器</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">虚拟主机建站</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">阿里云服务器</a> <a href="/tags/%E9%A2%84%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/" style="font-size: 14px; color: #999">预加载动画</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
 
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
     </div>

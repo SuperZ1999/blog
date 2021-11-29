@@ -5,9 +5,7 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
+      <meta name="robots" content="noindex,follow">
     
   
   <!-- 渲染优化 -->
@@ -20,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>建站教程</title>
+  <title>Category: wordpress建站 - 建站教程</title>
   
 
   
@@ -511,7 +509,7 @@
   </div>
   
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -530,16 +528,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("docs" == "none") { // 移除封面
+  if ("none" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("docs" == "blog") { // 半屏
+    if ("none" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("docs" == "docs") { // 全屏
+    } else if ("none" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -553,22 +551,14 @@
       
       
 
+
 <div class='l_main'>
   
+    
+      
   <section class="post-list ">
     
       
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
         
           
         
@@ -1318,8 +1308,8 @@
         
           
   <h2 class="title">
-    <a href="/cloudweb/windows-jianzhan-wordpress.html">
-      新手小白搭建WordPress个人博客网站教程Windows版
+    <a href="/wpweb/wordpress-jiaocheng.html">
+      Wordpress入门教程
     </a>
   </h2>
 
@@ -1344,9 +1334,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/cloudweb/' rel="nofollow">
+    <a href='/categories/wpweb/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>云服务器建站</p>
+      <p>wordpress建站</p>
     </a>
   </div>
 
@@ -1385,19 +1375,22 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环境。而且稳定性也比Windows更好一点。</p>
-<p>本文先从Windows版本说起，如需查看linux版本，请访问——<a href="https://yunbuy.github.io/cloudweb/linux-jianzhan-wordpress.html">新手小白搭建WordPress个人博客网站教程Linux版</a></p>
-<p>本文以腾讯云服务器为例</p>
-<h2 id="一、域名"><a href="#一、域名" class="headerlink" title="一、域名"></a>一、域名</h2><p>建站，首先你需要一个域名。以腾讯云为例子，访问<a href="https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">腾讯云官网</a>域名注册，选择自己喜欢的 后缀，和自己的域名，然后下单即可，便宜的一年也就几块钱，具体看自己选择的域名咯。</p>
-<p>如果不希望使用域名也可以跳过这一步。</p>
-<p><img src="https://pic.downk.cc/item/5f13036214195aa5948311cb.jpg" alt=""></p>
-<p>因为首购优惠只有一次，所以建议域名放在最后再买，可以先买<a href="https://cloud.tencent.com/act/cps/redirect?redirect=1062&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">云服务器</a>。</p>
+        <p>点击进入：<a href="https://help.aliyun.com/document_detail/63819.html?source=5176.11533457&userCode=xbifxhv7&type=copy" target="_blank" rel="noopener">阿里云服务器建站零基础入门</a></p>
+<h2 id="一、wordpress基础"><a href="#一、wordpress基础" class="headerlink" title="一、wordpress基础"></a>一、wordpress基础</h2><h3 id="1-WordPress-安装"><a href="#1-WordPress-安装" class="headerlink" title="1.WordPress 安装"></a>1.WordPress 安装</h3><p>WordPress的系统要求</p>
+<p>数据库 - MySQL 5.0＆amp; plus;</p>
+<p>Web服务器 -</p>
+<p>WAMP(Windows)</p>
+<p>LAMP(Linux)</p>
+<p>XAMPP(Multi-platform)</p>
+<p>MAMP(Macintosh)</p>
+<p>操作系统 - 跨平台</p>
+<p>浏览器支持 - IE(Internet Explorer 8＆amp; plus;)，Firefox，Google Chrome，Safari，Opera</p>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/cloudweb/windows-jianzhan-wordpress.html">
+          <a href="/wpweb/wordpress-jiaocheng.html">
             阅读全文 <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -1423,8 +1416,8 @@
         
           
   <h2 class="title">
-    <a href="/cloudweb/linux-jianzhan-wordpress.html">
-      新手小白搭建WordPress个人博客网站教程Linux版
+    <a href="/wpweb/wordpress-wl-zd-nofollow.html">
+      如何给wordpress文章外链自动添加nofollow
     </a>
   </h2>
 
@@ -1449,9 +1442,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/cloudweb/' rel="nofollow">
+    <a href='/categories/wpweb/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>云服务器建站</p>
+      <p>wordpress建站</p>
     </a>
   </div>
 
@@ -1490,19 +1483,13 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版本，linux版本进入控制台虽说是难控制一点，但安装了宝塔面板（一款服务器系统管理工具）的话，你就可以很轻松的安装任何环境。而且稳定性也比Windows更好一点。</p>
-<p>如果你的服务器是Windows版，可以查看另外一篇文章——<a href="https://yunbuy.github.io/cloudweb/windows-jianzhan-wordpress.html">新手小白搭建WordPress个人博客网站教程Windows版</a></p>
-<p>本文以阿里云服务器为例</p>
-<h2 id="一、域名"><a href="#一、域名" class="headerlink" title="一、域名"></a>一、域名</h2><p>域名可以暂时先不买，如果希望通过访问域名来访问网站的话就需要买，域名不贵。选择好后缀与自己想要的域名就行，一般便宜的只需要几块钱一年。</p>
-<p><a href="https://wanwang.aliyun.com/?source=5176.11533457&userCode=xbifxhv7&type=copy" target="_blank" rel="noopener">【点击进入阿里云域名购买页面】</a></p>
-<p>因为首购优惠只有一次，所以建议域名放在最后再买，可以先买<a href="https://www.aliyun.com/product/ecs?source=5176.11533457&userCode=xbifxhv7&type=copy" target="_blank" rel="noopener">云服务器</a>。</p>
-<p><img src="https://pic.downk.cc/item/5f12f87a14195aa5947f4ec7.jpg" alt=""></p>
+        <p>做SEO的大家都知道如果文章中过多的外链会分散了该页面的权重，这样是不利于网站排名的。所以网站内页最好是尽量不要链接向外部。但是在某些情况下我们不得不链接向外部，那么该如何处理呢？其实我们可以给外部链接加上nofollow属性，对蜘蛛声明不要爬取这条链接。这样就可以有效的解决权重流失的问题。但是在编辑文章中一条链接一条链接的加nofollow属性工作量实在太大了，小V就来教大家让wordpress给文章中的外链自动添加nofollow属性。</p>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/cloudweb/linux-jianzhan-wordpress.html">
+          <a href="/wpweb/wordpress-wl-zd-nofollow.html">
             阅读全文 <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -1528,8 +1515,8 @@
         
           
   <h2 class="title">
-    <a href="/btweb/bt-jz-dt.html">
-      如何用宝塔面板建站以及创建多个站点？
+    <a href="/wpweb/wordpress-dm-yz.html">
+      wordpress如何用代码实现图片延迟加载？
     </a>
   </h2>
 
@@ -1554,9 +1541,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/btweb/' rel="nofollow">
+    <a href='/categories/wpweb/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>宝塔面板教程</p>
+      <p>wordpress建站</p>
     </a>
   </div>
 
@@ -1595,15 +1582,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="在一台云服务器上如何创建多个网站？"><a href="#在一台云服务器上如何创建多个网站？" class="headerlink" title="在一台云服务器上如何创建多个网站？"></a>在一台云服务器上如何创建多个网站？</h3><p>其实很简单，我们以<a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">阿里云服务器</a>为例。教大家用宝塔面板一键部署，轻松添加多个站点。（在步骤12）</p>
-<p>什么是<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">宝塔面板</a>：宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。</p>
-<p>搭建之前，请先将你的域名解析到云服务器公网ip，新手可以选择“快速添加网站解析”，如下图：<br><img src="https://pic.downk.cc/item/5f1279b614195aa5945884f6.jpg" alt=""></p>
+        <p>最近有朋友在群里面提问，我们的WordPress图片延迟加载功能是如何实现的，既然大家觉得预加载的功能非常好，那么小编就专门写一篇文章来介绍wordpress的预加载是如何实现的吧！</p>
+<p>WordPress图片延迟加载的介绍</p>
+<p>预加载，顾名思义，在超出网站可视范围内，图片不做加载，等到用户滚动浏览器窗口，图片元素到达可视范围内，开始加载图片，这样的方式可以打打的节省网站的资源和加快网站加载的速度，所以对于图片较多的wordpress网站来说，图片预加载功能还是非常的好的。</p>
+<p>图片预加载的核心：lazyload。</p>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/btweb/bt-jz-dt.html">
+          <a href="/wpweb/wordpress-dm-yz.html">
             阅读全文 <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -1618,21 +1606,6 @@
     
   </section>
   
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
     
     <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
@@ -1640,6 +1613,9 @@
 
   
 
+
+    
+  
 
 </div>
 <aside class='l_side'>

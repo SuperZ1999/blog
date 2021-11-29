@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,15 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - 建站教程</title>
+  <title>WordPress备份怎么做？推荐6款好用的备份插件 - 建站教程</title>
+  
+    <meta name="keywords" content="wordpress,WordPress备份,备份插件">
   
 
+  
+    <meta name="description" content="对于使用WordPress独立建站的用户来说，网站备份是一件非常重要的事情， 定期备份站点不仅可以帮助我们保留之前的数据，更重要的是可以遇到操作失误、网站被攻击等情况时快速恢复，避免数据损失
+WordPress备份方法有很多，其中最简单方便就是使用插件备份，本文中我们来推荐几款好用的WordPress备份插件
+U...">
   
 
   <!-- feed -->
@@ -71,7 +75,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -509,7 +513,7 @@
   </div>
   
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -518,8 +522,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">WordPress备份怎么做？推荐6款好用的备份插件</div>
   <div id="pjax-enable-cover">true</div>
   
   
@@ -528,16 +532,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("blog" == "none") { // 移除封面
+  if ("none" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("blog" == "blog") { // 半屏
+    if ("none" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("blog" == "docs") { // 全屏
+    } else if ("none" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -552,315 +556,172 @@
       
 
 <div class='l_main'>
-	
-	  <article id="archive-page" class="post article white-box reveal shadow">
-	    <section class="archive">
-	      
-	        
-	          
-						
-							
-		            
-			          <div class="archive-item archive-year mark">
-			            <h2>2020</h2>
-			          </div>
-		      		
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-css-custom.html">
-		              <time>08-05</time>
-		              <span class="title">
-		                
-		                  wordpress如何添加自定义CSS代码
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-change-address.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  如何修改wordPress后台登陆地址？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-backup-ways.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  wordpress网站手动备份和自动备份的方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiqiao-safe.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  提高wordpress网站安全性的一些方法技巧
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-secret-site.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  实现加密访问wordpress网站的两种方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-smart-load-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  一款好用的WordPress预加载插件（预加载动画）
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-backup-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  WordPress备份怎么做？推荐6款好用的备份插件
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/windows-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Windows版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/linux-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Linux版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/btweb/bt-jz-dt.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何用宝塔面板建站以及创建多个站点？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/hostweb/aliyun-xn-jz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  阿里云虚拟主机快速搭建网站视频教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiaocheng.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  Wordpress入门教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-wl-zd-nofollow.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何给wordpress文章外链自动添加nofollow
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-dm-yz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  wordpress如何用代码实现图片延迟加载？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/how-to-choose-qcloud.html">
-		              <time>07-17</time>
-		              <span class="title">
-		                
-		                  腾讯云服务器的配置如何选择？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	    </section>
-	  </article>
-	
-</div>
-<aside class='l_side'>
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/wpweb/wp-backup-cj.html">
+      WordPress备份怎么做？推荐6款好用的备份插件
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://yunbuy.github.io" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. J</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/wpweb/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>wordpress建站</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月23日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>对于使用WordPress独立建站的用户来说，网站备份是一件非常重要的事情， 定期备份站点不仅可以帮助我们保留之前的数据，更重要的是可以遇到操作失误、网站被攻击等情况时快速恢复，避免数据损失</p>
+<p>WordPress备份方法有很多，其中最简单方便就是使用插件备份，本文中我们来推荐几款好用的WordPress备份插件</p>
+<h2 id="UpdraftPlus"><a href="#UpdraftPlus" class="headerlink" title="UpdraftPlus"></a>UpdraftPlus</h2><p><img src="https://pic.downk.cc/item/5f19222014195aa5940b22f0.jpg" alt=""></p>
+<p>UpdraftPlus 是最有名的备份插件之一，在WordPress插件中心已有超过200万的安装量，它简化了备份的流程，只需一键就可以备份或恢复网站</p>
+<a id="more"></a>
+
+
+<p>UpdraftPlus 根据文件结构，将网站的备份分成了几个部分，分别包括数据库、插件、主题、上传文件、其他文件等，备份完成后，你可以在网站上保留以方便恢复，也可以将他们下载到本地，然后删除服务器的备份，节省硬盘空间。然后你还可以设置每隔一段时间，比如每天、每个月，让插件自动备份站点</p>
+<p>除了可以本地备份外，UpdraftPlus 还支持远程备份，你可以将网站备份到FTP、SFTP、Dropbox、Amazon S3、OneDrive、Google Drive、WebDAV等云端存储，保障安全</p>
+<p>在 UpdraftPlus Premium 中，还提供了增量备份、克隆迁移、多站点、预更新备份等更多功能，备份更轻松，UpdraftPlus 不管是免费还是付费版本，都非常推荐</p>
+<h2 id="WPvivid"><a href="#WPvivid" class="headerlink" title="WPvivid"></a>WPvivid</h2><p><img src="https://pic.downk.cc/item/5f19224014195aa5940b344c.jpg" alt=""></p>
+<p>WPvivid 是一款免费的WordPress插件，它提供了很多备份功能，其中包括一键备份、定时备份、自动迁移、远程备份、增量备份、暂存站点等</p>
+<p>在 WPvivid 中，你只需要点击一下主界面的蓝色按钮，它就可以立即备份你的WordPress站点，你可以在插件中实时看到备份进度与详细日志，默认备份会存储到本地服务器，你可以添加更多的远程存储，比如Google Drive、Dropbox，将备份文件存储到云盘中，可以安全方便的备份站点</p>
+<p>WPvivid 还提供了一个自动迁移功能，该功能可以帮助将Wordpress网站转移到新的网站，这是把WP站点从开发环境迁移到服务器或从旧服务器迁移到新服务器的便捷方法，这样，即使你是刚刚接触WordPress的新手，也能轻松完成网站的迁移</p>
+<h2 id="BlogVault"><a href="#BlogVault" class="headerlink" title="BlogVault"></a>BlogVault</h2><p><img src="https://pic.downk.cc/item/5f19226014195aa5940b4426.jpg" alt=""></p>
+<p>BlogVault 是一款付费的WordPress插件，它的备份方式为增量备份，所有的备份存储在云端，可以全天备份你的网站</p>
+<p>BlogVault 插件中并没有设置选项，而是所有的操作都在它的面板上完成，其功能包括</p>
+<ul>
+<li>自动备份</li>
+<li>增量备份</li>
+<li>恢复与迁移</li>
+<li>文件安全扫描</li>
+<li>网站防火墙</li>
+<li>网站管理</li>
+<li>多站点支持</li>
+<li>站点监控等<br>BlogVault 是集备份、安全、监控于一体的插件，可以全方位防护你的站点，唯一的缺点是价格比较高，套餐费用89美元起，适合在比较重要的站点使用</li>
+</ul>
+<h2 id="BackWPup"><a href="#BackWPup" class="headerlink" title="BackWPup"></a>BackWPup</h2><p><img src="https://pic.downk.cc/item/5f19228814195aa5940b5721.jpg" alt=""></p>
+<p>BackWPup 是一款非常强大的WordPress备份插件，你可以对站点进行各种形式的备份，选择性很灵活，针对WordPress文件，你可以分别选择备份数据库、文件备份、插件备份、XML 备份；而针对数据库和文件，你又可以进行不同的选择，比如你可以只备份重要的数据表、排除掉一些占用空间的文件夹等等；对于备份文件的存储，也有非常多的选择，当前服务器、电子邮件、FTP、Dropbox、S3、Azure等，任何人都可以配置出不同的备份模式</p>
+<p>总体来看，BackWPup 这款插件配置项很多，自定义程度比较高，更适合专业人员使用</p>
+<h2 id="BackupBuddy"><a href="#BackupBuddy" class="headerlink" title="BackupBuddy"></a>BackupBuddy</h2><p><img src="https://pic.downk.cc/item/5f19229314195aa5940b5caf.jpg" alt=""></p>
+<p>BackupBuddy 是一款付费的WordPress插件，该插件可以备份你的整个网站、数据库、文件，并且可以设置定期备份，你可以选择自己需要的备份方式</p>
+<p>BackupBuddy 的主要功能包括</p>
+<ul>
+<li>完整网站备份</li>
+<li>自动备份站点</li>
+<li>异地存储备份</li>
+<li>一键备份恢复<br>如果网站出现问题，可以用BackupBuddy快速恢复到正常状态，避免网站进入维护状态</li>
+</ul>
+<h2 id="WP-Time-Capsule"><a href="#WP-Time-Capsule" class="headerlink" title="WP Time Capsule"></a>WP Time Capsule</h2><p><img src="https://pic.downk.cc/item/5f1922a514195aa5940b647a.jpg" alt=""></p>
+<p>WP Time Capsule 是一款专注于增量备份的WordPress插件，它可以将站点备份到Dropbox、Google Drive、Amazon S3等云存储，插件每天都会自动帮你备份网站，因为是增量备份，所以即使需要传输到其他服务器，也不需要很长的时间，而且对于插件、主题更新等重要操作，WP Time Capsule 还会在执行之前进行一次安全备份，防止更新后网站出错，如果想要恢复，只需要到插件中选择日期即可将网站恢复到特定的日期，最多支持365天的历史记录</p>
+<p>WP Time Capsule 还支持Staging功能，允许你创建一个测试站点，这个测试站点在你的主站内，并且它的内容和配置与主站一模一样，但是有一点，你对它所做的改变不会影响到主站，所以你可以在这里测试新的插件和主题兼容性，当测试完毕后，可以一键将配置复制到主站，避免了很多测试工作。</p>
+<h2 id="好消息"><a href="#好消息" class="headerlink" title="好消息"></a>好消息</h2><p><a href="https://cloud.tencent.com/act/cps/redirect?redirect=30206&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d" target="_blank" rel="noopener">腾讯云轻量应用服务器</a>上线了！性价比极高！一键轻松部署应用及网站<br>同时拥有海外节点，无需备案。</p>
+<p><img src="https://pic.downk.cc/item/5f19247d14195aa5940c46aa.jpg" alt=""></p>
+<blockquote>
+<p><a href="https://cloud.tencent.com/act/cps/redirect?redirect=30206&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d" target="_blank" rel="noopener">点击了解详情</a></p>
+</blockquote>
+
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
+          
+            <p>宝塔服务器面板，一键全能部署及管理，送你￥3188礼包，<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">点我领取</a></p>
+
+          
         
+          
+            <p>阿里云服务器低至¥102元/年，安全、稳定、高效，专享1折起，限时抢各种代金券 —— <a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">立即抢购</a></p>
+
+          
         
-          <p><span id="jinrishici-sentence">建站教程</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
+      </blockquote>
     
   </div>
 </section>
@@ -870,82 +731,185 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194d514195aa59415a29d.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194f014195aa59415a9d0.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-23T13:51:23+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/wordpress/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>wordpress</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/WordPress%E5%A4%87%E4%BB%BD/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>WordPress备份</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%87%E4%BB%BD%E6%8F%92%E4%BB%B6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>备份插件</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://yunbuy.github.io/wpweb/wp-backup-cj.html&title=WordPress备份怎么做？推荐6款好用的备份插件 - 建站教程&summary=对于使用WordPress独立建站的用户来说，网站备份是一件非常重要的事情， 定期备份站点不仅可以帮助我们保留之前的数据，更重要的是可以遇到操作失误、网站被攻击等情况时快速恢复，避免数据损失
+WordPress备份方法有很多，其中最简单方便就是使用插件备份，本文中我们来推荐几款好用的WordPress备份插件
+UpdraftPlus
+UpdraftPlus 是最有名的备份插件之一，在WordPress插件中心已有超过200万的安装量，它简化了备份的流程，只需一键就可以备份或恢复网站"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yunbuy.github.io/wpweb/wp-backup-cj.html&title=WordPress备份怎么做？推荐6款好用的备份插件 - 建站教程&summary=对于使用WordPress独立建站的用户来说，网站备份是一件非常重要的事情， 定期备份站点不仅可以帮助我们保留之前的数据，更重要的是可以遇到操作失误、网站被攻击等情况时快速恢复，避免数据损失
+WordPress备份方法有很多，其中最简单方便就是使用插件备份，本文中我们来推荐几款好用的WordPress备份插件
+UpdraftPlus
+UpdraftPlus 是最有名的备份插件之一，在WordPress插件中心已有超过200万的安装量，它简化了备份的流程，只需一键就可以备份或恢复网站"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://yunbuy.github.io/wpweb/wp-backup-cj.html&title=WordPress备份怎么做？推荐6款好用的备份插件 - 建站教程&summary=对于使用WordPress独立建站的用户来说，网站备份是一件非常重要的事情， 定期备份站点不仅可以帮助我们保留之前的数据，更重要的是可以遇到操作失误、网站被攻击等情况时快速恢复，避免数据损失
+WordPress备份方法有很多，其中最简单方便就是使用插件备份，本文中我们来推荐几款好用的WordPress备份插件
+UpdraftPlus
+UpdraftPlus 是最有名的备份插件之一，在WordPress插件中心已有超过200万的安装量，它简化了备份的流程，只需一键就可以备份或恢复网站"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/wpweb/wp-smart-load-cj.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>一款好用的WordPress预加载插件（预加载动画）</p>
+                <p class='content'>有时候我们会看到一些网站有预加载动画效果，不仅漂亮而且可以避免因网站加载慢而造成的内容显示补全的情况，如果你的网站加载速度有瓶颈或者想更具设计感，那么也应该设置预加载动画，本文中我们教大家如何用...</p>
+              </a>
+            
+            
+              <a class='next' href='/cloudweb/windows-jianzhan-wordpress.html'>
+                <p class='title'>新手小白搭建WordPress个人博客网站教程Windows版<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/btweb/" href="/categories/btweb/"
-            id="categoriesbtweb"
-            ><div class='name'>宝塔面板教程</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/cloudweb/" href="/categories/cloudweb/"
-            id="categoriescloudweb"
-            ><div class='name'>云服务器建站</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/hostweb/" href="/categories/hostweb/"
-            id="categorieshostweb"
-            ><div class='name'>虚拟主机建站</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wpweb/" href="/categories/wpweb/"
-            id="categorieswpweb"
-            ><div class='name'>wordpress建站</div><div class='badge'>(10)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#UpdraftPlus"><span class="toc-text">UpdraftPlus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WPvivid"><span class="toc-text">WPvivid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BlogVault"><span class="toc-text">BlogVault</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BackWPup"><span class="toc-text">BackWPup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BackupBuddy"><span class="toc-text">BackupBuddy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WP-Time-Capsule"><span class="toc-text">WP Time Capsule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#好消息"><span class="toc-text">好消息</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CSS%E4%BB%A3%E7%A0%81/" style="font-size: 14px; color: #999">CSS代码</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/WordPress%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">WordPress加密</a> <a href="/tags/WordPress%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">WordPress后台地址</a> <a href="/tags/WordPress%E5%A4%87%E4%BB%BD/" style="font-size: 17.33px; color: #828282">WordPress备份</a> <a href="/tags/WordPress%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">WordPress安全</a> <a href="/tags/WordPress%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">WordPress预加载</a> <a href="/tags/nofollow/" style="font-size: 14px; color: #999">nofollow</a> <a href="/tags/wordpress/" style="font-size: 24px; color: #555">wordpress</a> <a href="/tags/wordpress%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">wordpress教程</a> <a href="/tags/wordpress%E7%99%BB%E9%99%86%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">wordpress登陆地址</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 20.67px; color: #6c6c6c">云服务器</a> <a href="/tags/%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 14px; color: #999">云虚拟主机</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #999">加密访问网站</a> <a href="/tags/%E5%A4%87%E4%BB%BD%E6%8F%92%E4%BB%B6/" style="font-size: 14px; color: #999">备份插件</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/" style="font-size: 14px; color: #999">宝塔面板</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">宝塔面板建站</a> <a href="/tags/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">延迟加载</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">网站加密</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/" style="font-size: 14px; color: #999">网站备份</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">网站安全</a> <a href="/tags/qcloud/" style="font-size: 20.67px; color: #6c6c6c">腾讯云服务器</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">虚拟主机建站</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">阿里云服务器</a> <a href="/tags/%E9%A2%84%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/" style="font-size: 14px; color: #999">预加载动画</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
 
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
     </div>

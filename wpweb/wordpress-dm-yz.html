@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,15 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - 建站教程</title>
+  <title>wordpress如何用代码实现图片延迟加载？ - 建站教程</title>
+  
+    <meta name="keywords" content="wordpress,延迟加载">
   
 
+  
+    <meta name="description" content="最近有朋友在群里面提问，我们的WordPress图片延迟加载功能是如何实现的，既然大家觉得预加载的功能非常好，那么小编就专门写一篇文章来介绍wordpress的预加载是如何实现的吧！
+WordPress图片延迟加载的介绍
+预加载，顾名思义，在超出网站可视范围内，图片不做加载，等到用户滚动浏览器窗口，图片元素到达可...">
   
 
   <!-- feed -->
@@ -71,7 +75,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -509,7 +513,7 @@
   </div>
   
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -518,8 +522,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">wordpress如何用代码实现图片延迟加载？</div>
   <div id="pjax-enable-cover">true</div>
   
   
@@ -528,16 +532,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("blog" == "none") { // 移除封面
+  if ("none" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("blog" == "blog") { // 半屏
+    if ("none" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("blog" == "docs") { // 全屏
+    } else if ("none" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -552,315 +556,171 @@
       
 
 <div class='l_main'>
-	
-	  <article id="archive-page" class="post article white-box reveal shadow">
-	    <section class="archive">
-	      
-	        
-	          
-						
-							
-		            
-			          <div class="archive-item archive-year mark">
-			            <h2>2020</h2>
-			          </div>
-		      		
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-css-custom.html">
-		              <time>08-05</time>
-		              <span class="title">
-		                
-		                  wordpress如何添加自定义CSS代码
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-change-address.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  如何修改wordPress后台登陆地址？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-backup-ways.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  wordpress网站手动备份和自动备份的方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiqiao-safe.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  提高wordpress网站安全性的一些方法技巧
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-secret-site.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  实现加密访问wordpress网站的两种方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-smart-load-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  一款好用的WordPress预加载插件（预加载动画）
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-backup-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  WordPress备份怎么做？推荐6款好用的备份插件
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/windows-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Windows版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/linux-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Linux版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/btweb/bt-jz-dt.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何用宝塔面板建站以及创建多个站点？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/hostweb/aliyun-xn-jz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  阿里云虚拟主机快速搭建网站视频教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiaocheng.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  Wordpress入门教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-wl-zd-nofollow.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何给wordpress文章外链自动添加nofollow
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-dm-yz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  wordpress如何用代码实现图片延迟加载？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/how-to-choose-qcloud.html">
-		              <time>07-17</time>
-		              <span class="title">
-		                
-		                  腾讯云服务器的配置如何选择？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	    </section>
-	  </article>
-	
-</div>
-<aside class='l_side'>
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/wpweb/wordpress-dm-yz.html">
+      wordpress如何用代码实现图片延迟加载？
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://yunbuy.github.io" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. J</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/wpweb/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>wordpress建站</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月18日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>最近有朋友在群里面提问，我们的WordPress图片延迟加载功能是如何实现的，既然大家觉得预加载的功能非常好，那么小编就专门写一篇文章来介绍wordpress的预加载是如何实现的吧！</p>
+<p>WordPress图片延迟加载的介绍</p>
+<p>预加载，顾名思义，在超出网站可视范围内，图片不做加载，等到用户滚动浏览器窗口，图片元素到达可视范围内，开始加载图片，这样的方式可以打打的节省网站的资源和加快网站加载的速度，所以对于图片较多的wordpress网站来说，图片预加载功能还是非常的好的。</p>
+<p>图片预加载的核心：lazyload。</p>
+<a id="more"></a>
+
+<p>对于lazyload有网站编程经验的朋友应该都很熟悉，图片预加载的功能实现就是这个js文件来实现的。</p>
+<p>使用lazyload有两种方式，一种是使用插件，一种是直接集成在主题中的非插件方式，下面我们首先介绍一下非插件实现lazyload：</p>
+<p>新版 jquery.lazyload.js 插件，要求必须给图片地址添加一个data-original属性，例如下：</p>
+<pre><code>&lt;img class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;</code></pre><p>所以，我们要给wordpress主题里，有图片展示的地方加上data-original属性才行。</p>
+<p>然后往header.php中加载文件：</p>
+<pre><code>&lt;script src=&quot;&lt;?php echo get_template_directory_uri(); ?&gt;/js/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;&lt;?php echo get_template_directory_uri(); ?&gt;/js/jquery.lazyload.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    $(function() {
+
+        $(&quot;img&quot;).lazyload({
+
+            effect:&quot;fadeIn&quot;
+
+          });
+
+        });
+
+&lt;/script&gt;</code></pre><p>加载了js这些后，网站里图片就能够实现延迟加载了，但是文章里的图片貌似还没有实现WordPress图片延迟加载，下面就是给wordpress里文章里插入的图片加data-original属性了，将下面代码贴进wordpress主题文件夹的functions.php内</p>
+<pre><code>add_filter (&apos;the_content&apos;, &apos;lazyload&apos;);
+
+function lazyload($content) {
+
+    $loadimg_url=get_bloginfo(&apos;template_directory&apos;).&apos;/images/loading.gif&apos;;
+
+    if(!is_feed()||!is_robots) {
+
+        $content=preg_replace(&apos;/&lt;img(.+)src=[\&apos;&quot;]([^\&apos;&quot;]+)[\&apos;&quot;](.*)&gt;/i&apos;,&quot;&lt;img\$1data-original=\&quot;\$2\&quot; src=\&quot;$loadimg_url\&quot;\$3&gt;\n&lt;noscript&gt;\$0&lt;/noscript&gt;&quot;,$content);
+
+    }
+
+    return $content;
+
+}</code></pre><p>经过这两步骤，网站就实现了WordPress图片延迟加载了！</p>
+<br>
+
+<p><code>原文地址：http://www.bokebu.com/wordpresstu-pian-yan-chi-jia-zai-de-shi-xian-dai-ma-pian.html</code></p>
+
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
+          
+            <p>宝塔服务器面板，一键全能部署及管理，送你￥3188礼包，<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">点我领取</a></p>
+
+          
         
+          
+            <p>阿里云服务器低至¥102元/年，安全、稳定、高效，专享1折起，限时抢各种代金券 —— <a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">立即抢购</a></p>
+
+          
         
-          <p><span id="jinrishici-sentence">建站教程</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
+      </blockquote>
     
   </div>
 </section>
@@ -870,82 +730,172 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
     
-  <header>
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194d514195aa59415a29d.png'
+        
+          height='64px'
+        ></div>
+      
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194f014195aa59415a9d0.png'
+        
+          height='64px'
+        ></div>
+      
     
-  </header>
+  </div>
+</section>
+
+  
 
 
-    <div class='content'>
-      <ul class="entry navigation">
+              
+            </div>
+          
+        </div>
         
-          <li><a class="flat-box"
-            title="/categories/btweb/" href="/categories/btweb/"
-            id="categoriesbtweb"
-            ><div class='name'>宝塔面板教程</div><div class='badge'>(1)</div></a></li>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-          <li><a class="flat-box"
-            title="/categories/cloudweb/" href="/categories/cloudweb/"
-            id="categoriescloudweb"
-            ><div class='name'>云服务器建站</div><div class='badge'>(3)</div></a></li>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-19T10:25:21+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月19日</p>
+  </a>
+</div>
+
         
-          <li><a class="flat-box"
-            title="/categories/hostweb/" href="/categories/hostweb/"
-            id="categorieshostweb"
-            ><div class='name'>虚拟主机建站</div><div class='badge'>(1)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/wpweb/" href="/categories/wpweb/"
-            id="categorieswpweb"
-            ><div class='name'>wordpress建站</div><div class='badge'>(10)</div></a></li>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/wordpress/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>wordpress</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>延迟加载</p></a></div>
+
+
         
-      </ul>
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://yunbuy.github.io/wpweb/wordpress-dm-yz.html&title=wordpress如何用代码实现图片延迟加载？ - 建站教程&summary=最近有朋友在群里面提问，我们的WordPress图片延迟加载功能是如何实现的，既然大家觉得预加载的功能非常好，那么小编就专门写一篇文章来介绍wordpress的预加载是如何实现的吧！
+WordPress图片延迟加载的介绍
+预加载，顾名思义，在超出网站可视范围内，图片不做加载，等到用户滚动浏览器窗口，图片元素到达可视范围内，开始加载图片，这样的方式可以打打的节省网站的资源和加快网站加载的速度，所以对于图片较多的wordpress网站来说，图片预加载功能还是非常的好的。
+图片预加载的核心：lazyload。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yunbuy.github.io/wpweb/wordpress-dm-yz.html&title=wordpress如何用代码实现图片延迟加载？ - 建站教程&summary=最近有朋友在群里面提问，我们的WordPress图片延迟加载功能是如何实现的，既然大家觉得预加载的功能非常好，那么小编就专门写一篇文章来介绍wordpress的预加载是如何实现的吧！
+WordPress图片延迟加载的介绍
+预加载，顾名思义，在超出网站可视范围内，图片不做加载，等到用户滚动浏览器窗口，图片元素到达可视范围内，开始加载图片，这样的方式可以打打的节省网站的资源和加快网站加载的速度，所以对于图片较多的wordpress网站来说，图片预加载功能还是非常的好的。
+图片预加载的核心：lazyload。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://yunbuy.github.io/wpweb/wordpress-dm-yz.html&title=wordpress如何用代码实现图片延迟加载？ - 建站教程&summary=最近有朋友在群里面提问，我们的WordPress图片延迟加载功能是如何实现的，既然大家觉得预加载的功能非常好，那么小编就专门写一篇文章来介绍wordpress的预加载是如何实现的吧！
+WordPress图片延迟加载的介绍
+预加载，顾名思义，在超出网站可视范围内，图片不做加载，等到用户滚动浏览器窗口，图片元素到达可视范围内，开始加载图片，这样的方式可以打打的节省网站的资源和加快网站加载的速度，所以对于图片较多的wordpress网站来说，图片预加载功能还是非常的好的。
+图片预加载的核心：lazyload。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
     </div>
   </section>
 
 
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/wpweb/wordpress-wl-zd-nofollow.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>如何给wordpress文章外链自动添加nofollow</p>
+                <p class='content'>做SEO的大家都知道如果文章中过多的外链会分散了该页面的权重，这样是不利于网站排名的。所以网站内页最好是尽量不要链接向外部。但是在某些情况下我们不得不链接向外部，那么该如何处理呢？其实我们可以给...</p>
+              </a>
+            
+            
+              <a class='next' href='/cloudweb/how-to-choose-qcloud.html'>
+                <p class='title'>腾讯云服务器的配置如何选择？<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>云服务器的配置选择，和网站或应用的类型、访问量、数据量大小、程序质量等因素有关，建议和您的网站或应用的开发技术人员沟通，选择最适合您的配置。
+如果您没有技术人员可提供建议，可以参考我们的建议进行...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <a href="/tags/CSS%E4%BB%A3%E7%A0%81/" style="font-size: 14px; color: #999">CSS代码</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/WordPress%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">WordPress加密</a> <a href="/tags/WordPress%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">WordPress后台地址</a> <a href="/tags/WordPress%E5%A4%87%E4%BB%BD/" style="font-size: 17.33px; color: #828282">WordPress备份</a> <a href="/tags/WordPress%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">WordPress安全</a> <a href="/tags/WordPress%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">WordPress预加载</a> <a href="/tags/nofollow/" style="font-size: 14px; color: #999">nofollow</a> <a href="/tags/wordpress/" style="font-size: 24px; color: #555">wordpress</a> <a href="/tags/wordpress%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">wordpress教程</a> <a href="/tags/wordpress%E7%99%BB%E9%99%86%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">wordpress登陆地址</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 20.67px; color: #6c6c6c">云服务器</a> <a href="/tags/%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 14px; color: #999">云虚拟主机</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #999">加密访问网站</a> <a href="/tags/%E5%A4%87%E4%BB%BD%E6%8F%92%E4%BB%B6/" style="font-size: 14px; color: #999">备份插件</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/" style="font-size: 14px; color: #999">宝塔面板</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">宝塔面板建站</a> <a href="/tags/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">延迟加载</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">网站加密</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/" style="font-size: 14px; color: #999">网站备份</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">网站安全</a> <a href="/tags/qcloud/" style="font-size: 20.67px; color: #6c6c6c">腾讯云服务器</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">虚拟主机建站</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">阿里云服务器</a> <a href="/tags/%E9%A2%84%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/" style="font-size: 14px; color: #999">预加载动画</a>
-    </div>
-  </section>
 
-
-  
 
   
 
 
 </aside>
 
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
     </div>

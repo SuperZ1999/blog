@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - 建站教程</title>
+  <title>如何修改wordPress后台登陆地址？ - 建站教程</title>
+  
+    <meta name="keywords" content="wordpress,WordPress后台地址,wordpress登陆地址">
   
 
+  
+    <meta name="description" content="无论是什么样的网站，都经常有一些无聊的人，想要攻击我们的网站，其中最常见的方式就是暴力破解后台密码，因为所有的wordpress网站登陆地址都是一样的，黑客轻易地就知道了管理员登陆地址，接下来就是使用密码字典不断尝试，但是如果我们把wordpress的后台地址修改了，那么无疑就会增加后台破解的难度，WPS Hid...">
   
 
   <!-- feed -->
@@ -71,7 +73,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -509,7 +511,7 @@
   </div>
   
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -518,8 +520,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">如何修改wordPress后台登陆地址？</div>
   <div id="pjax-enable-cover">true</div>
   
   
@@ -528,16 +530,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("blog" == "none") { // 移除封面
+  if ("none" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("blog" == "blog") { // 半屏
+    if ("none" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("blog" == "docs") { // 全屏
+    } else if ("none" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -552,315 +554,133 @@
       
 
 <div class='l_main'>
-	
-	  <article id="archive-page" class="post article white-box reveal shadow">
-	    <section class="archive">
-	      
-	        
-	          
-						
-							
-		            
-			          <div class="archive-item archive-year mark">
-			            <h2>2020</h2>
-			          </div>
-		      		
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-css-custom.html">
-		              <time>08-05</time>
-		              <span class="title">
-		                
-		                  wordpress如何添加自定义CSS代码
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-change-address.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  如何修改wordPress后台登陆地址？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-backup-ways.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  wordpress网站手动备份和自动备份的方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiqiao-safe.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  提高wordpress网站安全性的一些方法技巧
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-secret-site.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  实现加密访问wordpress网站的两种方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-smart-load-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  一款好用的WordPress预加载插件（预加载动画）
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-backup-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  WordPress备份怎么做？推荐6款好用的备份插件
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/windows-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Windows版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/linux-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Linux版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/btweb/bt-jz-dt.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何用宝塔面板建站以及创建多个站点？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/hostweb/aliyun-xn-jz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  阿里云虚拟主机快速搭建网站视频教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiaocheng.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  Wordpress入门教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-wl-zd-nofollow.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何给wordpress文章外链自动添加nofollow
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-dm-yz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  wordpress如何用代码实现图片延迟加载？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/how-to-choose-qcloud.html">
-		              <time>07-17</time>
-		              <span class="title">
-		                
-		                  腾讯云服务器的配置如何选择？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	    </section>
-	  </article>
-	
-</div>
-<aside class='l_side'>
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/wpweb/wordpress-change-address.html">
+      如何修改wordPress后台登陆地址？
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://yunbuy.github.io" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. J</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/wpweb/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>wordpress建站</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月25日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>无论是什么样的网站，都经常有一些无聊的人，想要攻击我们的网站，其中最常见的方式就是暴力破解后台密码，因为所有的wordpress网站登陆地址都是一样的，黑客轻易地就知道了管理员登陆地址，接下来就是使用密码字典不断尝试，但是如果我们把wordpress的后台地址修改了，那么无疑就会增加后台破解的难度，WPS Hide Login就是一款这样的插件，它专门用来修改登录地址。</p>
+<p><img src="https://pic.downk.cc/item/5f1c4b2a14195aa594d44128.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>插件安装好之后，会在后台设置中追加一个WPS的选项，这里可以输入任何自己想要设置的字符，最好是长一些的，可以随时修改。</p>
+<p><img src="https://pic.downk.cc/item/5f1c4b3614195aa594d44aae.jpg" alt=""></p>
+<p>这个时候，原来的wp-admin就会失效，需要通过访问 域名/abc 登录后台。</p>
+<p><img src="https://pic.downk.cc/item/5f1c4b4614195aa594d459cf.jpg" alt=""></p>
+
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
+          
+            <p>宝塔服务器面板，一键全能部署及管理，送你￥3188礼包，<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">点我领取</a></p>
+
+          
         
+          
+            <p>阿里云服务器低至¥102元/年，安全、稳定、高效，专享1折起，限时抢各种代金券 —— <a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">立即抢购</a></p>
+
+          
         
-          <p><span id="jinrishici-sentence">建站教程</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
+      </blockquote>
     
   </div>
 </section>
@@ -870,82 +690,165 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
     
-  <header>
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194d514195aa59415a29d.png'
+        
+          height='64px'
+        ></div>
+      
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194f014195aa59415a9d0.png'
+        
+          height='64px'
+        ></div>
+      
     
-  </header>
+  </div>
+</section>
+
+  
 
 
-    <div class='content'>
-      <ul class="entry navigation">
+              
+            </div>
+          
+        </div>
         
-          <li><a class="flat-box"
-            title="/categories/btweb/" href="/categories/btweb/"
-            id="categoriesbtweb"
-            ><div class='name'>宝塔面板教程</div><div class='badge'>(1)</div></a></li>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-          <li><a class="flat-box"
-            title="/categories/cloudweb/" href="/categories/cloudweb/"
-            id="categoriescloudweb"
-            ><div class='name'>云服务器建站</div><div class='badge'>(3)</div></a></li>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-25T23:11:22+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月25日</p>
+  </a>
+</div>
+
         
-          <li><a class="flat-box"
-            title="/categories/hostweb/" href="/categories/hostweb/"
-            id="categorieshostweb"
-            ><div class='name'>虚拟主机建站</div><div class='badge'>(1)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/wpweb/" href="/categories/wpweb/"
-            id="categorieswpweb"
-            ><div class='name'>wordpress建站</div><div class='badge'>(10)</div></a></li>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/wordpress/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>wordpress</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/WordPress%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>WordPress后台地址</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/wordpress%E7%99%BB%E9%99%86%E5%9C%B0%E5%9D%80/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>wordpress登陆地址</p></a></div>
+
+
         
-      </ul>
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://yunbuy.github.io/wpweb/wordpress-change-address.html&title=如何修改wordPress后台登陆地址？ - 建站教程&summary=无论是什么样的网站，都经常有一些无聊的人，想要攻击我们的网站，其中最常见的方式就是暴力破解后台密码，因为所有的wordpress网站登陆地址都是一样的，黑客轻易地就知道了管理员登陆地址，接下来就是使用密码字典不断尝试，但是如果我们把wordpress的后台地址修改了，那么无疑就会增加后台破解的难度，WPS Hide Login就是一款这样的插件，它专门用来修改登录地址。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yunbuy.github.io/wpweb/wordpress-change-address.html&title=如何修改wordPress后台登陆地址？ - 建站教程&summary=无论是什么样的网站，都经常有一些无聊的人，想要攻击我们的网站，其中最常见的方式就是暴力破解后台密码，因为所有的wordpress网站登陆地址都是一样的，黑客轻易地就知道了管理员登陆地址，接下来就是使用密码字典不断尝试，但是如果我们把wordpress的后台地址修改了，那么无疑就会增加后台破解的难度，WPS Hide Login就是一款这样的插件，它专门用来修改登录地址。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://yunbuy.github.io/wpweb/wordpress-change-address.html&title=如何修改wordPress后台登陆地址？ - 建站教程&summary=无论是什么样的网站，都经常有一些无聊的人，想要攻击我们的网站，其中最常见的方式就是暴力破解后台密码，因为所有的wordpress网站登陆地址都是一样的，黑客轻易地就知道了管理员登陆地址，接下来就是使用密码字典不断尝试，但是如果我们把wordpress的后台地址修改了，那么无疑就会增加后台破解的难度，WPS Hide Login就是一款这样的插件，它专门用来修改登录地址。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
     </div>
   </section>
 
 
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/wpweb/wordpress-css-custom.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>wordpress如何添加自定义CSS代码</p>
+                <p class='content'>在定制WordPress站点时，除了可以使用主题的选项调整外，CSS代码也是我们常用到的一种方法，不管是修改样式、调整距离还是隐藏特定元素，我们都可以用CSS来完成，而且很多时候主题没有的功能，...</p>
+              </a>
+            
+            
+              <a class='next' href='/wpweb/wordpress-backup-ways.html'>
+                <p class='title'>wordpress网站手动备份和自动备份的方法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>搭建WordPress站点，定期备份网站是非常重要的事情，除了可以使用备份插件外，还可以使用宝塔进行备份，今天我们来说下如何使用宝塔面板备份WordPress站点，通过本文你将学习到如何手动备份...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <a href="/tags/CSS%E4%BB%A3%E7%A0%81/" style="font-size: 14px; color: #999">CSS代码</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/WordPress%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">WordPress加密</a> <a href="/tags/WordPress%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">WordPress后台地址</a> <a href="/tags/WordPress%E5%A4%87%E4%BB%BD/" style="font-size: 17.33px; color: #828282">WordPress备份</a> <a href="/tags/WordPress%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">WordPress安全</a> <a href="/tags/WordPress%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">WordPress预加载</a> <a href="/tags/nofollow/" style="font-size: 14px; color: #999">nofollow</a> <a href="/tags/wordpress/" style="font-size: 24px; color: #555">wordpress</a> <a href="/tags/wordpress%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">wordpress教程</a> <a href="/tags/wordpress%E7%99%BB%E9%99%86%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">wordpress登陆地址</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 20.67px; color: #6c6c6c">云服务器</a> <a href="/tags/%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 14px; color: #999">云虚拟主机</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #999">加密访问网站</a> <a href="/tags/%E5%A4%87%E4%BB%BD%E6%8F%92%E4%BB%B6/" style="font-size: 14px; color: #999">备份插件</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/" style="font-size: 14px; color: #999">宝塔面板</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">宝塔面板建站</a> <a href="/tags/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">延迟加载</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">网站加密</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/" style="font-size: 14px; color: #999">网站备份</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">网站安全</a> <a href="/tags/qcloud/" style="font-size: 20.67px; color: #6c6c6c">腾讯云服务器</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">虚拟主机建站</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">阿里云服务器</a> <a href="/tags/%E9%A2%84%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/" style="font-size: 14px; color: #999">预加载动画</a>
-    </div>
-  </section>
 
-
-  
 
   
 
 
 </aside>
 
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
     </div>

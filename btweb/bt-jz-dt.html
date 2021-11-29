@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,15 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - 建站教程</title>
+  <title>如何用宝塔面板建站以及创建多个站点？ - 建站教程</title>
+  
+    <meta name="keywords" content="宝塔面板建站,宝塔面板">
   
 
+  
+    <meta name="description" content="在一台云服务器上如何创建多个网站？其实很简单，我们以阿里云服务器为例。教大家用宝塔面板一键部署，轻松添加多个站点。（在步骤12）
+什么是宝塔面板：宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。
+搭建之前，请先将你...">
   
 
   <!-- feed -->
@@ -71,7 +75,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -509,7 +513,7 @@
   </div>
   
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -518,8 +522,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">如何用宝塔面板建站以及创建多个站点？</div>
   <div id="pjax-enable-cover">true</div>
   
   
@@ -528,16 +532,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("blog" == "none") { // 移除封面
+  if ("none" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("blog" == "blog") { // 半屏
+    if ("none" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("blog" == "docs") { // 全屏
+    } else if ("none" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -552,315 +556,155 @@
       
 
 <div class='l_main'>
-	
-	  <article id="archive-page" class="post article white-box reveal shadow">
-	    <section class="archive">
-	      
-	        
-	          
-						
-							
-		            
-			          <div class="archive-item archive-year mark">
-			            <h2>2020</h2>
-			          </div>
-		      		
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-css-custom.html">
-		              <time>08-05</time>
-		              <span class="title">
-		                
-		                  wordpress如何添加自定义CSS代码
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-change-address.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  如何修改wordPress后台登陆地址？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-backup-ways.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  wordpress网站手动备份和自动备份的方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiqiao-safe.html">
-		              <time>07-25</time>
-		              <span class="title">
-		                
-		                  提高wordpress网站安全性的一些方法技巧
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-secret-site.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  实现加密访问wordpress网站的两种方法
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-smart-load-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  一款好用的WordPress预加载插件（预加载动画）
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wp-backup-cj.html">
-		              <time>07-23</time>
-		              <span class="title">
-		                
-		                  WordPress备份怎么做？推荐6款好用的备份插件
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/windows-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Windows版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/linux-jianzhan-wordpress.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  新手小白搭建WordPress个人博客网站教程Linux版
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/btweb/bt-jz-dt.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何用宝塔面板建站以及创建多个站点？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/hostweb/aliyun-xn-jz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  阿里云虚拟主机快速搭建网站视频教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-jiaocheng.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  Wordpress入门教程
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-wl-zd-nofollow.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  如何给wordpress文章外链自动添加nofollow
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/wpweb/wordpress-dm-yz.html">
-		              <time>07-18</time>
-		              <span class="title">
-		                
-		                  wordpress如何用代码实现图片延迟加载？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	          
-						
-							
-		          <div class="archive-item archive-post mark">
-		            <a href="/cloudweb/how-to-choose-qcloud.html">
-		              <time>07-17</time>
-		              <span class="title">
-		                
-		                  腾讯云服务器的配置如何选择？
-		                
-		                
-										
-										
-		              </span>
-		            </a>
-		          </div>
-						
-	      
-	    </section>
-	  </article>
-	
-</div>
-<aside class='l_side'>
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/btweb/bt-jz-dt.html">
+      如何用宝塔面板建站以及创建多个站点？
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://yunbuy.github.io" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. J</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/btweb/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>宝塔面板教程</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月18日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <h3 id="在一台云服务器上如何创建多个网站？"><a href="#在一台云服务器上如何创建多个网站？" class="headerlink" title="在一台云服务器上如何创建多个网站？"></a>在一台云服务器上如何创建多个网站？</h3><p>其实很简单，我们以<a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">阿里云服务器</a>为例。教大家用宝塔面板一键部署，轻松添加多个站点。（在步骤12）</p>
+<p>什么是<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">宝塔面板</a>：宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。</p>
+<p>搭建之前，请先将你的域名解析到云服务器公网ip，新手可以选择“快速添加网站解析”，如下图：<br><img src="https://pic.downk.cc/item/5f1279b614195aa5945884f6.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>1.购买好云服务器后，登陆到你的控制台，找到你购买的“云服务器”，登陆进去。<br><img src="https://pic.downk.cc/item/5f1279d614195aa594589337.jpg" alt=""></p>
+<p>2.这时候应该打开了云服务器的命令行终端（阿里云或<a href="https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">腾讯云</a>登陆后都是一样的），我们只需把下面一行代码输入，然后按回车键即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.downk.cc/item/5f1279e414195aa594589949.jpg" alt=""><br>3.我们耐心等待一会儿，等宝塔面板自动安装完成（中间若出现是否安装*Y/N？时，我们只需要输入y就行了）。<br><img src="https://pic.downk.cc/item/5f1279f214195aa594589dbc.jpg" alt=""></p>
+<p>安装完成后，我们接着再命令行输入bt，这个时候就会显示面板的使用帮助菜单选项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bt</span><br></pre></td></tr></table></figure>
+<p>4.这时候我们输入数字14，就能看到宝塔面板的登录地址还有用户名和密码。<br><img src="https://pic.downk.cc/item/5f127a0714195aa59458a3e9.jpg" alt=""></p>
+<p>5.我们把登录地址复制到浏览器打开，输入用户名和密码，进入到宝塔面板的后台管理页面。一般来说， 首次登陆进来面板后，会自动推荐你安装环境套件，这里有两种选择，第一种是LNMP套件，第二种是LAMP套件 。如图（建议选择一键安装LNMP）<br><img src="https://pic.downk.cc/item/5f127a1214195aa59458a70e.jpg" alt=""></p>
+<p>6.为安全起见，建议修改你的用户名和密码，以及面板默认端口。<br><img src="https://pic.downk.cc/item/5f127a2114195aa59458abb3.jpg" alt=""></p>
+<p>注意：修改面板端口之前，记得在你的阿里云或者腾讯云控制台，找到你的云服务器，在“安全组”一栏下修改规则，选择入站规则下的“添加规则”。<br><img src="https://pic.downk.cc/item/5f127a2f14195aa59458b0ee.jpg" alt=""><br><img src="https://pic.downk.cc/item/5f127a3c14195aa59458b622.jpg" alt=""></p>
+<p>关于其他的安全设置，我们下一篇文章再讲，这里就先设置到这里。</p>
+<p>7.下面我们开始来一键部署WordPress建站程序，（提示：如果前面你没有安装LNMP环境或者LAMP环境，也不要着急，我们可以在软件搜索步骤5列出的几个套件手动安装），点击面板左侧“软件商店”，然后找到WordPress，选择一键部署。<br><img src="https://pic.downk.cc/item/5f127a4a14195aa59458bc28.jpg" alt=""></p>
+<p>8.输入你的网站信息，即你的域名。另外，为了避免出现不可知的错误，新手建议不要修改默认创建的数据库名和密码，自己把它存储好就行。（当点击提交后，系统会自动列出数据库名和密码以及网站地址，请保存好这些信息，后面进入WordPress安装需要填写）<br><img src="https://pic.downk.cc/item/5f127a5714195aa59458bff6.jpg" alt=""></p>
+<p>9.在线安装WordPress网站程序的时候，先选择语言“简体中文”，然后填写数据库名和密码（就是上一步叫你保存的）</p>
+<p><img src="https://pic.downk.cc/item/5f127a6314195aa59458c33f.jpg" alt=""></p>
+<p><img src="https://pic.downk.cc/item/5f127a6f14195aa59458c71e.jpg" alt=""><br><img src="https://pic.downk.cc/item/5f127a7914195aa59458cac7.jpg" alt=""><br><img src="https://pic.downk.cc/item/5f127a8614195aa59458ced8.jpg" alt=""><br>10.安装完成后，登陆你的Wordpress管理后台。（后台登陆地址为：你的网址或ip/wp-admin）<br><img src="https://pic.downk.cc/item/5f127a9314195aa59458d281.jpg" alt=""></p>
+<p><img src="https://pic.downk.cc/item/5f127a9f14195aa59458d623.jpg" alt=""><br>11.到这里，你的WordPress网站就搭建成了。接着你可以去发布文章或更换主题，以及后期的维护等等，这里就不细说了。</p>
+<p>12.最后，如何在宝塔面板管理添加站点呢？点击左侧“网站”，选择右边的“添加站点”。接着在弹出的窗口里，填写好你的新站点信息即可。（如果只是部署静态网站的话，就不需要创建数据库）<br><img src="https://pic.downk.cc/item/5f127ab414195aa59458e03c.jpg" alt=""><br><img src="https://pic.downk.cc/item/5f127ac014195aa59458e4d7.jpg" alt=""></p>
+<p>13.然后访问你的网站地址就会显示创建成功！<br><img src="https://pic.downk.cc/item/5f127ad014195aa59458eb7f.jpg" alt=""></p>
+<p>14.接着你可以将你的静态网站源码上传到你的网站目录里，也可以手动部署WordPress网站（需要在上一步里创建数据库）。<br><img src="https://pic.downk.cc/item/5f127ade14195aa59458f1da.jpg" alt=""></p>
+<p>15.当然，如果你要做的是Wordpress网站，那么建议你先不要添加站点（即省略以上添加站点的步骤），直接在面板左侧“软件商店”选择一键 部署WordPress即可（这时会帮你自己创建数据库，或者手动更改也行），同时也会自动创建站点，部署WordPress成功后，回到你的“网站”目录里就可以看到自己的站点了。<br><img src="https://pic.downk.cc/item/5f127a4a14195aa59458bc28.jpg" alt=""></p>
+<p>以上讲到了宝塔面板部署WordPress网站，部署静态网站，以及创建多个站点的方法，相信大家自己操作一遍就会了。</p>
+<h3 id="云服务器优惠券领取："><a href="#云服务器优惠券领取：" class="headerlink" title="云服务器优惠券领取："></a>云服务器优惠券领取：</h3><p><a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">阿里云服务器优惠活动及2000元代金券</a></p>
+<p><a href="https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">腾讯云价值2680元新手大礼包</a></p>
+<p><a href="https://cloud.tencent.com/act/cps/redirect?redirect=1062&cps_key=8eb5bd7fecaebaa8c13d45dcda49294d&from=console" target="_blank" rel="noopener">腾讯云爆款1核2G云服务器，首年99元，立即抢购！</a><br><br></p>
+
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
+          
+            <p>宝塔服务器面板，一键全能部署及管理，送你￥3188礼包，<a href="https://www.bt.cn/?invite_code=MV9waHp3Y2w=" target="_blank" rel="noopener">点我领取</a></p>
+
+          
         
+          
+            <p>阿里云服务器低至¥102元/年，安全、稳定、高效，专享1折起，限时抢各种代金券 —— <a href="https://www.aliyun.com/minisite/goods?userCode=xbifxhv7" target="_blank" rel="noopener">立即抢购</a></p>
+
+          
         
-          <p><span id="jinrishici-sentence">建站教程</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
+      </blockquote>
     
   </div>
 </section>
@@ -870,82 +714,185 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194d514195aa59415a29d.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://pic.downk.cc/item/5f1194f014195aa59415a9d0.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-19T10:23:34+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月19日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BB%BA%E7%AB%99/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>宝塔面板建站</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>宝塔面板</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://yunbuy.github.io/btweb/bt-jz-dt.html&title=如何用宝塔面板建站以及创建多个站点？ - 建站教程&summary=在一台云服务器上如何创建多个网站？其实很简单，我们以阿里云服务器为例。教大家用宝塔面板一键部署，轻松添加多个站点。（在步骤12）
+什么是宝塔面板：宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。
+搭建之前，请先将你的域名解析到云服务器公网ip，新手可以选择“快速添加网站解析”，如下图："
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yunbuy.github.io/btweb/bt-jz-dt.html&title=如何用宝塔面板建站以及创建多个站点？ - 建站教程&summary=在一台云服务器上如何创建多个网站？其实很简单，我们以阿里云服务器为例。教大家用宝塔面板一键部署，轻松添加多个站点。（在步骤12）
+什么是宝塔面板：宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。
+搭建之前，请先将你的域名解析到云服务器公网ip，新手可以选择“快速添加网站解析”，如下图："
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://yunbuy.github.io/btweb/bt-jz-dt.html&title=如何用宝塔面板建站以及创建多个站点？ - 建站教程&summary=在一台云服务器上如何创建多个网站？其实很简单，我们以阿里云服务器为例。教大家用宝塔面板一键部署，轻松添加多个站点。（在步骤12）
+什么是宝塔面板：宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。
+搭建之前，请先将你的域名解析到云服务器公网ip，新手可以选择“快速添加网站解析”，如下图："
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/cloudweb/linux-jianzhan-wordpress.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>新手小白搭建WordPress个人博客网站教程Linux版</p>
+                <p class='content'>本文面对所有建站新手，如果你对于建立个人站点无从下手，那么本文将会给你很大的帮助。本系列分为Windows版本和linux版本，指的是服务器的系统，如果你不知道该如何选择，建议是选择linux版...</p>
+              </a>
+            
+            
+              <a class='next' href='/hostweb/aliyun-xn-jz.html'>
+                <p class='title'>阿里云虚拟主机快速搭建网站视频教程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>使用云虚拟主机快速搭建网站视频
+
+教程地址：https://help.aliyun.com/
+</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/btweb/" href="/categories/btweb/"
-            id="categoriesbtweb"
-            ><div class='name'>宝塔面板教程</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/cloudweb/" href="/categories/cloudweb/"
-            id="categoriescloudweb"
-            ><div class='name'>云服务器建站</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/hostweb/" href="/categories/hostweb/"
-            id="categorieshostweb"
-            ><div class='name'>虚拟主机建站</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wpweb/" href="/categories/wpweb/"
-            id="categorieswpweb"
-            ><div class='name'>wordpress建站</div><div class='badge'>(10)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#在一台云服务器上如何创建多个网站？"><span class="toc-text">在一台云服务器上如何创建多个网站？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云服务器优惠券领取："><span class="toc-text">云服务器优惠券领取：</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CSS%E4%BB%A3%E7%A0%81/" style="font-size: 14px; color: #999">CSS代码</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/WordPress%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">WordPress加密</a> <a href="/tags/WordPress%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">WordPress后台地址</a> <a href="/tags/WordPress%E5%A4%87%E4%BB%BD/" style="font-size: 17.33px; color: #828282">WordPress备份</a> <a href="/tags/WordPress%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">WordPress安全</a> <a href="/tags/WordPress%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">WordPress预加载</a> <a href="/tags/nofollow/" style="font-size: 14px; color: #999">nofollow</a> <a href="/tags/wordpress/" style="font-size: 24px; color: #555">wordpress</a> <a href="/tags/wordpress%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">wordpress教程</a> <a href="/tags/wordpress%E7%99%BB%E9%99%86%E5%9C%B0%E5%9D%80/" style="font-size: 14px; color: #999">wordpress登陆地址</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 20.67px; color: #6c6c6c">云服务器</a> <a href="/tags/%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 14px; color: #999">云虚拟主机</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #999">加密访问网站</a> <a href="/tags/%E5%A4%87%E4%BB%BD%E6%8F%92%E4%BB%B6/" style="font-size: 14px; color: #999">备份插件</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/" style="font-size: 14px; color: #999">宝塔面板</a> <a href="/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">宝塔面板建站</a> <a href="/tags/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/" style="font-size: 14px; color: #999">延迟加载</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%A0%E5%AF%86/" style="font-size: 14px; color: #999">网站加密</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/" style="font-size: 14px; color: #999">网站备份</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/" style="font-size: 14px; color: #999">网站安全</a> <a href="/tags/qcloud/" style="font-size: 20.67px; color: #6c6c6c">腾讯云服务器</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%BB%BA%E7%AB%99/" style="font-size: 14px; color: #999">虚拟主机建站</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">阿里云服务器</a> <a href="/tags/%E9%A2%84%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/" style="font-size: 14px; color: #999">预加载动画</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
 
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
     </div>
