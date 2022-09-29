@@ -5,15 +5,14 @@
     <link>https://blog.zhangmengyang.tk/posts/leetcode/</link>
     <description>Recent content in 📝 力扣 on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Tue, 27 Sep 2022 15:05:11 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode 710</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</link>
       <pubDate>Tue, 27 Sep 2022 15:05:11 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</guid>
-      <description>时间就像海绵里的水，只要愿挤，总还是有的 &amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;——鲁迅</description>
+      <description>思路 既然要随机获取，那么肯定要用数组存，并且是紧凑的，由于有黑名单，所以我们应该想办法把不是黑名单的数组紧凑到前n - blacklist.le</description>
     </item>
     
     <item>

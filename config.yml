@@ -15,6 +15,7 @@ buildExpired: false
 # googleAnalytics:  # 谷歌统计
 # Copyright: Sulv
 publishDir: docs
+enableGitInfo: true
 
 paginate: 15    # 首页每页显示的文章数
 
@@ -101,7 +102,7 @@ params:
     # disableSpecialistPost: true
     displayFullLangName: true
     ShowPostNavLinks: true
-    ShowBreadCrumbs: true
+    ShowBreadCrumbs: true #顶部显示路径
     ShowCodeCopyButtons: true
     hideFooter: false # 隐藏页脚
     ShowWordCounts: true
@@ -112,6 +113,8 @@ params:
     TocOpen: true # 自动展开目录
 
     comments: true
+    mermaid: true #是否开启mermaid(流程图)
+    hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
     socialIcons:
         - name: github
           url: "https://github.com/superz1999"
@@ -224,4 +227,21 @@ services:
         disableInlineCSS: true
     twitter:
         disableInlineCSS: true
+
+# 文章元信息
+# frontmatter:
+#   date:
+#   - date
+#   - publishDate
+#   - lastmod
+#   expiryDate:
+#   - expiryDate
+#   lastmod:
+#   - :git
+#   - lastmod
+#   - date
+#   - publishDate
+#   publishDate:
+#   - publishDate
+#   - date
         
