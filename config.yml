@@ -1,18 +1,18 @@
 baseURL: https://www.sulvblog.cn # 绑定的域名
 languageCode: zh-cn # en-us
-title: Sulv's Blog
+title: ZMY's Blog
 theme: hugo-PaperMod  # 主题名字，和themes文件夹下的一致
 
 enableInlineShortcodes: true
 enableEmoji: true # 允许使用 Emoji 表情，建议 true
-enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
+enableRobotsTXT: false # 允许爬虫抓取到搜索引擎，建议 true
 hasCJKLanguage: true # 自动检测是否包含 中文日文韩文 如果文章中使用了很多中文引号的话可以开启
 
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics:  # 谷歌统计
+# googleAnalytics:  # 谷歌统计
 # Copyright: Sulv
 publishDir: docs
 
@@ -35,22 +35,20 @@ languages:
       weight: 1
       profileMode:
         enabled: true
-        title: (〃'▽'〃)
-        subtitle: 
+        title: ZMY's Blog
+        subtitle: "纸上得来终觉浅，绝知此事要躬行"
         # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
-        imageUrl: "img/Q.gif"
+        imageUrl: "static/letter-z.png"
         imageTitle: 
         imageWidth: 150
         imageHeight: 150
         buttons:
-          - name: 🧱 建站
-            url: posts/blog
           - name: 👨🏻‍💻 技术
             url: posts/tech
-          - name: 📕 阅读
-            url: posts/read
           - name: 🏖 生活
             url: posts/life
+          - name: 📝 力扣
+            url: posts/leetcode
       menu:
         main:
           - identifier: search
@@ -77,10 +75,10 @@ languages:
             name: 🙋🏻‍♂️ 关于
             url: about
             weight: 50
-          - identifier: links
-            name: 🤝 友链
-            url: links
-            weight: 60
+          # - identifier: links
+          #   name: 🤝 友链
+          #   url: links
+          #   weight: 60
 
 outputs:
     home:
@@ -92,7 +90,7 @@ outputs:
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     description: ""
-    author: Sulv
+    author: ZMY
     # author: ["Me", "You"] # multiple authors
 
     defaultTheme: auto  # defaultTheme: light or  dark 
@@ -116,39 +114,39 @@ params:
     comments: true
     socialIcons:
         - name: github
-          url: "https://github.com/xyming108"
-        - name: twitter
-          url:  "img/twitter.png"
-        - name: facebook
-          url: "https://www.facebook.com/profile.php?id=100027782410997"
-        - name: instagram
-          url: "img/instagram.png"
+          url: "https://github.com/superz1999"
+        # - name: twitter
+        #   url:  "img/twitter.png"
+        # - name: facebook
+        #   url: "https://www.facebook.com/profile.php?id=100027782410997"
+        # - name: instagram
+        #   url: "img/instagram.png"
         - name: QQ
           url: "img/qq.png"
         - name: WeChat
           url: "img/wechat.png"
-        - name: bilibili
-          url: "https://space.bilibili.com/234461224"
+        # - name: bilibili
+        #   url: "https://space.bilibili.com/234461224"
         - name: email
           url: "mailto:1931559710@qq.com"
-        - name: RSS
-          url: "index.xml"
+        # - name: RSS
+        #   url: "index.xml"
 
     label:
-        text: "Sulv's Blog"
-        icon: "img/Q.gif"
+        text: "ZMY's Blog"
+        icon: "static/letter-z.png"
         iconHeight: 35
 
-    analytics:
-        google:
-            SiteVerificationTag: ""
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: ""
 
     assets:
-        favicon: "img/Q.gif"
-        favicon16x16: "img/Q.gif"
-        favicon32x32: "img/Q.gif"
-        apple_touch_icon: "img/Q.gif"
-        safari_pinned_tab: "img/Q.gif"
+        favicon: "static/letter-z.png"
+        favicon16x16: "static/letter-z.png"
+        favicon32x32: "static/letter-z.png"
+        apple_touch_icon: "static/letter-z.png"
+        safari_pinned_tab: "static/letter-z.png"
 
     cover:
         hidden: false # hide everywhere but not in structured data
@@ -164,18 +162,18 @@ params:
         minMatchCharLength: 0
         keys: ["title", "permalink", "summary"]
 
-    Reward: true #打赏是否开启
+    Reward: false #打赏是否开启
     # 打赏微信图片地址，
     # 可用绝对和相对地址，相对地址的图片需放在static/img下，
     # 填写格式为img/wechat_pay.png
-    WechatPay: img/wechat_pay.png
-    Alipay: img/alipay.png #打赏支付宝图片地址
+    # WechatPay: img/wechat_pay.png
+    # Alipay: img/alipay.png #打赏支付宝图片地址
 
-    # twikoo评论
-    twikoo:
-      version: 1.5.8
-      id:  # 填写自己的twikoo id
-      region:  # 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数，请看twikoo官方文档
+    # twikoo评论 TODO
+    # twikoo:
+    #   version: 1.5.8
+    #   id:  # 填写自己的twikoo id
+    #   region:  # 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数，请看twikoo官方文档
 
 taxonomies:
     category: categories
@@ -187,6 +185,7 @@ markup:
         renderer:
             unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
     highlight:
+        # TODO
         # anchorLineNos: true
         codeFences: true  
         guessSyntax: true

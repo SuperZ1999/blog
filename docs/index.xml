@@ -1,12 +1,336 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Sulv&#39;s Blog</title>
+    <title>ZMY&#39;s Blog</title>
     <link>https://www.sulvblog.cn/</link>
-    <description>Recent content on Sulv&#39;s Blog</description>
+    <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 May 2022 00:18:23 +0800</lastBuildDate><atom:link href="https://www.sulvblog.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 15:05:11 +0800</lastBuildDate><atom:link href="https://www.sulvblog.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 710</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-710/</link>
+      <pubDate>Tue, 27 Sep 2022 15:05:11 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-710/</guid>
+      <description>思路 既然要随机获取，那么肯定要用数组存，并且是紧凑的，由于有黑名单，所以我们应该想办法把不是黑名单的数组紧凑到前n - blacklist.le</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 380</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-380/</link>
+      <pubDate>Tue, 27 Sep 2022 14:35:51 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-380/</guid>
+      <description>思路 为了随机选取元素，需要用到数组，并且得是紧凑的，但是数组增删不是O(1)的，所以再来个map，key是数组元素的值，value是数组的索</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 528</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-528/</link>
+      <pubDate>Mon, 26 Sep 2022 22:42:24 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-528/</guid>
+      <description>思路 可以想象成一条线段，分成好几段，每段长度不一样，然后往上面撒石子，返回石子撒到了第几条线段上，直接把这个线段当成一个数组不现实，因为数值</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 59</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-59/</link>
+      <pubDate>Mon, 26 Sep 2022 21:53:13 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-59/</guid>
+      <description>思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/leetcodes/</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 54</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-54/</link>
+      <pubDate>Mon, 26 Sep 2022 21:39:37 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-54/</guid>
+      <description>思路 解题的核心思路是按照右、下、左、上的顺序遍历数组，并使用四个变量圈定未遍历元素的边界： 需要注意水平遍历需要判断upperBound&amp;lt</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 48</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-48/</link>
+      <pubDate>Mon, 26 Sep 2022 11:12:45 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-48/</guid>
+      <description>思路 先按对角线对折矩阵（注意对折矩阵时，只需要遍历矩阵的一半即可，如果整个矩阵都遍历，那矩阵不会有任何变化，相当于对折了两次），再反转矩阵的</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 151</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-151/</link>
+      <pubDate>Mon, 26 Sep 2022 10:45:08 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-151/</guid>
+      <description>思路 可以split成单词，再reverse，再拼接，但是不够优雅，会使用了额外的空间，正确做法是先reverse整个数组，然后再revers</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1094</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-1094/</link>
+      <pubDate>Mon, 26 Sep 2022 00:32:18 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-1094/</guid>
+      <description>思路 利用差分数组的思想即可，这里把路程中各个地方的乘客数目当作数组的元素，每个trip相当于对这个数组的某一段进行加运算 我的代码 class Solution { public boolean carPooling(int[][]</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1109</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-1109/</link>
+      <pubDate>Sun, 25 Sep 2022 23:57:09 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-1109/</guid>
+      <description>思路 标准差分数组，详见LeetCode-note 我的代码 class Solution { public int[] corpFlightBookings(int[][] bookings, int n) { int[] nums = new int[n]; Difference df = new Difference(nums); for (int[] booking : bookings) { df.increment(booking[0] - 1, booking[1] - 1, booking[2]); } return df.result(); } static class Difference { private</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 304</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-304/</link>
+      <pubDate>Sun, 25 Sep 2022 23:11:19 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-304/</guid>
+      <description>思路 利用前缀和的思想轻松秒杀，需要注意在preSum中，第[n + 1, n+1]个元素存的是matrix前n*n个元素的和，整体往右下挪一位 还需要</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 303</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-303/</link>
+      <pubDate>Sun, 25 Sep 2022 22:41:54 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-303/</guid>
+      <description>思路 利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的是nums前n个元素的和，整体往后挪一位 我的代码 class NumArray { int[] preSum; public NumArray(int[] nums) {</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 3</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-3/</link>
+      <pubDate>Sun, 25 Sep 2022 22:16:07 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-3/</guid>
+      <description>思路 利用滑动窗口的思想，如果窗口内相同元素超过1个，那么就开始收缩直到相同元素被移出，此时窗口内必定没有重复元素，记录一下此时的窗口大小，找</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 438</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-438/</link>
+      <pubDate>Sun, 25 Sep 2022 21:52:06 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-438/</guid>
+      <description>思路 同LeetCode-567，只不过找到子串后不直接返回而是存一下，同样是两种思路，详见：https://blog.zhangmengya</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 567</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-567/</link>
+      <pubDate>Sun, 25 Sep 2022 18:13:05 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-567/</guid>
+      <description>思路 我的思路：利用滑动窗口的思想，移入窗口一个字符，就收缩窗口直到这个移入的字符在窗口里的数目与s1保持一致，换句话说，保证窗口内不存在非法</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 76</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-76/</link>
+      <pubDate>Sun, 25 Sep 2022 17:01:39 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-76/</guid>
+      <description>思路 利用滑动窗口的思想，窗口内包含t的所有字符后收缩窗口，同时维护最小覆盖子串的两端的位置，详见LeetCode-note思想章节 我的代码 class</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 周赛-312</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</link>
+      <pubDate>Sun, 25 Sep 2022 15:22:34 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</guid>
+      <description>思路 第一题 排序，不解释 第二题 按位与只会越与越小，那既然要找最大的结果，那遍历一遍数组统计一下最大的数出现了几次就可以了 第三题 暴力会超时，利用</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 34</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-34/</link>
+      <pubDate>Sun, 25 Sep 2022 00:24:53 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-34/</guid>
+      <description>思路 进阶版二分查找，寻找target的左右边界，在进阶版二分查找的二分阶段根据左边界或右边界的特征，选择合适的二分条件即可，来两次二分查找，</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 704</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-704/</link>
+      <pubDate>Sat, 24 Sep 2022 16:18:38 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-704/</guid>
+      <description>思路 经典二分查找，不解释 详见：https://labuladong.gitee.io/algo/2/20/29/ 我的代码 class Solution { public int search(int[] nums, int target) {</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 5</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-5/</link>
+      <pubDate>Sat, 24 Sep 2022 15:30:02 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-5/</guid>
+      <description>思路 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。 我的代码 class Solution { public String longestPalindrome(String s) { String res = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; s.length(); i++) { // 从中心向两边寻找回文</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 344</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-344/</link>
+      <pubDate>Sat, 24 Sep 2022 15:10:28 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-344/</guid>
+      <description>思路 利用左右指针的思想，从两边向中间逼近，同时交换左右的值 我的代码 class Solution { public void reverseString(char[] s) { int left = 0, right = s.length -1 ; while (left &amp;lt; right) { char temp = s[left]; s[left] = s[right]; s[right] = temp; left++; right--; } } }</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 167</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-167/</link>
+      <pubDate>Sat, 24 Sep 2022 14:58:51 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-167/</guid>
+      <description>思路 利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right&amp;ndash;，否则left++，直到左右之和等于target。 我</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 26&#43;83&#43;27&#43;283</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</link>
+      <pubDate>Sat, 24 Sep 2022 14:13:53 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</guid>
+      <description>思路 都属于快慢指针里的原地修改数组问题（数组元素去重问题） 26 慢指针指向当前已经去重的数据的最后一个，快指针去前面探路，碰到和slow不一样的</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 234 快慢指针&#43;反转链表</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 24 Sep 2022 00:05:26 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>思路 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。 我的代码 class Solution { public boolean isPalindrome(ListNode head) { // 快慢指</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 234 链表后序遍历</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:43 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>思路 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。 我的代码 class Solution { private ListNode left; public boolean isPalindrome(ListNode head) { left = head; return traverse(head);</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 25</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-25/</link>
+      <pubDate>Fri, 23 Sep 2022 23:21:30 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-25/</guid>
+      <description>思路 1、先反转以 head 开头的 k 个元素。 2、将第 k + 1 个元素作为 head 递归调用 reverseKGroup 函数。 3、将上述两个过程的结果连接起来。 注意base case为最后元素</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 92</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-92/</link>
+      <pubDate>Fri, 23 Sep 2022 22:52:35 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-92/</guid>
+      <description>思路 与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和right</description>
+    </item>
+    
+    <item>
+      <title>反转链表前n个节点</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Fri, 23 Sep 2022 22:20:19 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
+      <description>思路 解决思路和反转整个链表差不多，只要稍加修改即可： 1、base case 变为 n == 1，反转一个元素，就是它本身，同时要记录后驱节点。 2、刚才我们直接</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 206</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-206/</link>
+      <pubDate>Fri, 23 Sep 2022 22:01:54 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-206/</guid>
+      <description>思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 我的代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head;</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 160</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-160/</link>
+      <pubDate>Fri, 23 Sep 2022 15:29:13 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-160/</guid>
+      <description>思路 找到相交点的关键是将相交点之前的节点数凑成相等的，这样的话同时遍历，如果相等的话就是相交了。怎么凑呢？将两个链表连接一下，节点数不就想等</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 142</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-142/</link>
+      <pubDate>Fri, 23 Sep 2022 15:02:29 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-142/</guid>
+      <description>思路 寻找环的起点，利用快慢指针的思想并且稍做分析，即可得出结论：当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 141</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-141/</link>
+      <pubDate>Fri, 23 Sep 2022 14:49:25 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-141/</guid>
+      <description>思路 利用快慢指针的思想，如果快指针为空，说明没有环，如果快慢指针相遇说明有环 我的代码 public class Solution { public boolean hasCycle(ListNode head) { ListNode slow = head, fast = head; // 快慢指针如果相遇，说明</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 876</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-876/</link>
+      <pubDate>Fri, 23 Sep 2022 14:18:22 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-876/</guid>
+      <description>思路 利用快慢指针的思想，每当慢指针 slow 前进一步，快指针 fast 就前进两步，这样，当 fast 走到链表末尾时，slow 就指向了链表中点。 需要注意的是，如果链表</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 19</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-19/</link>
+      <pubDate>Fri, 23 Sep 2022 12:32:27 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-19/</guid>
+      <description>思路 关键是找到倒数第n+1个节点，找到倒数第n个节点的做法：先让p1指针走n步，然后p1和p2指针一起动，当p1指针到头了的时候，p2指针指</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 23</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-23/</link>
+      <pubDate>Fri, 23 Sep 2022 10:47:55 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-23/</guid>
+      <description>思路 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。 我的代码 class Solution { public ListNode mergeKLists(ListNode[]</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 86</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-86/</link>
+      <pubDate>Fri, 23 Sep 2022 00:09:37 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-86/</guid>
+      <description>思路 从头到尾遍历一遍链表，将小于x的放到一个链表里，将大于等于x的放到一个链表里，最后再拼接这两个链表即可，注意dummy节点的使用。 我的代</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 21</title>
+      <link>https://www.sulvblog.cn/posts/leetcode/leetcode-21/</link>
+      <pubDate>Thu, 22 Sep 2022 23:42:59 +0800</pubDate>
+      
+      <guid>https://www.sulvblog.cn/posts/leetcode/leetcode-21/</guid>
+      <description>思路 不解释 我的代码 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p = p.next; } if (list1 != null) { p.next = list1; }</description>
+    </item>
+    
     <item>
       <title>Blog</title>
       <link>https://www.sulvblog.cn/posts/blog/blog/</link>
