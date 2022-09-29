@@ -2,9 +2,7 @@
 title: "LeetCode 710"
 date: 2022-09-27T15:05:11+08:00
 tags: ["leetcode"]
-description: "leetcode 710 题解
-1111111111
-1111111111"
+description: "时间就像海绵里的水，只要愿挤，总还是有的 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——鲁迅"
 draft: false
 ---
 
