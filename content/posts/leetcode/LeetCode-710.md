@@ -2,6 +2,7 @@
 title: "LeetCode 710"
 date: 2022-09-27T15:05:11+08:00
 tags: ["leetcode"]
+description: "leetcode 710 题解"
 draft: false
 ---
 

@@ -13,7 +13,7 @@
       <pubDate>Tue, 27 Sep 2022 15:05:11 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</guid>
-      <description>思路 既然要随机获取，那么肯定要用数组存，并且是紧凑的，由于有黑名单，所以我们应该想办法把不是黑名单的数组紧凑到前n - blacklist.le</description>
+      <description>leetcode 710 题解</description>
     </item>
     
     <item>
