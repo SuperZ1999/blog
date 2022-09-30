@@ -7,7 +7,7 @@ draft: false
 
 ### 思路
 
-同LeetCode-567，只不过找到子串后不直接返回而是存一下，同样是两种思路，详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-567/>
+同LeetCode-567，只不过找到子串后不直接返回而是存一下，同样是两种思路，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/>
 
 ### 我的代码
 

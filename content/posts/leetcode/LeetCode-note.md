@@ -17,7 +17,7 @@ draft: true
 
 #### 1. [合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-21/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/>
 
 ## 单链表的分解
 
@@ -29,7 +29,7 @@ draft: true
 
 #### 1. [分隔链表](https://leetcode.cn/problems/partition-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-86/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/>
 
 ## 合并 k 个有序链表
 
@@ -41,7 +41,7 @@ draft: true
 
 #### 1. [合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-23/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/>
 
 ## 寻找单链表的倒数第 k 个节点
 
@@ -55,7 +55,7 @@ draft: true
 
 #### 1. [删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-19/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/>
 
 ## 单链表的中点
 
@@ -69,7 +69,7 @@ draft: true
 
 #### 1. [链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-876/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/>
 
 ## 判断链表是否包含环
 
@@ -81,7 +81,7 @@ draft: true
 
 #### 1. [环形链表](https://leetcode.cn/problems/linked-list-cycle/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-141/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/>
 
 ## 存在环的链表中寻找环起点
 
@@ -93,7 +93,7 @@ draft: true
 
 #### 1. [环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-142/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/>
 
 ## 判断两个链表是否相交
 
@@ -120,7 +120,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-160/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/>
 
 ## 反转单链表
 
@@ -144,7 +144,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [反转链表](https://leetcode.cn/problems/reverse-linked-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-206/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/>
 
 ## 反转链表前n个节点
 
@@ -160,7 +160,7 @@ l2 -> null -> l1 -> null
 
 无
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/反转链表前n个节点/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/反转链表前n个节点/>
 
 ## 反转链表节点(m, n)
 
@@ -172,7 +172,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-92/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/>
 
 ## K 个一组翻转链表
 
@@ -190,7 +190,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-25/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/>
 
 ## 链表的前后序遍历
 
@@ -230,7 +230,7 @@ void traverse(ListNode head) {
 
 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-234-链表后序遍历/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-链表后序遍历/>
 
 ##### 利用栈
 
@@ -242,7 +242,7 @@ void traverse(ListNode head) {
 
 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-234-快慢指针+反转链表/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-快慢指针+反转链表/>
 
 ### 题目
 
@@ -258,7 +258,7 @@ void traverse(ListNode head) {
 
 慢指针指向当前已经去重的数据的最后一个，快指针去前面探路，碰到和slow不一样的数据就让这个数据放在slow后面，slow++。
 
-具体变种详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-26+83+27+283/>
+具体变种详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26+83+27+283/>
 
 #### 题目
 
@@ -282,19 +282,19 @@ void traverse(ListNode head) {
 
 ##### 1. [最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-76/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/>
 
 ##### 2. [字符串的排列](https://leetcode.cn/problems/permutation-in-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-567/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/>
 
 ##### 3. [找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-438/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/>
 
 ##### 4. [无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-3/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/>
 
 ## 左右指针在数组中的应用
 
@@ -308,11 +308,11 @@ void traverse(ListNode head) {
 
 ##### 1. [在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-34/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/>
 
 ##### 2. [二分查找](https://leetcode.cn/problems/binary-search/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-704/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/>
 
 ### 两数之和
 
@@ -324,7 +324,7 @@ void traverse(ListNode head) {
 
 ##### 1. [两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-167/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/>
 
 ### 反转数组
 
@@ -346,15 +346,15 @@ void traverse(ListNode head) {
 
 ##### 1. [反转字符串](https://leetcode.cn/problems/reverse-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-344/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/>
 
 ##### 2. [反转字符串中的单词](https://leetcode.cn/problems/reverse-words-in-a-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-151/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/>
 
 ##### 3. [旋转图像](https://leetcode.cn/problems/rotate-image/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-48/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/>
 
 ### 回文串判断
 
@@ -366,7 +366,7 @@ void traverse(ListNode head) {
 
 ##### 1. [最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-5/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/>
 
 ## 前缀和在数组里的应用
 
@@ -380,7 +380,7 @@ void traverse(ListNode head) {
 
 ##### 1. [区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-303/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/>
 
 ### 二维数组中的前缀和
 
@@ -394,7 +394,7 @@ void traverse(ListNode head) {
 
 ##### 1. [二维区域和检索 - 矩阵不可变](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-304/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/>
 
 ## 差分数组
 
@@ -406,11 +406,11 @@ void traverse(ListNode head) {
 
 #### 1. [航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-1109/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/>
 
 #### 2. [拼车](https://leetcode.cn/problems/car-pooling/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-1094/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/>
 
 ## 矩阵的螺旋遍历
 
@@ -426,11 +426,11 @@ void traverse(ListNode head) {
 
 #### 1. [螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-54/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/>
 
 #### 2. [螺旋矩阵 II](https://leetcode.cn/problems/spiral-matrix-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-59/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/>
 
 ## 带权重的随机选择算法
 
@@ -447,7 +447,7 @@ void traverse(ListNode head) {
 
 #### 1. [按权重随机选择](https://leetcode.cn/problems/random-pick-with-weight/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-528/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/>
 
 ## 常数时间删除/查找数组中的任意元素
 
@@ -461,11 +461,11 @@ void traverse(ListNode head) {
 
 #### 1. [O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-380/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/>
 
 #### 2. [黑名单中的随机数](https://leetcode.cn/problems/random-pick-with-blacklist/)
 
-题解详见：<https://blog.zhangmengyang.tk/leetcodes/leetcode-710/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/>
 
 # 思想
 
