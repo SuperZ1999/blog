@@ -27,12 +27,12 @@ permalinks: # 访问博客时网址的显示形式
   post: "/:title/"
   # post: "/:year/:month/:day/:title/"
 
-defaultContentLanguage: en # 最顶部首先展示的语言页面
+defaultContentLanguage: zh # 最顶部首先展示的语言页面
 defaultContentLanguageInSubdir: true
 
 languages:
-    en:
-      languageName: "English"
+    zh:
+      languageName: "中文"
       weight: 1
       profileMode:
         enabled: true
@@ -78,6 +78,55 @@ languages:
             weight: 50
           # - identifier: links
           #   name: 🤝 友链
+          #   url: links
+          #   weight: 60
+
+    en:
+      languageName: "English"
+      weight: 2
+      profileMode:
+        enabled: true
+        title: ZMY's Blog
+        subtitle: "Talk is cheap, show me the code"
+        imageUrl: "static/letter-z.png"
+        imageTitle: 
+        imageWidth: 150
+        imageHeight: 150
+        buttons:
+          - name: 👨🏻‍💻 Technology
+            url: posts/tech
+          - name: 🏖 Life
+            url: posts/life
+          - name: 📝 LeetCode
+            url: posts/leetcode
+      menu:
+        main:
+          - identifier: search
+            name: 🔍 Search
+            url: search
+            weight: 1
+          - identifier: home
+            name: 🏠 Home
+            url: /
+            weight: 2
+          - identifier: posts
+            name: 📚 Article
+            url: posts
+            weight: 3
+          - identifier: tags
+            name: 🧩 Tags
+            url: tags
+            weight: 15
+          - identifier: archives
+            name: ⏱ Archive
+            url: archives/
+            weight: 20
+          - identifier: about
+            name: 🙋🏻‍♂️ About
+            url: about
+            weight: 50
+          # - identifier: links
+          #   name: 🤝 links
           #   url: links
           #   weight: 60
 
