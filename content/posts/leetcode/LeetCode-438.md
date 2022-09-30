@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 438"
 date: 2022-09-25T21:52:06+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

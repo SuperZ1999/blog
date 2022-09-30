@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 234 链表后序遍历"
 date: 2022-09-24T00:00:43+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

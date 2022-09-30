@@ -2,17 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.zhangmengyang.tk/categories/</loc>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangmengyang.tk/tags/leetcode/</loc>
-    <lastmod>2022-09-30T00:07:11+08:00</lastmod>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangmengyang.tk/categories/leetcode/</loc>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</loc>
     <lastmod>2022-09-30T00:07:11+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/tags/</loc>
-    <lastmod>2022-09-30T00:07:11+08:00</lastmod>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/</loc>
-    <lastmod>2022-09-30T00:07:11+08:00</lastmod>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/</loc>
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
@@ -21,7 +27,7 @@
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/</loc>
-    <lastmod>2022-09-29T22:14:55+08:00</lastmod>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/</loc>
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
@@ -48,7 +54,7 @@
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/</loc>
-    <lastmod>2022-09-29T22:14:55+08:00</lastmod>
+    <lastmod>2022-09-30T11:57:57+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/</loc>
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
@@ -119,18 +125,6 @@
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/</loc>
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/tags/life/</loc>
-    <lastmod>2022-05-05T00:33:01+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangmengyang.tk/posts/life/life/</loc>
-    <lastmod>2022-05-05T00:33:01+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangmengyang.tk/tags/tech/</loc>
-    <lastmod>2022-09-29T22:14:55+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangmengyang.tk/posts/tech/tech/</loc>
-    <lastmod>2022-09-29T22:14:55+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangmengyang.tk/links/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
   </url><url>
@@ -151,8 +145,6 @@
   </url><url>
     <loc>https://blog.zhangmengyang.tk/search/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangmengyang.tk/categories/</loc>
   </url><url>
     <loc>https://blog.zhangmengyang.tk/series/</loc>
   </url><url>

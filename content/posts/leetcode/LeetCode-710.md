@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 710"
 date: 2022-09-27T15:05:11+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

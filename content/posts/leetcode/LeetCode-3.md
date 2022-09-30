@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 3"
 date: 2022-09-25T22:16:07+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

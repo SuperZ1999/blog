@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 1094"
 date: 2022-09-26T00:32:18+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 59"
 date: 2022-09-26T21:53:13+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

@@ -1,8 +1,18 @@
 ---
 title: "反转链表前n个节点"
 date: 2022-09-23T22:20:19+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

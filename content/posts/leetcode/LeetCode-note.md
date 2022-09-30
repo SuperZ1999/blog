@@ -1,8 +1,18 @@
 ---
 title: "LeetCode Note"
 date: 2022-09-23T10:21:48+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: true
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 # 链表

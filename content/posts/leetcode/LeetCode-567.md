@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 567"
 date: 2022-09-25T18:13:05+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 303"
 date: 2022-09-25T22:41:54+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路

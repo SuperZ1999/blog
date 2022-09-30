@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ZMY&#39;s Blog</title>
-    <link>https://blog.zhangmengyang.tk/</link>
-    <description>Recent content on ZMY&#39;s Blog</description>
+    <title>leetcode on ZMY&#39;s Blog</title>
+    <link>https://blog.zhangmengyang.tk/categories/leetcode/</link>
+    <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 27 Sep 2022 15:05:11 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 15:05:11 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode 710</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</link>
@@ -330,26 +330,6 @@
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/</guid>
       <description>思路 不解释 我的代码 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p = p.next; } if (list1 != null) { p.next = list1; }</description>
     </item>
-    
-    <item>
-      <title>🤝友链</title>
-      <link>https://blog.zhangmengyang.tk/links/</link>
-      <pubDate>Sat, 06 Nov 2021 15:15:53 +0800</pubDate>
-      
-      <guid>https://blog.zhangmengyang.tk/links/</guid>
-      <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 👉友链格式 名称： Sulv&amp;rsquo;s Blog 网址： https://www.sulvblog.cn 图标： https://www.sulvblog.cn/img/Q.gif 描述： 一个记录技术、阅读、生活的博客 👉友链申请要求 秉承互换友链原则、文</description>
-    </item>
-    
-    <item>
-      <title>🙋🏻‍♂️关于</title>
-      <link>https://blog.zhangmengyang.tk/about/</link>
-      <pubDate>Sat, 06 Nov 2021 14:57:28 +0800</pubDate>
-      
-      <guid>https://blog.zhangmengyang.tk/about/</guid>
-      <description>关于我 英文名: ZMY 职业: 研究生在读 运动: 写代码、玩游戏、网上冲浪</description>
-    </item>
-    
-    
     
   </channel>
 </rss>

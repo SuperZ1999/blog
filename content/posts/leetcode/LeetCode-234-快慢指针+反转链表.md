@@ -1,8 +1,18 @@
 ---
 title: "LeetCode 234 快慢指针+反转链表"
 date: 2022-09-24T00:05:26+08:00
+categories: ["leetcode"]
 tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
 draft: false
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
 ---
 
 ### 思路
