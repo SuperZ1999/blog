@@ -28,12 +28,16 @@ permalinks: # 访问博客时网址的显示形式
   # post: "/:year/:month/:day/:title/"
 
 defaultContentLanguage: zh # 最顶部首先展示的语言页面
-defaultContentLanguageInSubdir: true
+# defaultContentLanguageInSubdir: true
 
 languages:
     zh:
       languageName: "中文"
       weight: 1
+      taxonomies:
+        category: categories
+        tag: tags
+        series: series
       profileMode:
         enabled: true
         title: ZMY's Blog
@@ -65,7 +69,7 @@ languages:
             url: posts
             weight: 3
           - identifier: tags
-            name: 🧩 标签
+            name: 🏷️ 标签
             url: tags
             weight: 15
           - identifier: archives
@@ -84,6 +88,10 @@ languages:
     en:
       languageName: "English"
       weight: 2
+      taxonomies:
+        category: categories
+        tag: tags
+        series: series
       profileMode:
         enabled: true
         title: ZMY's Blog
@@ -103,7 +111,7 @@ languages:
         main:
           - identifier: search
             name: 🔍 Search
-            url: search
+            url: search/
             weight: 1
           - identifier: home
             name: 🏠 Home
@@ -111,11 +119,11 @@ languages:
             weight: 2
           - identifier: posts
             name: 📚 Article
-            url: posts
+            url: posts/
             weight: 3
           - identifier: tags
-            name: 🧩 Tags
-            url: tags
+            name: 🏷️ Tags
+            url: tags/
             weight: 15
           - identifier: archives
             name: ⏱ Archive
@@ -123,7 +131,7 @@ languages:
             weight: 20
           - identifier: about
             name: 🙋🏻‍♂️ About
-            url: about
+            url: about/
             weight: 50
           # - identifier: links
           #   name: 🤝 links

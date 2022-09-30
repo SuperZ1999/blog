@@ -22,7 +22,16 @@
   translation: "编辑"
 
 - id: code_copy
-  translation: "复制"
+  translation: "📄复制"
 
 - id: code_copied
-  translation: "已复制！"
+  translation: "👌🏻已复制！"
+
+- id: Tags
+  translation: "🏷️标签"
+
+- id: Categories
+  translation: "🎨分类"
+
+- id: Comments
+  translation: "💬评论"

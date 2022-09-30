@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.zhangmengyang.tk/zh/categories/</loc>
+    <loc>https://blog.zhangmengyang.tk/categories/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -12,10 +12,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/categories/"
+                href="https://blog.zhangmengyang.tk/categories/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/tags/leetcode/</loc>
+    <loc>https://blog.zhangmengyang.tk/tags/leetcode/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -25,10 +25,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/tags/leetcode/"
+                href="https://blog.zhangmengyang.tk/tags/leetcode/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/categories/leetcode/</loc>
+    <loc>https://blog.zhangmengyang.tk/categories/leetcode/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -38,10 +38,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/categories/leetcode/"
+                href="https://blog.zhangmengyang.tk/categories/leetcode/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-710/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -51,10 +51,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-710/"
+                href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/tags/</loc>
+    <loc>https://blog.zhangmengyang.tk/tags/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -64,10 +64,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/tags/"
+                href="https://blog.zhangmengyang.tk/tags/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/</loc>
+    <loc>https://blog.zhangmengyang.tk/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -77,115 +77,115 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/"
+                href="https://blog.zhangmengyang.tk/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-380/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-528/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-59/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-54/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-48/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-151/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-1094/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-1109/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-304/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-303/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-3/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-438/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-567/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-76/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</loc>
     <lastmod>2022-09-25T15:22:34+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-34/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-704/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-5/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-344/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-167/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2022-09-24T00:05:26+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</loc>
     <lastmod>2022-09-24T00:00:43+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-25/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-92/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</loc>
     <lastmod>2022-09-23T22:20:19+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-206/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-160/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-142/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-141/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-876/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-19/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-23/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-86/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/leetcode-21/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/</loc>
     <lastmod>2022-09-30T14:15:54+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/links/</loc>
+    <loc>https://blog.zhangmengyang.tk/links/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -195,10 +195,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/links/"
+                href="https://blog.zhangmengyang.tk/links/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/about/</loc>
+    <loc>https://blog.zhangmengyang.tk/about/</loc>
     <lastmod>2022-09-29T22:25:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -208,10 +208,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/about/"
+                href="https://blog.zhangmengyang.tk/about/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/archives/</loc>
+    <loc>https://blog.zhangmengyang.tk/archives/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -221,10 +221,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/archives/"
+                href="https://blog.zhangmengyang.tk/archives/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/tech/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/tech/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -234,10 +234,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/posts/tech/"
+                href="https://blog.zhangmengyang.tk/posts/tech/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -247,10 +247,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/posts/"
+                href="https://blog.zhangmengyang.tk/posts/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/leetcode/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/</loc>
     <lastmod>2022-09-29T22:14:55+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -260,10 +260,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/posts/leetcode/"
+                href="https://blog.zhangmengyang.tk/posts/leetcode/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/search/</loc>
+    <loc>https://blog.zhangmengyang.tk/search/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -273,10 +273,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/search/"
+                href="https://blog.zhangmengyang.tk/search/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/series/</loc>
+    <loc>https://blog.zhangmengyang.tk/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -285,10 +285,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/series/"
+                href="https://blog.zhangmengyang.tk/series/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/zh/posts/life/</loc>
+    <loc>https://blog.zhangmengyang.tk/posts/life/</loc>
     <lastmod>2022-05-05T00:33:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -298,7 +298,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/zh/posts/life/"
+                href="https://blog.zhangmengyang.tk/posts/life/"
                 />
   </url>
 </urlset>
