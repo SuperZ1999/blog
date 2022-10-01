@@ -169,7 +169,7 @@ params:
     ShowToc: true # 显示目录
     TocOpen: true # 自动展开目录
 
-    comments: true
+    comments: false
     mermaid: true #是否开启mermaid(流程图)
     hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
     socialIcons:

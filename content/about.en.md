@@ -7,7 +7,7 @@ description: ""
 weight:
 slug: ""
 draft: false # 是否为草稿
-comments: true
+comments: false
 reward: false
 showToc: false # 显示目录
 TocOpen: false # 自动展开目录
