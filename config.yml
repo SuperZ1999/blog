@@ -148,7 +148,7 @@ outputs:
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     description: ""
-    author: ZMY
+    # author: ZMY
     # author: ["Me", "You"] # multiple authors
 
     defaultTheme: auto  # defaultTheme: light or  dark 
@@ -162,7 +162,7 @@ params:
     ShowBreadCrumbs: true #顶部显示路径
     ShowCodeCopyButtons: true
     hideFooter: false # 隐藏页脚
-    ShowWordCounts: true
+    ShowWordCount: true
     VisitCount: true
     ShowLastMod: true #显示文章更新时间
 

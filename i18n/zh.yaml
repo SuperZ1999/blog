@@ -9,11 +9,16 @@
     one : "1 分钟"
     other: "{{ .Count }} 分钟"
 
+- id: words
+  translation:
+    one: "字"
+    other: "{{ .Count }} 字"
+
 - id: toc
   translation: "目录"
 
 - id: translations
-  translation: "翻译"
+  translation: "语言"
 
 - id: home
   translation: "主页"
@@ -35,3 +40,9 @@
 
 - id: Comments
   translation: "💬评论"
+
+- id: creation_date
+  translation: "创建日期"
+
+- id: update_date
+  translation: "更新日期"

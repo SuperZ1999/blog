@@ -49,3 +49,9 @@
 
 - id: Comments
   translation: "💬Comments"
+
+- id: creation_date
+  translation: "Creation Date"
+
+- id: update_date
+  translation: "Update Date"

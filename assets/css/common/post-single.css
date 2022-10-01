@@ -21,6 +21,10 @@
     flex-wrap: wrap;
 }
 
+a.post-tags-meta {
+    color: var(--secondary);
+}
+
 .post-meta .i18n_list li {
     display: inline-flex;
     list-style: none;
