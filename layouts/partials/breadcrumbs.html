@@ -4,6 +4,7 @@
     {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
 
     <a href="{{ "" | absLangURL }}">{{ i18n "home" | default "Home" }}</a>
+    <span>{{- $lang_url }}</span>
     {{- $scratch := newScratch }}
     {{- range $index, $element := split $lang_url "/" }}
 
