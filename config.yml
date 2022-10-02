@@ -180,15 +180,15 @@ params:
         - name: github
           url: "https://github.com/superz1999"
         # - name: twitter
-        #   url:  "img/twitter.png"
+        #   url:  "/img/twitter.png"
         # - name: facebook
         #   url: "https://www.facebook.com/profile.php?id=100027782410997"
         # - name: instagram
-        #   url: "img/instagram.png"
+        #   url: "/img/instagram.png"
         - name: QQ
-          url: "img/qq.png"
+          url: "/img/qq.png"
         - name: WeChat
-          url: "img/wechat.png"
+          url: "/img/wechat.png"
         # - name: bilibili
         #   url: "https://space.bilibili.com/234461224"
         - name: email
@@ -198,7 +198,7 @@ params:
 
     label:
         text: "ZMY's Blog"
-        icon: "static/letter-z.png"
+        icon: "/static/letter-z.png"
         iconHeight: 35
 
     # analytics:
@@ -206,11 +206,11 @@ params:
     #         SiteVerificationTag: ""
 
     assets:
-        favicon: "static/letter-z.png"
-        favicon16x16: "static/letter-z.png"
-        favicon32x32: "static/letter-z.png"
-        apple_touch_icon: "static/letter-z.png"
-        safari_pinned_tab: "static/letter-z.png"
+        favicon: "/static/letter-z.png"
+        favicon16x16: "/static/letter-z.png"
+        favicon32x32: "/static/letter-z.png"
+        apple_touch_icon: "/static/letter-z.png"
+        safari_pinned_tab: "/static/letter-z.png"
 
     cover:
         hidden: false # hide everywhere but not in structured data
