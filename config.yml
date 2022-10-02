@@ -1,4 +1,4 @@
-baseURL: https://blog.zhangmengyang.tk # 绑定的域名
+baseURL: https://blog.zhangmengyang.tk/ # 绑定的域名  需要以/结尾，否则面包屑导航会出错
 languageCode: zh-cn # en-us
 title: ZMY's Blog
 theme: hugo-PaperMod  # 主题名字，和themes文件夹下的一致
