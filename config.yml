@@ -1,4 +1,8 @@
 baseURL: https://blog.zhangmengyang.tk/ # 绑定的域名  需要以/结尾，否则面包屑导航会出错
+# 记住所有静态资源文件夹都要以/结尾，原因：面包屑导航、不带/会重定向一次
+# 主要是静态资源只能访问文件不能访问文件夹，比如访问/post，如果不带/就说明访问的是个文件，但实际上访问的是文件夹，那么就会重定向到/post/
+# /post/会默认访问post文件夹下的index.html，也就是post/index.html，也是一个具体的文件，所以对于静态资源来说，只能访问文件不能访问文件夹
+# 但是动态资源就不一定了，比如https://github.com/superz1999，不会重定向，因为不需要访问github.com/superz1999/index.html，而是动态生成的网页
 languageCode: zh-cn # en-us
 title: ZMY's Blog
 theme: hugo-PaperMod  # 主题名字，和themes文件夹下的一致
@@ -49,16 +53,16 @@ languages:
         imageHeight: 150
         buttons:
           - name: 👨🏻‍💻 技术
-            url: posts/tech
+            url: posts/tech/
           - name: 🏖 生活
-            url: posts/life
+            url: posts/life/
           - name: 📝 力扣
-            url: posts/leetcode
+            url: posts/leetcode/
       menu:
         main:
           - identifier: search
             name: 🔍 搜索
-            url: search
+            url: search/
             weight: 1
           - identifier: home
             name: 🏠 主页
@@ -66,11 +70,11 @@ languages:
             weight: 2
           - identifier: posts
             name: 📚 文章
-            url: posts
+            url: posts/
             weight: 3
           - identifier: tags
             name: 🏷️ 标签
-            url: tags
+            url: tags/
             weight: 15
           - identifier: archives
             name: ⏱ 时间轴
@@ -78,11 +82,11 @@ languages:
             weight: 20
           - identifier: about
             name: 🙋🏻‍♂️ 关于
-            url: about
+            url: about/
             weight: 50
           # - identifier: links
           #   name: 🤝 友链
-          #   url: links
+          #   url: links/
           #   weight: 60
 
     en:
@@ -102,11 +106,11 @@ languages:
         imageHeight: 150
         buttons:
           - name: 👨🏻‍💻 Technology
-            url: posts/tech
+            url: posts/tech/
           - name: 🏖 Life
-            url: posts/life
+            url: posts/life/
           - name: 📝 LeetCode
-            url: posts/leetcode
+            url: posts/leetcode/
       menu:
         main:
           - identifier: search
@@ -135,7 +139,7 @@ languages:
             weight: 50
           # - identifier: links
           #   name: 🤝 links
-          #   url: links
+          #   url: links/
           #   weight: 60
 
 outputs:
