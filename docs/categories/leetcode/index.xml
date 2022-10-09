@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 27 Sep 2022 15:05:11 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 14:17:29 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 周赛 314</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-314/</link>
+      <pubDate>Sun, 09 Oct 2022 14:17:29 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-314/</guid>
+      <description>思路 第一题 考察差分数组和模拟，差分之后数组的每个元素就是该任务所用的时间，找最大的即可 第二题 考察差分数组和异或的性质 由a^b=c &amp;mdash;&amp;gt; a^a^b=a^c &amp;mdash;&amp;gt; 0^b=a^c &amp;mdash;&amp;gt; b</description>
+    </item>
+    
     <item>
       <title>LeetCode 710</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</link>
