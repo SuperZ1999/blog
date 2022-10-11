@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 11 Oct 2022 13:48:45 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 15:09:41 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 114</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-114/</link>
+      <pubDate>Tue, 11 Oct 2022 15:09:41 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-114/</guid>
+      <description>思路 由于题目要求原地转换为链表所以不能使用遍历的方法，一边遍历一遍新建一个链表，只能使用分解问题的思路 将该问题分解为：左子树展开+右子树展开</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 116</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-116/</link>
+      <pubDate>Tue, 11 Oct 2022 14:33:15 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-116/</guid>
+      <description>思路 有两种思路，分别是层序遍历和把间隙看成结点的遍历 思路一 层序遍历，遍历一层就把这层的结点加上next，没什么好说的 思路二 把间隙看成结点，那</description>
+    </item>
+    
     <item>
       <title>LeetCode 226</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-226/</link>

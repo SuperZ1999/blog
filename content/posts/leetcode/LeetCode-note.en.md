@@ -479,7 +479,7 @@ void traverse(ListNode head) {
 
 # 二叉树
 
-## 经典遍历问题
+## 遍历问题
 
 ### 解法
 
@@ -493,7 +493,11 @@ void traverse(ListNode head) {
 
 #### 2. [二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
 
-## 经典分解问题
+#### 3. [翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
+
+#### 4. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
+
+## 分解问题
 
 ### 解法
 
@@ -508,6 +512,20 @@ void traverse(ListNode head) {
 #### 1. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 
 #### 2. [二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/)
+
+#### 3. [翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
+
+#### 4. [二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
+
+## 层序遍历
+
+### 解法
+
+就是一个BFS，可以计算一些类似结点与root之间的距离的问题。详见思想里的模板
+
+### 题目
+
+#### 1. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
 
 # 思想
 
@@ -837,6 +855,33 @@ void traverse(TreeNode root) {
 ### 层序遍历
 
 就是一个BFS，可以计算一些类似结点与root之间的距离的问题。
+
+#### 模板
+
+```java
+// 输入一棵二叉树的根节点，层序遍历这棵二叉树
+void levelTraverse(TreeNode root) {
+    if (root == null) return;
+    Queue<TreeNode> q = new LinkedList<>();
+    q.offer(root);
+
+    // 从上到下遍历二叉树的每一层
+    while (!q.isEmpty()) {
+        int sz = q.size();
+        // 从左到右遍历每一层的每个节点
+        for (int i = 0; i < sz; i++) {
+            TreeNode cur = q.poll();
+            // 将下一层节点放入队列
+            if (cur.left != null) {			// 注意不要把null放队列里面
+                q.offer(cur.left);
+            }
+            if (cur.right != null) {		// 注意不要把null放队列里面
+                q.offer(cur.right);
+            }
+        }
+    }
+}
+```
 
 # 其他
 
