@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Oct 2022 14:53:44 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 13:48:45 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 226</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-226/</link>
+      <pubDate>Tue, 11 Oct 2022 13:48:45 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-226/</guid>
+      <description>思路 遍历方式和分解方式都可以 遍历思路 利用二叉树的遍历思想，遍历一遍，遍历的时候，将每个正在遍历的结点交换左右子树即可 分解思路 利用二叉树的分解</description>
+    </item>
+    
     <item>
       <title>LeetCode 543</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-543/</link>
@@ -338,15 +347,6 @@
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-23/</guid>
       <description>思路 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。 我的代码 class Solution { public ListNode mergeKLists(ListNode[]</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Note</title>
-      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/</link>
-      <pubDate>Fri, 23 Sep 2022 10:21:48 +0800</pubDate>
-      
-      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/</guid>
-      <description>链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc</description>
     </item>
     
     <item>

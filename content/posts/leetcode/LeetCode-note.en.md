@@ -6,7 +6,7 @@ tags: ["leetcode"]
 description: ""
 weight:
 slug: ""
-draft: false
+draft: true
 disableShare: false
 cover:
     image: ""
@@ -479,7 +479,7 @@ void traverse(ListNode head) {
 
 # 二叉树
 
-## 遍历问题
+## 经典遍历问题
 
 ### 解法
 
@@ -493,7 +493,7 @@ void traverse(ListNode head) {
 
 #### 2. [二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
 
-## 子问题
+## 经典分解问题
 
 ### 解法
 
