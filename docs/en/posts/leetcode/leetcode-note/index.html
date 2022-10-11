@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>LeetCode Note | ZMY&#39;s Blog</title>
+<meta name="keywords" content="leetcode">
+<meta name="description" content="链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1b749c6bd9ec5667253a04614f6680eb3ba2574eee08ba967cd6532ab57b7b3c.css" integrity="sha256-G3Sca9nsVmclOgRhT2aA6zuiV07uCLqWfNZTKrV7ezw=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+        onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://blog.zhangmengyang.tk/static/letter-z.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangmengyang.tk/static/letter-z.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangmengyang.tk/static/letter-z.png">
+<link rel="apple-touch-icon" href="https://blog.zhangmengyang.tk/static/letter-z.png">
+<link rel="mask-icon" href="https://blog.zhangmengyang.tk/static/letter-z.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note/">
+<link rel="alternate" hreflang="en" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="LeetCode Note" />
+<meta property="og:description" content="链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-23T10:21:48&#43;08:00" />
+<meta property="article:modified_time" content="2022-10-09T14:47:29&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LeetCode Note"/>
+<meta name="twitter:description" content="链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📚 Article",
+      "item": "https://blog.zhangmengyang.tk/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📝 LeetCode",
+      "item": "https://blog.zhangmengyang.tk/en/posts/leetcode/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "LeetCode Note",
+      "item": "https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LeetCode Note",
+  "name": "LeetCode Note",
+  "description": "链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc",
+  "keywords": [
+    "leetcode"
+  ],
+  "articleBody": "链表 合并两个有序链表 解法 略\n题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/\n单链表的分解 解法 从头到尾遍历一遍链表，将小于x的放到一个链表里，将大于等于x的放到一个链表里，最后再拼接这两个链表即可，注意dummy节点的使用。\n题目 1. 分隔链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/\n合并 k 个有序链表 解法 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。\n题目 1. 合并K个升序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/\n寻找单链表的倒数第 k 个节点 解法 关键是找到倒数第n+1个节点，找到倒数第n个节点的做法：先让快指针走n步，然后快慢指针一起动，当快指针到头了的时候，慢指针指向的就是需要找的节点。\n注意使用dummy节点可以避免特殊性，比如就5个节点，删除倒数第5个，那需要找倒数第6个节点，可是总共就5个节点，会有空指针。\n题目 1. 删除链表的倒数第 N 个结点 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/\n单链表的中点 解法 利用快慢指针的思想，每当慢指针 slow 前进一步，快指针 fast 就前进两步，这样，当 fast 走到链表末尾时，slow 就指向了链表中点。\n需要注意的是，如果链表长度为偶数，也就是说中点有两个的时候，我们这个解法返回的节点是靠后的那个节点。\n题目 1. 链表的中间结点 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/\n判断链表是否包含环 解法 利用快慢指针的思想，如果快指针为空，说明没有环，如果快慢指针相遇说明有环\n题目 1. 环形链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/\n存在环的链表中寻找环起点 解法 利用快慢指针的思想并且稍做分析，即可得出结论：当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次相遇时所在的节点位置就是环开始的位置。\n题目 1. 环形链表 II 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/\n判断两个链表是否相交 解法 找到相交点的关键是将相交点之前的节点数凑成相等的，这样的话同时遍历，如果相等的话就是相交了。怎么凑呢？将两个链表连接一下，节点数不就想等了吗。\n代码实现方面，可以考虑四种情况：\n长度相等，有相交 长度相等，无相交 长度不等，有相交 长度不等，无相交 符合这四种情况的链表连接方法如下：\nl1 -\u003e null -\u003e l2 -\u003e null\nl2 -\u003e null -\u003e l1 -\u003e null\n另一种做法：将某一条链表首尾相连，该问题就转换为寻找有环链表的环起点问题。\n题目 1. 相交链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/\n反转单链表 解法 利用递归的思想，先反转head后面的，然后把head也反转即可。\n思想 反转的过程就是改变指针方向的过程并且最后一个指向null，比如反转第2个—第5个：\n1 -\u003e 2 -\u003e 3 -\u003e 4 -\u003e 5 -\u003e null\n反转后为：\n1 -\u003e 2 \u003c- 3 \u003c- 4 \u003c- 5\n​\tnull\n题目 1. 反转链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/\n反转链表前n个节点 解法 解决思路和反转整个链表差不多，只要稍加修改即可：\n1、base case 变为 n == 1，反转一个元素，就是它本身，同时要记录后驱节点。\n2、刚才我们直接把 head.next 设置为 null，因为整个链表反转后原来的 head 变成了整个链表的最后一个节点。但现在 head 节点在递归反转之后不一定是最后一个节点了，所以要记录后驱 successor（第 n + 1 个节点），反转之后将 head 连接上。\n题目 无\n题解详见：https://blog.zhangmengyang.tk/posts/leetcode/反转链表前n个节点/\n反转链表节点(m, n) 解法 与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和right分别减一的特性，把head移到left的位置，然后反转前n个节点即可。\n题目 1. 反转链表 II 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/\nK 个一组翻转链表 解法 1、先反转以 head 开头的 k 个元素。\n2、将第 k + 1 个元素作为 head 递归调用 reverseKGroup 函数。\n3、将上述两个过程的结果连接起来。\n注意base case为最后元素不足 k 个时的情况\n题目 1. K 个一组翻转链表 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/\n链表的前后序遍历 void traverse(ListNode head) { // 前序遍历代码 traverse(head.next); // 后序遍历代码 } 回文串 寻找回文串 核心思想是从中心向两端扩展\n判断回文串 核心思想是从两端向中间逼近\n判断回文链表 解法 可以将链表全部反转，也可以部分反转\n链表全部反转 链表全部反转的方法共3种：\n将原链表反转，然后与原链表比较 略\n链表后序遍历 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。\n题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-链表后序遍历/\n利用栈 同链表后序遍历\n链表部分反转 快慢指针+反转链表 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。\n题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-快慢指针+反转链表/\n题目 1. 回文链表 数组 快慢指针在数组中的应用 数组元素去重 解法 慢指针指向当前已经去重的数据的最后一个，快指针去前面探路，碰到和slow不一样的数据就让这个数据放在slow后面，slow++。\n具体变种详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26+83+27+283/\n题目 1. 删除有序数组中的重复项 2. 删除排序链表中的重复元素 3. 移除元素 4. 移动零 滑动窗口 解法 left 指针在后，right 指针在前，两个指针中间的部分就是「窗口」，算法通过扩大和缩小「窗口」来解决某些问题。\n详见思想章节\n题目 1. 最小覆盖子串 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/\n2. 字符串的排列 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/\n3. 找到字符串中所有字母异位词 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/\n4. 无重复字符的最长子串 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/\n左右指针在数组中的应用 二分查找 解法 就是将搜索空间合理的分成两部分，摒弃不可能的那部分，缩减搜索空间，加快搜索速度，详见思想章节\n题目 1. 在排序数组中查找元素的第一个和最后一个位置 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/\n2. 二分查找 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/\n两数之和 解法 利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right–，否则left++，直到左右之和等于target。\n题目 1. 两数之和 II - 输入有序数组 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/\n反转数组 解法 利用左右指针的思想，从两边向中间逼近，同时交换左右的值\n扩展 反转字符数组里的单词 先反转整个数组，然后再反转各个单词即可\n旋转矩阵 先按对角线对折矩阵（注意对折矩阵时，只需要遍历矩阵的一半即可，如果整个矩阵都遍历，那矩阵不会有任何变化，相当于对折了两次），再反转矩阵的每一行即可\n题目 1. 反转字符串 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/\n2. 反转字符串中的单词 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/\n3. 旋转图像 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/\n回文串判断 解法 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。\n题目 1. 最长回文子串 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/\n前缀和在数组里的应用 一维数组中的前缀和 解法 利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的时nums前n个元素的和，整体往后挪一位\n题目 1. 区域和检索 - 数组不可变 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/\n二维数组中的前缀和 解法 利用前缀和的思想轻松秒杀，需要注意在preSum中，第[n + 1, n+1]个元素存的是matrix前n*n个元素的和，整体往右下挪一位\n还需要注意做减法时，会多减一块区域，需要加回来\n题目 1. 二维区域和检索 - 矩阵不可变 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/\n差分数组 解法 详见思想章节\n题目 1. 航班预订统计 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/\n2. 拼车 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/\n矩阵的螺旋遍历 解法 解题的核心思路是按照右、下、左、上的顺序遍历数组，并使用四个变量圈定未遍历元素的边界：\n需要注意水平遍历需要判断upperBound\u003c=lowerBound，垂直遍历需要判断leftBound\u003c=rightBound\n题目 1. 螺旋矩阵 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/\n2. 螺旋矩阵 II 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/\n带权重的随机选择算法 解法 可以想象成一条线段，分成好几段，每段长度不一样，然后往上面撒石子，返回石子撒到了第几条线段上，直接把这个线段当成一个数组不现实，因为数值有可能很大，所以可以压缩一下，把每一段的长度当成一个元素，但这样寻找随机数处在哪一段还得把前面都加起来，不方便，那就压缩成一个前缀和数组，这样只需要从左往右遍历前缀和数组找第一个大于等于随机数的元素就行了，但是前缀和数组是一个有序数组，我们寻找第一个大于等于随机数的元素使用二分查找就可以快速定位，不需要从头遍历一遍\n有两个需要注意的地方：\n”线段“和前缀和的”格子“的对应关系需要想清楚，这个画张图就明白了 寻找第一个大于等于随机数的元素，需要用寻找左边界的二分查找，而不是寻找右边界的二分查找，详见思想章节二分查找注意点第10条 题目 1. 按权重随机选择 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/\n常数时间删除/查找数组中的任意元素 解法 为了随机选取元素，需要用到数组，并且得是紧凑的，但是数组增删不是O(1)的，所以再来个map，key是数组元素的值，value是数组的索引，这样就做到了O(1)的数组增删，增删的时候注意修改map和数组\n核心思想就是为了随机选取元素，肯定得用数组存，并且得是紧凑的\n题目 1. O(1) 时间插入、删除和获取随机元素 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/\n2. 黑名单中的随机数 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/\n二叉树 遍历问题 解法 利用前中后序遍历模板（见思想），用一个 traverse 函数配合外部变量来实现。\n搞清楚二叉树的每一个节点需要做什么，需要在什么时候（前中后序）做。\n题目 1. 二叉树的最大深度 2. 二叉树的前序遍历 子问题 解法 主要思想就是定义一个递归函数，通过子问题（子树）的答案推导出原问题的答案\n首先写出这个递归函数的定义，并充分利用这个函数的返回值(这个返回值就是需要用到的子树信息)。\n搞清楚二叉树的每一个节点需要做什么，需要在什么时候（前中后序）做。\n题目 1. 二叉树的最大深度 2. 二叉树的直径 思想 双指针 就是两个指针，分为左右指针和快慢指针，只要数组有序，就应该想到双指针技巧\n左右指针 两个指针一个左一个右\n二分查找 就是将搜索空间合理的分成两部分，摒弃不可能的那部分，缩减搜索空间，加快搜索速度\n经典思路 public int search(int[] nums, int target) { int left = 0, right = nums.length - 1; while (left \u003c= right) { int mid = left + (right - left) / 2; if (nums[mid] == target) { return mid; } else if (nums[mid] \u003e target) { right = mid -1; } else if (nums[mid] \u003c target) { left = mid + 1; } } return -1; } 这种就是一边缩减搜索空间，一边寻找要找的元素。\n但是有时候问题并不是这么简单，比如寻找一个可能在数组里不存在，或者是找边界这样的问题，这时使用进阶思路 ，在循环体内排除一定不存在目标元素的区间会更简单一些。\n经典思路是寻找元素\n进阶思路是排除n-1个不可能的元素\n进阶思路 class Solution { public int search(int[] nums, int target) { // 此思路搜索空间为[left, right]，闭闭空间 int left = 0, right = nums.length - 1; // 循环条件写成left",
+  "wordCount" : "10440",
+  "inLanguage": "en",
+  "datePublished": "2022-09-23T10:21:48+08:00",
+  "dateModified": "2022-10-09T14:47:29+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZMY's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangmengyang.tk/static/letter-z.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.zhangmengyang.tk/en/" accesskey="h" title="ZMY&#39;s Blog (Alt + H)">
+            <img src="https://blog.zhangmengyang.tk/static/letter-z.png" alt="logo" aria-label="logo"
+                 height="35">ZMY&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://blog.zhangmengyang.tk/" title="中文"
+                           aria-label="中文">中文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangmengyang.tk/en/search/" title="🔍 Search (Alt &#43; /)" accesskey=/>
+                <span>🔍 Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangmengyang.tk/en/" title="🏠 Home">
+                <span>🏠 Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangmengyang.tk/en/posts/" title="📚 Article">
+                <span>📚 Article</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangmengyang.tk/en/tags/" title="🏷️ Tags">
+                <span>🏷️ Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangmengyang.tk/en/archives/" title="⏱ Archive">
+                <span>⏱ Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangmengyang.tk/en/about/" title="🙋🏻‍♂️ About">
+                <span>🙋🏻‍♂️ About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://blog.zhangmengyang.tk/en/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangmengyang.tk/en/posts/">📚 Article</a>&nbsp;»&nbsp;<a href="https://blog.zhangmengyang.tk/en/posts/leetcode/">📝 LeetCode</a></div>
+            <h1 class="post-title">
+                LeetCode Note
+            </h1>
+            <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-09-23 10:21:48 +0800 CST'>2022-09-23</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-09 14:47:29 +0800 CST'>2022-10-09</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;10440 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;21 min
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/en/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+
+                
+                &nbsp;·&nbsp;
+                <span>
+                    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor'
+                        viewBox='0 0 16 16'>
+                        <path
+                            d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z' />
+                        <path d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z' />
+                    </svg>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+
+                </span>&nbsp;·&nbsp;
+<ul class="i18n_list">
+
+    <span>
+        <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+             viewBox='0 0 16 16'>
+            <path
+                    d='M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z' />
+            <path
+                    d='M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z' />
+        </svg>
+        <li>
+            <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note/">中文</a>
+        </li>
+    </span>
+</ul>
+
+</div>
+        </header> 
+        <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%93%be%e8%a1%a8" aria-label="链表">链表</a><ul>
+                        
+                <li>
+                    <a href="#%e5%90%88%e5%b9%b6%e4%b8%a4%e4%b8%aa%e6%9c%89%e5%ba%8f%e9%93%be%e8%a1%a8" aria-label="合并两个有序链表">合并两个有序链表</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%90%88%e5%b9%b6%e4%b8%a4%e4%b8%aa%e6%9c%89%e5%ba%8f%e9%93%be%e8%a1%a8httpsleetcodecnproblemsmerge-two-sorted-lists" aria-label="1. 合并两个有序链表">1. <a href="https://leetcode.cn/problems/merge-two-sorted-lists/">合并两个有序链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8d%95%e9%93%be%e8%a1%a8%e7%9a%84%e5%88%86%e8%a7%a3" aria-label="单链表的分解">单链表的分解</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-1" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-1" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%88%86%e9%9a%94%e9%93%be%e8%a1%a8httpsleetcodecnproblemspartition-list" aria-label="1. 分隔链表">1. <a href="https://leetcode.cn/problems/partition-list/">分隔链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%90%88%e5%b9%b6-k-%e4%b8%aa%e6%9c%89%e5%ba%8f%e9%93%be%e8%a1%a8" aria-label="合并 k 个有序链表">合并 k 个有序链表</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-2" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-2" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%90%88%e5%b9%b6k%e4%b8%aa%e5%8d%87%e5%ba%8f%e9%93%be%e8%a1%a8httpsleetcodecnproblemsmerge-k-sorted-lists" aria-label="1. 合并K个升序链表">1. <a href="https://leetcode.cn/problems/merge-k-sorted-lists/">合并K个升序链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%af%bb%e6%89%be%e5%8d%95%e9%93%be%e8%a1%a8%e7%9a%84%e5%80%92%e6%95%b0%e7%ac%ac-k-%e4%b8%aa%e8%8a%82%e7%82%b9" aria-label="寻找单链表的倒数第 k 个节点">寻找单链表的倒数第 k 个节点</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-3" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-3" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%88%a0%e9%99%a4%e9%93%be%e8%a1%a8%e7%9a%84%e5%80%92%e6%95%b0%e7%ac%ac-n-%e4%b8%aa%e7%bb%93%e7%82%b9httpsleetcodecnproblemsremove-nth-node-from-end-of-list" aria-label="1. 删除链表的倒数第 N 个结点">1. <a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">删除链表的倒数第 N 个结点</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8d%95%e9%93%be%e8%a1%a8%e7%9a%84%e4%b8%ad%e7%82%b9" aria-label="单链表的中点">单链表的中点</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-4" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-4" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e9%93%be%e8%a1%a8%e7%9a%84%e4%b8%ad%e9%97%b4%e7%bb%93%e7%82%b9httpsleetcodecnproblemsmiddle-of-the-linked-list" aria-label="1. 链表的中间结点">1. <a href="https://leetcode.cn/problems/middle-of-the-linked-list/">链表的中间结点</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%a4%e6%96%ad%e9%93%be%e8%a1%a8%e6%98%af%e5%90%a6%e5%8c%85%e5%90%ab%e7%8e%af" aria-label="判断链表是否包含环">判断链表是否包含环</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-5" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-5" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e7%8e%af%e5%bd%a2%e9%93%be%e8%a1%a8httpsleetcodecnproblemslinked-list-cycle" aria-label="1. 环形链表">1. <a href="https://leetcode.cn/problems/linked-list-cycle/">环形链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ad%98%e5%9c%a8%e7%8e%af%e7%9a%84%e9%93%be%e8%a1%a8%e4%b8%ad%e5%af%bb%e6%89%be%e7%8e%af%e8%b5%b7%e7%82%b9" aria-label="存在环的链表中寻找环起点">存在环的链表中寻找环起点</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-6" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-6" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e7%8e%af%e5%bd%a2%e9%93%be%e8%a1%a8-iihttpsleetcodecnproblemslinked-list-cycle-ii" aria-label="1. 环形链表 II">1. <a href="https://leetcode.cn/problems/linked-list-cycle-ii/">环形链表 II</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%a4%e6%96%ad%e4%b8%a4%e4%b8%aa%e9%93%be%e8%a1%a8%e6%98%af%e5%90%a6%e7%9b%b8%e4%ba%a4" aria-label="判断两个链表是否相交">判断两个链表是否相交</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-7" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-7" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e7%9b%b8%e4%ba%a4%e9%93%be%e8%a1%a8httpsleetcodecnproblemsintersection-of-two-linked-lists" aria-label="1. 相交链表">1. <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">相交链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%8d%e8%bd%ac%e5%8d%95%e9%93%be%e8%a1%a8" aria-label="反转单链表">反转单链表</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-8" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e6%80%9d%e6%83%b3" aria-label="思想">思想</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-8" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8httpsleetcodecnproblemsreverse-linked-list" aria-label="1. 反转链表">1. <a href="https://leetcode.cn/problems/reverse-linked-list/">反转链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8%e5%89%8dn%e4%b8%aa%e8%8a%82%e7%82%b9" aria-label="反转链表前n个节点">反转链表前n个节点</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-9" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-9" aria-label="题目">题目</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8%e8%8a%82%e7%82%b9m-n" aria-label="反转链表节点(m, n)">反转链表节点(m, n)</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-10" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-10" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8-iihttpsleetcodecnproblemsreverse-linked-list-ii" aria-label="1. 反转链表 II">1. <a href="https://leetcode.cn/problems/reverse-linked-list-ii/">反转链表 II</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#k-%e4%b8%aa%e4%b8%80%e7%bb%84%e7%bf%bb%e8%bd%ac%e9%93%be%e8%a1%a8" aria-label="K 个一组翻转链表">K 个一组翻转链表</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-11" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-11" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-k-%e4%b8%aa%e4%b8%80%e7%bb%84%e7%bf%bb%e8%bd%ac%e9%93%be%e8%a1%a8httpsleetcodecnproblemsreverse-nodes-in-k-group" aria-label="1. K 个一组翻转链表">1. <a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/">K 个一组翻转链表</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%93%be%e8%a1%a8%e7%9a%84%e5%89%8d%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86" aria-label="链表的前后序遍历">链表的前后序遍历</a></li>
+                <li>
+                    <a href="#%e5%9b%9e%e6%96%87%e4%b8%b2" aria-label="回文串">回文串</a><ul>
+                        
+                <li>
+                    <a href="#%e5%af%bb%e6%89%be%e5%9b%9e%e6%96%87%e4%b8%b2" aria-label="寻找回文串">寻找回文串</a></li>
+                <li>
+                    <a href="#%e5%88%a4%e6%96%ad%e5%9b%9e%e6%96%87%e4%b8%b2" aria-label="判断回文串">判断回文串</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%a4%e6%96%ad%e5%9b%9e%e6%96%87%e9%93%be%e8%a1%a8" aria-label="判断回文链表">判断回文链表</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-12" aria-label="解法">解法</a><ul>
+                        
+                <li>
+                    <a href="#%e9%93%be%e8%a1%a8%e5%85%a8%e9%83%a8%e5%8f%8d%e8%bd%ac" aria-label="链表全部反转">链表全部反转</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b0%86%e5%8e%9f%e9%93%be%e8%a1%a8%e5%8f%8d%e8%bd%ac%e7%84%b6%e5%90%8e%e4%b8%8e%e5%8e%9f%e9%93%be%e8%a1%a8%e6%af%94%e8%be%83" aria-label="将原链表反转，然后与原链表比较">将原链表反转，然后与原链表比较</a></li>
+                <li>
+                    <a href="#%e9%93%be%e8%a1%a8%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86" aria-label="链表后序遍历">链表后序遍历</a></li>
+                <li>
+                    <a href="#%e5%88%a9%e7%94%a8%e6%a0%88" aria-label="利用栈">利用栈</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%93%be%e8%a1%a8%e9%83%a8%e5%88%86%e5%8f%8d%e8%bd%ac" aria-label="链表部分反转">链表部分反转</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bf%ab%e6%85%a2%e6%8c%87%e9%92%88%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8" aria-label="快慢指针&#43;反转链表">快慢指针+反转链表</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-12" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%9b%9e%e6%96%87%e9%93%be%e8%a1%a8httpsleetcodecnproblemspalindrome-linked-list" aria-label="1. 回文链表">1. <a href="https://leetcode.cn/problems/palindrome-linked-list/">回文链表</a></a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e7%bb%84" aria-label="数组">数组</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bf%ab%e6%85%a2%e6%8c%87%e9%92%88%e5%9c%a8%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" aria-label="快慢指针在数组中的应用">快慢指针在数组中的应用</a><ul>
+                        
+                <li>
+                    <a href="#%e6%95%b0%e7%bb%84%e5%85%83%e7%b4%a0%e5%8e%bb%e9%87%8d" aria-label="数组元素去重">数组元素去重</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-13" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-13" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%88%a0%e9%99%a4%e6%9c%89%e5%ba%8f%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e9%87%8d%e5%a4%8d%e9%a1%b9httpsleetcodecnproblemsremove-duplicates-from-sorted-array" aria-label="1. 删除有序数组中的重复项">1. <a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array/">删除有序数组中的重复项</a></a></li>
+                <li>
+                    <a href="#2-%e5%88%a0%e9%99%a4%e6%8e%92%e5%ba%8f%e9%93%be%e8%a1%a8%e4%b8%ad%e7%9a%84%e9%87%8d%e5%a4%8d%e5%85%83%e7%b4%a0httpsleetcodecnproblemsremove-duplicates-from-sorted-list" aria-label="2. 删除排序链表中的重复元素">2. <a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-list/">删除排序链表中的重复元素</a></a></li>
+                <li>
+                    <a href="#3-%e7%a7%bb%e9%99%a4%e5%85%83%e7%b4%a0httpsleetcodecnproblemsremove-element" aria-label="3. 移除元素">3. <a href="https://leetcode.cn/problems/remove-element/">移除元素</a></a></li>
+                <li>
+                    <a href="#4-%e7%a7%bb%e5%8a%a8%e9%9b%b6httpsleetcodecnproblemsmove-zeroes" aria-label="4. 移动零">4. <a href="https://leetcode.cn/problems/move-zeroes/">移动零</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3" aria-label="滑动窗口">滑动窗口</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-14" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-14" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%9c%80%e5%b0%8f%e8%a6%86%e7%9b%96%e5%ad%90%e4%b8%b2httpsleetcodecnproblemsminimum-window-substring" aria-label="1. 最小覆盖子串">1. <a href="https://leetcode.cn/problems/minimum-window-substring/">最小覆盖子串</a></a></li>
+                <li>
+                    <a href="#2-%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%9a%84%e6%8e%92%e5%88%97httpsleetcodecnproblemspermutation-in-string" aria-label="2. 字符串的排列">2. <a href="https://leetcode.cn/problems/permutation-in-string/">字符串的排列</a></a></li>
+                <li>
+                    <a href="#3-%e6%89%be%e5%88%b0%e5%ad%97%e7%ac%a6%e4%b8%b2%e4%b8%ad%e6%89%80%e6%9c%89%e5%ad%97%e6%af%8d%e5%bc%82%e4%bd%8d%e8%af%8dhttpsleetcodecnproblemsfind-all-anagrams-in-a-string" aria-label="3. 找到字符串中所有字母异位词">3. <a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/">找到字符串中所有字母异位词</a></a></li>
+                <li>
+                    <a href="#4-%e6%97%a0%e9%87%8d%e5%a4%8d%e5%ad%97%e7%ac%a6%e7%9a%84%e6%9c%80%e9%95%bf%e5%ad%90%e4%b8%b2httpsleetcodecnproblemslongest-substring-without-repeating-characters" aria-label="4. 无重复字符的最长子串">4. <a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a></a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b7%a6%e5%8f%b3%e6%8c%87%e9%92%88%e5%9c%a8%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" aria-label="左右指针在数组中的应用">左右指针在数组中的应用</a><ul>
+                        
+                <li>
+                    <a href="#%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be" aria-label="二分查找">二分查找</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-15" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-15" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%9c%a8%e6%8e%92%e5%ba%8f%e6%95%b0%e7%bb%84%e4%b8%ad%e6%9f%a5%e6%89%be%e5%85%83%e7%b4%a0%e7%9a%84%e7%ac%ac%e4%b8%80%e4%b8%aa%e5%92%8c%e6%9c%80%e5%90%8e%e4%b8%80%e4%b8%aa%e4%bd%8d%e7%bd%aehttpsleetcodecnproblemsfind-first-and-last-position-of-element-in-sorted-array" aria-label="1. 在排序数组中查找元素的第一个和最后一个位置">1. <a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">在排序数组中查找元素的第一个和最后一个位置</a></a></li>
+                <li>
+                    <a href="#2-%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%behttpsleetcodecnproblemsbinary-search" aria-label="2. 二分查找">2. <a href="https://leetcode.cn/problems/binary-search/">二分查找</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%a4%e6%95%b0%e4%b9%8b%e5%92%8c" aria-label="两数之和">两数之和</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-16" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-16" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%b8%a4%e6%95%b0%e4%b9%8b%e5%92%8c-ii---%e8%be%93%e5%85%a5%e6%9c%89%e5%ba%8f%e6%95%b0%e7%bb%84httpsleetcodecnproblemstwo-sum-ii-input-array-is-sorted" aria-label="1. 两数之和 II - 输入有序数组">1. <a href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/">两数之和 II - 输入有序数组</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%8d%e8%bd%ac%e6%95%b0%e7%bb%84" aria-label="反转数组">反转数组</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-17" aria-label="解法">解法</a><ul>
+                        
+                <li>
+                    <a href="#%e6%89%a9%e5%b1%95" aria-label="扩展">扩展</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%8d%e8%bd%ac%e5%ad%97%e7%ac%a6%e6%95%b0%e7%bb%84%e9%87%8c%e7%9a%84%e5%8d%95%e8%af%8d" aria-label="反转字符数组里的单词">反转字符数组里的单词</a></li>
+                <li>
+                    <a href="#%e6%97%8b%e8%bd%ac%e7%9f%a9%e9%98%b5" aria-label="旋转矩阵">旋转矩阵</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-17" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%8f%8d%e8%bd%ac%e5%ad%97%e7%ac%a6%e4%b8%b2httpsleetcodecnproblemsreverse-string" aria-label="1. 反转字符串">1. <a href="https://leetcode.cn/problems/reverse-string/">反转字符串</a></a></li>
+                <li>
+                    <a href="#2-%e5%8f%8d%e8%bd%ac%e5%ad%97%e7%ac%a6%e4%b8%b2%e4%b8%ad%e7%9a%84%e5%8d%95%e8%af%8dhttpsleetcodecnproblemsreverse-words-in-a-string" aria-label="2. 反转字符串中的单词">2. <a href="https://leetcode.cn/problems/reverse-words-in-a-string/">反转字符串中的单词</a></a></li>
+                <li>
+                    <a href="#3-%e6%97%8b%e8%bd%ac%e5%9b%be%e5%83%8fhttpsleetcodecnproblemsrotate-image" aria-label="3. 旋转图像">3. <a href="https://leetcode.cn/problems/rotate-image/">旋转图像</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9b%9e%e6%96%87%e4%b8%b2%e5%88%a4%e6%96%ad" aria-label="回文串判断">回文串判断</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-18" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-18" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%9c%80%e9%95%bf%e5%9b%9e%e6%96%87%e5%ad%90%e4%b8%b2httpsleetcodecnproblemslongest-palindromic-substring" aria-label="1. 最长回文子串">1. <a href="https://leetcode.cn/problems/longest-palindromic-substring/">最长回文子串</a></a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%89%8d%e7%bc%80%e5%92%8c%e5%9c%a8%e6%95%b0%e7%bb%84%e9%87%8c%e7%9a%84%e5%ba%94%e7%94%a8" aria-label="前缀和在数组里的应用">前缀和在数组里的应用</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80%e7%bb%b4%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e5%89%8d%e7%bc%80%e5%92%8c" aria-label="一维数组中的前缀和">一维数组中的前缀和</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-19" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-19" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%8c%ba%e5%9f%9f%e5%92%8c%e6%a3%80%e7%b4%a2---%e6%95%b0%e7%bb%84%e4%b8%8d%e5%8f%af%e5%8f%98httpsleetcodecnproblemsrange-sum-query-immutable" aria-label="1. 区域和检索 - 数组不可变">1. <a href="https://leetcode.cn/problems/range-sum-query-immutable/">区域和检索 - 数组不可变</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e5%89%8d%e7%bc%80%e5%92%8c" aria-label="二维数组中的前缀和">二维数组中的前缀和</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-20" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-20" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%ba%8c%e7%bb%b4%e5%8c%ba%e5%9f%9f%e5%92%8c%e6%a3%80%e7%b4%a2---%e7%9f%a9%e9%98%b5%e4%b8%8d%e5%8f%af%e5%8f%98httpsleetcodecnproblemsrange-sum-query-2d-immutable" aria-label="1. 二维区域和检索 - 矩阵不可变">1. <a href="https://leetcode.cn/problems/range-sum-query-2d-immutable/">二维区域和检索 - 矩阵不可变</a></a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b7%ae%e5%88%86%e6%95%b0%e7%bb%84" aria-label="差分数组">差分数组</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-21" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-21" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e8%88%aa%e7%8f%ad%e9%a2%84%e8%ae%a2%e7%bb%9f%e8%ae%a1httpsleetcodecnproblemscorporate-flight-bookings" aria-label="1. 航班预订统计">1. <a href="https://leetcode.cn/problems/corporate-flight-bookings/">航班预订统计</a></a></li>
+                <li>
+                    <a href="#2-%e6%8b%bc%e8%bd%a6httpsleetcodecnproblemscar-pooling" aria-label="2. 拼车">2. <a href="https://leetcode.cn/problems/car-pooling/">拼车</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e8%9e%ba%e6%97%8b%e9%81%8d%e5%8e%86" aria-label="矩阵的螺旋遍历">矩阵的螺旋遍历</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-22" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-22" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e8%9e%ba%e6%97%8b%e7%9f%a9%e9%98%b5httpsleetcodecnproblemsspiral-matrix" aria-label="1. 螺旋矩阵">1. <a href="https://leetcode.cn/problems/spiral-matrix/">螺旋矩阵</a></a></li>
+                <li>
+                    <a href="#2-%e8%9e%ba%e6%97%8b%e7%9f%a9%e9%98%b5-iihttpsleetcodecnproblemsspiral-matrix-ii" aria-label="2. 螺旋矩阵 II">2. <a href="https://leetcode.cn/problems/spiral-matrix-ii/">螺旋矩阵 II</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b8%a6%e6%9d%83%e9%87%8d%e7%9a%84%e9%9a%8f%e6%9c%ba%e9%80%89%e6%8b%a9%e7%ae%97%e6%b3%95" aria-label="带权重的随机选择算法">带权重的随机选择算法</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-23" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-23" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%8c%89%e6%9d%83%e9%87%8d%e9%9a%8f%e6%9c%ba%e9%80%89%e6%8b%a9httpsleetcodecnproblemsrandom-pick-with-weight" aria-label="1. 按权重随机选择">1. <a href="https://leetcode.cn/problems/random-pick-with-weight/">按权重随机选择</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b8%b8%e6%95%b0%e6%97%b6%e9%97%b4%e5%88%a0%e9%99%a4%e6%9f%a5%e6%89%be%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e4%bb%bb%e6%84%8f%e5%85%83%e7%b4%a0" aria-label="常数时间删除/查找数组中的任意元素">常数时间删除/查找数组中的任意元素</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-24" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-24" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-o1-%e6%97%b6%e9%97%b4%e6%8f%92%e5%85%a5%e5%88%a0%e9%99%a4%e5%92%8c%e8%8e%b7%e5%8f%96%e9%9a%8f%e6%9c%ba%e5%85%83%e7%b4%a0httpsleetcodecnproblemsinsert-delete-getrandom-o1" aria-label="1. O(1) 时间插入、删除和获取随机元素">1. <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">O(1) 时间插入、删除和获取随机元素</a></a></li>
+                <li>
+                    <a href="#2-%e9%bb%91%e5%90%8d%e5%8d%95%e4%b8%ad%e7%9a%84%e9%9a%8f%e6%9c%ba%e6%95%b0httpsleetcodecnproblemsrandom-pick-with-blacklist" aria-label="2. 黑名单中的随机数">2. <a href="https://leetcode.cn/problems/random-pick-with-blacklist/">黑名单中的随机数</a></a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%8c%e5%8f%89%e6%a0%91" aria-label="二叉树">二叉树</a><ul>
+                        
+                <li>
+                    <a href="#%e9%81%8d%e5%8e%86%e9%97%ae%e9%a2%98" aria-label="遍历问题">遍历问题</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-25" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-25" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e6%9c%80%e5%a4%a7%e6%b7%b1%e5%ba%a6httpsleetcodecnproblemsmaximum-depth-of-binary-tree" aria-label="1. 二叉树的最大深度">1. <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></a></li>
+                <li>
+                    <a href="#2-%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e5%89%8d%e5%ba%8f%e9%81%8d%e5%8e%86httpsleetcodecnproblemsbinary-tree-preorder-traversal" aria-label="2. 二叉树的前序遍历">2. <a href="https://leetcode.cn/problems/binary-tree-preorder-traversal/">二叉树的前序遍历</a></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ad%90%e9%97%ae%e9%a2%98" aria-label="子问题">子问题</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-26" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-26" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e6%9c%80%e5%a4%a7%e6%b7%b1%e5%ba%a6httpsleetcodecnproblemsmaximum-depth-of-binary-tree-1" aria-label="1. 二叉树的最大深度">1. <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></a></li>
+                <li>
+                    <a href="#2-%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e7%9b%b4%e5%be%84httpsleetcodecnproblemsdiameter-of-binary-tree" aria-label="2. 二叉树的直径">2. <a href="https://leetcode.cn/problems/diameter-of-binary-tree/">二叉树的直径</a></a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%80%9d%e6%83%b3-1" aria-label="思想">思想</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%8c%e6%8c%87%e9%92%88" aria-label="双指针">双指针</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b7%a6%e5%8f%b3%e6%8c%87%e9%92%88" aria-label="左右指针">左右指针</a><ul>
+                        
+                <li>
+                    <a href="#%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be-1" aria-label="二分查找">二分查找</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bb%8f%e5%85%b8%e6%80%9d%e8%b7%af" aria-label="经典思路">经典思路</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e9%98%b6%e6%80%9d%e8%b7%af" aria-label="进阶思路">进阶思路</a><ul>
+                        
+                <li>
+                    <a href="#%e6%ad%a5%e9%aa%a4" aria-label="步骤">步骤</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" aria-label="注意点">注意点</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96" aria-label="其他">其他</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%bf%ab%e6%85%a2%e6%8c%87%e9%92%88" aria-label="快慢指针">快慢指针</a><ul>
+                        
+                <li>
+                    <a href="#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3-1" aria-label="滑动窗口">滑动窗口</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a8%a1%e6%9d%bf" aria-label="模板">模板</a></li>
+                <li>
+                    <a href="#%e6%ad%a5%e9%aa%a4-1" aria-label="步骤">步骤</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9-1" aria-label="注意点">注意点</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e9%98%b6" aria-label="进阶">进阶</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96-1" aria-label="其他">其他</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%80%92%e5%bd%92" aria-label="递归">递归</a></li>
+                <li>
+                    <a href="#%e5%89%8d%e7%bc%80%e5%92%8c%e4%b8%8e%e5%b7%ae%e5%88%86" aria-label="前缀和与差分">前缀和与差分</a><ul>
+                        
+                <li>
+                    <a href="#%e5%89%8d%e7%bc%80%e5%92%8c" aria-label="前缀和">前缀和</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e5%87%86%e6%a8%a1%e6%9d%bf" aria-label="标准模板">标准模板</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b7%ae%e5%88%86%e6%95%b0%e7%bb%84-1" aria-label="差分数组">差分数组</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e5%87%86%e6%a8%a1%e6%9d%bf-1" aria-label="标准模板">标准模板</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%8c%e5%8f%89%e6%a0%91-1" aria-label="二叉树">二叉树</a><ul>
+                        
+                <li>
+                    <a href="#%e5%89%8d%e4%b8%ad%e5%90%8e%e5%ba%8f%e7%90%86%e8%a7%a3" aria-label="前中后序理解">前中后序理解</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e6%9d%bf-1" aria-label="模板">模板</a></li>
+                <li>
+                    <a href="#%e5%81%9a%e9%a2%98%e6%80%9d%e8%b7%af" aria-label="做题思路">做题思路</a></li>
+                <li>
+                    <a href="#%e5%90%8e%e5%ba%8f%e4%bd%8d%e7%bd%ae%e7%9a%84%e7%89%b9%e6%ae%8a%e4%b9%8b%e5%a4%84" aria-label="后序位置的特殊之处">后序位置的特殊之处</a></li>
+                <li>
+                    <a href="#%e5%b1%82%e5%ba%8f%e9%81%8d%e5%8e%86" aria-label="层序遍历">层序遍历</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96-2" aria-label="其他">其他</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9b%b6%e7%a2%8e" aria-label="零碎">零碎</a></li>
+                <li>
+                    <a href="#%e5%be%85%e5%81%9a" aria-label="待做">待做</a></li>
+                <li>
+                    <a href="#%e6%8a%80%e5%b7%a7" aria-label="技巧">技巧</a></li>
+                <li>
+                    <a href="#%e5%ad%a6%e4%b9%a0%e6%96%b9%e6%b3%95" aria-label="学习方法">学习方法</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        
+        <div class="post-content"><h1 id="链表">链表<a hidden class="anchor" aria-hidden="true" href="#链表">#</a></h1>
+<h2 id="合并两个有序链表">合并两个有序链表<a hidden class="anchor" aria-hidden="true" href="#合并两个有序链表">#</a></h2>
+<h3 id="解法">解法<a hidden class="anchor" aria-hidden="true" href="#解法">#</a></h3>
+<p>略</p>
+<h3 id="题目">题目<a hidden class="anchor" aria-hidden="true" href="#题目">#</a></h3>
+<h4 id="1-合并两个有序链表httpsleetcodecnproblemsmerge-two-sorted-lists">1. <a href="https://leetcode.cn/problems/merge-two-sorted-lists/">合并两个有序链表</a><a hidden class="anchor" aria-hidden="true" href="#1-合并两个有序链表httpsleetcodecnproblemsmerge-two-sorted-lists">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/</a></p>
+<h2 id="单链表的分解">单链表的分解<a hidden class="anchor" aria-hidden="true" href="#单链表的分解">#</a></h2>
+<h3 id="解法-1">解法<a hidden class="anchor" aria-hidden="true" href="#解法-1">#</a></h3>
+<p>从头到尾遍历一遍链表，将小于x的放到一个链表里，将大于等于x的放到一个链表里，最后再拼接这两个链表即可，注意dummy节点的使用。</p>
+<h3 id="题目-1">题目<a hidden class="anchor" aria-hidden="true" href="#题目-1">#</a></h3>
+<h4 id="1-分隔链表httpsleetcodecnproblemspartition-list">1. <a href="https://leetcode.cn/problems/partition-list/">分隔链表</a><a hidden class="anchor" aria-hidden="true" href="#1-分隔链表httpsleetcodecnproblemspartition-list">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/</a></p>
+<h2 id="合并-k-个有序链表">合并 k 个有序链表<a hidden class="anchor" aria-hidden="true" href="#合并-k-个有序链表">#</a></h2>
+<h3 id="解法-2">解法<a hidden class="anchor" aria-hidden="true" href="#解法-2">#</a></h3>
+<p>每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。</p>
+<h3 id="题目-2">题目<a hidden class="anchor" aria-hidden="true" href="#题目-2">#</a></h3>
+<h4 id="1-合并k个升序链表httpsleetcodecnproblemsmerge-k-sorted-lists">1. <a href="https://leetcode.cn/problems/merge-k-sorted-lists/">合并K个升序链表</a><a hidden class="anchor" aria-hidden="true" href="#1-合并k个升序链表httpsleetcodecnproblemsmerge-k-sorted-lists">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/</a></p>
+<h2 id="寻找单链表的倒数第-k-个节点">寻找单链表的倒数第 k 个节点<a hidden class="anchor" aria-hidden="true" href="#寻找单链表的倒数第-k-个节点">#</a></h2>
+<h3 id="解法-3">解法<a hidden class="anchor" aria-hidden="true" href="#解法-3">#</a></h3>
+<p>关键是找到倒数第n+1个节点，找到倒数第n个节点的做法：先让快指针走n步，然后快慢指针一起动，当快指针到头了的时候，慢指针指向的就是需要找的节点。</p>
+<p>注意使用dummy节点可以避免特殊性，比如就5个节点，删除倒数第5个，那需要找倒数第6个节点，可是总共就5个节点，会有空指针。</p>
+<h3 id="题目-3">题目<a hidden class="anchor" aria-hidden="true" href="#题目-3">#</a></h3>
+<h4 id="1-删除链表的倒数第-n-个结点httpsleetcodecnproblemsremove-nth-node-from-end-of-list">1. <a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">删除链表的倒数第 N 个结点</a><a hidden class="anchor" aria-hidden="true" href="#1-删除链表的倒数第-n-个结点httpsleetcodecnproblemsremove-nth-node-from-end-of-list">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/</a></p>
+<h2 id="单链表的中点">单链表的中点<a hidden class="anchor" aria-hidden="true" href="#单链表的中点">#</a></h2>
+<h3 id="解法-4">解法<a hidden class="anchor" aria-hidden="true" href="#解法-4">#</a></h3>
+<p>利用快慢指针的思想，每当慢指针 <code>slow</code> 前进一步，快指针 <code>fast</code> 就前进两步，这样，当 <code>fast</code> 走到链表末尾时，<code>slow</code> 就指向了链表中点。</p>
+<p>需要注意的是，如果链表长度为偶数，也就是说中点有两个的时候，我们这个解法返回的节点是靠后的那个节点。</p>
+<h3 id="题目-4">题目<a hidden class="anchor" aria-hidden="true" href="#题目-4">#</a></h3>
+<h4 id="1-链表的中间结点httpsleetcodecnproblemsmiddle-of-the-linked-list">1. <a href="https://leetcode.cn/problems/middle-of-the-linked-list/">链表的中间结点</a><a hidden class="anchor" aria-hidden="true" href="#1-链表的中间结点httpsleetcodecnproblemsmiddle-of-the-linked-list">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/</a></p>
+<h2 id="判断链表是否包含环">判断链表是否包含环<a hidden class="anchor" aria-hidden="true" href="#判断链表是否包含环">#</a></h2>
+<h3 id="解法-5">解法<a hidden class="anchor" aria-hidden="true" href="#解法-5">#</a></h3>
+<p>利用快慢指针的思想，如果快指针为空，说明没有环，如果快慢指针相遇说明有环</p>
+<h3 id="题目-5">题目<a hidden class="anchor" aria-hidden="true" href="#题目-5">#</a></h3>
+<h4 id="1-环形链表httpsleetcodecnproblemslinked-list-cycle">1. <a href="https://leetcode.cn/problems/linked-list-cycle/">环形链表</a><a hidden class="anchor" aria-hidden="true" href="#1-环形链表httpsleetcodecnproblemslinked-list-cycle">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/</a></p>
+<h2 id="存在环的链表中寻找环起点">存在环的链表中寻找环起点<a hidden class="anchor" aria-hidden="true" href="#存在环的链表中寻找环起点">#</a></h2>
+<h3 id="解法-6">解法<a hidden class="anchor" aria-hidden="true" href="#解法-6">#</a></h3>
+<p>利用快慢指针的思想并且稍做分析，即可得出结论：当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次相遇时所在的节点位置就是环开始的位置。</p>
+<h3 id="题目-6">题目<a hidden class="anchor" aria-hidden="true" href="#题目-6">#</a></h3>
+<h4 id="1-环形链表-iihttpsleetcodecnproblemslinked-list-cycle-ii">1. <a href="https://leetcode.cn/problems/linked-list-cycle-ii/">环形链表 II</a><a hidden class="anchor" aria-hidden="true" href="#1-环形链表-iihttpsleetcodecnproblemslinked-list-cycle-ii">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/</a></p>
+<h2 id="判断两个链表是否相交">判断两个链表是否相交<a hidden class="anchor" aria-hidden="true" href="#判断两个链表是否相交">#</a></h2>
+<h3 id="解法-7">解法<a hidden class="anchor" aria-hidden="true" href="#解法-7">#</a></h3>
+<p>找到相交点的关键是将相交点之前的节点数凑成相等的，这样的话同时遍历，如果相等的话就是相交了。怎么凑呢？将两个链表连接一下，节点数不就想等了吗。</p>
+<p>代码实现方面，可以考虑四种情况：</p>
+<ol>
+<li>长度相等，有相交</li>
+<li>长度相等，无相交</li>
+<li>长度不等，有相交</li>
+<li>长度不等，无相交</li>
+</ol>
+<p>符合这四种情况的链表连接方法如下：</p>
+<p>l1 -&gt; null -&gt; l2 -&gt; null</p>
+<p>l2 -&gt; null -&gt; l1 -&gt; null</p>
+<p>另一种做法：将某一条链表首尾相连，该问题就转换为寻找有环链表的环起点问题。</p>
+<h3 id="题目-7">题目<a hidden class="anchor" aria-hidden="true" href="#题目-7">#</a></h3>
+<h4 id="1-相交链表httpsleetcodecnproblemsintersection-of-two-linked-lists">1. <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">相交链表</a><a hidden class="anchor" aria-hidden="true" href="#1-相交链表httpsleetcodecnproblemsintersection-of-two-linked-lists">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/</a></p>
+<h2 id="反转单链表">反转单链表<a hidden class="anchor" aria-hidden="true" href="#反转单链表">#</a></h2>
+<h3 id="解法-8">解法<a hidden class="anchor" aria-hidden="true" href="#解法-8">#</a></h3>
+<p>利用递归的思想，先反转head后面的，然后把head也反转即可。</p>
+<h3 id="思想">思想<a hidden class="anchor" aria-hidden="true" href="#思想">#</a></h3>
+<p>反转的过程就是改变指针方向的过程并且最后一个指向null，比如反转第2个&mdash;第5个：</p>
+<p>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; null</p>
+<p>反转后为：</p>
+<p>1 -&gt; 2 &lt;- 3 &lt;- 4 &lt;- 5</p>
+<p>​	 null</p>
+<h3 id="题目-8">题目<a hidden class="anchor" aria-hidden="true" href="#题目-8">#</a></h3>
+<h4 id="1-反转链表httpsleetcodecnproblemsreverse-linked-list">1. <a href="https://leetcode.cn/problems/reverse-linked-list/">反转链表</a><a hidden class="anchor" aria-hidden="true" href="#1-反转链表httpsleetcodecnproblemsreverse-linked-list">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/</a></p>
+<h2 id="反转链表前n个节点">反转链表前n个节点<a hidden class="anchor" aria-hidden="true" href="#反转链表前n个节点">#</a></h2>
+<h3 id="解法-9">解法<a hidden class="anchor" aria-hidden="true" href="#解法-9">#</a></h3>
+<p>解决思路和反转整个链表差不多，只要稍加修改即可：</p>
+<p>1、base case 变为 <code>n == 1</code>，反转一个元素，就是它本身，同时<strong>要记录后驱节点</strong>。</p>
+<p>2、刚才我们直接把 <code>head.next</code> 设置为 null，因为整个链表反转后原来的 <code>head</code> 变成了整个链表的最后一个节点。但现在 <code>head</code> 节点在递归反转之后不一定是最后一个节点了，所以要记录后驱 <code>successor</code>（第 <code>n + 1</code> 个节点），反转之后将 <code>head</code> 连接上。</p>
+<h3 id="题目-9">题目<a hidden class="anchor" aria-hidden="true" href="#题目-9">#</a></h3>
+<p>无</p>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/">https://blog.zhangmengyang.tk/posts/leetcode/反转链表前n个节点/</a></p>
+<h2 id="反转链表节点m-n">反转链表节点(m, n)<a hidden class="anchor" aria-hidden="true" href="#反转链表节点m-n">#</a></h2>
+<h3 id="解法-10">解法<a hidden class="anchor" aria-hidden="true" href="#解法-10">#</a></h3>
+<p>与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和right分别减一的特性，把head移到left的位置，然后反转前n个节点即可。</p>
+<h3 id="题目-10">题目<a hidden class="anchor" aria-hidden="true" href="#题目-10">#</a></h3>
+<h4 id="1-反转链表-iihttpsleetcodecnproblemsreverse-linked-list-ii">1. <a href="https://leetcode.cn/problems/reverse-linked-list-ii/">反转链表 II</a><a hidden class="anchor" aria-hidden="true" href="#1-反转链表-iihttpsleetcodecnproblemsreverse-linked-list-ii">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/</a></p>
+<h2 id="k-个一组翻转链表">K 个一组翻转链表<a hidden class="anchor" aria-hidden="true" href="#k-个一组翻转链表">#</a></h2>
+<h3 id="解法-11">解法<a hidden class="anchor" aria-hidden="true" href="#解法-11">#</a></h3>
+<p><strong>1、先反转以 <code>head</code> 开头的 <code>k</code> 个元素</strong>。</p>
+<p><strong>2、将第 <code>k + 1</code> 个元素作为 <code>head</code> 递归调用 <code>reverseKGroup</code> 函数</strong>。</p>
+<p><strong>3、将上述两个过程的结果连接起来</strong>。</p>
+<p>注意base case为最后元素不足 k 个时的情况</p>
+<h3 id="题目-11">题目<a hidden class="anchor" aria-hidden="true" href="#题目-11">#</a></h3>
+<h4 id="1-k-个一组翻转链表httpsleetcodecnproblemsreverse-nodes-in-k-group">1. <a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/">K 个一组翻转链表</a><a hidden class="anchor" aria-hidden="true" href="#1-k-个一组翻转链表httpsleetcodecnproblemsreverse-nodes-in-k-group">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/</a></p>
+<h2 id="链表的前后序遍历">链表的前后序遍历<a hidden class="anchor" aria-hidden="true" href="#链表的前后序遍历">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">traverse</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 前序遍历代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">traverse</span><span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 后序遍历代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></div><h2 id="回文串">回文串<a hidden class="anchor" aria-hidden="true" href="#回文串">#</a></h2>
+<h3 id="寻找回文串">寻找回文串<a hidden class="anchor" aria-hidden="true" href="#寻找回文串">#</a></h3>
+<p>核心思想是从中心向两端扩展</p>
+<h3 id="判断回文串">判断回文串<a hidden class="anchor" aria-hidden="true" href="#判断回文串">#</a></h3>
+<p>核心思想是从两端向中间逼近</p>
+<h2 id="判断回文链表">判断回文链表<a hidden class="anchor" aria-hidden="true" href="#判断回文链表">#</a></h2>
+<h3 id="解法-12">解法<a hidden class="anchor" aria-hidden="true" href="#解法-12">#</a></h3>
+<p>可以将链表全部反转，也可以部分反转</p>
+<h4 id="链表全部反转">链表全部反转<a hidden class="anchor" aria-hidden="true" href="#链表全部反转">#</a></h4>
+<p>链表全部反转的方法共3种：</p>
+<h5 id="将原链表反转然后与原链表比较">将原链表反转，然后与原链表比较<a hidden class="anchor" aria-hidden="true" href="#将原链表反转然后与原链表比较">#</a></h5>
+<p>略</p>
+<h5 id="链表后序遍历">链表后序遍历<a hidden class="anchor" aria-hidden="true" href="#链表后序遍历">#</a></h5>
+<p>链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。</p>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-链表后序遍历/</a></p>
+<h5 id="利用栈">利用栈<a hidden class="anchor" aria-hidden="true" href="#利用栈">#</a></h5>
+<p>同链表后序遍历</p>
+<h4 id="链表部分反转">链表部分反转<a hidden class="anchor" aria-hidden="true" href="#链表部分反转">#</a></h4>
+<h5 id="快慢指针反转链表">快慢指针+反转链表<a hidden class="anchor" aria-hidden="true" href="#快慢指针反转链表">#</a></h5>
+<p>先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。</p>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88+%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-快慢指针+反转链表/</a></p>
+<h3 id="题目-12">题目<a hidden class="anchor" aria-hidden="true" href="#题目-12">#</a></h3>
+<h4 id="1-回文链表httpsleetcodecnproblemspalindrome-linked-list">1. <a href="https://leetcode.cn/problems/palindrome-linked-list/">回文链表</a><a hidden class="anchor" aria-hidden="true" href="#1-回文链表httpsleetcodecnproblemspalindrome-linked-list">#</a></h4>
+<h1 id="数组">数组<a hidden class="anchor" aria-hidden="true" href="#数组">#</a></h1>
+<h2 id="快慢指针在数组中的应用">快慢指针在数组中的应用<a hidden class="anchor" aria-hidden="true" href="#快慢指针在数组中的应用">#</a></h2>
+<h3 id="数组元素去重">数组元素去重<a hidden class="anchor" aria-hidden="true" href="#数组元素去重">#</a></h3>
+<h4 id="解法-13">解法<a hidden class="anchor" aria-hidden="true" href="#解法-13">#</a></h4>
+<p>慢指针指向当前已经去重的数据的最后一个，快指针去前面探路，碰到和slow不一样的数据就让这个数据放在slow后面，slow++。</p>
+<p>具体变种详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26+83+27+283/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26+83+27+283/</a></p>
+<h4 id="题目-13">题目<a hidden class="anchor" aria-hidden="true" href="#题目-13">#</a></h4>
+<h5 id="1-删除有序数组中的重复项httpsleetcodecnproblemsremove-duplicates-from-sorted-array">1. <a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array/">删除有序数组中的重复项</a><a hidden class="anchor" aria-hidden="true" href="#1-删除有序数组中的重复项httpsleetcodecnproblemsremove-duplicates-from-sorted-array">#</a></h5>
+<h5 id="2-删除排序链表中的重复元素httpsleetcodecnproblemsremove-duplicates-from-sorted-list">2. <a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-list/">删除排序链表中的重复元素</a><a hidden class="anchor" aria-hidden="true" href="#2-删除排序链表中的重复元素httpsleetcodecnproblemsremove-duplicates-from-sorted-list">#</a></h5>
+<h5 id="3-移除元素httpsleetcodecnproblemsremove-element">3. <a href="https://leetcode.cn/problems/remove-element/">移除元素</a><a hidden class="anchor" aria-hidden="true" href="#3-移除元素httpsleetcodecnproblemsremove-element">#</a></h5>
+<h5 id="4-移动零httpsleetcodecnproblemsmove-zeroes">4. <a href="https://leetcode.cn/problems/move-zeroes/">移动零</a><a hidden class="anchor" aria-hidden="true" href="#4-移动零httpsleetcodecnproblemsmove-zeroes">#</a></h5>
+<h3 id="滑动窗口">滑动窗口<a hidden class="anchor" aria-hidden="true" href="#滑动窗口">#</a></h3>
+<h4 id="解法-14">解法<a hidden class="anchor" aria-hidden="true" href="#解法-14">#</a></h4>
+<p><code>left</code> 指针在后，<code>right</code> 指针在前，两个指针中间的部分就是「窗口」，算法通过扩大和缩小「窗口」来解决某些问题。</p>
+<p>详见思想章节</p>
+<h4 id="题目-14">题目<a hidden class="anchor" aria-hidden="true" href="#题目-14">#</a></h4>
+<h5 id="1-最小覆盖子串httpsleetcodecnproblemsminimum-window-substring">1. <a href="https://leetcode.cn/problems/minimum-window-substring/">最小覆盖子串</a><a hidden class="anchor" aria-hidden="true" href="#1-最小覆盖子串httpsleetcodecnproblemsminimum-window-substring">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/</a></p>
+<h5 id="2-字符串的排列httpsleetcodecnproblemspermutation-in-string">2. <a href="https://leetcode.cn/problems/permutation-in-string/">字符串的排列</a><a hidden class="anchor" aria-hidden="true" href="#2-字符串的排列httpsleetcodecnproblemspermutation-in-string">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/</a></p>
+<h5 id="3-找到字符串中所有字母异位词httpsleetcodecnproblemsfind-all-anagrams-in-a-string">3. <a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/">找到字符串中所有字母异位词</a><a hidden class="anchor" aria-hidden="true" href="#3-找到字符串中所有字母异位词httpsleetcodecnproblemsfind-all-anagrams-in-a-string">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/</a></p>
+<h5 id="4-无重复字符的最长子串httpsleetcodecnproblemslongest-substring-without-repeating-characters">4. <a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a><a hidden class="anchor" aria-hidden="true" href="#4-无重复字符的最长子串httpsleetcodecnproblemslongest-substring-without-repeating-characters">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/</a></p>
+<h2 id="左右指针在数组中的应用">左右指针在数组中的应用<a hidden class="anchor" aria-hidden="true" href="#左右指针在数组中的应用">#</a></h2>
+<h3 id="二分查找">二分查找<a hidden class="anchor" aria-hidden="true" href="#二分查找">#</a></h3>
+<h4 id="解法-15">解法<a hidden class="anchor" aria-hidden="true" href="#解法-15">#</a></h4>
+<p>就是将搜索空间合理的分成两部分，摒弃不可能的那部分，缩减搜索空间，加快搜索速度，详见思想章节</p>
+<h4 id="题目-15">题目<a hidden class="anchor" aria-hidden="true" href="#题目-15">#</a></h4>
+<h5 id="1-在排序数组中查找元素的第一个和最后一个位置httpsleetcodecnproblemsfind-first-and-last-position-of-element-in-sorted-array">1. <a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">在排序数组中查找元素的第一个和最后一个位置</a><a hidden class="anchor" aria-hidden="true" href="#1-在排序数组中查找元素的第一个和最后一个位置httpsleetcodecnproblemsfind-first-and-last-position-of-element-in-sorted-array">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/</a></p>
+<h5 id="2-二分查找httpsleetcodecnproblemsbinary-search">2. <a href="https://leetcode.cn/problems/binary-search/">二分查找</a><a hidden class="anchor" aria-hidden="true" href="#2-二分查找httpsleetcodecnproblemsbinary-search">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/</a></p>
+<h3 id="两数之和">两数之和<a hidden class="anchor" aria-hidden="true" href="#两数之和">#</a></h3>
+<h4 id="解法-16">解法<a hidden class="anchor" aria-hidden="true" href="#解法-16">#</a></h4>
+<p>利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right&ndash;，否则left++，直到左右之和等于target。</p>
+<h4 id="题目-16">题目<a hidden class="anchor" aria-hidden="true" href="#题目-16">#</a></h4>
+<h5 id="1-两数之和-ii---输入有序数组httpsleetcodecnproblemstwo-sum-ii-input-array-is-sorted">1. <a href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/">两数之和 II - 输入有序数组</a><a hidden class="anchor" aria-hidden="true" href="#1-两数之和-ii---输入有序数组httpsleetcodecnproblemstwo-sum-ii-input-array-is-sorted">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/</a></p>
+<h3 id="反转数组">反转数组<a hidden class="anchor" aria-hidden="true" href="#反转数组">#</a></h3>
+<h4 id="解法-17">解法<a hidden class="anchor" aria-hidden="true" href="#解法-17">#</a></h4>
+<p>利用左右指针的思想，从两边向中间逼近，同时交换左右的值</p>
+<h5 id="扩展">扩展<a hidden class="anchor" aria-hidden="true" href="#扩展">#</a></h5>
+<h6 id="反转字符数组里的单词">反转字符数组里的单词<a hidden class="anchor" aria-hidden="true" href="#反转字符数组里的单词">#</a></h6>
+<p>先反转整个数组，然后再反转各个单词即可</p>
+<h6 id="旋转矩阵">旋转矩阵<a hidden class="anchor" aria-hidden="true" href="#旋转矩阵">#</a></h6>
+<p>先按对角线对折矩阵（注意对折矩阵时，只需要遍历矩阵的一半即可，如果整个矩阵都遍历，那矩阵不会有任何变化，相当于对折了两次），再反转矩阵的每一行即可</p>
+<h4 id="题目-17">题目<a hidden class="anchor" aria-hidden="true" href="#题目-17">#</a></h4>
+<h5 id="1-反转字符串httpsleetcodecnproblemsreverse-string">1. <a href="https://leetcode.cn/problems/reverse-string/">反转字符串</a><a hidden class="anchor" aria-hidden="true" href="#1-反转字符串httpsleetcodecnproblemsreverse-string">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/</a></p>
+<h5 id="2-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string">2. <a href="https://leetcode.cn/problems/reverse-words-in-a-string/">反转字符串中的单词</a><a hidden class="anchor" aria-hidden="true" href="#2-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/</a></p>
+<h5 id="3-旋转图像httpsleetcodecnproblemsrotate-image">3. <a href="https://leetcode.cn/problems/rotate-image/">旋转图像</a><a hidden class="anchor" aria-hidden="true" href="#3-旋转图像httpsleetcodecnproblemsrotate-image">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/</a></p>
+<h3 id="回文串判断">回文串判断<a hidden class="anchor" aria-hidden="true" href="#回文串判断">#</a></h3>
+<h4 id="解法-18">解法<a hidden class="anchor" aria-hidden="true" href="#解法-18">#</a></h4>
+<p>遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。</p>
+<h4 id="题目-18">题目<a hidden class="anchor" aria-hidden="true" href="#题目-18">#</a></h4>
+<h5 id="1-最长回文子串httpsleetcodecnproblemslongest-palindromic-substring">1. <a href="https://leetcode.cn/problems/longest-palindromic-substring/">最长回文子串</a><a hidden class="anchor" aria-hidden="true" href="#1-最长回文子串httpsleetcodecnproblemslongest-palindromic-substring">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/</a></p>
+<h2 id="前缀和在数组里的应用">前缀和在数组里的应用<a hidden class="anchor" aria-hidden="true" href="#前缀和在数组里的应用">#</a></h2>
+<h3 id="一维数组中的前缀和">一维数组中的前缀和<a hidden class="anchor" aria-hidden="true" href="#一维数组中的前缀和">#</a></h3>
+<h4 id="解法-19">解法<a hidden class="anchor" aria-hidden="true" href="#解法-19">#</a></h4>
+<p>利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的时nums前n个元素的和，整体往后挪一位</p>
+<h4 id="题目-19">题目<a hidden class="anchor" aria-hidden="true" href="#题目-19">#</a></h4>
+<h5 id="1-区域和检索---数组不可变httpsleetcodecnproblemsrange-sum-query-immutable">1. <a href="https://leetcode.cn/problems/range-sum-query-immutable/">区域和检索 - 数组不可变</a><a hidden class="anchor" aria-hidden="true" href="#1-区域和检索---数组不可变httpsleetcodecnproblemsrange-sum-query-immutable">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/</a></p>
+<h3 id="二维数组中的前缀和">二维数组中的前缀和<a hidden class="anchor" aria-hidden="true" href="#二维数组中的前缀和">#</a></h3>
+<h4 id="解法-20">解法<a hidden class="anchor" aria-hidden="true" href="#解法-20">#</a></h4>
+<p>利用前缀和的思想轻松秒杀，需要注意在preSum中，第[n + 1, n+1]个元素存的是matrix前n*n个元素的和，整体往右下挪一位</p>
+<p>还需要注意做减法时，会多减一块区域，需要加回来</p>
+<h4 id="题目-20">题目<a hidden class="anchor" aria-hidden="true" href="#题目-20">#</a></h4>
+<h5 id="1-二维区域和检索---矩阵不可变httpsleetcodecnproblemsrange-sum-query-2d-immutable">1. <a href="https://leetcode.cn/problems/range-sum-query-2d-immutable/">二维区域和检索 - 矩阵不可变</a><a hidden class="anchor" aria-hidden="true" href="#1-二维区域和检索---矩阵不可变httpsleetcodecnproblemsrange-sum-query-2d-immutable">#</a></h5>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/</a></p>
+<h2 id="差分数组">差分数组<a hidden class="anchor" aria-hidden="true" href="#差分数组">#</a></h2>
+<h3 id="解法-21">解法<a hidden class="anchor" aria-hidden="true" href="#解法-21">#</a></h3>
+<p>详见思想章节</p>
+<h3 id="题目-21">题目<a hidden class="anchor" aria-hidden="true" href="#题目-21">#</a></h3>
+<h4 id="1-航班预订统计httpsleetcodecnproblemscorporate-flight-bookings">1. <a href="https://leetcode.cn/problems/corporate-flight-bookings/">航班预订统计</a><a hidden class="anchor" aria-hidden="true" href="#1-航班预订统计httpsleetcodecnproblemscorporate-flight-bookings">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/</a></p>
+<h4 id="2-拼车httpsleetcodecnproblemscar-pooling">2. <a href="https://leetcode.cn/problems/car-pooling/">拼车</a><a hidden class="anchor" aria-hidden="true" href="#2-拼车httpsleetcodecnproblemscar-pooling">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/</a></p>
+<h2 id="矩阵的螺旋遍历">矩阵的螺旋遍历<a hidden class="anchor" aria-hidden="true" href="#矩阵的螺旋遍历">#</a></h2>
+<h3 id="解法-22">解法<a hidden class="anchor" aria-hidden="true" href="#解法-22">#</a></h3>
+<p><strong>解题的核心思路是按照右、下、左、上的顺序遍历数组，并使用四个变量圈定未遍历元素的边界</strong>：</p>
+<p><img loading="lazy" src="https://labuladong.gitee.io/algo/images/%e8%8a%b1%e5%bc%8f%e9%81%8d%e5%8e%86/6.png" alt="img"  />
+</p>
+<p>需要注意水平遍历需要判断upperBound&lt;=lowerBound，垂直遍历需要判断leftBound&lt;=rightBound</p>
+<h3 id="题目-22">题目<a hidden class="anchor" aria-hidden="true" href="#题目-22">#</a></h3>
+<h4 id="1-螺旋矩阵httpsleetcodecnproblemsspiral-matrix">1. <a href="https://leetcode.cn/problems/spiral-matrix/">螺旋矩阵</a><a hidden class="anchor" aria-hidden="true" href="#1-螺旋矩阵httpsleetcodecnproblemsspiral-matrix">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/</a></p>
+<h4 id="2-螺旋矩阵-iihttpsleetcodecnproblemsspiral-matrix-ii">2. <a href="https://leetcode.cn/problems/spiral-matrix-ii/">螺旋矩阵 II</a><a hidden class="anchor" aria-hidden="true" href="#2-螺旋矩阵-iihttpsleetcodecnproblemsspiral-matrix-ii">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/</a></p>
+<h2 id="带权重的随机选择算法">带权重的随机选择算法<a hidden class="anchor" aria-hidden="true" href="#带权重的随机选择算法">#</a></h2>
+<h3 id="解法-23">解法<a hidden class="anchor" aria-hidden="true" href="#解法-23">#</a></h3>
+<p>可以想象成一条线段，分成好几段，每段长度不一样，然后往上面撒石子，返回石子撒到了第几条线段上，直接把这个线段当成一个数组不现实，因为数值有可能很大，所以可以压缩一下，把每一段的长度当成一个元素，但这样寻找随机数处在哪一段还得把前面都加起来，不方便，那就压缩成一个前缀和数组，这样只需要从左往右遍历前缀和数组找第一个大于等于随机数的元素就行了，但是前缀和数组是一个有序数组，我们寻找第一个大于等于随机数的元素使用二分查找就可以快速定位，不需要从头遍历一遍</p>
+<p>有两个需要注意的地方：</p>
+<ol>
+<li>”线段“和前缀和的”格子“的对应关系需要想清楚，这个画张图就明白了</li>
+<li>寻找第一个大于等于随机数的元素，需要用寻找左边界的二分查找，而不是寻找右边界的二分查找，详见思想章节二分查找注意点第10条</li>
+</ol>
+<h3 id="题目-23">题目<a hidden class="anchor" aria-hidden="true" href="#题目-23">#</a></h3>
+<h4 id="1-按权重随机选择httpsleetcodecnproblemsrandom-pick-with-weight">1. <a href="https://leetcode.cn/problems/random-pick-with-weight/">按权重随机选择</a><a hidden class="anchor" aria-hidden="true" href="#1-按权重随机选择httpsleetcodecnproblemsrandom-pick-with-weight">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/</a></p>
+<h2 id="常数时间删除查找数组中的任意元素">常数时间删除/查找数组中的任意元素<a hidden class="anchor" aria-hidden="true" href="#常数时间删除查找数组中的任意元素">#</a></h2>
+<h3 id="解法-24">解法<a hidden class="anchor" aria-hidden="true" href="#解法-24">#</a></h3>
+<p>为了随机选取元素，需要用到数组，并且得是紧凑的，但是数组增删不是O(1)的，所以再来个map，key是数组元素的值，value是数组的索引，这样就做到了O(1)的数组增删，增删的时候注意修改map和数组</p>
+<p>核心思想就是为了随机选取元素，肯定得用<strong>数组</strong>存，并且得是<strong>紧凑</strong>的</p>
+<h3 id="题目-24">题目<a hidden class="anchor" aria-hidden="true" href="#题目-24">#</a></h3>
+<h4 id="1-o1-时间插入删除和获取随机元素httpsleetcodecnproblemsinsert-delete-getrandom-o1">1. <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">O(1) 时间插入、删除和获取随机元素</a><a hidden class="anchor" aria-hidden="true" href="#1-o1-时间插入删除和获取随机元素httpsleetcodecnproblemsinsert-delete-getrandom-o1">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/</a></p>
+<h4 id="2-黑名单中的随机数httpsleetcodecnproblemsrandom-pick-with-blacklist">2. <a href="https://leetcode.cn/problems/random-pick-with-blacklist/">黑名单中的随机数</a><a hidden class="anchor" aria-hidden="true" href="#2-黑名单中的随机数httpsleetcodecnproblemsrandom-pick-with-blacklist">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</a></p>
+<h1 id="二叉树">二叉树<a hidden class="anchor" aria-hidden="true" href="#二叉树">#</a></h1>
+<h2 id="遍历问题">遍历问题<a hidden class="anchor" aria-hidden="true" href="#遍历问题">#</a></h2>
+<h3 id="解法-25">解法<a hidden class="anchor" aria-hidden="true" href="#解法-25">#</a></h3>
+<p>利用前中后序遍历模板（见思想），用一个 traverse 函数配合外部变量来实现。</p>
+<p>搞清楚二叉树的每一个节点需要做什么，需要在什么时候（前中后序）做。</p>
+<h3 id="题目-25">题目<a hidden class="anchor" aria-hidden="true" href="#题目-25">#</a></h3>
+<h4 id="1-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree">1. <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a><a hidden class="anchor" aria-hidden="true" href="#1-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree">#</a></h4>
+<h4 id="2-二叉树的前序遍历httpsleetcodecnproblemsbinary-tree-preorder-traversal">2. <a href="https://leetcode.cn/problems/binary-tree-preorder-traversal/">二叉树的前序遍历</a><a hidden class="anchor" aria-hidden="true" href="#2-二叉树的前序遍历httpsleetcodecnproblemsbinary-tree-preorder-traversal">#</a></h4>
+<h2 id="子问题">子问题<a hidden class="anchor" aria-hidden="true" href="#子问题">#</a></h2>
+<h3 id="解法-26">解法<a hidden class="anchor" aria-hidden="true" href="#解法-26">#</a></h3>
+<p>主要思想就是定义一个递归函数，通过子问题（子树）的答案推导出原问题的答案</p>
+<p>首先写出这个递归函数的定义，并充分利用这个函数的返回值(这个返回值就是需要用到的子树信息)。</p>
+<p>搞清楚二叉树的每一个节点需要做什么，需要在什么时候（前中后序）做。</p>
+<h3 id="题目-26">题目<a hidden class="anchor" aria-hidden="true" href="#题目-26">#</a></h3>
+<h4 id="1-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree-1">1. <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a><a hidden class="anchor" aria-hidden="true" href="#1-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree-1">#</a></h4>
+<h4 id="2-二叉树的直径httpsleetcodecnproblemsdiameter-of-binary-tree">2. <a href="https://leetcode.cn/problems/diameter-of-binary-tree/">二叉树的直径</a><a hidden class="anchor" aria-hidden="true" href="#2-二叉树的直径httpsleetcodecnproblemsdiameter-of-binary-tree">#</a></h4>
+<h1 id="思想-1">思想<a hidden class="anchor" aria-hidden="true" href="#思想-1">#</a></h1>
+<h2 id="双指针">双指针<a hidden class="anchor" aria-hidden="true" href="#双指针">#</a></h2>
+<p>就是两个指针，分为左右指针和快慢指针，只要数组有序，就应该想到双指针技巧</p>
+<h3 id="左右指针">左右指针<a hidden class="anchor" aria-hidden="true" href="#左右指针">#</a></h3>
+<p>两个指针一个左一个右</p>
+<h4 id="二分查找-1">二分查找<a hidden class="anchor" aria-hidden="true" href="#二分查找-1">#</a></h4>
+<p>就是将搜索空间合理的分成两部分，摒弃不可能的那部分，缩减搜索空间，加快搜索速度</p>
+<h5 id="经典思路">经典思路<a hidden class="anchor" aria-hidden="true" href="#经典思路">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">mid</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>这种就是一边缩减搜索空间，一边寻找要找的元素。</p>
+<p>但是有时候问题并不是这么简单，比如寻找一个可能在数组里不存在，或者是找边界这样的问题，这时使用进阶思路 ，在循环体内排除一定不存在目标元素的区间会更简单一些。</p>
+<p>经典思路是寻找元素</p>
+<p>进阶思路是排除n-1个不可能的元素</p>
+<h5 id="进阶思路">进阶思路<a hidden class="anchor" aria-hidden="true" href="#进阶思路">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 此思路搜索空间为[left, right]，闭闭空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 循环条件写成left&lt;right，因为循环体内把数组分成两部分，那么一定会达到left和right重合的状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 所以循环条件写成left&lt;right，可以保证退出循环时left等于right
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 求中点，left=mid+1时不需要向上取整
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// left=mid时需要向上取整，记忆方式：left和mid要有一个+1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 这么做的原因是：向下取整时，如果还剩下两个元素，刚好又走到left=mid这个分支，就死循环了，因为此时mid就等于left
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//int mid = left + (right - left + 1) / 2;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 下面是核心逻辑，分成两个区间是因为这样扩展性更强
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 这块主要就是筛选不可能的区间，然后缩减搜索空间，具体问题具体分析，注意left没加一时mid要加一
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="cm">/*if (target &lt;= nums[mid]) {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                right = mid;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            } else {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                left = mid + 1;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            }*/</span>
+</span></span><span class="line"><span class="cl">            <span class="cm">/*if (target &lt; nums[mid]) {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                right = mid - 1;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            } else {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                left = mid;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            }*/</span>
+</span></span><span class="line"><span class="cl">            <span class="cm">/*if (target &gt;= nums[mid]) {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                left = mid;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            } else {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                right = mid -1;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            }*/</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 此时left一定等于right，所以返回left或者right都一样
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 排除了n-1个不可能的元素，还剩下[left, right]区间的元素，而left=right，就看剩下这个是不是要寻找的元素了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 如果该题一定存在指定的元素，那么下一步可以省略，直接return left就好了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h6 id="步骤">步骤<a hidden class="anchor" aria-hidden="true" href="#步骤">#</a></h6>
+<ol>
+<li>left和right分别设置为搜索空间的左右端点，注意是闭区间</li>
+<li>循环条件写成left&lt;right</li>
+<li>求中点，先写成<code>int mid = left + (right - left) / 2;</code></li>
+<li>根据具体问题将搜索空间分成两部分，其中一部分必须是不可能的区域，然后根据这个不可能区域的特征写出第一个if，然后else里写和if互补的区域就好了，注意如果结果是left=mid，上面求中点要改成<code>int mid = left + (right - left + 1) / 2;</code></li>
+<li>如果根据题意不能判断出一定存在寻找的元素，需要判断下<code>nums[left]</code>是不是寻找的元素，是则<code>return left</code>，否则未找到该元素；如果根据题意能判断出一定存在寻找的元素，那直接<code>return left</code>就好了</li>
+</ol>
+<h6 id="注意点">注意点<a hidden class="anchor" aria-hidden="true" href="#注意点">#</a></h6>
+<ol>
+<li>此思路搜索空间为[left, right]，闭闭空间</li>
+<li>循环条件写成left&lt;right，因为循环体内把数组分成两部分，并且根据left的取值选择mid是向上或向下取整，那么一定会达到left和right重合的状态（把所有情况都模拟一边就可以得出这个结论），所以循环条件写成left&lt;right，可以保证退出循环时left等于right</li>
+<li>求中点时，如果使用<code>(left + right) / 2</code>有可能相加溢出，为了防止溢出使用<code>left + (right - left) / 2</code></li>
+<li>求中点时，left=mid+1时不需要向下取整，left=mid时需要向上取整，记忆方式：left和mid要有一个+1。这么做的原因是：向下取整时，如果还剩下两个元素，刚好又走到left=mid这个分支，就死循环了，因为此时mid就等于left。right=mid时需要向下取整，原因同理</li>
+<li>把搜索空间分成两个区间是因为这样扩展性更强</li>
+<li>缩减搜索空间时，将搜索空间分成两部分需要注意分出不可能的区间，然后缩减搜索空间，具体问题具体分析，根据这个不可能区间的特征写出第一个if，然后else里写和if互补的区域</li>
+<li>注意left没加一时mid要加一</li>
+<li>退出循环后left和right相等，并且是唯一有希望的元素（只是有希望，有可能不是它，还要再判断一下，如果该题一定存在指定的元素，那么直接<code>return left</code>就好了）</li>
+<li>对于寻找左右侧边界的二分查找，在缩减搜索空间时一定要考虑&gt;=或&lt;=的情况，因为这样才能使用找左或右侧这个性质，比如<code>target &lt;= nums[mid]</code>，可以寻找左边界，因为这时左边界不可能在mid右边所以直接<code>right=mid</code>就可以找到左边界，右边界同理。为什么找到的是左边界，也可以这么理解：<code>target &lt;= nums[mid]</code>-&gt;<code>right=mid</code>，所以<code>target &gt; nums[mid]</code>-&gt;<code>left=mid + 1</code>，此时left左边全部都小于target，因为退出循环时如果能找到target，left指向的就是target，又因为left左边全部都小于target，所以此时left指向左边界。找右边界同理。</li>
+<li>对于寻找左侧边界的二分查找，说是寻找该元素的左侧边界，实际上是寻找大于等于target的所有元素的左侧边界，同理，寻找右侧边界的二分查找实际上是寻找小于等于target的所有元素的右侧边界，也可以理解成左侧边界的左边都小于target，右侧边界的右边都大于target，并且左右边界不一定等于target</li>
+</ol>
+<p>详见：leetcode笔记word版和<a href="https://leetcode.cn/leetbook/read/learning-algorithms-with-leetcode/xs41qg/">https://leetcode.cn/leetbook/read/learning-algorithms-with-leetcode/xs41qg/</a></p>
+<h4 id="其他">其他<a hidden class="anchor" aria-hidden="true" href="#其他">#</a></h4>
+<p>见上面各知识点章节</p>
+<h3 id="快慢指针">快慢指针<a hidden class="anchor" aria-hidden="true" href="#快慢指针">#</a></h3>
+<p>两个指针一个快一个慢</p>
+<h4 id="滑动窗口-1">滑动窗口<a hidden class="anchor" aria-hidden="true" href="#滑动窗口-1">#</a></h4>
+<p><code>left</code> 指针在后，<code>right</code> 指针在前，两个指针中间的部分就是「窗口」，算法通过扩大和缩小「窗口」来解决某些问题。</p>
+<h5 id="模板">模板<a hidden class="anchor" aria-hidden="true" href="#模板">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* 滑动窗口算法模板 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">slidingWindow</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   	<span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 这里用&lt;而不用&lt;=不是说明使用的闭闭区间，而是right当前位置的元素是我们下一个要入窗口的元素，所以这里其实是闭开窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取移入窗口的元素，并扩大窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">right</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 进行扩大窗口时数据的一系列更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// debug位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;left:&#34; + left + &#34;\t&#34; + &#34;right:&#34; + right);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 判断左侧窗口是否要收缩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">window</span> <span class="n">needs</span> <span class="n">shrink</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 获取移出窗口的元素，并收缩窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">char</span> <span class="n">d</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 进行收缩窗口时数据的一系列更新，一般与上面扩大窗口时数据更新相反
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h5 id="步骤-1">步骤<a hidden class="anchor" aria-hidden="true" href="#步骤-1">#</a></h5>
+<ol>
+<li>设置存储窗口内元素的数据结构，并且设置循环<code>while (right &lt; s.length())</code></li>
+<li>扩大窗口，并更新相关的数据</li>
+<li>判断是否需要收缩窗口，如需要，则收缩窗口，并更新相关的数据</li>
+<li>退出循环后，返回相应的数据</li>
+</ol>
+<h5 id="注意点-1">注意点<a hidden class="anchor" aria-hidden="true" href="#注意点-1">#</a></h5>
+<ol>
+<li>此模板采用闭开区间，循环条件用&lt;而不用&lt;=是因为right当前位置的元素是我们下一个要入窗口的元素</li>
+<li>收缩窗口和扩大窗口对数据的更新一般是相反的（更新顺序和加减等都是相反的）</li>
+</ol>
+<p>详见：<a href="https://labuladong.gitee.io/algo/2/20/27/">https://labuladong.gitee.io/algo/2/20/27/</a></p>
+<h5 id="进阶">进阶<a hidden class="anchor" aria-hidden="true" href="#进阶">#</a></h5>
+<p>==RABIN KARP 字符匹配算法==，详见：<a href="https://labuladong.gitee.io/algo/2/20/28/">https://labuladong.gitee.io/algo/2/20/28/</a></p>
+<h4 id="其他-1">其他<a hidden class="anchor" aria-hidden="true" href="#其他-1">#</a></h4>
+<p>见上面各知识点章节</p>
+<h2 id="递归">递归<a hidden class="anchor" aria-hidden="true" href="#递归">#</a></h2>
+<p>一个问题 = 规模更小的同类问题 + 扩展成该问题要解决的问题</p>
+<p>这种情况就可以用递归，递归的关键是不要跳进递归，而是明确递归函数的定义</p>
+<p>递归由两部分组成：递归出口和递归公式</p>
+<p>注意递归需要递归出口（也就是base case）</p>
+<p>值得一提的是，递归操作链表并不高效。和迭代解法相比，虽然时间复杂度都是 O(N)，但是迭代解法的空间复杂度是 O(1)，而递归解法需要堆栈，空间复杂度是 O(N)。</p>
+<h2 id="前缀和与差分">前缀和与差分<a hidden class="anchor" aria-hidden="true" href="#前缀和与差分">#</a></h2>
+<p>前缀和数组的差分是原数组，差分数组的前缀和是原数组，两者互逆。</p>
+<h3 id="前缀和">前缀和<a hidden class="anchor" aria-hidden="true" href="#前缀和">#</a></h3>
+<p>对于一个数组，求此数组[left, right]区域内的和时，不需要从left&ndash;right逐个相加，直接right+1前的和减去left前的和即可，要想使用这种方式就得有一个前缀和数组，用来存该数组前k个的和。注意也可能是二维数组，稍作修改即可。</p>
+<p><strong>主要适用的场景是原始数组不会被修改的情况下，频繁查询某个区间的累加和</strong>。</p>
+<p>详见：<a href="https://labuladong.gitee.io/algo/2/20/24/">https://labuladong.gitee.io/algo/2/20/24/</a></p>
+<h4 id="标准模板">标准模板<a hidden class="anchor" aria-hidden="true" href="#标准模板">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JAVA" data-lang="JAVA"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">NumArray</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">[]</span> <span class="n">preSum</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">NumArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">preSum</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">preSum</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">preSum</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">preSum</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">sumRange</span><span class="o">(</span><span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">preSum</span><span class="o">[</span><span class="n">right</span> <span class="o">+</span> <span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">preSum</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h3 id="差分数组-1">差分数组<a hidden class="anchor" aria-hidden="true" href="#差分数组-1">#</a></h3>
+<p><strong>差分数组的主要适用场景是频繁对原始数组的某个区间的元素进行增减</strong></p>
+<p>类似前缀和构造的 <code>preSum</code> 数组，我们先对 <code>nums</code> 数组构造一个 <code>diff</code> 差分数组，<strong><code>diff[i]</code> 就是 <code>nums[i]</code> 和 <code>nums[i-1]</code> 之差</strong>，通过这个 <code>diff</code> 差分数组是可以反推出原始数组 <code>nums</code> 的，理解：diff[0]就是原数组的第一个元素，其他元素就是比前一个元素高多少</p>
+<p><strong>这样构造差分数组 <code>diff</code>，就可以快速进行区间增减的操作</strong>，如果你想对区间 <code>nums[i..j]</code> 的元素全部加 3，那么只需要让 <code>diff[i] += 3</code>，然后再让 <code>diff[j+1] -= 3</code> 即可</p>
+<p><strong>原理很简单，回想 <code>diff</code> 数组反推 <code>nums</code> 数组的过程，<code>diff[i] += 3</code> 意味着给 <code>nums[i..]</code> 所有的元素都加了 3，然后 <code>diff[j+1] -= 3</code> 又意味着对于 <code>nums[j+1..]</code> 所有元素再减 3，那综合起来，就是对 <code>nums[i..j]</code> 中的所有元素都加 3 了</strong></p>
+<p>详见：<a href="https://labuladong.gitee.io/algo/2/20/25/">https://labuladong.gitee.io/algo/2/20/25/</a></p>
+<h4 id="标准模板-1">标准模板<a hidden class="anchor" aria-hidden="true" href="#标准模板-1">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Difference</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">diff</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">Difference</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">diff</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">diff</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">increment</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">diff</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">val</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注意这里j有可能是最后一个元素，此时的意思就是i后面的元素全部加val，所以不需要减val了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">1</span> <span class="o">&lt;</span> <span class="n">diff</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">diff</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="n">1</span><span class="o">]</span> <span class="o">-=</span> <span class="n">val</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">result</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">diff</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">diff</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">diff</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="二叉树-1">二叉树<a hidden class="anchor" aria-hidden="true" href="#二叉树-1">#</a></h2>
+<h3 id="前中后序理解">前中后序理解<a hidden class="anchor" aria-hidden="true" href="#前中后序理解">#</a></h3>
+<p>前中后序是遍历二叉树过程中处理每一个节点的三个特殊时间点：</p>
+<p>前序位置的代码在刚刚进入一个二叉树节点的时候执行；</p>
+<p>后序位置的代码在将要离开一个二叉树节点的时候执行；</p>
+<p>中序位置的代码在一个二叉树节点左子树都遍历完，即将开始遍历右子树的时候执行。</p>
+<p><img loading="lazy" src="https://labuladong.gitee.io/algo/images/%e4%ba%8c%e5%8f%89%e6%a0%91%e6%94%b6%e5%ae%98/2.jpeg" alt="img"  />
+</p>
+<p>比如快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历</p>
+<h3 id="模板-1">模板<a hidden class="anchor" aria-hidden="true" href="#模板-1">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">traverse</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 前序位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">traverse</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 中序位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">traverse</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 后序位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></div><h3 id="做题思路">做题思路<a hidden class="anchor" aria-hidden="true" href="#做题思路">#</a></h3>
+<p>有两种思路，分别是<strong>分解问题</strong>和<strong>遍历二叉树</strong></p>
+<p>遇到一道二叉树的题目时的通用思考过程是：</p>
+<p>1、是否可以通过遍历一遍二叉树得到答案？如果可以，用一个 traverse 函数配合外部变量来实现。</p>
+<p>2、是否可以定义一个递归函数，通过子问题（子树）的答案推导出原问题的答案？如果可以，写出这个递归函数的定义，并充分利用这个函数的返回值(这个返回值就是需要用到的子树信息)。</p>
+<p>3、无论使用哪一种思维模式，你都要明白二叉树的每一个节点需要做什么，需要在什么时候（前中后序）做。</p>
+<h3 id="后序位置的特殊之处">后序位置的特殊之处<a hidden class="anchor" aria-hidden="true" href="#后序位置的特殊之处">#</a></h3>
+<p>因为前序位置的代码执行是自顶向下的，而后序位置的代码执行是自底向上的，所以：</p>
+<p>前序位置的代码只能从函数参数中获取父节点传递来的数据，而后序位置的代码不仅可以获取参数数据，还可以获取到子树通过函数返回值传递回来的数据。一旦你发现题目和子树有关，那大概率要给函数设置合理的定义和返回值，在后序位置写代码了。</p>
+<h3 id="层序遍历">层序遍历<a hidden class="anchor" aria-hidden="true" href="#层序遍历">#</a></h3>
+<p>就是一个BFS，可以计算一些类似结点与root之间的距离的问题。</p>
+<h1 id="其他-2">其他<a hidden class="anchor" aria-hidden="true" href="#其他-2">#</a></h1>
+<h2 id="零碎">零碎<a hidden class="anchor" aria-hidden="true" href="#零碎">#</a></h2>
+<p>从整体到细节，自顶向下，从抽象到具体的框架思维是通用的，不只是学习数据结构和算法，学习其他任何知识都是高效的。</p>
+<p>数据结构的物理存储方式就是链式和顺序两种，基本操作就是增删改查，遍历方式无非迭代和递归。</p>
+<p>计算机算法的本质就是枚举，只不过这里枚举需要做到两个方面：无遗漏和无冗余，有时候还可以利用一些定理进行优化（缩小搜索范围），比如剪枝和数学定理</p>
+<p>难点在无遗漏的问题：</p>
+<p>难点在无冗余的问题：递归类问题（动态规划）</p>
+<p>难点在优化的问题：非递归类问题（并查集，贪心，KMP）</p>
+<p>Java里优先队列就是二叉堆，也就是PriorityQueue</p>
+<h2 id="待做">待做<a hidden class="anchor" aria-hidden="true" href="#待做">#</a></h2>
+<p><a href="https://labuladong.gitee.io/algo/1/3/">https://labuladong.gitee.io/algo/1/3/</a>的那几个算法框架及之后的几个框架文章都没看</p>
+<h2 id="技巧">技巧<a hidden class="anchor" aria-hidden="true" href="#技巧">#</a></h2>
+<p>dummy（虚拟头结点)：可以很好的避免第一个节点的特殊性，将第一个节点当作第二个节点，也即是所有节点统一处理</p>
+<h2 id="学习方法">学习方法<a hidden class="anchor" aria-hidden="true" href="#学习方法">#</a></h2>
+<p>以后做题，先想这道题考察什么知识点。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-23/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>LeetCode 23</span>
+  </a>
+  <a class="next" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-86/">
+    <span class="title">Next »</span>
+    <br>
+    <span>LeetCode 86</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share LeetCode Note on twitter"
+       href="https://twitter.com/intent/tweet/?text=LeetCode%20Note&amp;url=https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f&amp;hashtags=leetcode">
+    <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share LeetCode Note on linkedin"
+       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f&amp;title=LeetCode%20Note&amp;summary=LeetCode%20Note&amp;source=https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share LeetCode Note on reddit"
+       href="https://reddit.com/submit?url=https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f&title=LeetCode%20Note">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share LeetCode Note on facebook"
+       href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share LeetCode Note on whatsapp"
+       href="https://api.whatsapp.com/send?text=LeetCode%20Note%20-%20https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share LeetCode Note on telegram"
+       href="https://telegram.me/share/url?text=LeetCode%20Note&amp;url=https%3a%2f%2fblog.zhangmengyang.tk%2fen%2fposts%2fleetcode%2fleetcode-note%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+        </footer>
+    </div>
+</article>
+</main>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        2022-2022
+        <a href="https://blog.zhangmengyang.tk/en/" style="color:#939393;">ZMY&#39;s Blog</a>
+         All Rights Reserved
+    </span>
+
+    
+
+    <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        总访客数: <span id="busuanzi_value_site_uv"></span>
+        总访问量: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"ZMY's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                    '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"ZMY's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                    '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '📄copy';
+
+        function copyingDone() {
+            copybutton.innerText = '👌🏻copied!';
+            setTimeout(() => {
+                copybutton.innerText = '📄copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"ZMY's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                    '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
