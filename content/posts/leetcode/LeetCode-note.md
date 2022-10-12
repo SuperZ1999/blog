@@ -491,11 +491,19 @@ void traverse(ListNode head) {
 
 #### 1. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-104/>
+
 #### 2. [二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
+
+题解略
 
 #### 3. [翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
 
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-226/>
+
 #### 4. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/>
 
 ## 分解问题
 
@@ -511,11 +519,19 @@ void traverse(ListNode head) {
 
 #### 1. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-104/>
+
 #### 2. [二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-543/>
 
 #### 3. [翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
 
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-226/>
+
 #### 4. [二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-114/>
 
 ## 层序遍历
 
@@ -527,6 +543,8 @@ void traverse(ListNode head) {
 
 #### 1. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
 
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/>
+
 ## 构造二叉树
 
 ### 解法
@@ -537,7 +555,15 @@ void traverse(ListNode head) {
 
 #### 1. [最大二叉树](https://leetcode.cn/problems/maximum-binary-tree/)
 
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-654/>
+
 #### 2. [从前序和中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/>
+
+#### 3. [从后序和中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/>
 
 # 思想
 

@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Oct 2022 11:53:59 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Oct 2022 12:05:51 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 106</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/</link>
+      <pubDate>Wed, 12 Oct 2022 12:05:51 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/</guid>
+      <description>思路 同LeetCode-105，就是改一下递归的参数 详见：https://blog.zhangmengyang.tk/posts/leetc</description>
+    </item>
+    
     <item>
       <title>LeetCode 105</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/</link>
