@@ -565,6 +565,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/>
 
+#### 4. [根据前序和后序遍历构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-889/>
+
 # 思想
 
 ## 双指针
@@ -920,6 +924,14 @@ void levelTraverse(TreeNode root) {
     }
 }
 ```
+
+### 注意点
+
+前序中序，后序中序可以确定唯一一颗二叉树
+
+前序后序不能唯一确定一颗二叉树，因为：
+
+当节点左右子树都存在时，可以确定左右子树，但是当其中一个为空时，无法确定不为空的子树是左子树还是右子树
 
 # 其他
 
