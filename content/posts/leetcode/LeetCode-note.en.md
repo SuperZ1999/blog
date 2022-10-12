@@ -527,6 +527,18 @@ void traverse(ListNode head) {
 
 #### 1. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
 
+## 构造二叉树
+
+### 解法
+
+二叉树的构造问题一般都是使用「分解问题」的思想：构造整棵树 = 根节点 + 构造左子树 + 构造右子树。
+
+### 题目
+
+#### 1. [最大二叉树](https://leetcode.cn/problems/maximum-binary-tree/)
+
+#### 2. [从前序和中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
 # 思想
 
 ## 双指针
@@ -900,6 +912,10 @@ void levelTraverse(TreeNode root) {
 难点在优化的问题：非递归类问题（并查集，贪心，KMP）
 
 Java里优先队列就是二叉堆，也就是PriorityQueue
+
+base case就是最基本的情况，从递归的角度理解就是递归出口，从分解问题(分治)的角度理解就是最基本的问题（不能再分了）
+
+如果需要通过值找到其在数组的索引，将数组遍历一遍是一种做法，还可以创建一个valToIndex的hashmap
 
 ## 待做
 

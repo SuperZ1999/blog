@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 105</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/</link>
+      <pubDate>Wed, 12 Oct 2022 11:53:59 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/</guid>
+      <description>思路 经典根据前中遍历序列构造树，利用分解问题的思想，将问题拆分为找出root+构造左子树+构造右子树，前序遍历第一个就是root，再根据ro</description>
+    </item>
+    
+    <item>
       <title>LeetCode 654</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-654/</link>
       <pubDate>Wed, 12 Oct 2022 11:18:53 +0800</pubDate>
