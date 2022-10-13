@@ -569,7 +569,7 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-889/>
 
-## 二叉搜索树
+## 二叉搜索树性质
 
 ### 解法
 
@@ -584,6 +584,18 @@ void traverse(ListNode head) {
 #### 2. [把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/>
+
+## 二叉搜索树合法性
+
+### 解法
+
+利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小右边的的结点都比root大+左子树是BST+右子树是BST，问题在于root只能获得左右孩子的值，从而判断是都大于小于root，想要让整个子树都小于或大于自己，需要将min和max传下去
+
+### 题目
+
+#### 1. [验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-98/>
 
 # 思想
 
@@ -951,7 +963,17 @@ void levelTraverse(TreeNode root) {
 
 ### 二叉搜索树
 
+#### 性质
+
 二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列，并且中序遍历到一个结点时，比该结点小的结点全部都遍历过了，这个性质可以用于二叉搜索树的累加上
+
+#### 合法性
+
+利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小右边的的结点都比root大+左子树是BST+右子树是BST，问题在于root只能获得左右孩子的值，从而判断是都大于小于root，想要让整个子树都小于或大于自己，需要将min和max传下去
+
+#### 增删改查
+
+
 
 # 其他
 
