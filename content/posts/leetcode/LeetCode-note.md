@@ -569,6 +569,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-889/>
 
+## 二叉搜索树
+
+### 解法
+
+只需要利用二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列就可以了
+
+### 题目
+
+#### 1. [二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-230/>
+
 # 思想
 
 ## 双指针
@@ -933,6 +945,10 @@ void levelTraverse(TreeNode root) {
 
 当节点左右子树都存在时，可以确定左右子树，但是当其中一个为空时，无法确定不为空的子树是左子树还是右子树
 
+### 二叉搜索树
+
+二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列
+
 # 其他
 
 ## 零碎
@@ -962,6 +978,8 @@ base case就是最基本的情况，从递归的角度理解就是递归出口�
 ## 待做
 
 https://labuladong.gitee.io/algo/1/3/的那几个算法框架及之后的几个框架文章都没看
+
+https://labuladong.gitee.io/algo/2/21/41/没看
 
 ## 技巧
 
