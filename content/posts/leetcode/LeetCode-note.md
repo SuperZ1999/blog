@@ -609,6 +609,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-700/>
 
+#### 2. [二叉搜索树中的插入操作](https://leetcode.cn/problems/insert-into-a-binary-search-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-701/>
+
 # 思想
 
 ## 双指针
