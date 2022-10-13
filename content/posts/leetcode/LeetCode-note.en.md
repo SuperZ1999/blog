@@ -581,6 +581,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-230/>
 
+#### 2. [把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/>
+
 # 思想
 
 ## 双指针
@@ -947,7 +951,7 @@ void levelTraverse(TreeNode root) {
 
 ### 二叉搜索树
 
-二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列
+二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列，并且中序遍历到一个结点时，比该结点小的结点全部都遍历过了，这个性质可以用于二叉搜索树的累加上
 
 # 其他
 

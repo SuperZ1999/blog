@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 13 Oct 2022 14:07:42 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Oct 2022 14:42:01 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 538</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/</link>
+      <pubDate>Thu, 13 Oct 2022 14:42:01 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/</guid>
+      <description>思路 因为要累加比自己更大的结点的值，所以完全可以在升序序列里倒着遍历，把累加的值放到节点里去，所以这里采用中序遍历，但是是先右子树再左子树，</description>
+    </item>
+    
     <item>
       <title>LeetCode 230</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-230/</link>
