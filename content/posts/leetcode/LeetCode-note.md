@@ -597,6 +597,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-98/>
 
+## 二叉搜索树增删改查
+
+### 解法
+
+
+
+### 题目
+
+#### 1. [二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-700/>
+
 # 思想
 
 ## 双指针

@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 13 Oct 2022 15:34:20 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Oct 2022 16:06:44 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 700</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-700/</link>
+      <pubDate>Thu, 13 Oct 2022 16:06:44 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-700/</guid>
+      <description>思路 利用二分查找的思想，不解释了 我的代码 class Solution { public TreeNode searchBST(TreeNode root, int val) { if (root == null) { return null; } if (val &amp;gt; root.val) { return searchBST(root.right, val); } if (val &amp;lt; root.val) { return searchBST(root.left, val); } return root; } } References 1. 二叉搜索树中的搜</description>
+    </item>
+    
     <item>
       <title>LeetCode 98</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-98/</link>
