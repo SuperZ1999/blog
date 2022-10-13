@@ -19,7 +19,7 @@ cover:
 
 同LeetCode-54，只不过这里是往里填元素，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/>
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

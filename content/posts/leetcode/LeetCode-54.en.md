@@ -23,7 +23,7 @@ cover:
 
 需要注意水平遍历需要判断upperBound<=lowerBound，垂直遍历需要判断leftBound<=rightBound
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

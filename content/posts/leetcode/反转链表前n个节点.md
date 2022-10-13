@@ -25,7 +25,7 @@ cover:
 
 [![img](https://labuladong.gitee.io/algo/images/%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8/7.jpg)](https://labuladong.gitee.io/algo/images/反转链表/7.jpg)
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

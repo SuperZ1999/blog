@@ -21,7 +21,7 @@ cover:
 
 详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/>
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

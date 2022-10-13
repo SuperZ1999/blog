@@ -13,7 +13,7 @@
       <pubDate>Wed, 12 Oct 2022 15:25:34 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-297/</guid>
-      <description>思路 有空再写 我的代码 public class Codec { private static final char NULL = &amp;#39;#&amp;#39;; private static final char SEP = &amp;#39;,&amp;#39;; private void doSerialize(TreeNode root, StringBuilder sb) { if (root == null) { sb.append(NULL).append(SEP); return; } sb.append(root.val).append(SEP); doSerialize(root.left, sb); doSerialize(root.right, sb); } // Encodes a tree to a single string. public String serialize(TreeNode root) { StringBuilder sb = new StringBuilder(); doSerialize(root, sb); return</description>
+      <description>思路 我的思路 序列化采用前序遍历即可，反序列化先把序列化的字符串分隔开，然后将分割的元素转换为结点，逐个加入栈中，并且判断栈顶是不是完整的树（</description>
     </item>
     
     <item>
@@ -175,7 +175,7 @@
       <pubDate>Mon, 26 Sep 2022 00:32:18 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1094/</guid>
-      <description>思路 利用差分数组的思想即可，这里把路程中各个地方的乘客数目当作数组的元素，每个trip相当于对这个数组的某一段进行加运算 我的代码 class Solution { public boolean carPooling(int[][]</description>
+      <description>思路 利用差分数组的思想即可，这里把路程中各个地方的乘客数目当作数组的元素，每个trip相当于对这个数组的某一段进行加运算 代码 class Solution { public boolean carPooling(int[][] trips, int</description>
     </item>
     
     <item>
@@ -184,7 +184,7 @@
       <pubDate>Sun, 25 Sep 2022 23:57:09 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1109/</guid>
-      <description>思路 标准差分数组，详见LeetCode-note 我的代码 class Solution { public int[] corpFlightBookings(int[][] bookings, int n) { int[] nums = new int[n]; Difference df = new Difference(nums); for (int[] booking : bookings) { df.increment(booking[0] - 1, booking[1] - 1, booking[2]); } return df.result(); } static class Difference { private</description>
+      <description>思路 标准差分数组，详见LeetCode-note 代码 class Solution { public int[] corpFlightBookings(int[][] bookings, int n) { int[] nums = new int[n]; Difference df = new Difference(nums); for (int[] booking : bookings) { df.increment(booking[0] - 1, booking[1] - 1, booking[2]); } return df.result(); } static class Difference { private int[] diff;</description>
     </item>
     
     <item>
@@ -202,7 +202,7 @@
       <pubDate>Sun, 25 Sep 2022 22:41:54 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-303/</guid>
-      <description>思路 利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的是nums前n个元素的和，整体往后挪一位 我的代码 class NumArray { int[] preSum; public NumArray(int[] nums) {</description>
+      <description>思路 利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的是nums前n个元素的和，整体往后挪一位 代码 class NumArray { int[] preSum; public NumArray(int[] nums) { preSum =</description>
     </item>
     
     <item>
@@ -238,7 +238,7 @@
       <pubDate>Sun, 25 Sep 2022 17:01:39 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-76/</guid>
-      <description>思路 利用滑动窗口的思想，窗口内包含t的所有字符后收缩窗口，同时维护最小覆盖子串的两端的位置，详见LeetCode-note思想章节 我的代码 class</description>
+      <description>思路 利用滑动窗口的思想，窗口内包含t的所有字符后收缩窗口，同时维护最小覆盖子串的两端的位置，详见LeetCode-note思想章节 代码 class Solution {</description>
     </item>
     
     <item>
@@ -265,7 +265,7 @@
       <pubDate>Sat, 24 Sep 2022 16:18:38 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-704/</guid>
-      <description>思路 经典二分查找，不解释 详见：https://labuladong.gitee.io/algo/2/20/29/ 我的代码 class Solution { public int search(int[] nums, int target) {</description>
+      <description>思路 经典二分查找，不解释 详见：https://labuladong.gitee.io/algo/2/20/29/ 代码 class Solution { public int search(int[] nums, int target) { int left</description>
     </item>
     
     <item>
@@ -274,7 +274,7 @@
       <pubDate>Sat, 24 Sep 2022 15:30:02 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-5/</guid>
-      <description>思路 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。 我的代码 class Solution { public String longestPalindrome(String s) { String res = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; s.length(); i++) { // 从中心向两边寻找回文</description>
+      <description>思路 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。 代码 class Solution { public String longestPalindrome(String s) { String res = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; s.length(); i++) { // 从中心向两边寻找回文串 String</description>
     </item>
     
     <item>
@@ -283,7 +283,7 @@
       <pubDate>Sat, 24 Sep 2022 15:10:28 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-344/</guid>
-      <description>思路 利用左右指针的思想，从两边向中间逼近，同时交换左右的值 我的代码 class Solution { public void reverseString(char[] s) { int left = 0, right = s.length -1 ; while (left &amp;lt; right) { char temp = s[left]; s[left] = s[right]; s[right] = temp; left++; right--; } } }</description>
+      <description>思路 利用左右指针的思想，从两边向中间逼近，同时交换左右的值 代码 class Solution { public void reverseString(char[] s) { int left = 0, right = s.length -1 ; while (left &amp;lt; right) { char temp = s[left]; s[left] = s[right]; s[right] = temp; left++; right--; } } } References 1.</description>
     </item>
     
     <item>
@@ -292,7 +292,7 @@
       <pubDate>Sat, 24 Sep 2022 14:58:51 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-167/</guid>
-      <description>思路 利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right&amp;ndash;，否则left++，直到左右之和等于target。 我</description>
+      <description>思路 利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right&amp;ndash;，否则left++，直到左右之和等于target。 代</description>
     </item>
     
     <item>
@@ -310,7 +310,7 @@
       <pubDate>Sat, 24 Sep 2022 00:05:26 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
-      <description>思路 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。 我的代码 class Solution { public boolean isPalindrome(ListNode head) { // 快慢指</description>
+      <description>思路 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。 代码 class Solution { public boolean isPalindrome(ListNode head) { // 快慢指针找</description>
     </item>
     
     <item>
@@ -319,7 +319,7 @@
       <pubDate>Sat, 24 Sep 2022 00:00:43 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
-      <description>思路 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。 我的代码 class Solution { private ListNode left; public boolean isPalindrome(ListNode head) { left = head; return traverse(head);</description>
+      <description>思路 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。 代码 class Solution { private ListNode left; public boolean isPalindrome(ListNode head) { left = head; return traverse(head); } private</description>
     </item>
     
     <item>
@@ -355,7 +355,7 @@
       <pubDate>Fri, 23 Sep 2022 22:01:54 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-206/</guid>
-      <description>思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 我的代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head;</description>
+      <description>思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next =</description>
     </item>
     
     <item>
@@ -382,7 +382,7 @@
       <pubDate>Fri, 23 Sep 2022 14:49:25 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-141/</guid>
-      <description>思路 利用快慢指针的思想，如果快指针为空，说明没有环，如果快慢指针相遇说明有环 我的代码 public class Solution { public boolean hasCycle(ListNode head) { ListNode slow = head, fast = head; // 快慢指针如果相遇，说明</description>
+      <description>思路 利用快慢指针的思想，如果快指针为空，说明没有环，如果快慢指针相遇说明有环 代码 public class Solution { public boolean hasCycle(ListNode head) { ListNode slow = head, fast = head; // 快慢指针如果相遇，说明链表</description>
     </item>
     
     <item>
@@ -409,7 +409,7 @@
       <pubDate>Fri, 23 Sep 2022 10:47:55 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-23/</guid>
-      <description>思路 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。 我的代码 class Solution { public ListNode mergeKLists(ListNode[]</description>
+      <description>思路 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。 代码 class Solution { public ListNode mergeKLists(ListNode[] lists) {</description>
     </item>
     
     <item>
@@ -418,7 +418,7 @@
       <pubDate>Fri, 23 Sep 2022 00:09:37 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-86/</guid>
-      <description>思路 从头到尾遍历一遍链表，将小于x的放到一个链表里，将大于等于x的放到一个链表里，最后再拼接这两个链表即可，注意dummy节点的使用。 我的代</description>
+      <description>思路 从头到尾遍历一遍链表，将小于x的放到一个链表里，将大于等于x的放到一个链表里，最后再拼接这两个链表即可，注意dummy节点的使用。 代码 class</description>
     </item>
     
     <item>
@@ -427,7 +427,7 @@
       <pubDate>Thu, 22 Sep 2022 23:42:59 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-21/</guid>
-      <description>思路 不解释 我的代码 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p = p.next; } if (list1 != null) { p.next = list1; }</description>
+      <description>思路 不解释 代码 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p = p.next; } if (list1 != null) { p.next = list1; } if (list2</description>
     </item>
     
   </channel>

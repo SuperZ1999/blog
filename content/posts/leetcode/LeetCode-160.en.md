@@ -56,7 +56,7 @@ l2 -> null -> l1 -> null
 
 转载于： <https://labuladong.gitee.io/algo/2/19/18/>
 
-### 我的代码
+### 代码
 
 ```java
 public class Solution {

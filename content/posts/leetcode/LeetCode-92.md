@@ -19,7 +19,7 @@ cover:
 
 与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和right分别减一的特性，把head移到left的位置，然后反转前n个节点即可。
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

@@ -21,7 +21,7 @@ cover:
 
 注意这里可以用map优化通过元素的值找所在数组的索引，用一个valToIndex的hashmap即可
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

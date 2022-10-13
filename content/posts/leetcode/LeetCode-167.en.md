@@ -19,7 +19,7 @@ cover:
 
 利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right--，否则left++，直到左右之和等于target。
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

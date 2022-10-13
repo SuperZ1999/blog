@@ -25,7 +25,7 @@ cover:
 
 注意base case为最后元素不足 k 个时的情况
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

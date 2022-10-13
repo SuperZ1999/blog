@@ -19,7 +19,7 @@ cover:
 
 标准差分数组，详见LeetCode-note
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

@@ -19,7 +19,7 @@ cover:
 
 利用递归的思想，先反转head后面的，然后把head也反转即可。
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

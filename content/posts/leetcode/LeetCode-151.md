@@ -19,7 +19,7 @@ cover:
 
 可以split成单词，再reverse，再拼接，但是不够优雅，会使用了额外的空间，正确做法是先reverse整个数组，然后再reverse各个单词，但要注意一下细节，比如去空格什么的
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

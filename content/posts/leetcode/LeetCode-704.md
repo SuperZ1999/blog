@@ -21,7 +21,7 @@ cover:
 
 详见：<https://labuladong.gitee.io/algo/2/20/29/>
 
-### 我的代码
+### 代码
 
 ```java
 class Solution {

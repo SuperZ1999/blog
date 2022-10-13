@@ -19,7 +19,7 @@ cover:
 
 利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的是nums前n个元素的和，整体往后挪一位
 
-### 我的代码
+### 代码
 
 ```java
 class NumArray {

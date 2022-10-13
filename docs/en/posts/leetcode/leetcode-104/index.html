@@ -116,8 +116,8 @@ var _hmt = _hmt || [];
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 有两种思路，分别是分解问题和遍历二叉树\n思路一 把当前问题分解为左子树和右子树中深度较大的那个子树的深度+1，就是当前树的深度\n思路二 把二叉树遍历一遍，同时用一个外部变量记录最大的深度，注意需要在前序位置deep++，后序位置deep–\n我的代码 思路一 class Solution { public int maxDepth(TreeNode root) { if (root == null) { return 0; } return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1; } } 思路二 class Solution { int res = 0, deep = 0; private void traverse(TreeNode root) { if (root == null) { return; } deep++; if (root.left == null \u0026\u0026 root.right == null) { res = Math.max(res, deep); } traverse(root.left); traverse(root.right); deep--; } public int maxDepth(TreeNode root) { traverse(root); return res; } } References 1. 二叉树的最大深度 ",
-  "wordCount" : "217",
+  "articleBody": "思路 有两种思路，分别是分解问题和遍历二叉树\n思路一 把当前问题分解为左子树和右子树中深度较大的那个子树的深度+1，就是当前树的深度\n思路二 把二叉树遍历一遍，同时用一个外部变量记录最大的深度，注意需要在前序位置deep++，后序位置deep–\n代码 思路一 class Solution { public int maxDepth(TreeNode root) { if (root == null) { return 0; } return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1; } } 思路二 class Solution { int res = 0, deep = 0; private void traverse(TreeNode root) { if (root == null) { return; } deep++; if (root.left == null \u0026\u0026 root.right == null) { res = Math.max(res, deep); } traverse(root.left); traverse(root.right); deep--; } public int maxDepth(TreeNode root) { traverse(root); return res; } } References 1. 二叉树的最大深度 ",
+  "wordCount" : "215",
   "inLanguage": "en",
   "datePublished": "2022-10-10T14:25:10+08:00",
   "dateModified": "2022-10-10T14:32:36+08:00",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-10 14:25:10 +0800 CST'>2022-10-10</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-10 14:32:36 +0800 CST'>2022-10-10</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;217 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-10 14:25:10 +0800 CST'>2022-10-10</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-10 14:32:36 +0800 CST'>2022-10-10</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;215 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
 
 
 ·&nbsp;
@@ -304,7 +304,7 @@ var _hmt = _hmt || [];
                     <a href="#%e6%80%9d%e8%b7%af%e4%ba%8c" aria-label="思路二">思路二</a></li></ul>
                 </li>
                 <li>
-                    <a href="#%e6%88%91%e7%9a%84%e4%bb%a3%e7%a0%81" aria-label="我的代码">我的代码</a><ul>
+                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a><ul>
                         
                 <li>
                     <a href="#%e6%80%9d%e8%b7%af%e4%b8%80-1" aria-label="思路一">思路一</a></li>
@@ -390,7 +390,7 @@ var _hmt = _hmt || [];
 <p>把当前问题分解为左子树和右子树中深度较大的那个子树的深度+1，就是当前树的深度</p>
 <h4 id="思路二">思路二<a hidden class="anchor" aria-hidden="true" href="#思路二">#</a></h4>
 <p>把二叉树遍历一遍，同时用一个外部变量记录最大的深度，注意需要在前序位置deep++，后序位置deep&ndash;</p>
-<h3 id="我的代码">我的代码<a hidden class="anchor" aria-hidden="true" href="#我的代码">#</a></h3>
+<h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
 <h4 id="思路一-1">思路一<a hidden class="anchor" aria-hidden="true" href="#思路一-1">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">maxDepth</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
