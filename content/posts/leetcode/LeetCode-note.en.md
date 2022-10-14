@@ -635,6 +635,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-96/>
 
+#### 2. [不同的二叉搜索树 II](https://leetcode.cn/problems/unique-binary-search-trees-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-95/>
+
 # 思想
 
 ## 双指针
