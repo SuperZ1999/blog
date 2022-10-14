@@ -613,6 +613,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-701/>
 
+#### 3. [删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-504/>
+
 # 思想
 
 ## 双指针
@@ -981,7 +985,7 @@ void levelTraverse(TreeNode root) {
 
 #### 性质
 
-二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列，并且中序遍历到一个结点时，比该结点小的结点全部都遍历过了，这个性质可以用于二叉搜索树的累加上
+二叉树左边子树全部小于根节点，右边全部大于根节点，中序遍历就是升序序列，并且中序遍历到一个结点时，比该结点小的结点全部都遍历过了，这个性质可以用于二叉搜索树的累加上，二叉搜索树最左边是最小的结点，最右边是最大的结点
 
 #### 合法性
 
