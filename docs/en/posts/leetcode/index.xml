@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 96</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-96/</link>
+      <pubDate>Fri, 14 Oct 2022 11:08:45 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-96/</guid>
+      <description>思路 递归思路 递归函数定义为n个结点可以组成几种BST，那么对于n个结点的BST的种类=将n个结点逐个当成root，左右子树的种类相乘，再把这</description>
+    </item>
+    
+    <item>
       <title>LeetCode 504</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-504/</link>
       <pubDate>Fri, 14 Oct 2022 10:37:01 +0800</pubDate>
