@@ -601,7 +601,7 @@ void traverse(ListNode head) {
 
 ### 解法
 
-
+见思想
 
 ### 题目
 
@@ -989,11 +989,24 @@ void levelTraverse(TreeNode root) {
 
 #### 合法性
 
-利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小右边的的结点都比root大+左子树是BST+右子树是BST，问题在于root只能获得左右孩子的值，从而判断是都大于小于root，想要让整个子树都小于或大于自己，需要将min和max传下去
+利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小右边的的结点都比root大+左子树是BST+右子树是BST，问题在于root只能获得左右孩子的值，从而判断是都大于小于root，想要让整个子树都小于或大于自己，需要将min和max传下去，如果当前节点会对下面的子节点有整体影响，可以通过辅助函数增长参数列表，借助参数传递信息。
 
 #### 增删改查
 
+在二叉树递归框架之上，扩展出一套 BST 代码框架：
 
+```java
+void BST(TreeNode root, int target) {
+    if (root.val == target)
+        // 找到目标，做点什么
+    if (root.val < target) 
+        BST(root.right, target);
+    if (root.val > target)
+        BST(root.left, target);
+}
+```
+
+根据代码框架掌握了 BST 的增删查改操作。
 
 # 其他
 
