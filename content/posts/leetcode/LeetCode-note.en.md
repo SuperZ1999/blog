@@ -617,7 +617,7 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-504/>
 
-## n结点BST的种类
+## n个结点的BST的种类
 
 ### 解法
 
@@ -638,6 +638,24 @@ void traverse(ListNode head) {
 #### 2. [不同的二叉搜索树 II](https://leetcode.cn/problems/unique-binary-search-trees-ii/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-95/>
+
+## 扁平化嵌套列表迭代器
+
+### 解法
+
+#### 思路一
+
+将NestedInteger当成树的节点，list当成该节点的孩子，那么只需要遍历该树就可以完成迭代了，直接看代码
+
+#### 思路二
+
+思路一会在构造的时候将此树遍历一遍，所以速度会很慢，最好弄成懒惰式的，所以可以把NestedInteger当成一个队列，循环把第一个元素展开，直到第一个元素为数字为止，这样就可以完成迭代
+
+### 题目
+
+#### 1. [扁平化嵌套列表迭代器](https://leetcode.cn/problems/flatten-nested-list-iterator/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-341/>
 
 # 思想
 

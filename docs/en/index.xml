@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 14 Oct 2022 11:32:09 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2022 21:57:50 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 341</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-341/</link>
+      <pubDate>Sat, 22 Oct 2022 21:57:50 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-341/</guid>
+      <description>思路 思路一 将NestedInteger当成树的节点，list当成该节点的孩子，那么只需要遍历该树就可以完成迭代了，直接看代码 思路二 思路一会在</description>
+    </item>
+    
     <item>
       <title>LeetCode 95</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-95/</link>
