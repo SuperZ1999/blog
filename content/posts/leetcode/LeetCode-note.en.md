@@ -657,6 +657,22 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-341/>
 
+## 最近公共祖先
+
+### 解法
+
+主要思想就是遍历二叉树，同时查找左子树和右子树是否分别含有一个节点，如果是，那么这个结点就是LCA
+
+### 题目
+
+#### 1. [二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-236/>
+
+#### 2. [二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-235/>
+
 # 思想
 
 ## 双指针

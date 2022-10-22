@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 22 Oct 2022 21:57:50 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2022 23:19:23 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 235</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-235/</link>
+      <pubDate>Sat, 22 Oct 2022 23:19:23 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-235/</guid>
+      <description>思路 跟236类似，只不过不需要一个一个遍历，因为是BST，可以根据结点的大小选择去左子树还是右子树，第一个在val1和val2之间的结点就是</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 236</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-236/</link>
+      <pubDate>Sat, 22 Oct 2022 22:47:12 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-236/</guid>
+      <description>思路 使用二叉树遍历的思想，遍历每一个节点，当左子树找到了q或p，右子树也找到了的话，该节点就是LCA，直接返回即可，注意返回值只有可能是p或</description>
+    </item>
+    
     <item>
       <title>LeetCode 341</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-341/</link>
