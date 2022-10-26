@@ -703,6 +703,20 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-222/>
 
+# 图
+
+## 图的遍历
+
+### 解法
+
+直接套模板，详见思想章节
+
+### 题目
+
+#### 1. [所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-797/>
+
 # 思想
 
 ## 双指针
@@ -995,7 +1009,7 @@ class Difference {
 
 比如快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历
 
-### 模板
+### 遍历模板
 
 ```java
 void traverse(TreeNode root) {
@@ -1006,6 +1020,20 @@ void traverse(TreeNode root) {
     traverse(root.left);
     // 中序位置
     traverse(root.right);
+    // 后序位置
+}
+```
+
+多叉树的遍历模板：
+
+```java
+/* 多叉树遍历框架 */
+void traverse(TreeNode root) {
+    if (root == null) return;
+    // 前序位置
+    for (TreeNode child : root.children) {
+        traverse(child);
+    }
     // 后序位置
 }
 ```
@@ -1093,6 +1121,75 @@ void BST(TreeNode root, int target) {
 ```
 
 根据代码框架掌握了 BST 的增删查改操作。
+
+## 图
+
+### 存储方式
+
+#### 邻接表
+
+优点：省空间
+
+#### 邻接矩阵
+
+优点：可以随机访问
+
+### 遍历模板
+
+和多叉树类似，只不过需要记录访问过的结点
+
+```java
+// 记录被遍历过的节点
+boolean[] visited;
+// 记录从起点到当前节点的路径
+boolean[] onPath;
+
+/* 图遍历框架 */
+void traverse(Graph graph, int s) {
+    if (visited[s]) return;
+    // 进入结点时
+    // 经过节点 s，标记为已遍历
+    visited[s] = true;
+    // 做选择：标记节点 s 在路径上
+    onPath[s] = true;
+    for (int neighbor : graph.neighbors(s)) {
+        traverse(graph, neighbor);
+    }
+    // 离开结点时
+    // 撤销选择：节点 s 离开路径
+    onPath[s] = false;
+}
+```
+
+## 回溯
+
+回溯和DFS的区别：
+
+回溯关注的是树枝，DFS关注的是结点，反映到代码上：
+
+```java
+// DFS 算法，关注点在节点
+void traverse(TreeNode root) {
+    if (root == null) return;
+    printf("进入节点 %s", root);
+    for (TreeNode child : root.children) {
+        traverse(child);
+    }
+    printf("离开节点 %s", root);
+}
+
+// 回溯算法，关注点在树枝
+void backtrack(TreeNode root) {
+    if (root == null) return;
+    for (TreeNode child : root.children) {
+        // 做选择
+        printf("从 %s 到 %s", root, child);
+        backtrack(child);
+        // 撤销选择
+        printf("从 %s 到 %s", child, root);
+    }
+}
+```
 
 # 其他
 
