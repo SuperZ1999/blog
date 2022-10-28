@@ -17,9 +17,19 @@ cover:
 
 ### 思路
 
-寻找可行的选课顺序其实就是计算拓扑排序，只要是无环的有向图，就有拓扑排序，所以需要想207题一样判断是否有环，如果无环，那么只需要反转该图的后序遍历序列就得到了该图的拓扑排序
+寻找可行的选课顺序其实就是计算拓扑排序
+
+#### 思路一
+
+利用图的DFS，只要是无环的有向图，就有拓扑排序，所以需要像207题一样判断是否有环，如果无环，那么只需要反转该图的后序遍历序列就得到了该图的拓扑排序
+
+#### 思路二
+
+利用图的BFS，只不过只把入度为零的结点加入队列，队列出队的序列就是该图的拓扑排序
 
 ### 代码
+
+#### 思路一
 
 ```java
 class Solution {
@@ -66,6 +76,59 @@ class Solution {
 
         onPath[s] = false;
         postorder.add(s);
+    }
+
+    private List<Integer>[] buildGraph(int numCourses, int[][] prerequisites) {
+        List<Integer>[] graph = new List[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            graph[i] = new LinkedList<>();
+        }
+        for (int[] edge : prerequisites) {
+            int from = edge[1], to = edge[0];
+            graph[from].add(to);
+        }
+        return graph;
+    }
+}
+```
+
+#### 思路二
+
+```java
+class Solution {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        List<Integer>[] graph = buildGraph(numCourses, prerequisites);
+        int[] indegree = new int[numCourses];
+        for (int[] edge : prerequisites) {
+            int to = edge[0];
+            indegree[to]++;
+        }
+
+        Queue<Integer> queue = new ArrayDeque<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        int count = 0;
+        int[] res = new int[numCourses];
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            res[count] = node;
+            count++;
+            for (Integer next : graph[node]) {
+                indegree[next]--;
+                if (indegree[next] == 0) {
+                    queue.offer(next);
+                }
+            }
+        }
+
+        if (count != numCourses) {
+            return new int[0];
+        }
+        return res;
     }
 
     private List<Integer>[] buildGraph(int numCourses, int[][] prerequisites) {
