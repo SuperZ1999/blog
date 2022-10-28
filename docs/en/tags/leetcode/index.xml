@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Oct 2022 23:21:47 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 20:32:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 207</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-207/</link>
+      <pubDate>Fri, 28 Oct 2022 20:32:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-207/</guid>
+      <description>思路 首先构建图，把prerequisites当成图的边，然后利用图的遍历模板遍历该图，同时记录路径里的结点，如果路径里的结点重复就是有环，记</description>
+    </item>
+    
     <item>
       <title>LeetCode 797</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-797/</link>

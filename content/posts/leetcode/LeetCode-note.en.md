@@ -148,7 +148,7 @@ l2 -> null -> l1 -> null
 
 1 -> 2 <- 3 <- 4 <- 5
 
-​	 null
+​     null
 
 ### 题目
 
@@ -717,6 +717,20 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-797/>
 
+## 环检测
+
+### 解法
+
+首先构建图，把prerequisites当成图的边，然后利用图的遍历模板遍历该图，同时记录路径里的结点，如果路径里的结点重复就是有环，记录结果并返回
+
+### 题目
+
+#### 
+
+#### 1. [课程表](https://leetcode.cn/problems/course-schedule/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-207/>
+
 # 思想
 
 ## 双指针
@@ -852,7 +866,7 @@ class Solution {
 ```java
 /* 滑动窗口算法模板 */
 void slidingWindow(String s) {
-   	Map<Character, Integer> window = new HashMap<>();
+       Map<Character, Integer> window = new HashMap<>();
 
     int left = 0, right = 0;
     // 这里用<而不用<=不是说明使用的闭闭区间，而是right当前位置的元素是我们下一个要入窗口的元素，所以这里其实是闭开窗口
@@ -862,7 +876,7 @@ void slidingWindow(String s) {
         right++;
         // 进行扩大窗口时数据的一系列更新
         ...
-        
+
         // debug位置
         // System.out.println("left:" + left + "\t" + "right:" + right);
 
@@ -872,11 +886,10 @@ void slidingWindow(String s) {
             char d = s.charAt(left);
             left++;
             // 进行收缩窗口时数据的一系列更新，一般与上面扩大窗口时数据更新相反
-        	...
+            ...
         }
     }
 }
-
 ```
 
 ##### 步骤
@@ -938,7 +951,7 @@ class NumArray {
             preSum[i] = preSum[i - 1] + nums[i - 1];
         }
     }
-    
+
     public int sumRange(int left, int right) {
         return preSum[right + 1] - preSum[left];
     }
@@ -1076,10 +1089,10 @@ void levelTraverse(TreeNode root) {
         for (int i = 0; i < sz; i++) {
             TreeNode cur = q.poll();
             // 将下一层节点放入队列
-            if (cur.left != null) {			// 注意不要把null放队列里面
+            if (cur.left != null) {            // 注意不要把null放队列里面
                 q.offer(cur.left);
             }
-            if (cur.right != null) {		// 注意不要把null放队列里面
+            if (cur.right != null) {        // 注意不要把null放队列里面
                 q.offer(cur.right);
             }
         }
@@ -1232,4 +1245,3 @@ dummy（虚拟头结点)：可以很好的避免第一个节点的特殊性，�
 ## 学习方法
 
 以后做题，先想这道题考察什么知识点。
-
