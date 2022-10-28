@@ -725,11 +725,21 @@ void traverse(ListNode head) {
 
 ### 题目
 
-#### 
-
 #### 1. [课程表](https://leetcode.cn/problems/course-schedule/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-207/>
+
+## 拓扑排序
+
+### 解法
+
+只要是无环的有向图，就有拓扑排序，所以需要利用环检测算法判断是否有环，如果无环，那么只需要反转该图的后序遍历序列就得到了该图的拓扑排序
+
+### 题目
+
+#### 1. [课程表 II](https://leetcode.cn/problems/course-schedule-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/>
 
 # 思想
 
@@ -1173,6 +1183,20 @@ void traverse(Graph graph, int s) {
     onPath[s] = false;
 }
 ```
+
+### 图的拓扑排序
+
+#### 拓扑排序
+
+直观地说就是，让你把一幅图「拉平」，而且这个「拉平」的图里面，所有箭头方向都是一致的
+
+如果一个图里存在环，是无法进行拓扑排序的，反之，如果图里没有环那么一定可以拓扑排序
+
+注意有向无环图不一定是树
+
+#### 如何拓扑排序
+
+将后序遍历的结果进行反转，就是拓扑排序的结果。至于原因由于需要严格的数学证明，就不用看了，可以自己画个图看一看
 
 ## 回溯
 

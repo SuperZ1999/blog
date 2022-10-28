@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 28 Oct 2022 20:32:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 21:47:32 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 210</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/</link>
+      <pubDate>Fri, 28 Oct 2022 21:47:32 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/</guid>
+      <description>思路 寻找可行的选课顺序其实就是计算拓扑排序，只要是无环的有向图，就有拓扑排序，所以需要想207题一样判断是否有环，如果无环，那么只需要反转该</description>
+    </item>
+    
     <item>
       <title>LeetCode 207</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-207/</link>
