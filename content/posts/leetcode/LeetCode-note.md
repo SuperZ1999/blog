@@ -721,7 +721,15 @@ void traverse(ListNode head) {
 
 ### 解法
 
-首先构建图，把prerequisites当成图的边，然后利用图的遍历模板遍历该图，同时记录路径里的结点，如果路径里的结点重复就是有环，记录结果并返回
+这道题其实就是检测图里是否有环
+
+#### 思路一
+
+利用图的DFS，首先构建图，把prerequisites当成图的边，然后利用图的DFS遍历模板遍历该图，同时记录路径里的结点，如果路径里的结点重复就是有环，记录结果并返回
+
+#### 思路二
+
+利用图的BFS，首先构建图，把prerequisites当成图的边，注意BFS时，只能让入度为零的结点入队列即可，最后判断访问过的结点个数是否等于总结点个数
 
 ### 题目
 
@@ -1159,6 +1167,8 @@ void BST(TreeNode root, int target) {
 
 ### 遍历模板
 
+#### DFS
+
 和多叉树类似，只不过需要记录访问过的结点
 
 ```java
@@ -1181,6 +1191,27 @@ void traverse(Graph graph, int s) {
     // 离开结点时
     // 撤销选择：节点 s 离开路径
     onPath[s] = false;
+}
+```
+
+#### BFS
+
+```java
+// 记录被遍历过的节点
+boolean[] visited;
+
+void traverse(Graph graph, int s) {
+    Queue<Integer> queue = new ArrayDeque<>();
+    queue.offer(s);
+    while (!queue.isEmpty()) {
+        int node = queue.poll();
+        visited[node] = true;
+        for (int neighbor : graph.neighbors(s)) {
+            if (!visited[neighbor]) {
+                queue.offer(next);
+            }
+        }
+    }
 }
 ```
 
