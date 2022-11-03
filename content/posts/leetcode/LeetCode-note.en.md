@@ -765,6 +765,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-785/>
 
+#### 2. [可能的二分法](https://leetcode.cn/problems/possible-bipartition/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/>
+
 # 思想
 
 ## 双指针

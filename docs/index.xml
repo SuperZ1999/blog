@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 03 Nov 2022 16:17:09 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Nov 2022 16:58:49 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 886</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/</link>
+      <pubDate>Thu, 03 Nov 2022 16:58:49 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/</guid>
+      <description>思路 经典二分图判断，只不过需要先构造一个图，详见思想章节 代码 class Solution { private boolean ok = true; private boolean[] color; private boolean[] visited; public boolean possibleBipartition(int n, int[][] dislikes) { color = new boolean[n + 1]; visited = new boolean[n + 1]; List&amp;lt;Integer&amp;gt;[] graph = buildGraph(n, dislikes); for (int</description>
+    </item>
+    
     <item>
       <title>LeetCode 785</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-785/</link>
