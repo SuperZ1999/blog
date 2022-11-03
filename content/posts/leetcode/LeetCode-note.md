@@ -753,6 +753,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/>
 
+## 二分图的判断
+
+### 解法
+
+利用二分图判断模板即可，详见思想章节
+
+### 题目
+
+#### 1. [判断二分图](https://leetcode.cn/problems/is-graph-bipartite/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-785/>
+
 # 思想
 
 ## 双指针
@@ -1234,6 +1246,42 @@ void traverse(Graph graph, int s) {
 1. 将后序遍历的结果进行反转，就是拓扑排序的结果。至于原因由于需要严格的数学证明，就不用看了，可以自己画个图看一看
 2. 利用图的BFS，每次只让入度为零的结点入队列，此时遍历的结果就是拓扑排序的结果
 
+### 二分图
+
+![img](https://labuladong.gitee.io/algo/images/%e4%ba%8c%e5%88%86%e5%9b%be/0.png)
+
+如图所示就是二分图，可以使用染色法判断一个图是否为二分图，如下所示：
+
+![img](https://labuladong.gitee.io/algo/images/algo4/1.jpg)
+
+在某些场景下二分图也可以作为存储键值对的数据结构（符号表）
+
+#### 判断二分图（染色）模板
+
+其实就是图的遍历，只不过一边遍历一边染色
+
+```java
+/* 判断二分图框架 */
+private boolean[] color;
+private boolean[] visited;
+void traverse(Graph graph, int v) {
+    visited[v] = true;
+    // 遍历节点 v 的所有相邻节点 neighbor
+    for (int neighbor : graph.neighbors(v)) {
+        if (!visited[neighbor]) {
+            // 相邻节点 neighbor 没有被访问过
+            // 那么应该给节点 neighbor 涂上和节点 v 不同的颜色
+            color[neighbor] = color[v];
+            traverse(graph, neighbor);
+        } else {
+            // 相邻节点 neighbor 已经被访问过
+            // 那么应该比较节点 neighbor 和节点 v 的颜色
+            // 若相同，则此图不是二分图
+        }
+    }
+}
+```
+
 ## 回溯
 
 回溯和DFS的区别：
@@ -1301,6 +1349,8 @@ https://labuladong.gitee.io/algo/2/21/45/没看
 ## 技巧
 
 dummy（虚拟头结点)：可以很好的避免第一个节点的特殊性，将第一个节点当作第二个节点，也即是所有节点统一处理
+
+把 return 语句都放在函数开头，因为一般 return 语句都是 base case，集中放在一起可以让算法结构更清晰。
 
 ## 学习方法
 
