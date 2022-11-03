@@ -757,7 +757,7 @@ void traverse(ListNode head) {
 
 ### 解法
 
-利用二分图判断模板即可，详见思想章节
+利用二分图判断模板即可，有dfs和bfs两种做法，详见思想章节
 
 ### 题目
 
@@ -1260,8 +1260,10 @@ void traverse(Graph graph, int s) {
 
 其实就是图的遍历，只不过一边遍历一边染色
 
+##### DFS
+
 ```java
-/* 判断二分图框架 */
+/* 判断二分图框架(DFS) */
 private boolean[] color;
 private boolean[] visited;
 void traverse(Graph graph, int v) {
@@ -1277,6 +1279,40 @@ void traverse(Graph graph, int v) {
             // 相邻节点 neighbor 已经被访问过
             // 那么应该比较节点 neighbor 和节点 v 的颜色
             // 若相同，则此图不是二分图
+        }
+    }
+}
+```
+
+##### BFS
+
+```java
+/* 判断二分图框架(BFS) */
+private boolean[] color;
+private boolean[] visited;
+void traverse(Graph graph, int start) {
+    Deque<Integer> queue = new ArrayDeque<>();
+    visited[start] = true;
+    queue.offer(start);
+    while (!queue.isEmpty()) {
+        int v = queue.poll();
+        // 从节点 v 向所有相邻节点扩散
+        for (int w : graph[v]) {
+            if (!visited[w]) {
+                // 相邻节点 w 没有被访问过
+                // 那么应该给节点 w 涂上和节点 v 不同的颜色
+                color[w] = !color[v];
+                // 标记 w 节点，并放入队列
+                visited[w] = true;
+                queue.offer(w);
+            } else {
+                // 相邻节点 w 已经被访问过
+                // 根据 v 和 w 的颜色判断是否是二分图
+                if (color[w] == color[v]) {
+                    // 若相同，则此图不是二分图
+                    return;
+                }
+            }
         }
     }
 }

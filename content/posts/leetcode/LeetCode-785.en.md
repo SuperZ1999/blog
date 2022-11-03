@@ -17,9 +17,11 @@ cover:
 
 ### 思路
 
-经典二分图判断问题，利用二分图判断模板即可，详见思想章节
+经典二分图判断问题，利用二分图判断模板即可，有dfs和bfs两种做法，详见思想章节
 
 ### 代码
+
+#### DFS
 
 ```java
 class Solution {
@@ -53,6 +55,53 @@ class Solution {
                 if (color[v] == color[neighbor]) {
                     ok = false;
                     return;
+                }
+            }
+        }
+    }
+}
+```
+
+#### BFS
+
+```java
+class Solution {
+    private boolean ok = true;
+    private boolean[] color;
+    private boolean[] visited;
+
+    public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        color = new boolean[n];
+        visited = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                traverse(graph, i);
+            }
+        }
+        return ok;
+    }
+
+    private void traverse(int[][] graph, int start) {
+        if (!ok) {
+            return;
+        }
+
+        Deque<Integer> queue = new ArrayDeque<>();
+        visited[start] = true;
+        queue.offer(start);
+        while (!queue.isEmpty() && ok) {
+            int v = queue.poll();
+            for (int n : graph[v]) {
+                if (!visited[n]) {
+                    color[n] = !color[v];
+                    visited[n] = true;
+                    queue.offer(n);
+                } else {
+                    if (color[n] == color[v]) {
+                        ok = false;
+                        return;
+                    }
                 }
             }
         }
