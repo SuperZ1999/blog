@@ -769,6 +769,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/>
 
+## 并查集
+
+### 解法
+
+利用并查集模板即可，详见思想章节
+
+### 题目
+
+#### 1. [被围绕的区域](https://leetcode.cn/problems/surrounded-regions/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-130/>
+
 # 思想
 
 ## 双指针
@@ -1322,6 +1334,66 @@ void traverse(Graph graph, int start) {
 }
 ```
 
+### 并查集
+
+就是可以1、方便的合并两个集合，2、快速的判断两个结点是否处于一个集合中的树状数据结构，长下面这个样子
+
+![img](https://labuladong.gitee.io/algo/images/unionfind/4.jpg)
+
+#### 模板
+
+```java
+class UF {
+    // 连通分量个数
+    private int count;
+    // 存储每个节点的父节点
+    private int[] parent;
+
+    // n 为图中节点的个数
+    public UF(int n) {
+        this.count = n;
+        parent = new int[n];
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+        }
+    }
+    
+    // 将节点 p 和节点 q 连通
+    public void union(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        
+        if (rootP == rootQ)
+            return;
+        
+        parent[rootQ] = rootP;
+        // 两个连通分量合并成一个连通分量
+        count--;
+    }
+
+    // 判断节点 p 和节点 q 是否连通
+    public boolean connected(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        return rootP == rootQ;
+    }
+
+    public int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+
+    // 返回图中的连通分量个数
+    public int count() {
+        return count;
+    }
+}
+```
+
+这里做了路径压缩的优化，在 `find` 函数中进行路径压缩，保证任意树的高度保持在常数，使得各个 API 时间复杂度为 O(1)。使用了路径压缩之后，可以不使用 `size` 数组的平衡优化。
+
 ## 回溯
 
 回溯和DFS的区别：
@@ -1391,6 +1463,10 @@ https://labuladong.gitee.io/algo/2/21/45/没看
 dummy（虚拟头结点)：可以很好的避免第一个节点的特殊性，将第一个节点当作第二个节点，也即是所有节点统一处理
 
 把 return 语句都放在函数开头，因为一般 return 语句都是 base case，集中放在一起可以让算法结构更清晰。
+
+将二维坐标映射到一维的常用技巧：将二维坐标 `(x,y)` 转换成 `x * n + y` 这个数（`m` 是棋盘的行数，`n` 是棋盘的列数）
+
+方向数组 d 是上下左右搜索的常用手法：`int[][] d = new int[][]{{1,0}, {0,1}, {0,-1}, {-1,0}};`
 
 ## 学习方法
 
