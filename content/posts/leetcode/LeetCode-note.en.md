@@ -785,6 +785,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-990/>
 
+## dijkstra问题
+
+### 解法
+
+利用dijkstra模板即可，详见思想章节
+
+### 题目
+
+#### 1. [网络延迟时间](https://leetcode.cn/problems/network-delay-time/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-130/>
+
 # 思想
 
 ## 双指针
@@ -1397,6 +1409,81 @@ class UF {
 ```
 
 这里做了路径压缩的优化，在 `find` 函数中进行路径压缩，保证任意树的高度保持在常数，使得各个 API 时间复杂度为 O(1)。使用了路径压缩之后，可以不使用 `size` 数组的平衡优化。
+
+### dijkstra问题
+
+dijkstra是求最短路径的算法，实际上是由图的BFS演化而来，模板如下：
+
+```java
+class State {
+    // 图节点的 id
+    int id;
+    // 从 start 节点到当前节点的距离
+    int distFromStart;
+
+    State(int id, int distFromStart) {
+        this.id = id;
+        this.distFromStart = distFromStart;
+    }
+}
+
+// 返回节点 from 到节点 to 之间的边的权重
+int weight(int from, int to);
+
+// 输入节点 s 返回 s 的相邻节点
+List<Integer> adj(int s);
+
+// 输入一幅图和一个起点 start，计算 start 到其他节点的最短距离
+int[] dijkstra(int start, List<Integer>[] graph) {
+    // 图中节点的个数
+    int V = graph.length;
+    // 记录最短路径的权重，你可以理解为 dp table
+    // 定义：distTo[i] 的值就是节点 start 到达节点 i 的最短路径权重
+    int[] distTo = new int[V];
+    // 求最小值，所以 dp table 初始化为正无穷
+    Arrays.fill(distTo, Integer.MAX_VALUE);
+    // base case，start 到 start 的最短距离就是 0
+    distTo[start] = 0;
+
+    // 优先级队列，distFromStart 较小的排在前面
+    Queue<State> pq = new PriorityQueue<>((a, b) -> {
+        return a.distFromStart - b.distFromStart;
+    });
+
+    // 从起点 start 开始进行 BFS
+    pq.offer(new State(start, 0));
+
+    while (!pq.isEmpty()) {
+        State curState = pq.poll();
+        int curNodeID = curState.id;
+        int curDistFromStart = curState.distFromStart;
+
+        // 如果只需要start到end的最短距离加上这句就可以了
+        // if (curNodeID == end) {
+            // return curDistFromStart;
+        // }
+        
+        if (curDistFromStart > distTo[curNodeID]) {
+            // 已经有一条更短的路径到达 curNode 节点了
+            continue;
+        }
+        // 将 curNode 的相邻节点装入队列
+        for (int nextNodeID : adj(curNodeID)) {
+            // 看看从 curNode 达到 nextNode 的距离是否会更短
+            int distToNextNode = distTo[curNodeID] + weight(curNodeID, nextNodeID);
+            if (distTo[nextNodeID] > distToNextNode) {
+                // 更新 dp table
+                distTo[nextNodeID] = distToNextNode;
+                // 将这个节点以及距离放入队列
+                pq.offer(new State(nextNodeID, distToNextNode));
+            }
+        }
+    }
+    return distTo;
+}
+```
+
+解释：同一个结点可能会入队多个State，一定会先遍历到dist较小的那个，结点的第一次遍历，就确定了这个结点的最短距离，然后按照这个最短距离刷新start到其他节点的距离，之后这个结点的任务就算是结束了，以后再碰到这个结点直接continue就可以了。
 
 ## 回溯
 
