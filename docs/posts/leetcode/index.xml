@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 1514</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/</link>
+      <pubDate>Sun, 04 Dec 2022 22:07:34 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/</guid>
+      <description>思路 dijkstra问题的变种，利用dijkstra模板即可，主要有两个注意点： 首先需要构造图，构造图时注意无向图的一条边相当于两条有向边 w</description>
+    </item>
+    
+    <item>
       <title>LeetCode 1631</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/</link>
       <pubDate>Sun, 04 Dec 2022 21:20:32 +0800</pubDate>

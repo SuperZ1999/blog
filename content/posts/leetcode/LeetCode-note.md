@@ -789,7 +789,7 @@ void traverse(ListNode head) {
 
 ### 解法
 
-利用dijkstra模板即可，详见思想章节
+利用dijkstra模板即可，注意dijkstra的变种需要修改adj和weight函数，详见思想章节
 
 ### 题目
 
@@ -800,6 +800,10 @@ void traverse(ListNode head) {
 #### 2. [最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/>
+
+#### 3. [概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/>
 
 # 思想
 
@@ -1488,6 +1492,8 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 ```
 
 解释：同一个结点可能会入队多个State，一定会先遍历到dist较小的那个，结点的第一次遍历，就确定了这个结点的最短距离，然后按照这个最短距离刷新start到其他节点的距离，之后这个结点的任务就算是结束了，以后再碰到这个结点直接continue就可以了。
+
+注意dijkstra的变种需要修改adj和weight函数
 
 ## 回溯
 
