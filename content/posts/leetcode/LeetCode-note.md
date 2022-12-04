@@ -795,7 +795,11 @@ void traverse(ListNode head) {
 
 #### 1. [网络延迟时间](https://leetcode.cn/problems/network-delay-time/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-130/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-743/>
+
+#### 2. [最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/>
 
 # 思想
 

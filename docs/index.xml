@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 04 Dec 2022 20:17:02 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Dec 2022 21:20:32 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 1631</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/</link>
+      <pubDate>Sun, 04 Dec 2022 21:20:32 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/</guid>
+      <description>思路 利用dijkstra的思想，只不过需要把矩阵里的每个元素当成一个结点，求一个结点的相邻结点与一般的图不同（即adj函数），而且最后求的体</description>
+    </item>
+    
     <item>
       <title>LeetCode 743</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-743/</link>
