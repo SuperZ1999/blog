@@ -17,9 +17,19 @@ cover:
 
 ### 思路
 
+两种思路：
+
+#### kruskal
+
 利用kruskal算法即可，只不过这里的边需要自己生成，详见思想章节
 
+#### prim
+
+利用prim算法即可，只不过这里的边需要自己生成，详见思想章节
+
 ### 代码
+
+#### kruskal
 
 ```java
 class Solution {
@@ -96,6 +106,85 @@ class Solution {
         // 返回图中的连通分量个数
         public int count() {
             return count;
+        }
+    }
+}
+```
+
+#### prim
+
+```java
+class Solution {
+    public int minCostConnectPoints(int[][] points) {
+        int n = points.length;
+        List<int[]>[] graph = new List[n];
+        for (int i = 0; i < n; i++) {
+            graph[i] = new ArrayList<>();
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int xi = points[i][0], yi = points[i][1];
+                int xj = points[j][0], yj = points[j][1];
+                int weight = Math.abs(xi - xj) + Math.abs(yi- yj);
+                graph[i].add(new int[]{i, j, weight});
+                graph[j].add(new int[]{j, i, weight});
+            }
+        }
+        return new Prim(graph).getWeightSum();
+    }
+
+    class Prim {
+        private List<int[]>[] graph;
+        private Queue<int[]> pq;
+        private boolean[] inMST;
+        private int weightSum = 0;
+
+        public Prim(List<int[]>[] graph) {
+            this.graph = graph;
+            this.pq = new PriorityQueue<>((a, b) -> {
+                return a[2] - b[2];
+            });
+            int n = graph.length;
+            inMST = new boolean[n];
+
+            inMST[0] = true;
+            cut(0);
+            while (!pq.isEmpty()) {
+                int[] edge = pq.poll();
+                int to = edge[1];
+                int weight = edge[2];
+
+                if (inMST[to]) {
+                    continue;
+                }
+
+                weightSum += weight;
+                inMST[to] = true;
+                cut(to);
+            }
+        }
+
+        private void cut(int s) {
+            for (int[] edge : graph[s]) {
+                int to = edge[1];
+                if (inMST[to]) {
+                    continue;
+                }
+                pq.offer(edge);
+            }
+        }
+
+        private int getWeightSum() {
+            return weightSum;
+        }
+
+        private boolean allConnected() {
+            for (boolean b : inMST) {
+                if (!b) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
