@@ -805,6 +805,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/>
 
+## kruskal问题
+
+### 解法
+
+利用kruskal算法即可，详见思想章节
+
+### 题目
+
+#### 1. [连接所有点的最小费用](https://leetcode.cn/problems/min-cost-to-connect-all-points/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1584/>
+
 # 思想
 
 ## 双指针
@@ -1494,6 +1506,41 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 解释：同一个结点可能会入队多个State，一定会先遍历到dist较小的那个，结点的第一次遍历，就确定了这个结点的最短距离，然后按照这个最短距离刷新start到其他节点的距离，之后这个结点的任务就算是结束了，以后再碰到这个结点直接continue就可以了。
 
 注意dijkstra的变种需要修改adj和weight函数
+
+### kruskal问题
+
+用于求解最小生成树问题，主要思路就是先把边按权重排序，从小到大添加边，同时判断边添加后是否有环（这一步可以用并查集做），模板如下：
+
+```java
+int minimumCost(int n, int[][] edges) {
+    UF uf = new UF(n);
+    // 对所有边按照权重从小到大排序
+    Arrays.sort(edges, (a, b) -> (a[2] - b[2]));
+    // 记录最小生成树的权重之和
+    int mst = 0;
+    for (int[] edge : edges) {
+        int u = edge[0];
+        int v = edge[1];
+        int weight = edge[2];
+        // 若这条边会产生环，则不能加入 mst
+        if (uf.connected(u, v)) {
+            continue;
+        }
+        // 若这条边不会产生环，则属于最小生成树
+        mst += weight;
+        uf.union(u, v);
+    }
+    // 保证所有节点都被连通
+    // uf.count() == 1 说明所有节点被连通
+    return uf.count() == 1 ? mst : -1;
+}
+
+class UF {
+    // 见上文并查集模板
+}
+```
+
+详见：<https://mp.weixin.qq.com/s/dJ9gqR3RVoeGnATlpMG39w>
 
 ## 回溯
 
