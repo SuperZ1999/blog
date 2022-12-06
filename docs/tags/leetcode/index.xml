@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 06 Dec 2022 15:02:34 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 16:58:09 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 648</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-648/</link>
+      <pubDate>Tue, 06 Dec 2022 16:58:09 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-648/</guid>
+      <description>思路 经典前缀树（Trie）问题，只不过需要注意将dictionary添加进set即可（因为只添加进set的字符串才能充当前缀） 代码 class Solution { public String</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 208</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-208/</link>
+      <pubDate>Tue, 06 Dec 2022 16:41:25 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-208/</guid>
+      <description>思路 经典前缀树（Trie）问题，直接套模板即可，详见思想篇章 代码 class Trie { private TrieSet trieSet; public Trie() { this.trieSet = new TrieSet(); } public void insert(String word) { trieSet.add(word); } public boolean search(String word) { return trieSet.contains(word); } public boolean startsWith(String prefix) { return trieSet.hasKeyWithPrefix(prefix); } class</description>
+    </item>
+    
     <item>
       <title>LeetCode 146</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-146/</link>
