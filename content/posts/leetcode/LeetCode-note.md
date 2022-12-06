@@ -829,6 +829,32 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1584/>
 
+# 设计数据结构
+
+## LRU
+
+### 解法
+
+直接套LRU模板即可，详见思想篇章
+
+### 题目
+
+#### 1. [LRU 缓存](https://leetcode.cn/problems/lru-cache/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-146/>
+
+## LFU
+
+### 解法
+
+直接套LFU模板即可，详见思想篇章
+
+### 题目
+
+#### 1. [LFU 缓存](https://leetcode.cn/problems/lfu-cache/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-460/>
+
 # 思想
 
 ## 双指针
@@ -1666,6 +1692,302 @@ void backtrack(TreeNode root) {
 }
 ```
 
+## 设计数据结构
+
+### LRU
+
+即Least Recently Used，也就是每次淘汰那些最久没被使用的数据，主要就是利用了哈希链表（在Java中是`LinkedHashMap`）这种数据结构，如下图所示：
+
+![img](https://labuladong.gitee.io/algo/images/LRU%e7%ae%97%e6%b3%95/4.jpg)
+
+手写轮子模板：
+
+```java
+class LRUCache {
+    // key -> Node(key, val)
+    private Map<Integer, Node> map;
+    // Node(k1, v1) <-> Node(k2, v2)...
+    private DoubleList cache;
+    // 最大容量
+    private int capacity;
+    
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        map = new HashMap<>();
+        cache = new DoubleList();
+    }
+    
+    public int get(int key) {
+        if (!map.containsKey(key)) {
+            return -1;
+        }
+        // 将该数据提升为最近使用的
+        makeRecently(key);
+        return map.get(key).val;
+    }
+    
+    public void put(int key, int val) {
+        if (map.containsKey(key)) {
+            // 删除旧的数据
+            deleteKey(key);
+            // 新插入的数据为最近使用的数据
+            addRecently(key, val);
+            return;
+        }
+
+        if (cap == cache.size()) {
+            // 删除最久未使用的元素
+            removeLeastRecently();
+        }
+        // 添加为最近使用的元素
+        addRecently(key, val);
+    }
+    
+    /* 将某个 key 提升为最近使用的 */
+    private void makeRecently(int key) {
+        Node x = map.get(key);
+        // 先从链表中删除这个节点
+        cache.remove(x);
+        // 重新插到队尾
+        cache.addLast(x);
+    }
+
+    /* 添加最近使用的元素 */
+    private void addRecently(int key, int val) {
+        Node x = new Node(key, val);
+        // 链表尾部就是最近使用的元素
+        cache.addLast(x);
+        // 别忘了在 map 中添加 key 的映射
+        map.put(key, x);
+    }
+
+    /* 删除某一个 key */
+    private void deleteKey(int key) {
+        Node x = map.get(key);
+        // 从链表中删除
+        cache.remove(x);
+        // 从 map 中删除
+        map.remove(key);
+    }
+
+    /* 删除最久未使用的元素 */
+    private void removeLeastRecently() {
+        // 链表头部的第一个元素就是最久未使用的
+        Node deletedNode = cache.removeFirst();
+        // 同时别忘了从 map 中删除它的 key
+        int deletedKey = deletedNode.key;
+        map.remove(deletedKey);
+    }
+
+    class Node {
+        int key, val;
+        Node prev, next;
+
+        public Node(int key, int val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    class DoubleList {
+        // 头尾虚节点
+        private Node head, tail;  
+        // 链表元素数
+        private int size;
+
+        public DoubleList() {
+            // 初始化双向链表的数据
+            head = new Node(0, 0);
+            tail = new Node(0, 0);
+            head.next = tail;
+            tail.prev = head;
+            size = 0;
+        }
+
+        // 在链表尾部添加节点 x，时间 O(1)
+        public void addLast(Node x) {
+            x.prev = tail.prev;
+            x.next = tail;
+            tail.prev.next = x;
+            tail.prev = x;
+            size++;
+        }
+
+        // 删除链表中的 x 节点（x 一定存在）
+        // 由于是双链表且给的是目标 Node 节点，时间 O(1)
+        public void remove(Node x) {
+            x.prev.next = x.next;
+            x.next.prev = x.prev;
+            size--;
+        }
+
+        // 删除链表中第一个节点，并返回该节点，时间 O(1)
+        public Node removeFirst() {
+            if (size == 0) {
+                return null;
+            }
+            Node first = head.next;
+            remove(first);
+            return first;
+        }
+
+        // 返回链表长度，时间 O(1)
+        public int size() {
+            return size;
+        }
+    }
+}
+```
+
+使用`LinkedHashMap`模板：
+
+```java
+class LRUCache {
+    int cap;
+    LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
+    public LRUCache(int capacity) { 
+        this.cap = capacity;
+    }
+    
+    public int get(int key) {
+        if (!cache.containsKey(key)) {
+            return -1;
+        }
+        // 将 key 变为最近使用
+        makeRecently(key);
+        return cache.get(key);
+    }
+    
+    public void put(int key, int val) {
+        if (cache.containsKey(key)) {
+            // 修改 key 的值
+            cache.put(key, val);
+            // 将 key 变为最近使用
+            makeRecently(key);
+            return;
+        }
+        
+        if (cache.size() >= this.cap) {
+            // 链表头部就是最久未使用的 key
+            int oldestKey = cache.keySet().iterator().next();
+            cache.remove(oldestKey);
+        }
+        // 将新的 key 添加链表尾部
+        cache.put(key, val);
+    }
+    
+    private void makeRecently(int key) {
+        int val = cache.get(key);
+        // 删除 key，重新插入到队尾
+        cache.remove(key);
+        cache.put(key, val);
+    }
+}
+```
+
+### LFU
+
+Least Frequently Used，也就是每次淘汰那些使用次数最少的数据，主要利用了keyToVal，keyToFreq，freqToKeys三个数据结构相互配合，详见：<https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ>，模板如下：
+
+```java
+class LFUCache {
+    // key 到 val 的映射，我们后文称为 KV 表
+    HashMap<Integer, Integer> keyToVal;
+    // key 到 freq 的映射，我们后文称为 KF 表
+    HashMap<Integer, Integer> keyToFreq;
+    // freq 到 key 列表的映射，我们后文称为 FK 表
+    HashMap<Integer, LinkedHashSet<Integer>> freqToKeys;
+    // 记录最小的频次
+    int minFreq;
+    // 记录 LFU 缓存的最大容量
+    int cap;
+
+    public LFUCache(int capacity) {
+        keyToVal = new HashMap<>();
+        keyToFreq = new HashMap<>();
+        freqToKeys = new HashMap<>();
+        this.cap = capacity;
+        this.minFreq = 0;
+    }
+    
+    public int get(int key) {
+        if (!keyToVal.containsKey(key)) {
+            return -1;
+        }
+        // 增加 key 对应的 freq
+        increaseFreq(key);
+        return keyToVal.get(key);
+    }
+    
+    public void put(int key, int val) {
+        if (this.cap <= 0) return;
+
+        /* 若 key 已存在，修改对应的 val 即可 */
+        if (keyToVal.containsKey(key)) {
+            keyToVal.put(key, val);
+            // key 对应的 freq 加一
+            increaseFreq(key);
+            return;
+        }
+
+        /* key 不存在，需要插入 */
+        /* 容量已满的话需要淘汰一个 freq 最小的 key */
+        if (this.cap <= keyToVal.size()) {
+            removeMinFreqKey();
+        }
+
+        /* 插入 key 和 val，对应的 freq 为 1 */
+        // 插入 KV 表
+        keyToVal.put(key, val);
+        // 插入 KF 表
+        keyToFreq.put(key, 1);
+        // 插入 FK 表
+        freqToKeys.putIfAbsent(1, new LinkedHashSet<>());
+        freqToKeys.get(1).add(key);
+        // 插入新 key 后最小的 freq 肯定是 1
+        this.minFreq = 1;
+	}
+
+    private void increaseFreq(int key) {
+        int freq = keyToFreq.get(key);
+        /* 更新 KF 表 */
+        keyToFreq.put(key, freq + 1);
+        /* 更新 FK 表 */
+        // 将 key 从 freq 对应的列表中删除
+        freqToKeys.get(freq).remove(key);
+        // 将 key 加入 freq + 1 对应的列表中
+        freqToKeys.putIfAbsent(freq + 1, new LinkedHashSet<>());
+        freqToKeys.get(freq + 1).add(key);
+        // 如果 freq 对应的列表空了，移除这个 freq
+        if (freqToKeys.get(freq).isEmpty()) {
+            freqToKeys.remove(freq);
+            // 如果这个 freq 恰好是 minFreq，更新 minFreq
+            if (freq == this.minFreq) {
+                this.minFreq++;
+            }
+        }
+    }
+
+    private void removeMinFreqKey() {
+        // freq 最小的 key 列表
+        LinkedHashSet<Integer> keyList = freqToKeys.get(this.minFreq);
+        // 其中最先被插入的那个 key 就是该被淘汰的 key
+        int deletedKey = keyList.iterator().next();
+        /* 更新 FK 表 */
+        keyList.remove(deletedKey);
+        if (keyList.isEmpty()) {
+            freqToKeys.remove(this.minFreq);
+            // 问：这里需要更新 minFreq 的值吗？
+            // 这里不用修改minFreq因为后面会置为1
+        }
+        /* 更新 KV 表 */
+        keyToVal.remove(deletedKey);
+        /* 更新 KF 表 */
+        keyToFreq.remove(deletedKey);
+    }
+}
+```
+
 # 其他
 
 ## 零碎
@@ -1699,6 +2021,8 @@ https://labuladong.gitee.io/algo/1/3/的那几个算法框架及之后的几个�
 https://labuladong.gitee.io/algo/2/21/41/没看
 
 https://labuladong.gitee.io/algo/2/21/45/没看
+
+https://labuladong.gitee.io/algo/2/22/57/没看
 
 ## 技巧
 

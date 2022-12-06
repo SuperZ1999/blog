@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 05 Dec 2022 12:46:30 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 15:02:34 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 146</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-146/</link>
+      <pubDate>Tue, 06 Dec 2022 15:02:34 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-146/</guid>
+      <description>思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 代码 手写轮子 class LRUCache { private Map&amp;lt;Integer, Node&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) {</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 460</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-460/</link>
+      <pubDate>Tue, 06 Dec 2022 14:58:18 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-460/</guid>
+      <description>思路 经典LFU缓存问题，直接套LFU模板即可，详见思想篇章 代码 class LFUCache { private Map&amp;lt;Integer, Integer&amp;gt; keyToVal; private Map&amp;lt;Integer, Integer&amp;gt; keyToFreq; private Map&amp;lt;Integer, LinkedHashSet&amp;lt;Integer&amp;gt;&amp;gt; freqToKeys; private int minFreq; private int capacity; public LFUCache(int capacity) { keyToVal = new HashMap&amp;lt;&amp;gt;(); keyToFreq = new HashMap&amp;lt;&amp;gt;(); freqToKeys = new HashMap&amp;lt;&amp;gt;(); this.capacity =</description>
+    </item>
+    
     <item>
       <title>LeetCode 1584</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1584/</link>
