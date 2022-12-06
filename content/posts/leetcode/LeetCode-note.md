@@ -871,6 +871,22 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-648/>
 
+#### 3. [添加与搜索单词 - 数据结构设计](https://leetcode.cn/problems/design-add-and-search-words-data-structure/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-211/>
+
+## 数据流的中位数
+
+### 解法
+
+用两个优先队列（最大/小堆），等量的将数据流分成两部分，最大堆放小的那一部分，最小堆放大的那一部分，中位数就是堆顶的元素平均数，详见：<https://mp.weixin.qq.com/s/oklQN_xjYy--_fbFkd9wMg>
+
+### 题目
+
+#### 1. [数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-295/>
+
 # 思想
 
 ## 双指针

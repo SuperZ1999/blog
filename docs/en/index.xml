@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 06 Dec 2022 16:58:09 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 20:15:23 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 295</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-295/</link>
+      <pubDate>Tue, 06 Dec 2022 20:15:23 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-295/</guid>
+      <description>思路 用两个优先队列（最大/小堆），等量的将数据流分成两部分，最大堆放小的那一部分，最小堆放大的那一部分，中位数就是堆顶的元素平均数，详见：h</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 211</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-211/</link>
+      <pubDate>Tue, 06 Dec 2022 17:05:05 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-211/</guid>
+      <description>思路 利用Trie树的思想即可，详见思想篇章 代码 class WordDictionary { private TrieNode root; private static class TrieNode { boolean isEnd = false; TrieNode[] children = new TrieNode[26]; } public WordDictionary() { this.root = new TrieNode(); } public void addWord(String word) { this.root = put(root, word, 0); } private TrieNode put(TrieNode node, String word, int</description>
+    </item>
+    
     <item>
       <title>LeetCode 648</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-648/</link>
