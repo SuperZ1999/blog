@@ -875,6 +875,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-211/>
 
+#### 4. [键值映射](https://leetcode.cn/problems/map-sum-pairs/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-677/>
+
 ## 数据流的中位数
 
 ### 解法
