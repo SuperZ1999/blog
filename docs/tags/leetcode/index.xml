@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 06 Dec 2022 21:48:51 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 11:08:46 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 503</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/</link>
+      <pubDate>Wed, 07 Dec 2022 11:08:46 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/</guid>
+      <description>思路 利用单调栈的思想，同LeetCode-496，只不过牵扯到循环数组的问题，常用套路就是将数组长度翻倍，代码实现的时候也可以用i % nums</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 739</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/</link>
+      <pubDate>Wed, 07 Dec 2022 10:53:22 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/</guid>
+      <description>思路 利用单调栈的思想即可，同LeetCode-496，只不过这次存的是索引而不是元素 代码 class Solution { public int[] dailyTemperatures(int[] temperatures) { int n = temperatures.length; Deque&amp;lt;Integer&amp;gt; stack = new ArrayDeque&amp;lt;&amp;gt;(); int[] res = new int[n]; for (int i =</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 496</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/</link>
+      <pubDate>Wed, 07 Dec 2022 10:35:40 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/</guid>
+      <description>思路 利用单调栈的思想即可，倒着入栈，碰到栈顶比自己小就出栈直到比自己大，那么这么就把两个较大元素中间的小元素去除掉了，剩下的两个元素就可以充</description>
+    </item>
+    
     <item>
       <title>LeetCode 677</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-677/</link>

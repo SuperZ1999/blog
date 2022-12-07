@@ -891,6 +891,28 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-295/>
 
+# 单调栈问题
+
+## 下一个更大元素
+
+### 解法
+
+利用单调栈的思想即可，倒着入栈，碰到栈顶比自己小就出栈直到比自己大，那么这么就把两个较大元素中间的小元素去除掉了，剩下的两个元素就可以充当下一个更大元素的角色（中间去除的元素是无法充当这种角色的），那么此时栈顶就是当前元素下一个更大元素
+
+### 题目
+
+#### 1. [下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/>
+
+#### 2. [每日温度](https://leetcode.cn/problems/daily-temperatures/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/>
+
+#### 3. [下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/>
+
 # 思想
 
 ## 双指针
@@ -2386,6 +2408,31 @@ class TrieSet {
     public int size() {
         return map.size();
     }
+}
+```
+
+## 单调栈
+
+就是元素单调递增或递减的栈，一般可以用在「下一个更大元素」，「上一个更小元素」等问题上，「下一个更大元素」模板如下：
+
+```java
+int[] nextGreaterElement(int[] nums) {
+    int n = nums.length;
+    // 存放答案的数组
+    int[] res = new int[n];
+    Stack<Integer> s = new Stack<>(); 
+    // 倒着往栈里放
+    for (int i = n - 1; i >= 0; i--) {
+        // 判定个子高矮
+        while (!s.isEmpty() && s.peek() <= nums[i]) {
+            // 矮个起开，反正也被挡着了。。。
+            s.pop();
+        }
+        // nums[i] 身后的更大元素
+        res[i] = s.isEmpty() ? -1 : s.peek();
+        s.push(nums[i]);
+    }
+    return res;
 }
 ```
 
