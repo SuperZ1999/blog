@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Dec 2022 11:08:46 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 13:49:34 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 239</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-239/</link>
+      <pubDate>Wed, 07 Dec 2022 13:49:34 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-239/</guid>
+      <description>思路 利用单调队列的思想即可，保持队列中为单调递减那么队头就是最大值，入栈时把小于两头的元素全部出队（因为这些元素不可能充当窗口内最大值的角色</description>
+    </item>
+    
     <item>
       <title>LeetCode 503</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-503/</link>

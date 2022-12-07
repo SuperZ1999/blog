@@ -891,27 +891,41 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-295/>
 
-# 单调栈问题
+## 单调栈问题
 
-## 下一个更大元素
+### 下一个更大元素
 
-### 解法
+#### 解法
 
 利用单调栈的思想即可，倒着入栈，碰到栈顶比自己小就出栈直到比自己大，那么这么就把两个较大元素中间的小元素去除掉了，剩下的两个元素就可以充当下一个更大元素的角色（中间去除的元素是无法充当这种角色的），那么此时栈顶就是当前元素下一个更大元素
 
-### 题目
+#### 题目
 
-#### 1. [下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
+##### 1. [下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/>
 
-#### 2. [每日温度](https://leetcode.cn/problems/daily-temperatures/)
+##### 2. [每日温度](https://leetcode.cn/problems/daily-temperatures/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/>
 
-#### 3. [下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
+##### 3. [下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/>
+
+## 单调队列问题
+
+### 滑动窗口最大值
+
+#### 解法
+
+利用单调队列的思想即可，保持队列中为单调递减那么队头就是最大值，入栈时把小于两头的元素全部出队（因为这些元素不可能充当窗口内最大值的角色），详见思想篇章
+
+#### 题目
+
+##### 1. [滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-239/>
 
 # 思想
 
@@ -2411,9 +2425,9 @@ class TrieSet {
 }
 ```
 
-## 单调栈
+### 单调栈
 
-就是元素单调递增或递减的栈，一般可以用在「下一个更大元素」，「上一个更小元素」等问题上，「下一个更大元素」模板如下：
+就是元素单调递增或递减的栈，比如单减栈，入栈的时候将小于入栈元素的栈顶出栈，就可以保证栈的单调递减，一般可以用在「下一个更大元素」，「上一个更小元素」等问题上，「下一个更大元素」模板如下：
 
 ```java
 int[] nextGreaterElement(int[] nums) {
@@ -2433,6 +2447,35 @@ int[] nextGreaterElement(int[] nums) {
         s.push(nums[i]);
     }
     return res;
+}
+```
+
+### 单调队列
+
+就是元素单调递增或递减的队列，比如单减队列，入队的时候将小于入队元素的队尾出队，就可以保证队的单调递减，一般可以用在「滑动窗口最大值」问题上，模板如下：
+
+```java
+/* 单调队列的实现 */
+class MonotonicQueue {
+    LinkedList<Integer> maxq = new LinkedList<>();
+    public void push(int n) {
+        // 将小于 n 的元素全部删除
+        while (!maxq.isEmpty() && maxq.getLast() < n) {
+            maxq.pollLast();
+        }
+        // 然后将 n 加入尾部
+        maxq.addLast(n);
+    }
+    
+    public int max() {
+        return maxq.getFirst();
+    }
+    
+    public void poll(int n) {
+        if (n == maxq.getFirst()) {
+            maxq.pollFirst();
+        }
+    }
 }
 ```
 
