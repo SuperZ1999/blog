@@ -1527,15 +1527,15 @@ class UF {
             parent[i] = i;
         }
     }
-    
+
     // 将节点 p 和节点 q 连通
     public void union(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
-        
+
         if (rootP == rootQ)
             return;
-        
+
         parent[rootQ] = rootP;
         // 两个连通分量合并成一个连通分量
         count--;
@@ -1616,7 +1616,7 @@ int[] dijkstra(int start, List<Integer>[] graph) {
         // if (curNodeID == end) {
             // return curDistFromStart;
         // }
-        
+
         if (curDistFromStart > distTo[curNodeID]) {
             // 已经有一条更短的路径到达 curNode 节点了
             continue;
@@ -1806,13 +1806,13 @@ class LRUCache {
     private DoubleList cache;
     // 最大容量
     private int capacity;
-    
+
     public LRUCache(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>();
         cache = new DoubleList();
     }
-    
+
     public int get(int key) {
         if (!map.containsKey(key)) {
             return -1;
@@ -1821,7 +1821,7 @@ class LRUCache {
         makeRecently(key);
         return map.get(key).val;
     }
-    
+
     public void put(int key, int val) {
         if (map.containsKey(key)) {
             // 删除旧的数据
@@ -1838,7 +1838,7 @@ class LRUCache {
         // 添加为最近使用的元素
         addRecently(key, val);
     }
-    
+
     /* 将某个 key 提升为最近使用的 */
     private void makeRecently(int key) {
         Node x = map.get(key);
@@ -1944,7 +1944,7 @@ class LRUCache {
     public LRUCache(int capacity) { 
         this.cap = capacity;
     }
-    
+
     public int get(int key) {
         if (!cache.containsKey(key)) {
             return -1;
@@ -1953,7 +1953,7 @@ class LRUCache {
         makeRecently(key);
         return cache.get(key);
     }
-    
+
     public void put(int key, int val) {
         if (cache.containsKey(key)) {
             // 修改 key 的值
@@ -1962,7 +1962,7 @@ class LRUCache {
             makeRecently(key);
             return;
         }
-        
+
         if (cache.size() >= this.cap) {
             // 链表头部就是最久未使用的 key
             int oldestKey = cache.keySet().iterator().next();
@@ -1971,7 +1971,7 @@ class LRUCache {
         // 将新的 key 添加链表尾部
         cache.put(key, val);
     }
-    
+
     private void makeRecently(int key) {
         int val = cache.get(key);
         // 删除 key，重新插入到队尾
@@ -2005,7 +2005,7 @@ class LFUCache {
         this.cap = capacity;
         this.minFreq = 0;
     }
-    
+
     public int get(int key) {
         if (!keyToVal.containsKey(key)) {
             return -1;
@@ -2014,7 +2014,7 @@ class LFUCache {
         increaseFreq(key);
         return keyToVal.get(key);
     }
-    
+
     public void put(int key, int val) {
         if (this.cap <= 0) return;
 
@@ -2042,7 +2042,7 @@ class LFUCache {
         freqToKeys.get(1).add(key);
         // 插入新 key 后最小的 freq 肯定是 1
         this.minFreq = 1;
-	}
+    }
 
     private void increaseFreq(int key) {
         int freq = keyToFreq.get(key);
@@ -2490,11 +2490,11 @@ class MonotonicQueue {
         // 然后将 n 加入尾部
         maxq.addLast(n);
     }
-    
+
     public int max() {
         return maxq.getFirst();
     }
-    
+
     public void poll(int n) {
         if (n == maxq.getFirst()) {
             maxq.pollFirst();
@@ -2609,17 +2609,17 @@ public class MaxPQ
 ```java
 class MyQueue {
     private Stack<Integer> s1, s2;
-    
+
     public MyQueue() {
         s1 = new Stack<>();
         s2 = new Stack<>();
     }
-    
+
     /** 添加元素到队尾 */
     public void push(int x) {
         s1.push(x);
     }
-    
+
     /** 返回队头元素 */
     public int peek() {
         if (s2.isEmpty())
@@ -2628,14 +2628,14 @@ class MyQueue {
                 s2.push(s1.pop());
         return s2.peek();
     }
-    
+
     /** 删除队头的元素并返回 */
     public int pop() {
         // 先调用 peek 保证 s2 非空
         peek();
         return s2.pop();
     }
-    
+
     /** 判断队列是否为空 */
     public boolean empty() {
         return s1.isEmpty() && s2.isEmpty();
@@ -2656,12 +2656,12 @@ class MyStack {
         q.offer(x);
         top_elem = x;
     }
-    
+
     /** 返回栈顶元素 */
     public int top() {
         return top_elem;
     }
-    
+
     /** 删除栈顶的元素并返回 */
     public int pop() {
         int size = q.size();
@@ -2676,15 +2676,13 @@ class MyStack {
         // 删除之前的队尾元素
         return q.poll();
     }
-    
+
     /** 判断栈是否为空 */
     public boolean empty() {
         return q.isEmpty();
     }
 }
 ```
-
-
 
 # 其他
 
