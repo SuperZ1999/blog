@@ -1,6 +1,28 @@
-# 
+# 动态规划基本问题
 
+## 斐波那契数列
 
+### 解法
+
+状态转移方程很简单，注意一下直接递归会有重复子问题，所以可以使用数组备份一下（其实就是dp数组），又发现只会用到每个元素的前两个元素，所以可以把数组换成前两个元素
+
+### 题目
+
+#### 1. [斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/>
+
+## 零钱兑换
+
+### 解法
+
+经典动态规划问题，详见思想篇章
+
+### 题目
+
+#### 1. [零钱兑换](https://leetcode.cn/problems/coin-change/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/>
 
 # 思想
 

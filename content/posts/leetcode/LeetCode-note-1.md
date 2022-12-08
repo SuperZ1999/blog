@@ -2720,6 +2720,8 @@ https://labuladong.gitee.io/algo/2/21/45/没看
 
 https://labuladong.gitee.io/algo/2/22/57/没看
 
+https://labuladong.gitee.io/algo/2/23/67/没看
+
 ## 技巧
 
 dummy（虚拟头结点)：可以很好的避免第一个节点的特殊性，将第一个节点当作第二个节点，也即是所有节点统一处理
