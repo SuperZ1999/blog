@@ -927,6 +927,30 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-239/>
 
+## 用栈实现队列
+
+### 解法
+
+直接套栈实现队列模板即可，详见思想篇章
+
+### 题目
+
+#### 1. [用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-232/>
+
+## 用队列实现栈
+
+### 解法
+
+直接套用队列实现栈的模板即可，详见思想篇章
+
+### 题目
+
+#### 1. [用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-225/>
+
 # 思想
 
 ## 双指针
@@ -2478,6 +2502,189 @@ class MonotonicQueue {
     }
 }
 ```
+
+### 二叉堆
+
+就是最大堆或最小堆，是一颗完全二叉树，所以可以放在数组里面，用简单的计算就能得到结点的父节点和左右孩子，基于二叉堆开发出了优先队列，优先队列插入时将插入结点放到数组最后面然后对该节点执行上浮操作，删除时将堆顶删除，然后将数组最后面的结点放到堆顶的位置，然后对堆顶做下沉操作。模板如下：
+
+```java
+public class MaxPQ
+    <Key extends Comparable<Key>> {
+    // 存储元素的数组
+    private Key[] pq;
+    // 当前 Priority Queue 中的元素个数
+    private int size = 0;
+
+    public MaxPQ(int cap) {
+        // 索引 0 不用，所以多分配一个空间
+        pq = (Key[]) new Comparable[cap + 1];
+    }
+
+    /* 返回当前队列中最大元素 */
+    public Key max() {
+        return pq[1];
+    }
+
+    /* 插入元素 e */
+    public void insert(Key e) {
+        size++;
+        // 先把新元素加到最后
+        pq[size] = e;
+        // 然后让它上浮到正确的位置
+        swim(size);
+    }
+
+    /* 删除并返回当前队列中最大元素 */
+    public Key delMax() {
+        // 最大堆的堆顶就是最大元素
+        Key max = pq[1];
+        // 把这个最大元素换到最后，删除之
+        swap(1, size);
+        pq[size] = null;
+        size--;
+        // 让 pq[1] 下沉到正确位置
+        sink(1);
+        return max;
+    }
+
+    /* 上浮第 x 个元素，以维护最大堆性质 */
+    private void swim(int x) {
+        // 如果浮到堆顶，就不能再上浮了
+        while (x > 1 && less(parent(x), x)) {
+            // 如果第 x 个元素比上层大
+            // 将 x 换上去
+            swap(parent(x), x);
+            x = parent(x);
+        }
+    }
+
+    /* 下沉第 x 个元素，以维护最大堆性质 */
+    private void sink(int x) {
+        // 如果沉到堆底，就沉不下去了
+        while (left(x) <= size) {
+            // 先假设左边节点较大
+            int max = left(x);
+            // 如果右边节点存在，比一下大小
+            if (right(x) <= size && less(max, right(x)))
+                max = right(x);
+            // 结点 x 比俩孩子都大，就不必下沉了
+            if (less(max, x)) break;
+            // 否则，不符合最大堆的结构，下沉 x 结点
+            swap(x, max);
+            x = max;
+        }
+    }
+
+    /* 交换数组的两个元素 */
+    private void swap(int i, int j) {
+        Key temp = pq[i];
+        pq[i] = pq[j];
+        pq[j] = temp;
+    }
+
+    /* pq[i] 是否比 pq[j] 小？ */
+    private boolean less(int i, int j) {
+        return pq[i].compareTo(pq[j]) < 0;
+    }
+
+    // 父节点的索引
+    private int parent(int root) {
+        return root / 2;
+    }
+    // 左孩子的索引
+    private int left(int root) {
+        return root * 2;
+    }
+    // 右孩子的索引
+    private int right(int root) {
+        return root * 2 + 1;
+    }
+}
+```
+
+### 队列实现栈以及栈实现队列
+
+栈实现队列用两个栈即可，入栈相当于入队，出栈时先将一个栈里的元素出栈到另一个栈中，栈顶就是队头，模板如下：
+
+```java
+class MyQueue {
+    private Stack<Integer> s1, s2;
+    
+    public MyQueue() {
+        s1 = new Stack<>();
+        s2 = new Stack<>();
+    }
+    
+    /** 添加元素到队尾 */
+    public void push(int x) {
+        s1.push(x);
+    }
+    
+    /** 返回队头元素 */
+    public int peek() {
+        if (s2.isEmpty())
+            // 把 s1 元素压入 s2
+            while (!s1.isEmpty())
+                s2.push(s1.pop());
+        return s2.peek();
+    }
+    
+    /** 删除队头的元素并返回 */
+    public int pop() {
+        // 先调用 peek 保证 s2 非空
+        peek();
+        return s2.pop();
+    }
+    
+    /** 判断队列是否为空 */
+    public boolean empty() {
+        return s1.isEmpty() && s2.isEmpty();
+    }
+}
+```
+
+栈实现队列简单粗暴，pop的时候把除了队尾的其他都出队再加入到队尾即可，模板如下：
+
+```java
+class MyStack {
+    Queue<Integer> q = new LinkedList<>();
+    int top_elem = 0;
+
+    /** 添加元素到栈顶 */
+    public void push(int x) {
+        // x 是队列的队尾，是栈的栈顶
+        q.offer(x);
+        top_elem = x;
+    }
+    
+    /** 返回栈顶元素 */
+    public int top() {
+        return top_elem;
+    }
+    
+    /** 删除栈顶的元素并返回 */
+    public int pop() {
+        int size = q.size();
+        // 留下队尾 2 个元素
+        while (size > 2) {
+            q.offer(q.poll());
+            size--;
+        }
+        // 记录新的队尾元素
+        top_elem = q.peek();
+        q.offer(q.poll());
+        // 删除之前的队尾元素
+        return q.poll();
+    }
+    
+    /** 判断栈是否为空 */
+    public boolean empty() {
+        return q.isEmpty();
+    }
+}
+```
+
+
 
 # 其他
 

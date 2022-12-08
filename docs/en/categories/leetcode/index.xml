@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Dec 2022 13:49:34 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Dec 2022 12:21:22 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 225</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-225/</link>
+      <pubDate>Thu, 08 Dec 2022 12:21:22 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-225/</guid>
+      <description>思路 直接套用队列实现栈的模板即可，详见思想篇章 代码 class MyStack { private Queue&amp;lt;Integer&amp;gt; q; private int topElem; public MyStack() { q = new LinkedList&amp;lt;&amp;gt;(); } public void push(int x) { q.offer(x); topElem = x; } public int pop() { int size = q.size(); while (size &amp;gt; 2) { q.offer(q.poll()); size--; } topElem =</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 232</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-232/</link>
+      <pubDate>Thu, 08 Dec 2022 12:09:36 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-232/</guid>
+      <description>思路 直接套栈实现队列模板即可，详见思想篇章 代码 class MyQueue { private Stack&amp;lt;Integer&amp;gt; s1, s2; public MyQueue() { s1 = new Stack&amp;lt;&amp;gt;(); s2 = new Stack&amp;lt;&amp;gt;(); } public void push(int x) { s2.push(x); } public int pop() { peek(); return s1.pop(); } public int peek() { if (s1.isEmpty()) { while (!s2.isEmpty()) { s1.push(s2.pop()); } }</description>
+    </item>
+    
     <item>
       <title>LeetCode 239</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-239/</link>
