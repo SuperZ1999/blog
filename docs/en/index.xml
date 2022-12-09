@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 09 Dec 2022 20:39:25 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Dec 2022 21:38:07 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 931</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-931/</link>
+      <pubDate>Fri, 09 Dec 2022 21:38:07 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-931/</guid>
+      <description>思路 利用动态规划的思想，dp数组里放落到该位置的最小路径和，由上一行临近自己的三个元素最小值+自己元素的大小得到，base case是dp数组</description>
+    </item>
+    
     <item>
       <title>LeetCode 354</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-354/</link>
@@ -31,7 +40,7 @@
       <pubDate>Fri, 09 Dec 2022 19:25:56 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-2/</guid>
-      <description>动态规划基本问题 斐波那契数列 解法 状态转移方程很简单，注意一下直接递归会有重复子问题，所以可以使用数组备份一下（其实就是dp数组），又发现只会</description>
+      <description>动态规划基本问题 解法 经典动态规划问题，详见思想篇章 题目 1. 斐波那契数 题解详见：https://blog.zhangmengyang.tk/po</description>
     </item>
     
     <item>
