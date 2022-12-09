@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 09 Dec 2022 19:25:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Dec 2022 20:39:25 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 354</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-354/</link>
+      <pubDate>Fri, 09 Dec 2022 20:39:25 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-354/</guid>
+      <description>思路 本质上就是最长递增子序列问题，见LeetCode-300，只不过需要先对width升序排序，然后计算height的最长递增子序列即可 ps</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 300</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-300/</link>
+      <pubDate>Fri, 09 Dec 2022 19:57:21 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-300/</guid>
+      <description>思路 两种解法： 动态规划 利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素</description>
+    </item>
+    
     <item>
       <title>LeetCode Note 2</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-2/</link>

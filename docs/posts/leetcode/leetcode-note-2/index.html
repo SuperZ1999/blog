@@ -73,7 +73,7 @@ var _hmt = _hmt || [];
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-09T19:25:56&#43;08:00" />
-<meta property="article:modified_time" content="2022-12-09T19:28:05&#43;08:00" />
+<meta property="article:modified_time" content="2022-12-09T19:31:19&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Note 2"/>
@@ -116,11 +116,11 @@ var _hmt = _hmt || [];
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "动态规划基本问题 斐波那契数列 解法 状态转移方程很简单，注意一下直接递归会有重复子问题，所以可以使用数组备份一下（其实就是dp数组），又发现只会用到每个元素的前两个元素，所以可以把数组换成前两个元素\n题目 1. 斐波那契数 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/\n零钱兑换 解法 经典动态规划问题，详见思想篇章\n题目 1. 零钱兑换 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/\n思想 动态规划 流程 明确状态方程y = f(x)的定义\n确定「状态」，也就是原问题和子问题中会变化的变量。即y = f(x)中的x\n确定「选择」，也就是导致「状态」产生变化的行为。即y = f(x)中的x如何变化\n确定y = f(x)中的y，一般是问题要求我们计算的量\n确定base case\n判断问题是否具有最优子结构性质（就是能否通过子问题的最优解求出原问题的最优解）\n写出状态转移方程（列出状态转移方程，就是在解决“如何穷举”的问题。），此时可以通过状态转移方程写出递归写法，递归写法就是自顶向下的解法，但是这种写法一般存在重叠子问题\n判断问题是否具有重叠子问题，如果有，使用DP table代替f(x)函数，同时将递归改成迭代（也就是自底向上），DP table起到了记录子问题的作用，DP table 就是在追求“如何聪明地穷举”\n优化空间复杂度，如果我们发现每次状态转移只需要 DP table 中的一部分，那么可以尝试缩小 DP table 的大小，只记录必要的数据，从而降低空间复杂度\n注意点 动态规划的核心问题是“如何穷举”（状态转移方程），然后考虑“如何聪明地穷举”（消除重叠子问题、剪枝）\n算法设计无非就是先思考“如何穷举”，然后再追求“如何聪明地穷举”\n递归是自顶向下，dp table迭代是自底向上\n",
-  "wordCount" : "770",
+  "articleBody": "动态规划基本问题 斐波那契数列 解法 状态转移方程很简单，注意一下直接递归会有重复子问题，所以可以使用数组备份一下（其实就是dp数组），又发现只会用到每个元素的前两个元素，所以可以把数组换成前两个元素\n题目 1. 斐波那契数 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/\n零钱兑换 解法 经典动态规划问题，详见思想篇章\n题目 1. 零钱兑换 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/\n最长递增子序列 解法 利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素的索引，base case为f(0) = 1，具有最优子结构，状态转移方程为f(x) = ….(懒得写了)，会有重叠子问题所以用dp数组记录，无法优化空间复杂度\n题目 1. 最长递增子序列 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/\n2. 俄罗斯套娃信封问题 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/\n思想 动态规划 流程 明确状态方程y = f(x)的定义\n确定「状态」，也就是原问题和子问题中会变化的变量。即y = f(x)中的x 确定y = f(x)中的y，一般是问题要求我们计算的量 3. 确定「选择」，也就是导致「状态」产生变化的行为。即状态转移方程里的x应该选择哪一个\n确定base case\n判断问题是否具有最优子结构性质（就是能否通过子问题的最优解求出原问题的最优解）\n写出状态转移方程（列出状态转移方程，就是在解决“如何穷举”的问题。），此时可以通过状态转移方程写出递归写法，递归写法就是自顶向下的解法，但是这种写法一般存在重叠子问题\n判断问题是否具有重叠子问题，如果有，使用DP table代替f(x)函数，同时将递归改成迭代（也就是自底向上），DP table起到了记录子问题的作用，DP table 就是在追求“如何聪明地穷举”\n优化空间复杂度，如果我们发现每次状态转移只需要 DP table 中的一部分，那么可以尝试缩小 DP table 的大小，只记录必要的数据，从而降低空间复杂度\n注意点 动态规划的核心问题是“如何穷举”（状态转移方程），然后考虑“如何聪明地穷举”（消除重叠子问题、剪枝）\n算法设计无非就是先思考“如何穷举”，然后再追求“如何聪明地穷举”\n递归是自顶向下，dp table迭代是自底向上\n经典问题 子序列问题 一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长…子序列\n",
+  "wordCount" : "1125",
   "inLanguage": "zh",
   "datePublished": "2022-12-09T19:25:56+08:00",
-  "dateModified": "2022-12-09T19:28:05+08:00",
+  "dateModified": "2022-12-09T19:31:19+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/"
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:25:56 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:28:05 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;770 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;2 分钟
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:25:56 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:31:19 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;1125 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;3 分钟
 
 
 ·&nbsp;
@@ -321,6 +321,20 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#1-%e9%9b%b6%e9%92%b1%e5%85%91%e6%8d%a2httpsleetcodecnproblemscoin-change" aria-label="1. 零钱兑换">1. <a href="https://leetcode.cn/problems/coin-change/">零钱兑换</a></a></li></ul>
                 </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%9c%80%e9%95%bf%e9%80%92%e5%a2%9e%e5%ad%90%e5%ba%8f%e5%88%97" aria-label="最长递增子序列">最长递增子序列</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-2" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-2" aria-label="题目">题目</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%9c%80%e9%95%bf%e9%80%92%e5%a2%9e%e5%ad%90%e5%ba%8f%e5%88%97httpsleetcodecnproblemslongest-increasing-subsequence" aria-label="1. 最长递增子序列">1. <a href="https://leetcode.cn/problems/longest-increasing-subsequence/">最长递增子序列</a></a></li>
+                <li>
+                    <a href="#2-%e4%bf%84%e7%bd%97%e6%96%af%e5%a5%97%e5%a8%83%e4%bf%a1%e5%b0%81%e9%97%ae%e9%a2%98httpsleetcodecnproblemsrussian-doll-envelopes" aria-label="2. 俄罗斯套娃信封问题">2. <a href="https://leetcode.cn/problems/russian-doll-envelopes/">俄罗斯套娃信封问题</a></a></li></ul>
+                </li></ul>
                 </li></ul>
                 </li>
                 <li>
@@ -332,8 +346,15 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e6%b5%81%e7%a8%8b" aria-label="流程">流程</a></li>
                 <li>
-                    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" aria-label="注意点">注意点</a>
+                    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" aria-label="注意点">注意点</a></li>
+                <li>
+                    <a href="#%e7%bb%8f%e5%85%b8%e9%97%ae%e9%a2%98" aria-label="经典问题">经典问题</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ad%90%e5%ba%8f%e5%88%97%e9%97%ae%e9%a2%98" aria-label="子序列问题">子序列问题</a>
                 </li>
+            </ul>
+            </li>
             </ul>
             </li>
             </ul>
@@ -416,6 +437,14 @@ var _hmt = _hmt || [];
 <h3 id="题目-1">题目<a hidden class="anchor" aria-hidden="true" href="#题目-1">#</a></h3>
 <h4 id="1-零钱兑换httpsleetcodecnproblemscoin-change">1. <a href="https://leetcode.cn/problems/coin-change/">零钱兑换</a><a hidden class="anchor" aria-hidden="true" href="#1-零钱兑换httpsleetcodecnproblemscoin-change">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/</a></p>
+<h2 id="最长递增子序列">最长递增子序列<a hidden class="anchor" aria-hidden="true" href="#最长递增子序列">#</a></h2>
+<h3 id="解法-2">解法<a hidden class="anchor" aria-hidden="true" href="#解法-2">#</a></h3>
+<p>利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素的索引，base case为f(0) = 1，具有最优子结构，状态转移方程为f(x) = &hellip;.(懒得写了)，会有重叠子问题所以用dp数组记录，无法优化空间复杂度</p>
+<h3 id="题目-2">题目<a hidden class="anchor" aria-hidden="true" href="#题目-2">#</a></h3>
+<h4 id="1-最长递增子序列httpsleetcodecnproblemslongest-increasing-subsequence">1. <a href="https://leetcode.cn/problems/longest-increasing-subsequence/">最长递增子序列</a><a hidden class="anchor" aria-hidden="true" href="#1-最长递增子序列httpsleetcodecnproblemslongest-increasing-subsequence">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/</a></p>
+<h4 id="2-俄罗斯套娃信封问题httpsleetcodecnproblemsrussian-doll-envelopes">2. <a href="https://leetcode.cn/problems/russian-doll-envelopes/">俄罗斯套娃信封问题</a><a hidden class="anchor" aria-hidden="true" href="#2-俄罗斯套娃信封问题httpsleetcodecnproblemsrussian-doll-envelopes">#</a></h4>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/</a></p>
 <h1 id="思想">思想<a hidden class="anchor" aria-hidden="true" href="#思想">#</a></h1>
 <h2 id="动态规划">动态规划<a hidden class="anchor" aria-hidden="true" href="#动态规划">#</a></h2>
 <h3 id="流程">流程<a hidden class="anchor" aria-hidden="true" href="#流程">#</a></h3>
@@ -423,19 +452,15 @@ var _hmt = _hmt || [];
 <li>
 <p>明确状态方程y = f(x)的定义</p>
 <ol>
-<li>
-<p>确定「状态」，也就是原问题和子问题中会变化的变量。即y = f(x)中的x</p>
+<li>确定「状态」，也就是原问题和子问题中会变化的变量。即y = f(x)中的x</li>
+</ol>
 </li>
 <li>
-<p>确定「选择」，也就是导致「状态」产生变化的行为。即y = f(x)中的x如何变化</p>
-</li>
-<li>
-<p>确定y = f(x)中的y，一般是问题要求我们计算的量</p>
+<p>确定y = f(x)中的y，一般是问题要求我们计算的量
+3. 确定「选择」，也就是导致「状态」产生变化的行为。即状态转移方程里的x应该选择哪一个</p>
 </li>
 <li>
 <p>确定base case</p>
-</li>
-</ol>
 </li>
 <li>
 <p>判断问题是否具有最优子结构性质（就是能否通过子问题的最优解求出原问题的最优解）</p>
@@ -462,6 +487,9 @@ var _hmt = _hmt || [];
 <p>递归是自顶向下，dp table迭代是自底向上</p>
 </li>
 </ul>
+<h3 id="经典问题">经典问题<a hidden class="anchor" aria-hidden="true" href="#经典问题">#</a></h3>
+<h4 id="子序列问题">子序列问题<a hidden class="anchor" aria-hidden="true" href="#子序列问题">#</a></h4>
+<p>一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长&hellip;子序列</p>
 
 
         </div>
@@ -469,6 +497,11 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
+  <a class="prev" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>LeetCode 300</span>
+  </a>
   <a class="next" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/">
     <span class="title">下一页 »</span>
     <br>
