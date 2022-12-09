@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode Note 2</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-2/</link>
+      <pubDate>Fri, 09 Dec 2022 19:25:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-2/</guid>
+      <description>动态规划基本问题 斐波那契数列 解法 状态转移方程很简单，注意一下直接递归会有重复子问题，所以可以使用数组备份一下（其实就是dp数组），又发现只会</description>
+    </item>
+    
+    <item>
       <title>LeetCode 322</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-322/</link>
       <pubDate>Thu, 08 Dec 2022 22:42:46 +0800</pubDate>
@@ -751,6 +760,15 @@
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-23/</guid>
       <description>思路 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。 代码 class Solution { public ListNode mergeKLists(ListNode[] lists) {</description>
+    </item>
+    
+    <item>
+      <title>LeetCode Note 1</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-1/</link>
+      <pubDate>Fri, 23 Sep 2022 10:21:48 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-1/</guid>
+      <description>链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc</description>
     </item>
     
     <item>
