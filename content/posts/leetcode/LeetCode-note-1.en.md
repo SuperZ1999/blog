@@ -1,5 +1,5 @@
 ---
-title: "LeetCode Note"
+title: "LeetCode Note 1"
 date: 2022-09-23T10:21:48+08:00
 categories: ["leetcode"]
 tags: ["leetcode"]

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.zhangmengyang.tk/categories/</loc>
-    <lastmod>2022-12-08T22:42:46+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/tags/leetcode/</loc>
-    <lastmod>2022-12-08T22:42:46+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/categories/leetcode/</loc>
-    <lastmod>2022-12-08T22:42:46+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +42,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/</loc>
-    <lastmod>2022-12-08T22:42:46+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +55,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/tags/</loc>
-    <lastmod>2022-12-08T22:42:46+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -68,7 +68,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/</loc>
-    <lastmod>2022-12-08T22:42:46+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -81,7 +81,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/</loc>
-    <lastmod>2022-12-08T22:42:39+08:00</lastmod>
+    <lastmod>2022-12-08T22:51:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -1196,18 +1196,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://blog.zhangmengyang.tk/about/"
-                />
-  </url><url>
-    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-note-2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/"
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/archives/</loc>

@@ -1,3 +1,20 @@
+---
+title: "LeetCode Note 2"
+date: 2022-12-09T19:25:56+08:00
+categories: ["leetcode"]
+tags: ["leetcode"]
+description: ""
+weight:
+slug: ""
+draft: true
+disableShare: false
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
+---
+
 # 动态规划基本问题
 
 ## 斐波那契数列
@@ -31,13 +48,13 @@
 ### 流程
 
 1. 明确状态方程y = f(x)的定义
-   
+
    1. 确定「状态」，也就是原问题和子问题中会变化的变量。即y = f(x)中的x
-   
+
    2. 确定「选择」，也就是导致「状态」产生变化的行为。即y = f(x)中的x如何变化
-   
+
    3. 确定y = f(x)中的y，一般是问题要求我们计算的量
-   
+
    4. 确定base case
 
 2. 判断问题是否具有最优子结构性质（就是能否通过子问题的最优解求出原问题的最优解）
