@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 10 Dec 2022 15:39:44 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2022 20:40:33 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 712</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-712/</link>
+      <pubDate>Sat, 10 Dec 2022 20:40:33 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-712/</guid>
+      <description>思路 利用动态规划的思想，同LeetCode-583，只不过不是计算删除操作数，而是删除的ASCII码 代码 class Solution { public int minimumDeleteSum(String s1, String s2) { int m = s1.length(), n = s2.length(); int[][]</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 583</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-583/</link>
+      <pubDate>Sat, 10 Dec 2022 17:36:14 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-583/</guid>
+      <description>思路 基本同最长公共子序列：LeetCode-1143，也可以直接重用LCS，因为删除的结果不就是它俩的最长公共子序列，那么删除的次数就是wo</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1143</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1143/</link>
+      <pubDate>Sat, 10 Dec 2022 17:18:32 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1143/</guid>
+      <description>思路 利用动态规划的思想，dp数组里存s1[0&amp;hellip;i]和s2[0&amp;hellip;j]的最长公共子序列，如果s1[i]==s2[j]</description>
+    </item>
+    
     <item>
       <title>LeetCode 53</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-53/</link>

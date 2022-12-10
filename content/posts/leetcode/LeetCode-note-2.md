@@ -85,6 +85,26 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/>
 
+## 最长公共子序列
+
+### 解法
+
+利用动态规划的思想，dp数组里存s1[0...i]和s2[0...j]的最长公共子序列，如果s1[i]==s2[j]，dp\[i\]\[j\]由dp\[i-1\]\[j-1\]+1得来，否则dp\[i\]\[j\]由max(dp\[i\]\[j-1\], dp\[i-1\]\[j\])得来，base case是dp\[0\]\[...\]和dp\[...\]\[0\]为0，可以优化空间复杂度
+
+### 题目
+
+#### 1. [最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/>
+
+#### 2. [两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/>
+
+#### 3. [两个字符串的最小ASCII删除和](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/>
+
 # 思想
 
 ## 动态规划
@@ -126,3 +146,5 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 #### 子序列问题
 
 一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列或者数组[0...x]的最长...子序列，两个数组同理，只不过是二维的
+
+如果是两个字符串，求最长...子序列，一个常用的思路就是根据每两个字符是否相同来判断他们是否在结果子序列中，从而避免了对所有子序列进行穷举。
