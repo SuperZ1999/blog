@@ -53,6 +53,24 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/>
 
+## 编辑距离
+
+### 解法
+
+利用动态规划的思想，dp数组里存*s1[0..i-1] 和 s2[0..j-1]*的编辑距离，可以由以下元素推出来：
+
+![img](https://labuladong.gitee.io/algo/images/editDistance/4.jpg)
+
+base case是第一行和第一列，可以优化空间复杂度但是懒得弄了
+
+补充：具体s1是怎么转换为s2的，可以在dp数组的每个元素里补充额外的信息，详见：<https://labuladong.gitee.io/algo/3/26/75/>
+
+### 题目
+
+#### 1. [编辑距离](https://leetcode.cn/problems/edit-distance/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/>
+
 # 思想
 
 ## 动态规划
@@ -93,4 +111,4 @@ cover:
 
 #### 子序列问题
 
-一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列
+一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列，两个数组同理，只不过是二维的
