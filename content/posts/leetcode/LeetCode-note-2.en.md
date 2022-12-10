@@ -125,6 +125,10 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/>
 
+#### 2. [目标和](https://leetcode.cn/problems/target-sum/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/>
+
 ## 完全背包问题
 
 ### 解法
@@ -215,33 +219,30 @@ int knapsack(int W, int N, int[] wt, int[] val) {
 
 ##### 子集背包问题
 
-与0-1背包问题相似，就是背包的容量是nums数组和/2，并且问题不是该背包能装多少东西，而是能不能被刚好装满
+子集背包问题就是子集划分问题，就是给定一个数组和一个数字，让求数组里有几种子集和为该数字
 
-构造二维dp数组，dp\[i\]\[w\] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp\[i\]\[w\]表示能否将该背包装满。base case是第一列取值为true，可以优化空间复杂度，但是要注意j需要倒着遍历
+与0-1背包问题相似，就是问题不是该背包最多能装多少东西，而是被刚好装满有几种方式
+
+构造二维dp数组，dp\[i\]\[w\] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp\[i\]\[w\]表示被刚好装满有几种方式。base case是dp\[0\]\[0\]=1（第一列不能都为0，因为数组里可能有0），可以优化空间复杂度，但是要注意j需要倒着遍历
 
 模板如下：
 
 ```java
-boolean canPartition(int[] nums) {
-    int sum = 0;
-    for (int num : nums) sum += num;
-    // 和为奇数时，不可能划分成两个和相等的集合
-    if (sum % 2 != 0) return false;
+/* 计算 nums 中有几个子集的和为 sum */
+int subsets(int[] nums, int sum) {
     int n = nums.length;
-    sum = sum / 2;
-    boolean[][] dp = new boolean[n + 1][sum + 1];
+    int[][] dp = new int[n + 1][sum + 1];
     // base case
-    for (int i = 0; i <= n; i++)
-        dp[i][0] = true;
-
+    dp[0][0] = 1;
+    
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= sum; j++) {
-            if (j - nums[i - 1] < 0) {
-                // 背包容量不足，不能装入第 i 个物品
-                dp[i][j] = dp[i - 1][j];
+        for (int j = 0; j <= sum; j++) {
+            if (j >= nums[i-1]) {
+                // 两种选择的结果之和
+                dp[i][j] = dp[i-1][j] + dp[i-1][j-nums[i-1]];
             } else {
-                // 装入或不装入背包
-                dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
+                // 背包的空间不足，只能选择不装物品 i
+                dp[i][j] = dp[i-1][j];
             }
         }
     }

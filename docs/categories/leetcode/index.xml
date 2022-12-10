@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 10 Dec 2022 22:36:12 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2022 23:32:55 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 494</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/</link>
+      <pubDate>Sat, 10 Dec 2022 23:32:55 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/</guid>
+      <description>思路 有三种思路： 递归思路 findTargetSumWays(nums, i, remain) = findTargetSumWays(nums, i + 1, remain - nums[i]) + findTargetSumWays(nums, i + 1, remain + nums[i])，直接看代码 回溯思路 经典回溯问题，套模板即可 动态规划 这道题还可以</description>
+    </item>
+    
     <item>
       <title>LeetCode 518</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/</link>
