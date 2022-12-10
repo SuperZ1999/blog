@@ -105,6 +105,26 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/>
 
+# 背包问题
+
+## 0-1背包问题
+
+### 解法
+
+见思想篇章
+
+## 子集背包问题
+
+### 解法
+
+见思想篇章
+
+### 题目
+
+#### 1. [分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/>
+
 # 思想
 
 ## 动态规划
@@ -115,7 +135,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 1. 明确状态方程y = f(x)的定义
 
-   1. 确定「状态」，也就是原问题和子问题中会变化的变量。即y = f(x)中的x
+   1. 确定「状态」，就是能描述一个问题局面所需的变量，也是原问题和子问题中会变化的变量。即y = f(x)中的x
    2. 确定y = f(x)中的y，一般是问题要求我们计算的量
    3. 确定「选择」，也就是导致「状态」产生变化的行为。即状态转移方程里的x应该选择哪一个
    4. 确定base case
@@ -148,3 +168,90 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列或者数组[0...x]的最长...子序列，两个数组同理，只不过是二维的
 
 如果是两个字符串，求最长...子序列，一个常用的思路就是根据每两个字符是否相同来判断他们是否在结果子序列中，从而避免了对所有子序列进行穷举。
+
+#### 背包问题
+
+##### 0-1背包问题
+
+构造二维dp数组，dp\[i\]\[w\] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下可以装的最大价值是 dp\[i\]\[w\]。base case是第一行和第一列取值为0，可以优化空间复杂度，模板如下：
+
+```java
+int knapsack(int W, int N, int[] wt, int[] val) {
+    assert N == wt.length;
+    // base case 已初始化
+    int[][] dp = new int[N + 1][W + 1];
+    for (int i = 1; i <= N; i++) {
+        for (int w = 1; w <= W; w++) {
+            if (w - wt[i - 1] < 0) {
+                // 这种情况下只能选择不装入背包
+                dp[i][w] = dp[i - 1][w];
+            } else {
+                // 装入或者不装入背包，择优
+                dp[i][w] = Math.max(
+                    dp[i - 1][w - wt[i-1]] + val[i-1], 
+                    dp[i - 1][w]
+                );
+            }
+        }
+    }
+    
+    return dp[N][W];
+}
+```
+
+详见：<https://labuladong.gitee.io/algo/3/27/81/>
+
+##### 子集背包问题
+
+与0-1背包问题相似，就是背包的容量是nums数组和/2，并且问题不是该背包能装多少东西，而是能不能被刚好装满
+
+构造二维dp数组，dp\[i\]\[w\] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp\[i\]\[w\]表示能否将该背包装满。base case是第一列取值为true，可以优化空间复杂度，但是要注意j需要倒着遍历
+
+模板如下：
+
+```java
+boolean canPartition(int[] nums) {
+    int sum = 0;
+    for (int num : nums) sum += num;
+    // 和为奇数时，不可能划分成两个和相等的集合
+    if (sum % 2 != 0) return false;
+    int n = nums.length;
+    sum = sum / 2;
+    boolean[][] dp = new boolean[n + 1][sum + 1];
+    // base case
+    for (int i = 0; i <= n; i++)
+        dp[i][0] = true;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= sum; j++) {
+            if (j - nums[i - 1] < 0) {
+                // 背包容量不足，不能装入第 i 个物品
+                dp[i][j] = dp[i - 1][j];
+            } else {
+                // 装入或不装入背包
+                dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
+            }
+        }
+    }
+    return dp[n][sum];
+}
+```
+
+详见：<https://labuladong.gitee.io/algo/3/27/82/>
+
+# 其他
+
+## 零碎
+
+
+
+## 待做
+
+https://labuladong.gitee.io/algo/3/26/79/没看
+
+## 技巧
+
+
+
+## 学习方法
+
