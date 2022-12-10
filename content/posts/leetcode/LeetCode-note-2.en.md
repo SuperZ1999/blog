@@ -71,6 +71,20 @@ base case是第一行和第一列，可以优化空间复杂度但是懒得弄�
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/>
 
+## 最大子数组和
+
+### 解法
+
+dp数组里放以该元素结尾的最大子数组和，可以由前面那个元素推出来，base case是dp[0] = nums[0]，可以优化空间复杂度
+
+还可以利用滑动窗口和前缀和数组解决
+
+### 题目
+
+#### 1. [最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/>
+
 # 思想
 
 ## 动态规划
@@ -111,4 +125,4 @@ base case是第一行和第一列，可以优化空间复杂度但是懒得弄�
 
 #### 子序列问题
 
-一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列，两个数组同理，只不过是二维的
+一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列或者数组[0...x]的最长...子序列，两个数组同理，只不过是二维的
