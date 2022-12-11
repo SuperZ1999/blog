@@ -35,6 +35,14 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-931/>
 
+### 4. [最小路径和](https://leetcode.cn/problems/minimum-path-sum/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/>
+
+### 5. [地下城游戏](https://leetcode.cn/problems/dungeon-game/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/>
+
 # 子序列问题
 
 ## 最长递增子序列
@@ -287,6 +295,8 @@ int change(int amount, int[] coins) {
 ## 待做
 
 https://labuladong.gitee.io/algo/3/26/79/没看
+
+LinkedHashMap是什么
 
 ## 技巧
 

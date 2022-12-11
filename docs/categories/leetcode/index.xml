@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 10 Dec 2022 23:32:55 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Dec 2022 14:42:53 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 174</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/</link>
+      <pubDate>Sun, 11 Dec 2022 14:42:53 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/</guid>
+      <description>思路 与LeetCode-64类似，只不过dp数组中dp[i][j]的定义是从 grid[i][j] 到达终点（右下角）所需的最少生命值 代码 class Solution { public int calculateMinimumHP(int[][] dungeon) { int m = dungeon.length,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 64</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/</link>
+      <pubDate>Sun, 11 Dec 2022 14:03:02 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/</guid>
+      <description>思路 经典动态规划问题，构造dp[][]数组，里面存放从(0, 0)到(i, j)的最小路径，dp[i][j]由min(dp[i - 1][j], dp[i][j - 1]) + gri</description>
+    </item>
+    
     <item>
       <title>LeetCode 494</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/</link>
