@@ -55,6 +55,26 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/>
 
+## 股票问题
+
+### 解法
+
+比较复杂，详见：<https://labuladong.gitee.io/algo/3/28/96/>
+
+### 题目
+
+### 1. [买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+
+### 2. [买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
+
+### 3. [买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)
+
+### 4. [买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
+
+### 5. [最佳买卖股票时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+
+### 6. [买卖股票的最佳时机含手续费](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+
 # 子序列问题
 
 ## 最长递增子序列
@@ -349,8 +369,6 @@ int change(int amount, int[] coins) {
 
 ## 待做
 
-https://labuladong.gitee.io/algo/3/26/79/没看
-
 LinkedHashMap是什么
 
 https://labuladong.gitee.io/algo/3/28/88/没看
@@ -362,6 +380,8 @@ https://labuladong.gitee.io/algo/3/28/93/没看
 https://labuladong.gitee.io/algo/3/28/94/没看
 
 https://labuladong.gitee.io/algo/3/28/91/没看
+
+https://labuladong.gitee.io/algo/3/28/92/没看
 
 ## 技巧
 
