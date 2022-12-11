@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 11 Dec 2022 19:15:55 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Dec 2022 20:18:17 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 516</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-516/</link>
+      <pubDate>Sun, 11 Dec 2022 20:18:17 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-516/</guid>
+      <description>思路 利用动态规划的思想，dp数组里存s[i&amp;hellip;j]的最长回文子序列，状态转移方程如下： if (s.charAt(j) == s.charAt(j + i)) { dp[j][j + i] = 2 + dp[j + 1][j + i - 1]; }</description>
+    </item>
+    
     <item>
       <title>LeetCode 10</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-10/</link>

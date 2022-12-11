@@ -125,6 +125,18 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/>
 
+## 最长回文子序列
+
+### 解法
+
+见题解
+
+### 题目
+
+#### 1. [最长回文子序列](https://leetcode.cn/problems/longest-palindromic-subsequence/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-516/>
+
 # 背包问题
 
 ## 0-1背包问题
@@ -204,6 +216,37 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长...子序列或者数组[0...x]的最长...子序列，两个数组同理，只不过是二维的
 
 如果是两个字符串，求最长...子序列，一个常用的思路就是根据每两个字符是否相同来判断他们是否在结果子序列中，从而避免了对所有子序列进行穷举。
+
+记住一个思想s1[i]和s2[j]不相等时，不可能同时出现在最长...子序列中，因为对于当前的子问题来说，s1[i]和s2[j]是字符串的最后一个字符
+
+一般有两种思路，**第一种思路模板是一个一维的 dp 数组**：
+
+```java
+int n = array.length;
+int[] dp = new int[n];
+
+for (int i = 1; i < n; i++) {
+    for (int j = 0; j < i; j++) {
+        dp[i] = 最值(dp[i], dp[j] + ...)
+    }
+}
+```
+
+**第二种思路模板是一个二维的 dp 数组**：
+
+```java
+int n = arr.length;
+int[][] dp = new dp[n][n];
+
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        if (arr[i] == arr[j]) 
+            dp[i][j] = dp[i][j] + ...
+        else
+            dp[i][j] = 最值(...)
+    }
+}
+```
 
 #### 背包问题
 
@@ -317,6 +360,8 @@ https://labuladong.gitee.io/algo/3/28/89/没看
 https://labuladong.gitee.io/algo/3/28/93/没看
 
 https://labuladong.gitee.io/algo/3/28/94/没看
+
+https://labuladong.gitee.io/algo/3/28/91/没看
 
 ## 技巧
 
