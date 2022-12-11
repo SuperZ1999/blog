@@ -73,7 +73,7 @@ var _hmt = _hmt || [];
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-09T19:25:56&#43;08:00" />
-<meta property="article:modified_time" content="2022-12-11T00:20:05&#43;08:00" />
+<meta property="article:modified_time" content="2022-12-11T16:04:32&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Note 2"/>
@@ -116,11 +116,11 @@ var _hmt = _hmt || [];
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "动态规划基本问题 解法 经典动态规划问题，详见思想篇章\n题目 1. 斐波那契数 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/\n2. 零钱兑换 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/\n3. 下降路径最小和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-931/\n4. 最小路径和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/\n5. 地下城游戏 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/\n子序列问题 最长递增子序列 解法 利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素的索引，base case为f(0) = 1，具有最优子结构，状态转移方程为f(x) = ….(懒得写了)，会有重叠子问题所以用dp数组记录，无法优化空间复杂度\n题目 1. 最长递增子序列 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/\n2. 俄罗斯套娃信封问题 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/\n编辑距离 解法 利用动态规划的思想，dp数组里存*s1[0..i-1] 和 s2[0..j-1]*的编辑距离，可以由以下元素推出来：\nbase case是第一行和第一列，可以优化空间复杂度但是懒得弄了\n补充：具体s1是怎么转换为s2的，可以在dp数组的每个元素里补充额外的信息，详见：https://labuladong.gitee.io/algo/3/26/75/\n题目 1. 编辑距离 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/\n最大子数组和 解法 dp数组里放以该元素结尾的最大子数组和，可以由前面那个元素推出来，base case是dp[0] = nums[0]，可以优化空间复杂度\n还可以利用滑动窗口和前缀和数组解决\n题目 1. 最大子数组和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/\n最长公共子序列 解法 利用动态规划的思想，dp数组里存s1[0…i]和s2[0…j]的最长公共子序列，如果s1[i]==s2[j]，dp[i][j]由dp[i-1][j-1]+1得来，否则dp[i][j]由max(dp[i][j-1], dp[i-1][j])得来，base case是dp[0][…]和dp[…][0]为0，可以优化空间复杂度\n题目 1. 最长公共子序列 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/\n2. 两个字符串的删除操作 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/\n3. 两个字符串的最小ASCII删除和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/\n背包问题 0-1背包问题 解法 见思想篇章\n子集背包问题 解法 见思想篇章\n题目 1. 分割等和子集 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/\n2. 目标和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/\n完全背包问题 解法 见思想篇章\n题目 1. 零钱兑换 II 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/\n思想 动态规划 动态规划问题有两个重要的特点，分别是最优子结构性质和存在重叠子问题\n流程 明确状态方程y = f(x)的定义\n确定「状态」，就是能描述一个问题局面所需的变量，也是原问题和子问题中会变化的变量。即y = f(x)中的x 确定y = f(x)中的y，一般是问题要求我们计算的量 确定「选择」，也就是导致「状态」产生变化的行为。即状态转移方程里的x应该选择哪一个 确定base case 写出状态转移方程（列出状态转移方程，就是在解决“如何穷举”的问题。），这个过程就是判断问题是否具有最优子结构性质（就是能否通过子问题的最优解求出原问题的最优解），此时可以通过状态转移方程写出递归写法，递归写法就是自顶向下的解法，但是这种写法一般存在重叠子问题\n判断问题是否具有重叠子问题，如果有，使用DP table代替f(x)函数，同时将递归改成迭代（也就是自底向上），DP table起到了记录子问题的作用，DP table 就是在追求“如何聪明地穷举”\n优化空间复杂度，如果我们发现每次状态转移只需要 DP table 中的一部分，那么可以尝试缩小 DP table 的大小，只记录必要的数据，从而降低空间复杂度\n精简流程 构造一个dp数组 确定dp数组里面放什么 dp数组里的元素怎么根据前面元素推出来 base case 优化空间复杂度 注意点 动态规划的核心问题是“如何穷举”（状态转移方程），然后考虑“如何聪明地穷举”（消除重叠子问题、剪枝） 算法设计无非就是先思考“如何穷举”，然后再追求“如何聪明地穷举” 递归是自顶向下，dp table迭代是自底向上 dp数组的大小有时候要比原问题大一点，目的是防止特殊判断和dummy node的原理类似 dp 数组的遍历方向只要保证两点即可 遍历的过程中，所需的状态必须是已经计算出来的 遍历结束后，存储结果的那个位置必须已经被计算出来 经典问题 子序列问题 一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长…子序列或者数组[0…x]的最长…子序列，两个数组同理，只不过是二维的\n如果是两个字符串，求最长…子序列，一个常用的思路就是根据每两个字符是否相同来判断他们是否在结果子序列中，从而避免了对所有子序列进行穷举。\n背包问题 0-1背包问题 构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下可以装的最大价值是 dp[i][w]。base case是第一行和第一列取值为0，可以优化空间复杂度，模板如下：\nint knapsack(int W, int N, int[] wt, int[] val) { assert N == wt.length; // base case 已初始化 int[][] dp = new int[N + 1][W + 1]; for (int i = 1; i \u003c= N; i++) { for (int w = 1; w \u003c= W; w++) { if (w - wt[i - 1] \u003c 0) { // 这种情况下只能选择不装入背包 dp[i][w] = dp[i - 1][w]; } else { // 装入或者不装入背包，择优 dp[i][w] = Math.max( dp[i - 1][w - wt[i-1]] + val[i-1], dp[i - 1][w] ); } } } return dp[N][W]; } 详见：https://labuladong.gitee.io/algo/3/27/81/\n子集背包问题 子集背包问题就是子集划分问题，就是给定一个数组和一个数字，让求数组里有几种子集和为该数字\n与0-1背包问题相似，就是问题不是该背包最多能装多少东西，而是被刚好装满有几种方式\n构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp[i][w]表示被刚好装满有几种方式。base case是dp[0][0]=1（第一列不能都为0，因为数组里可能有0），可以优化空间复杂度，但是要注意j需要倒着遍历\n模板如下：\n/* 计算 nums 中有几个子集的和为 sum */ int subsets(int[] nums, int sum) { int n = nums.length; int[][] dp = new int[n + 1][sum + 1]; // base case dp[0][0] = 1; for (int i = 1; i \u003c= n; i++) { for (int j = 0; j \u003c= sum; j++) { if (j \u003e= nums[i-1]) { // 两种选择的结果之和 dp[i][j] = dp[i-1][j] + dp[i-1][j-nums[i-1]]; } else { // 背包的空间不足，只能选择不装物品 i dp[i][j] = dp[i-1][j]; } } } return dp[n][sum]; } 详见：https://labuladong.gitee.io/algo/3/27/82/\n完全背包问题 与0-1背包问题相似，构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，可以重复选择第i个物品，这种情况下正好将背包装满的方式有 dp[i][w] 种。base case是第一列取值为1，可以优化空间复杂度，模板如下：\nint change(int amount, int[] coins) { int n = coins.length; int[][] dp = int[n + 1][amount + 1]; // base case for (int i = 0; i \u003c= n; i++) dp[i][0] = 1; for (int i = 1; i \u003c= n; i++) { for (int j = 1; j \u003c= amount; j++) if (j - coins[i-1] \u003e= 0) dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i-1]]; else dp[i][j] = dp[i - 1][j]; } return dp[n][amount]; } 详见：https://labuladong.gitee.io/algo/3/27/83/\n其他 零碎 待做 https://labuladong.gitee.io/algo/3/26/79/没看\nLinkedHashMap是什么\n技巧 学习方法 ",
-  "wordCount" : "3617",
+  "articleBody": "动态规划基本问题 解法 经典动态规划问题，详见思想篇章\n题目 1. 斐波那契数 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/\n2. 零钱兑换 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/\n3. 下降路径最小和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-931/\n4. 最小路径和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/\n5. 地下城游戏 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/\n正则表达式匹配 解法 详见题解\n题目 1. 正则表达式匹配 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/\n子序列问题 最长递增子序列 解法 利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素的索引，base case为f(0) = 1，具有最优子结构，状态转移方程为f(x) = ….(懒得写了)，会有重叠子问题所以用dp数组记录，无法优化空间复杂度\n题目 1. 最长递增子序列 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/\n2. 俄罗斯套娃信封问题 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/\n编辑距离 解法 利用动态规划的思想，dp数组里存*s1[0..i-1] 和 s2[0..j-1]*的编辑距离，可以由以下元素推出来：\nbase case是第一行和第一列，可以优化空间复杂度但是懒得弄了\n补充：具体s1是怎么转换为s2的，可以在dp数组的每个元素里补充额外的信息，详见：https://labuladong.gitee.io/algo/3/26/75/\n题目 1. 编辑距离 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/\n最大子数组和 解法 dp数组里放以该元素结尾的最大子数组和，可以由前面那个元素推出来，base case是dp[0] = nums[0]，可以优化空间复杂度\n还可以利用滑动窗口和前缀和数组解决\n题目 1. 最大子数组和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/\n最长公共子序列 解法 利用动态规划的思想，dp数组里存s1[0…i]和s2[0…j]的最长公共子序列，如果s1[i]==s2[j]，dp[i][j]由dp[i-1][j-1]+1得来，否则dp[i][j]由max(dp[i][j-1], dp[i-1][j])得来，base case是dp[0][…]和dp[…][0]为0，可以优化空间复杂度\n题目 1. 最长公共子序列 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/\n2. 两个字符串的删除操作 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/\n3. 两个字符串的最小ASCII删除和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/\n背包问题 0-1背包问题 解法 见思想篇章\n子集背包问题 解法 见思想篇章\n题目 1. 分割等和子集 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/\n2. 目标和 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/\n完全背包问题 解法 见思想篇章\n题目 1. 零钱兑换 II 题解详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/\n思想 动态规划 动态规划问题有两个重要的特点，分别是最优子结构性质和存在重叠子问题\n流程 明确状态方程y = f(x)的定义\n确定「状态」，就是能描述一个问题局面所需的变量，也是原问题和子问题中会变化的变量。即y = f(x)中的x 确定y = f(x)中的y，一般是问题要求我们计算的量 确定「选择」，也就是导致「状态」产生变化的行为。即状态转移方程里的x应该选择哪一个 确定base case 写出状态转移方程（列出状态转移方程，就是在解决“如何穷举”的问题。），这个过程就是判断问题是否具有最优子结构性质（就是能否通过子问题的最优解求出原问题的最优解），此时可以通过状态转移方程写出递归写法，递归写法就是自顶向下的解法，但是这种写法一般存在重叠子问题\n判断问题是否具有重叠子问题，如果有，使用DP table代替f(x)函数，同时将递归改成迭代（也就是自底向上），DP table起到了记录子问题的作用，DP table 就是在追求“如何聪明地穷举”\n优化空间复杂度，如果我们发现每次状态转移只需要 DP table 中的一部分，那么可以尝试缩小 DP table 的大小，只记录必要的数据，从而降低空间复杂度\n精简流程 构造一个dp数组 确定dp数组里面放什么 dp数组里的元素怎么根据前面元素推出来（即状态转移方程） base case 优化空间复杂度 注意点 动态规划的核心问题是“如何穷举”（状态转移方程），然后考虑“如何聪明地穷举”（消除重叠子问题、剪枝） 算法设计无非就是先思考“如何穷举”，然后再追求“如何聪明地穷举” 递归是自顶向下，dp table迭代是自底向上 dp数组的大小有时候要比原问题大一点，目的是防止特殊判断和dummy node的原理类似 dp 数组的遍历方向只要保证两点即可 遍历的过程中，所需的状态必须是已经计算出来的 遍历结束后，存储结果的那个位置必须已经被计算出来 经典问题 子序列问题 一般y = f(x)的x都是数组的索引，y是以这个索引对应的元素结尾的最长…子序列或者数组[0…x]的最长…子序列，两个数组同理，只不过是二维的\n如果是两个字符串，求最长…子序列，一个常用的思路就是根据每两个字符是否相同来判断他们是否在结果子序列中，从而避免了对所有子序列进行穷举。\n背包问题 0-1背包问题 构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下可以装的最大价值是 dp[i][w]。base case是第一行和第一列取值为0，可以优化空间复杂度，模板如下：\nint knapsack(int W, int N, int[] wt, int[] val) { assert N == wt.length; // base case 已初始化 int[][] dp = new int[N + 1][W + 1]; for (int i = 1; i \u003c= N; i++) { for (int w = 1; w \u003c= W; w++) { if (w - wt[i - 1] \u003c 0) { // 这种情况下只能选择不装入背包 dp[i][w] = dp[i - 1][w]; } else { // 装入或者不装入背包，择优 dp[i][w] = Math.max( dp[i - 1][w - wt[i-1]] + val[i-1], dp[i - 1][w] ); } } } return dp[N][W]; } 详见：https://labuladong.gitee.io/algo/3/27/81/\n子集背包问题 子集背包问题就是子集划分问题，就是给定一个数组和一个数字，让求数组里有几种子集和为该数字\n与0-1背包问题相似，就是问题不是该背包最多能装多少东西，而是被刚好装满有几种方式\n构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp[i][w]表示被刚好装满有几种方式。base case是dp[0][0]=1（第一列不能都为0，因为数组里可能有0），可以优化空间复杂度，但是要注意j需要倒着遍历\n模板如下：\n/* 计算 nums 中有几个子集的和为 sum */ int subsets(int[] nums, int sum) { int n = nums.length; int[][] dp = new int[n + 1][sum + 1]; // base case dp[0][0] = 1; for (int i = 1; i \u003c= n; i++) { for (int j = 0; j \u003c= sum; j++) { if (j \u003e= nums[i-1]) { // 两种选择的结果之和 dp[i][j] = dp[i-1][j] + dp[i-1][j-nums[i-1]]; } else { // 背包的空间不足，只能选择不装物品 i dp[i][j] = dp[i-1][j]; } } } return dp[n][sum]; } 详见：https://labuladong.gitee.io/algo/3/27/82/\n完全背包问题 与0-1背包问题相似，构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，可以重复选择第i个物品，这种情况下正好将背包装满的方式有 dp[i][w] 种。base case是第一列取值为1，可以优化空间复杂度，模板如下：\nint change(int amount, int[] coins) { int n = coins.length; int[][] dp = int[n + 1][amount + 1]; // base case for (int i = 0; i \u003c= n; i++) dp[i][0] = 1; for (int i = 1; i \u003c= n; i++) { for (int j = 1; j \u003c= amount; j++) if (j - coins[i-1] \u003e= 0) dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i-1]]; else dp[i][j] = dp[i - 1][j]; } return dp[n][amount]; } 详见：https://labuladong.gitee.io/algo/3/27/83/\n其他 零碎 待做 https://labuladong.gitee.io/algo/3/26/79/没看\nLinkedHashMap是什么\nhttps://labuladong.gitee.io/algo/3/28/88/没看\nhttps://labuladong.gitee.io/algo/3/28/89/没看\nhttps://labuladong.gitee.io/algo/3/28/93/没看\nhttps://labuladong.gitee.io/algo/3/28/94/没看\n技巧 学习方法 ",
+  "wordCount" : "3883",
   "inLanguage": "zh",
   "datePublished": "2022-12-09T19:25:56+08:00",
-  "dateModified": "2022-12-11T00:20:05+08:00",
+  "dateModified": "2022-12-11T16:04:32+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/"
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:25:56 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-11 00:20:05 +0800 CST'>2022-12-11</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;3617 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;8 分钟
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:25:56 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-11 16:04:32 +0800 CST'>2022-12-11</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;3883 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;8 分钟
 
 
 ·&nbsp;
@@ -313,6 +313,16 @@ var _hmt = _hmt || [];
                     <a href="#4-%e6%9c%80%e5%b0%8f%e8%b7%af%e5%be%84%e5%92%8chttpsleetcodecnproblemsminimum-path-sum" aria-label="4. 最小路径和">4. <a href="https://leetcode.cn/problems/minimum-path-sum/">最小路径和</a></a></li>
                 <li>
                     <a href="#5-%e5%9c%b0%e4%b8%8b%e5%9f%8e%e6%b8%b8%e6%88%8fhttpsleetcodecnproblemsdungeon-game" aria-label="5. 地下城游戏">5. <a href="https://leetcode.cn/problems/dungeon-game/">地下城游戏</a></a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%8c%b9%e9%85%8d" aria-label="正则表达式匹配">正则表达式匹配</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e6%b3%95-1" aria-label="解法">解法</a></li>
+                <li>
+                    <a href="#%e9%a2%98%e7%9b%ae-1" aria-label="题目">题目</a></li>
+                <li>
+                    <a href="#1-%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%8c%b9%e9%85%8dhttpsleetcodecnproblemsregular-expression-matching" aria-label="1. 正则表达式匹配">1. <a href="https://leetcode.cn/problems/regular-expression-matching/">正则表达式匹配</a></a></li></ul>
                 </li></ul>
                 </li>
                 <li>
@@ -322,9 +332,9 @@ var _hmt = _hmt || [];
                     <a href="#%e6%9c%80%e9%95%bf%e9%80%92%e5%a2%9e%e5%ad%90%e5%ba%8f%e5%88%97" aria-label="最长递增子序列">最长递增子序列</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-1" aria-label="解法">解法</a></li>
+                    <a href="#%e8%a7%a3%e6%b3%95-2" aria-label="解法">解法</a></li>
                 <li>
-                    <a href="#%e9%a2%98%e7%9b%ae-1" aria-label="题目">题目</a><ul>
+                    <a href="#%e9%a2%98%e7%9b%ae-2" aria-label="题目">题目</a><ul>
                         
                 <li>
                     <a href="#1-%e6%9c%80%e9%95%bf%e9%80%92%e5%a2%9e%e5%ad%90%e5%ba%8f%e5%88%97httpsleetcodecnproblemslongest-increasing-subsequence" aria-label="1. 最长递增子序列">1. <a href="https://leetcode.cn/problems/longest-increasing-subsequence/">最长递增子序列</a></a></li>
@@ -336,9 +346,9 @@ var _hmt = _hmt || [];
                     <a href="#%e7%bc%96%e8%be%91%e8%b7%9d%e7%a6%bb" aria-label="编辑距离">编辑距离</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-2" aria-label="解法">解法</a></li>
+                    <a href="#%e8%a7%a3%e6%b3%95-3" aria-label="解法">解法</a></li>
                 <li>
-                    <a href="#%e9%a2%98%e7%9b%ae-2" aria-label="题目">题目</a><ul>
+                    <a href="#%e9%a2%98%e7%9b%ae-3" aria-label="题目">题目</a><ul>
                         
                 <li>
                     <a href="#1-%e7%bc%96%e8%be%91%e8%b7%9d%e7%a6%bbhttpsleetcodecnproblemsedit-distance" aria-label="1. 编辑距离">1. <a href="https://leetcode.cn/problems/edit-distance/">编辑距离</a></a></li></ul>
@@ -348,9 +358,9 @@ var _hmt = _hmt || [];
                     <a href="#%e6%9c%80%e5%a4%a7%e5%ad%90%e6%95%b0%e7%bb%84%e5%92%8c" aria-label="最大子数组和">最大子数组和</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-3" aria-label="解法">解法</a></li>
+                    <a href="#%e8%a7%a3%e6%b3%95-4" aria-label="解法">解法</a></li>
                 <li>
-                    <a href="#%e9%a2%98%e7%9b%ae-3" aria-label="题目">题目</a><ul>
+                    <a href="#%e9%a2%98%e7%9b%ae-4" aria-label="题目">题目</a><ul>
                         
                 <li>
                     <a href="#1-%e6%9c%80%e5%a4%a7%e5%ad%90%e6%95%b0%e7%bb%84%e5%92%8chttpsleetcodecnproblemsmaximum-subarray" aria-label="1. 最大子数组和">1. <a href="https://leetcode.cn/problems/maximum-subarray/">最大子数组和</a></a></li></ul>
@@ -360,9 +370,9 @@ var _hmt = _hmt || [];
                     <a href="#%e6%9c%80%e9%95%bf%e5%85%ac%e5%85%b1%e5%ad%90%e5%ba%8f%e5%88%97" aria-label="最长公共子序列">最长公共子序列</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-4" aria-label="解法">解法</a></li>
+                    <a href="#%e8%a7%a3%e6%b3%95-5" aria-label="解法">解法</a></li>
                 <li>
-                    <a href="#%e9%a2%98%e7%9b%ae-4" aria-label="题目">题目</a><ul>
+                    <a href="#%e9%a2%98%e7%9b%ae-5" aria-label="题目">题目</a><ul>
                         
                 <li>
                     <a href="#1-%e6%9c%80%e9%95%bf%e5%85%ac%e5%85%b1%e5%ad%90%e5%ba%8f%e5%88%97httpsleetcodecnproblemslongest-common-subsequence" aria-label="1. 最长公共子序列">1. <a href="https://leetcode.cn/problems/longest-common-subsequence/">最长公共子序列</a></a></li>
@@ -380,15 +390,15 @@ var _hmt = _hmt || [];
                     <a href="#0-1%e8%83%8c%e5%8c%85%e9%97%ae%e9%a2%98" aria-label="0-1背包问题">0-1背包问题</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-5" aria-label="解法">解法</a></li></ul>
+                    <a href="#%e8%a7%a3%e6%b3%95-6" aria-label="解法">解法</a></li></ul>
                 </li>
                 <li>
                     <a href="#%e5%ad%90%e9%9b%86%e8%83%8c%e5%8c%85%e9%97%ae%e9%a2%98" aria-label="子集背包问题">子集背包问题</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-6" aria-label="解法">解法</a></li>
+                    <a href="#%e8%a7%a3%e6%b3%95-7" aria-label="解法">解法</a></li>
                 <li>
-                    <a href="#%e9%a2%98%e7%9b%ae-5" aria-label="题目">题目</a><ul>
+                    <a href="#%e9%a2%98%e7%9b%ae-6" aria-label="题目">题目</a><ul>
                         
                 <li>
                     <a href="#1-%e5%88%86%e5%89%b2%e7%ad%89%e5%92%8c%e5%ad%90%e9%9b%86httpsleetcodecnproblemspartition-equal-subset-sum" aria-label="1. 分割等和子集">1. <a href="https://leetcode.cn/problems/partition-equal-subset-sum/">分割等和子集</a></a></li>
@@ -400,9 +410,9 @@ var _hmt = _hmt || [];
                     <a href="#%e5%ae%8c%e5%85%a8%e8%83%8c%e5%8c%85%e9%97%ae%e9%a2%98" aria-label="完全背包问题">完全背包问题</a><ul>
                         
                 <li>
-                    <a href="#%e8%a7%a3%e6%b3%95-7" aria-label="解法">解法</a></li>
+                    <a href="#%e8%a7%a3%e6%b3%95-8" aria-label="解法">解法</a></li>
                 <li>
-                    <a href="#%e9%a2%98%e7%9b%ae-6" aria-label="题目">题目</a><ul>
+                    <a href="#%e9%a2%98%e7%9b%ae-7" aria-label="题目">题目</a><ul>
                         
                 <li>
                     <a href="#1-%e9%9b%b6%e9%92%b1%e5%85%91%e6%8d%a2-iihttpsleetcodecnproblemscoin-change-2" aria-label="1. 零钱兑换 II">1. <a href="https://leetcode.cn/problems/coin-change-2/">零钱兑换 II</a></a></li></ul>
@@ -534,36 +544,42 @@ var _hmt = _hmt || [];
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/</a></p>
 <h3 id="5-地下城游戏httpsleetcodecnproblemsdungeon-game">5. <a href="https://leetcode.cn/problems/dungeon-game/">地下城游戏</a><a hidden class="anchor" aria-hidden="true" href="#5-地下城游戏httpsleetcodecnproblemsdungeon-game">#</a></h3>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/</a></p>
+<h2 id="正则表达式匹配">正则表达式匹配<a hidden class="anchor" aria-hidden="true" href="#正则表达式匹配">#</a></h2>
+<h3 id="解法-1">解法<a hidden class="anchor" aria-hidden="true" href="#解法-1">#</a></h3>
+<p>详见题解</p>
+<h3 id="题目-1">题目<a hidden class="anchor" aria-hidden="true" href="#题目-1">#</a></h3>
+<h3 id="1-正则表达式匹配httpsleetcodecnproblemsregular-expression-matching">1. <a href="https://leetcode.cn/problems/regular-expression-matching/">正则表达式匹配</a><a hidden class="anchor" aria-hidden="true" href="#1-正则表达式匹配httpsleetcodecnproblemsregular-expression-matching">#</a></h3>
+<p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/</a></p>
 <h1 id="子序列问题">子序列问题<a hidden class="anchor" aria-hidden="true" href="#子序列问题">#</a></h1>
 <h2 id="最长递增子序列">最长递增子序列<a hidden class="anchor" aria-hidden="true" href="#最长递增子序列">#</a></h2>
-<h3 id="解法-1">解法<a hidden class="anchor" aria-hidden="true" href="#解法-1">#</a></h3>
+<h3 id="解法-2">解法<a hidden class="anchor" aria-hidden="true" href="#解法-2">#</a></h3>
 <p>利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素的索引，base case为f(0) = 1，具有最优子结构，状态转移方程为f(x) = &hellip;.(懒得写了)，会有重叠子问题所以用dp数组记录，无法优化空间复杂度</p>
-<h3 id="题目-1">题目<a hidden class="anchor" aria-hidden="true" href="#题目-1">#</a></h3>
+<h3 id="题目-2">题目<a hidden class="anchor" aria-hidden="true" href="#题目-2">#</a></h3>
 <h4 id="1-最长递增子序列httpsleetcodecnproblemslongest-increasing-subsequence">1. <a href="https://leetcode.cn/problems/longest-increasing-subsequence/">最长递增子序列</a><a hidden class="anchor" aria-hidden="true" href="#1-最长递增子序列httpsleetcodecnproblemslongest-increasing-subsequence">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/</a></p>
 <h4 id="2-俄罗斯套娃信封问题httpsleetcodecnproblemsrussian-doll-envelopes">2. <a href="https://leetcode.cn/problems/russian-doll-envelopes/">俄罗斯套娃信封问题</a><a hidden class="anchor" aria-hidden="true" href="#2-俄罗斯套娃信封问题httpsleetcodecnproblemsrussian-doll-envelopes">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/</a></p>
 <h2 id="编辑距离">编辑距离<a hidden class="anchor" aria-hidden="true" href="#编辑距离">#</a></h2>
-<h3 id="解法-2">解法<a hidden class="anchor" aria-hidden="true" href="#解法-2">#</a></h3>
+<h3 id="解法-3">解法<a hidden class="anchor" aria-hidden="true" href="#解法-3">#</a></h3>
 <p>利用动态规划的思想，dp数组里存*s1[0..i-1] 和 s2[0..j-1]*的编辑距离，可以由以下元素推出来：</p>
 <p><img loading="lazy" src="https://labuladong.gitee.io/algo/images/editDistance/4.jpg" alt="img"  />
 </p>
 <p>base case是第一行和第一列，可以优化空间复杂度但是懒得弄了</p>
 <p>补充：具体s1是怎么转换为s2的，可以在dp数组的每个元素里补充额外的信息，详见：<a href="https://labuladong.gitee.io/algo/3/26/75/">https://labuladong.gitee.io/algo/3/26/75/</a></p>
-<h3 id="题目-2">题目<a hidden class="anchor" aria-hidden="true" href="#题目-2">#</a></h3>
+<h3 id="题目-3">题目<a hidden class="anchor" aria-hidden="true" href="#题目-3">#</a></h3>
 <h4 id="1-编辑距离httpsleetcodecnproblemsedit-distance">1. <a href="https://leetcode.cn/problems/edit-distance/">编辑距离</a><a hidden class="anchor" aria-hidden="true" href="#1-编辑距离httpsleetcodecnproblemsedit-distance">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/</a></p>
 <h2 id="最大子数组和">最大子数组和<a hidden class="anchor" aria-hidden="true" href="#最大子数组和">#</a></h2>
-<h3 id="解法-3">解法<a hidden class="anchor" aria-hidden="true" href="#解法-3">#</a></h3>
+<h3 id="解法-4">解法<a hidden class="anchor" aria-hidden="true" href="#解法-4">#</a></h3>
 <p>dp数组里放以该元素结尾的最大子数组和，可以由前面那个元素推出来，base case是dp[0] = nums[0]，可以优化空间复杂度</p>
 <p>还可以利用滑动窗口和前缀和数组解决</p>
-<h3 id="题目-3">题目<a hidden class="anchor" aria-hidden="true" href="#题目-3">#</a></h3>
+<h3 id="题目-4">题目<a hidden class="anchor" aria-hidden="true" href="#题目-4">#</a></h3>
 <h4 id="1-最大子数组和httpsleetcodecnproblemsmaximum-subarray">1. <a href="https://leetcode.cn/problems/maximum-subarray/">最大子数组和</a><a hidden class="anchor" aria-hidden="true" href="#1-最大子数组和httpsleetcodecnproblemsmaximum-subarray">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/</a></p>
 <h2 id="最长公共子序列">最长公共子序列<a hidden class="anchor" aria-hidden="true" href="#最长公共子序列">#</a></h2>
-<h3 id="解法-4">解法<a hidden class="anchor" aria-hidden="true" href="#解法-4">#</a></h3>
+<h3 id="解法-5">解法<a hidden class="anchor" aria-hidden="true" href="#解法-5">#</a></h3>
 <p>利用动态规划的思想，dp数组里存s1[0&hellip;i]和s2[0&hellip;j]的最长公共子序列，如果s1[i]==s2[j]，dp[i][j]由dp[i-1][j-1]+1得来，否则dp[i][j]由max(dp[i][j-1], dp[i-1][j])得来，base case是dp[0][&hellip;]和dp[&hellip;][0]为0，可以优化空间复杂度</p>
-<h3 id="题目-4">题目<a hidden class="anchor" aria-hidden="true" href="#题目-4">#</a></h3>
+<h3 id="题目-5">题目<a hidden class="anchor" aria-hidden="true" href="#题目-5">#</a></h3>
 <h4 id="1-最长公共子序列httpsleetcodecnproblemslongest-common-subsequence">1. <a href="https://leetcode.cn/problems/longest-common-subsequence/">最长公共子序列</a><a hidden class="anchor" aria-hidden="true" href="#1-最长公共子序列httpsleetcodecnproblemslongest-common-subsequence">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/</a></p>
 <h4 id="2-两个字符串的删除操作httpsleetcodecnproblemsdelete-operation-for-two-strings">2. <a href="https://leetcode.cn/problems/delete-operation-for-two-strings/">两个字符串的删除操作</a><a hidden class="anchor" aria-hidden="true" href="#2-两个字符串的删除操作httpsleetcodecnproblemsdelete-operation-for-two-strings">#</a></h4>
@@ -572,20 +588,20 @@ var _hmt = _hmt || [];
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/</a></p>
 <h1 id="背包问题">背包问题<a hidden class="anchor" aria-hidden="true" href="#背包问题">#</a></h1>
 <h2 id="0-1背包问题">0-1背包问题<a hidden class="anchor" aria-hidden="true" href="#0-1背包问题">#</a></h2>
-<h3 id="解法-5">解法<a hidden class="anchor" aria-hidden="true" href="#解法-5">#</a></h3>
-<p>见思想篇章</p>
-<h2 id="子集背包问题">子集背包问题<a hidden class="anchor" aria-hidden="true" href="#子集背包问题">#</a></h2>
 <h3 id="解法-6">解法<a hidden class="anchor" aria-hidden="true" href="#解法-6">#</a></h3>
 <p>见思想篇章</p>
-<h3 id="题目-5">题目<a hidden class="anchor" aria-hidden="true" href="#题目-5">#</a></h3>
+<h2 id="子集背包问题">子集背包问题<a hidden class="anchor" aria-hidden="true" href="#子集背包问题">#</a></h2>
+<h3 id="解法-7">解法<a hidden class="anchor" aria-hidden="true" href="#解法-7">#</a></h3>
+<p>见思想篇章</p>
+<h3 id="题目-6">题目<a hidden class="anchor" aria-hidden="true" href="#题目-6">#</a></h3>
 <h4 id="1-分割等和子集httpsleetcodecnproblemspartition-equal-subset-sum">1. <a href="https://leetcode.cn/problems/partition-equal-subset-sum/">分割等和子集</a><a hidden class="anchor" aria-hidden="true" href="#1-分割等和子集httpsleetcodecnproblemspartition-equal-subset-sum">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/</a></p>
 <h4 id="2-目标和httpsleetcodecnproblemstarget-sum">2. <a href="https://leetcode.cn/problems/target-sum/">目标和</a><a hidden class="anchor" aria-hidden="true" href="#2-目标和httpsleetcodecnproblemstarget-sum">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/</a></p>
 <h2 id="完全背包问题">完全背包问题<a hidden class="anchor" aria-hidden="true" href="#完全背包问题">#</a></h2>
-<h3 id="解法-7">解法<a hidden class="anchor" aria-hidden="true" href="#解法-7">#</a></h3>
+<h3 id="解法-8">解法<a hidden class="anchor" aria-hidden="true" href="#解法-8">#</a></h3>
 <p>见思想篇章</p>
-<h3 id="题目-6">题目<a hidden class="anchor" aria-hidden="true" href="#题目-6">#</a></h3>
+<h3 id="题目-7">题目<a hidden class="anchor" aria-hidden="true" href="#题目-7">#</a></h3>
 <h4 id="1-零钱兑换-iihttpsleetcodecnproblemscoin-change-2">1. <a href="https://leetcode.cn/problems/coin-change-2/">零钱兑换 II</a><a hidden class="anchor" aria-hidden="true" href="#1-零钱兑换-iihttpsleetcodecnproblemscoin-change-2">#</a></h4>
 <p>题解详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/</a></p>
 <h1 id="思想">思想<a hidden class="anchor" aria-hidden="true" href="#思想">#</a></h1>
@@ -616,7 +632,7 @@ var _hmt = _hmt || [];
 <ol>
 <li>构造一个dp数组</li>
 <li>确定dp数组里面放什么</li>
-<li>dp数组里的元素怎么根据前面元素推出来</li>
+<li>dp数组里的元素怎么根据前面元素推出来（即状态转移方程）</li>
 <li>base case</li>
 <li>优化空间复杂度</li>
 </ol>
@@ -713,6 +729,10 @@ var _hmt = _hmt || [];
 <h2 id="待做">待做<a hidden class="anchor" aria-hidden="true" href="#待做">#</a></h2>
 <p><a href="https://labuladong.gitee.io/algo/3/26/79/">https://labuladong.gitee.io/algo/3/26/79/</a>没看</p>
 <p>LinkedHashMap是什么</p>
+<p><a href="https://labuladong.gitee.io/algo/3/28/88/">https://labuladong.gitee.io/algo/3/28/88/</a>没看</p>
+<p><a href="https://labuladong.gitee.io/algo/3/28/89/">https://labuladong.gitee.io/algo/3/28/89/</a>没看</p>
+<p><a href="https://labuladong.gitee.io/algo/3/28/93/">https://labuladong.gitee.io/algo/3/28/93/</a>没看</p>
+<p><a href="https://labuladong.gitee.io/algo/3/28/94/">https://labuladong.gitee.io/algo/3/28/94/</a>没看</p>
 <h2 id="技巧">技巧<a hidden class="anchor" aria-hidden="true" href="#技巧">#</a></h2>
 <h2 id="学习方法">学习方法<a hidden class="anchor" aria-hidden="true" href="#学习方法">#</a></h2>
 

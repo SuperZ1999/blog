@@ -43,6 +43,18 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/>
 
+## 正则表达式匹配
+
+### 解法
+
+详见题解
+
+### 题目
+
+### 1. [正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/>
+
 # 子序列问题
 
 ## 最长递增子序列
@@ -171,7 +183,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 1. 构造一个dp数组
 2. 确定dp数组里面放什么
-3. dp数组里的元素怎么根据前面元素推出来
+3. dp数组里的元素怎么根据前面元素推出来（即状态转移方程）
 4. base case
 5. 优化空间复杂度
 
@@ -297,6 +309,14 @@ int change(int amount, int[] coins) {
 https://labuladong.gitee.io/algo/3/26/79/没看
 
 LinkedHashMap是什么
+
+https://labuladong.gitee.io/algo/3/28/88/没看
+
+https://labuladong.gitee.io/algo/3/28/89/没看
+
+https://labuladong.gitee.io/algo/3/28/93/没看
+
+https://labuladong.gitee.io/algo/3/28/94/没看
 
 ## 技巧
 
