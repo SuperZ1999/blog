@@ -43,6 +43,10 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/>
 
+### 6. [鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-887/>
+
 ## 正则表达式匹配
 
 ### 解法
@@ -402,6 +406,8 @@ https://labuladong.gitee.io/algo/3/28/94/没看
 https://labuladong.gitee.io/algo/3/28/91/没看
 
 https://labuladong.gitee.io/algo/3/28/92/没看
+
+山谷(Valley)问题是什么（二分查找）
 
 ## 技巧
 
