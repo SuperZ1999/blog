@@ -6,7 +6,34 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 11 Dec 2022 21:42:50 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 15:03:50 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 337</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-337/</link>
+      <pubDate>Mon, 12 Dec 2022 15:03:50 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-337/</guid>
+      <description>思路 同LeetCode-198，只不过变成了二叉树 代码 原版 class Solution { private Map&amp;lt;TreeNode, Integer&amp;gt; memo = new HashMap&amp;lt;&amp;gt;(); public int rob(TreeNode root) { if (root == null) { return 0; } if (memo.containsKey(root)) { return memo.get(root); } int do_it = root.val + (root.left == null ? 0 : rob(root.left.left)</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 213</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-213/</link>
+      <pubDate>Mon, 12 Dec 2022 14:25:48 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-213/</guid>
+      <description>思路 同LeetCode-198，只不过首尾不能同时偷，共有三种情况，其中第一种情况不需要考虑因为肯定比其他两种小 代码 class Solution { private int robRange(int[] nums, int start, int end) {</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 198</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-198/</link>
+      <pubDate>Mon, 12 Dec 2022 13:51:41 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-198/</guid>
+      <description>思路 利用动态规划的思想，dp数组里存截止到当前户最多偷到多少钱，状态转移方程为： dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 2]); base case 为dp[0]和dp[1]为0，可</description>
+    </item>
+    
     <item>
       <title>LeetCode 121&#43;122&#43;123&#43;188&#43;309&#43;714</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-121&#43;122&#43;123&#43;188&#43;309&#43;714/</link>
