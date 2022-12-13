@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 13 Dec 2022 14:15:00 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Dec 2022 22:30:48 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 452</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-452/</link>
+      <pubDate>Tue, 13 Dec 2022 22:30:48 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-452/</guid>
+      <description>思路 其实就是求解无重叠区间最多有几个，同LeetCode-435，因为可以每一发都打在无重叠区间中每个区间的最右边，这样下一个区间之前的区间</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 435</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-435/</link>
+      <pubDate>Tue, 13 Dec 2022 22:03:10 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-435/</guid>
+      <description>思路 利用贪心算法，每次选择结束最早的区间（这就是局部最优选择），然后统计就可以了 代码 class Solution { private int intervalSchedule(int[][] intervals) { Arrays.sort(intervals, (a, b) -&amp;gt; { return a[1] - b[1]; }); int count = 1, x_end = intervals[0][1]; for (int[] interval</description>
+    </item>
+    
     <item>
       <title>LeetCode 312</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-312/</link>

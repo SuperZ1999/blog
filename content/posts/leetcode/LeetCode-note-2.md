@@ -221,6 +221,24 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/>
 
+# 贪心算法
+
+## 无重叠区间最多有几个
+
+### 解法
+
+利用贪心算法，每次选择结束最早的区间（这就是局部最优选择），然后统计就可以了
+
+### 题目
+
+#### 1. [无重叠区间](https://leetcode.cn/problems/non-overlapping-intervals/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-435/>
+
+#### 2. [用最少数量的箭引爆气球](https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-452/>
+
 # 思想
 
 ## 动态规划
@@ -388,6 +406,63 @@ int change(int amount, int[] coins) {
 ```
 
 详见：<https://labuladong.gitee.io/algo/3/27/83/>
+
+#### KMP算法
+
+比较复杂，详见：<https://labuladong.gitee.io/algo/3/28/97/>
+
+其中状态机的影子X比较难理解，其实就是对于一个自动机，s[0...i]输入之后会走到j这个状态，X就是s[1...i]输入自动机之后走到的状态（所以`X = dp[X][pat.charAt(j)];`，j从1开始），也就是s[0...i]不匹配之后应该走到的状态（因为s[0...i]不匹配，那肯定重新从s[1...i]开始匹配），也就是j这个状态不匹配时应该回到X这个状态，所以有当`pat.charAt(j) != c`时`dp[j][c] = dp[X][c];`，还要注意该自动机是一边生成一边推进j和X的（其实就是动态规划），而不是先生成好自动机，再进行匹配，而且j用到了X（不匹配的时候），X也用到了j（因为X在j的后面，j走过的路自动机已经生成好了），就是下面这张图：
+
+![img](https://labuladong.gitee.io/algo/images/kmp/dfa.gif)
+
+模板如下：
+
+```java
+public class KMP {
+    private int[][] dp;
+    private String pat;
+
+    public KMP(String pat) {
+        this.pat = pat;
+        int M = pat.length();
+        // dp[状态][字符] = 下个状态
+        dp = new int[M][256];
+        // base case
+        dp[0][pat.charAt(0)] = 1;
+        // 影子状态 X 初始为 0
+        int X = 0;
+        // 构建状态转移图（稍改的更紧凑了）
+        for (int j = 1; j < M; j++) {
+            for (int c = 0; c < 256; c++)
+                dp[j][c] = dp[X][c];
+            dp[j][pat.charAt(j)] = j + 1;
+            // 更新影子状态
+            X = dp[X][pat.charAt(j)];
+        }
+    }
+
+    public int search(String txt) {
+        int M = pat.length();
+        int N = txt.length();
+        // pat 的初始态为 0
+        int j = 0;
+        for (int i = 0; i < N; i++) {
+            // 计算 pat 的下一个状态
+            j = dp[j][txt.charAt(i)];
+            // 到达终止态，返回结果
+            if (j == M) return i - M + 1;
+        }
+        // 没到达终止态，匹配失败
+        return -1;
+    }
+}
+```
+
+## 贪心算法
+
+贪心算法可以认为是动态规划算法的一个特例，相比动态规划，使用贪心算法需要满足更多的条件（贪心选择性质），但是效率比动态规划要高。
+
+什么是贪心选择性质呢，简单说就是：每一步都做出一个局部最优的选择，最终的结果就是全局最优。注意哦，这是一种特殊性质，其实只有一部分问题拥有这个性质。
 
 # 其他
 
