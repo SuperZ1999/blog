@@ -239,6 +239,18 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-452/>
 
+## 最少需要几个区间才能覆盖整个x轴
+
+### 解法
+
+利用贪心算法，思路很简单，先按start排序，遍历区间，找end最大的区间，然后再遍历区间找start小于前一个end，end最大的区间，就是代码有点难写
+
+### 题目
+
+#### 1. [视频拼接](https://leetcode.cn/problems/video-stitching/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1024/>
+
 # 思想
 
 ## 动态规划
