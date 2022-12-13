@@ -47,6 +47,10 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-887/>
 
+### 7. [戳气球](https://leetcode.cn/problems/burst-balloons/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-312/>
+
 ## 正则表达式匹配
 
 ### 解法

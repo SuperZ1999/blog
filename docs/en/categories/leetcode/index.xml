@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 12 Dec 2022 22:55:21 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Dec 2022 14:15:00 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 312</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-312/</link>
+      <pubDate>Tue, 13 Dec 2022 14:15:00 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-312/</guid>
+      <description>思路 利用动态规划的思想，dp[i][j] = x表示，戳破气球i和气球j之间（开区间，不包括i和j）的所有气球，可以获得的最高分数为x。状态转移</description>
+    </item>
+    
     <item>
       <title>LeetCode 887</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-887/</link>
