@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 51</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/</link>
+      <pubDate>Wed, 14 Dec 2022 23:18:28 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/</guid>
+      <description>思路 利用回溯算法，在棋盘上从上往下下棋子，如果不能下就换个格子，如果一整行都不能下，就回溯到上一行换下一个格子 代码 class Solution { List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; solveNQueens(int n) {</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 46</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/</link>
+      <pubDate>Wed, 14 Dec 2022 22:41:32 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/</guid>
+      <description>思路 经典回溯问题，直接套模板即可，决策树如下： 代码 class Solution { private List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; permute(int[] nums) { int n = nums.length; boolean[] used = new boolean[n]; List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); backtrack(track, nums, used); return res; } private void backtrack(List&amp;lt;Integer&amp;gt; track, int[] nums, boolean[] used) { if (track.size()</description>
+    </item>
+    
+    <item>
       <title>LeetCode 253</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-253/</link>
       <pubDate>Wed, 14 Dec 2022 21:49:15 +0800</pubDate>
