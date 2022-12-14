@@ -251,6 +251,22 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1024/>
 
+## 跳跃游戏
+
+### 解法
+
+见题解
+
+### 题目
+
+#### 1. [跳跃游戏](https://leetcode.cn/problems/jump-game/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-55/>
+
+#### 1. [跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-45/>
+
 # 思想
 
 ## 动态规划
@@ -475,6 +491,8 @@ public class KMP {
 贪心算法可以认为是动态规划算法的一个特例，相比动态规划，使用贪心算法需要满足更多的条件（贪心选择性质），但是效率比动态规划要高。
 
 什么是贪心选择性质呢，简单说就是：每一步都做出一个局部最优的选择，最终的结果就是全局最优。注意哦，这是一种特殊性质，其实只有一部分问题拥有这个性质。
+
+贪心算法题目，大多一眼就能看出来，大不了就先用动态规划求解，如果动态规划都超时，说明该问题存在贪心选择性质无疑了。
 
 # 其他
 

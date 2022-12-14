@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 13 Dec 2022 23:32:03 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Dec 2022 21:14:41 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 45</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-45/</link>
+      <pubDate>Wed, 14 Dec 2022 21:14:41 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-45/</guid>
+      <description>思路 利用贪心算法，每次跳的时候选择一个最有潜力的结点跳，只不过代码有点难写 代码 class Solution { public int jump(int[] nums) { int n = nums.length, farthest = 0, jumps = 0, end = 0; for (int i = 0; i &amp;lt; n - 1;</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 55</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-55/</link>
+      <pubDate>Wed, 14 Dec 2022 20:55:31 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-55/</guid>
+      <description>思路 利用贪心算法，每一步都计算一下从当前位置最远能够跳到哪里，然后和一个全局最优的最远位置 farthest 做对比，通过每一步的最优解，更新全局最优解 代码 class</description>
+    </item>
+    
     <item>
       <title>LeetCode 1024</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1024/</link>
