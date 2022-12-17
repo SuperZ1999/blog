@@ -7,6 +7,69 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 39</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-39/</link>
+      <pubDate>Sat, 17 Dec 2022 20:29:05 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-39/</guid>
+      <description>思路 经典可复选组合问题，保证递归的时候还能选择已经选择的元素即可 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); int trackSum = 0; private void backtrack(int[] nums, int start, int target) { if (trackSum == target) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); return; } if</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 47</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-47/</link>
+      <pubDate>Sat, 17 Dec 2022 20:00:53 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-47/</guid>
+      <description>思路 经典有重复元素的全排列问题，需要注意怎么去重，可以固定相同元素在全排列里的相对位置来去重，代码如下： if (i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1] &amp;amp;&amp;amp; !used[i - 1]) { continue; } 代</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 40</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-40/</link>
+      <pubDate>Sat, 17 Dec 2022 19:52:20 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-40/</guid>
+      <description>思路 经典带重复元素的组合问题，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); int trackSum = 0; private void backtrack(int[] nums, int start, int target) { if (trackSum == target) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); return; } if (trackSum &amp;gt; target) { return; } for (int i = start;</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 90</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-90/</link>
+      <pubDate>Sat, 17 Dec 2022 19:50:57 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-90/</guid>
+      <description>思路 经典带重复元素的子集问题，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); private void backtrack(int[] nums, int start) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); for (int i = start; i &amp;lt; nums.length; i++) { if (i &amp;gt; start &amp;amp;&amp;amp; nums[i] == nums[i - 1]) { continue; } track.add(nums[i]); backtrack(nums,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 77</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-77/</link>
+      <pubDate>Sat, 17 Dec 2022 19:28:21 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-77/</guid>
+      <description>思路 经典组合问题，不解释了，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; combine(int n, int k) { backtrack(n, 1, k); return res; } private void backtrack(int n, int start, int k) { if (track.size() == k) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); return; } for (int i =</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 78</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-78/</link>
+      <pubDate>Sat, 17 Dec 2022 19:15:12 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-78/</guid>
+      <description>思路 经典子集问题，不解释了，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); for (int i = start; i &amp;lt; nums.length; i++) { track.add(nums[i]); backtrack(nums, i + 1); track.remove(track.size()</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 698</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-698/</link>
+      <pubDate>Sat, 17 Dec 2022 18:48:50 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-698/</guid>
+      <description>思路 利用回溯算法，这种排列组合问题的各种变体都可以抽象成「球盒模型」，将子集看成盒子，那么每个盒子遍历一遍数组，要么将元素放盒子里面要么不放</description>
+    </item>
+    
+    <item>
       <title>LeetCode 51</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-51/</link>
       <pubDate>Wed, 14 Dec 2022 23:18:28 +0800</pubDate>

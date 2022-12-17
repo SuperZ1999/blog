@@ -305,6 +305,54 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/>
 
+## 集合划分问题
+
+### 解法
+
+利用回溯算法，这种排列组合问题的各种变体都可以抽象成「球盒模型」，将子集看成盒子，那么每个盒子遍历一遍数组，要么将元素放盒子里面要么不放，就这样回溯，只不过代码有点难写
+
+### 题目
+
+#### 1. [划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-698/>
+
+## 排列组合子集问题
+
+### 解法
+
+详见思想篇章
+
+### 题目
+
+#### 1. [子集](https://leetcode.cn/problems/subsets/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-78/>
+
+#### 2. [组合](https://leetcode.cn/problems/combinations/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-77/>
+
+#### 3. [全排列](https://leetcode.cn/problems/permutations/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/>
+
+#### 4. [子集 II](https://leetcode.cn/problems/subsets-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-90/>
+
+#### 5. [组合总和 II](https://leetcode.cn/problems/combination-sum-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-40/>
+
+#### 6. [全排列 II](https://leetcode.cn/problems/permutations-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-47/>
+
+#### 6. [组合总和](https://leetcode.cn/problems/combination-sum/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/>
+
 # 思想
 
 ## 动态规划
@@ -565,6 +613,10 @@ def backtrack(路径, 选择列表):
 ```
 
 其实想想看，回溯算法和动态规划是不是有点像呢？动态规划的三个需要明确的点就是「状态」「选择」和「base case」，正好就对应着走过的「路径」，当前的「选择列表」和「结束条件」
+
+## 排列组合子集问题
+
+详见：<https://labuladong.gitee.io/algo/4/31/106/>
 
 # 其他
 
