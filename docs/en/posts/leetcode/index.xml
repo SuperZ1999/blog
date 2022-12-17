@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 1764</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1764/</link>
+      <pubDate>Sat, 17 Dec 2022 23:38:35 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1764/</guid>
+      <description>思路 用双指针逐行比较即可，可以用KMP优化 代码 class Solution { private boolean isMatch(int[] group, int[] nums, int start) { if (group.length &amp;gt; nums.length - start) { return false; } for (int i = 0; i &amp;lt; group.length; i++) { if (group[i] != nums[start + i]) { return false; } } return true; } public</description>
+    </item>
+    
+    <item>
       <title>LeetCode 694</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-694/</link>
       <pubDate>Sat, 17 Dec 2022 22:55:17 +0800</pubDate>

@@ -281,18 +281,6 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 # 回溯问题
 
-## 全排列
-
-### 解法
-
-经典回溯问题，直接套模板即可
-
-### 题目
-
-#### 1. [全排列](https://leetcode.cn/problems/permutations/)
-
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/>
-
 ## N皇后
 
 ### 解法
@@ -358,6 +346,8 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 ### 解法
 
 利用dfs的思想，遍历矩阵，如果碰到陆地就从这个元素开始dfs，同时将陆地全部变为海水，同时统计岛屿的个数
+
+详见：<https://labuladong.gitee.io/algo/4/31/107/>
 
 ### 题目
 
@@ -646,7 +636,7 @@ def backtrack(路径, 选择列表):
 
 其实想想看，回溯算法和动态规划是不是有点像呢？动态规划的三个需要明确的点就是「状态」「选择」和「base case」，正好就对应着走过的「路径」，当前的「选择列表」和「结束条件」
 
-## 排列组合子集问题
+### 排列组合子集问题
 
 由于子集问题和组合问题本质上是一样的，无非就是 base case 有一些区别，所以把这两个问题放在一起看。
 
@@ -689,46 +679,6 @@ void backtrack(int[] nums) {
 
 ```java
 Arrays.sort(nums);
-/* 组合/子集问题回溯算法框架 */
-void backtrack(int[] nums, int start) {
-    // 回溯算法标准框架
-    for (int i = start; i < nums.length; i++) {
-        // 剪枝逻辑，跳过值相同的相邻树枝
-        if (i > start && nums[i] == nums[i - 1]) {
-            continue;
-        }
-        // 做选择
-        track.addLast(nums[i]);
-        // 注意参数
-        backtrack(nums, i + 1);
-        // 撤销选择
-        track.removeLast();
-    }
-}
-
-
-Arrays.sort(nums);
-/* 排列问题回溯算法框架 */
-void backtrack(int[] nums) {
-    for (int i = 0; i < nums.length; i++) {
-        // 剪枝逻辑
-        if (used[i]) {
-            continue;
-        }
-        // 剪枝逻辑，固定相同的元素在排列中的相对位置
-        if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
-            continue;
-        }
-        // 做选择
-        used[i] = true;
-        track.addLast(nums[i]);
-
-        backtrack(nums);
-        // 撤销选择
-        track.removeLast();
-        used[i] = false;
-    }
-}Arrays.sort(nums);
 /* 组合/子集问题回溯算法框架 */
 void backtrack(int[] nums, int start) {
     // 回溯算法标准框架
