@@ -103,6 +103,22 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-337/>
 
+## KMP算法
+
+### 解法
+
+详见思想篇章
+
+### 题目
+
+#### 1. [实现 strStr()](https://leetcode.cn/problems/implement-strstr/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-28/>
+
+#### 2. [通过连接另一个数组的子数组得到一个数组](https://leetcode.cn/problems/form-array-by-concatenating-subarrays-of-another-array/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1764/>
+
 # 子序列问题
 
 ## 最长递增子序列
