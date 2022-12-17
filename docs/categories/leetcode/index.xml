@@ -6,7 +6,61 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 17 Dec 2022 20:29:05 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Dec 2022 22:55:17 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 694</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/</link>
+      <pubDate>Sat, 17 Dec 2022 22:55:17 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/</guid>
+      <description>思路 和其他岛屿类似，但是需要判断形状是否相同，解决办法也比较巧妙，通过遍历岛屿单元格的顺序来判断形状是否相同，还要把这些顺序序列化成字符串方</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1905</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/</link>
+      <pubDate>Sat, 17 Dec 2022 22:13:19 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/</guid>
+      <description>思路 同LeetCode-1254，只不过需要提前把不可能是子岛屿的岛屿淹掉，剩下的就是子岛屿了 代码 class Solution { private void dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 695</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/</link>
+      <pubDate>Sat, 17 Dec 2022 21:38:07 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/</guid>
+      <description>思路 同LeetCode-200，把返回值改成淹没陆地的数量即可 代码 class Solution { private int dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i &amp;lt; 0 || i &amp;gt;= m || j &amp;lt; 0 || j &amp;gt;= n) { return</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1020</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/</link>
+      <pubDate>Sat, 17 Dec 2022 21:34:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/</guid>
+      <description>思路 同LeetCode-1254，将边界淹没后，直接统计单元格即可 代码 class Solution { private void dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i &amp;lt; 0 || i &amp;gt;= m || j &amp;lt; 0 || j &amp;gt;= n)</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1254</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/</link>
+      <pubDate>Sat, 17 Dec 2022 21:27:28 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/</guid>
+      <description>思路 同LeetCode-200，只不过需要提前把边界的岛屿淹没 代码 class Solution { private void dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i &amp;lt; 0 || i &amp;gt;= m || j &amp;lt; 0 || j &amp;gt;= n) { return;</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 200</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/</link>
+      <pubDate>Sat, 17 Dec 2022 21:13:20 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/</guid>
+      <description>思路 利用dfs的思想，遍历矩阵，如果碰到陆地就从这个元素开始dfs，同时将陆地全部变为海水，同时统计岛屿的个数 代码 class Solution { public int numIslands(char[][] grid) { int m = grid.length, n</description>
+    </item>
+    
     <item>
       <title>LeetCode 39</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/</link>

@@ -349,9 +349,41 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-47/>
 
-#### 6. [组合总和](https://leetcode.cn/problems/combination-sum/)
+#### 7. [组合总和](https://leetcode.cn/problems/combination-sum/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/>
+
+## 岛屿问题
+
+### 解法
+
+利用dfs的思想，遍历矩阵，如果碰到陆地就从这个元素开始dfs，同时将陆地全部变为海水，同时统计岛屿的个数
+
+### 题目
+
+#### 1. [岛屿数量](https://leetcode.cn/problems/number-of-islands/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/>
+
+#### 2. [统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/>
+
+#### 3. [飞地的数量](https://leetcode.cn/problems/number-of-enclaves/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/>
+
+#### 4. [岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/>
+
+#### 5. [统计子岛屿](https://leetcode.cn/problems/count-sub-islands/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/>
+
+#### 6. [不同岛屿的数量](https://leetcode.cn/problems/number-of-distinct-islands/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/>
 
 # 思想
 
@@ -615,6 +647,158 @@ def backtrack(路径, 选择列表):
 其实想想看，回溯算法和动态规划是不是有点像呢？动态规划的三个需要明确的点就是「状态」「选择」和「base case」，正好就对应着走过的「路径」，当前的「选择列表」和「结束条件」
 
 ## 排列组合子集问题
+
+由于子集问题和组合问题本质上是一样的，无非就是 base case 有一些区别，所以把这两个问题放在一起看。
+
+**形式一、元素无重不可复选，即 `nums` 中的元素都是唯一的，每个元素最多只能被使用一次**，`backtrack` 核心代码如下：
+
+```java
+/* 组合/子集问题回溯算法框架 */
+void backtrack(int[] nums, int start) {
+    // 回溯算法标准框架
+    for (int i = start; i < nums.length; i++) {
+        // 做选择
+        track.addLast(nums[i]);
+        // 注意参数
+        backtrack(nums, i + 1);
+        // 撤销选择
+        track.removeLast();
+    }
+}
+
+/* 排列问题回溯算法框架 */
+void backtrack(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+        // 剪枝逻辑
+        if (used[i]) {
+            continue;
+        }
+        // 做选择
+        used[i] = true;
+        track.addLast(nums[i]);
+
+        backtrack(nums);
+        // 撤销选择
+        track.removeLast();
+        used[i] = false;
+    }
+}
+```
+
+**形式二、元素可重不可复选，即 `nums` 中的元素可以存在重复，每个元素最多只能被使用一次**，其关键在于排序和剪枝，`backtrack` 核心代码如下：
+
+```java
+Arrays.sort(nums);
+/* 组合/子集问题回溯算法框架 */
+void backtrack(int[] nums, int start) {
+    // 回溯算法标准框架
+    for (int i = start; i < nums.length; i++) {
+        // 剪枝逻辑，跳过值相同的相邻树枝
+        if (i > start && nums[i] == nums[i - 1]) {
+            continue;
+        }
+        // 做选择
+        track.addLast(nums[i]);
+        // 注意参数
+        backtrack(nums, i + 1);
+        // 撤销选择
+        track.removeLast();
+    }
+}
+
+
+Arrays.sort(nums);
+/* 排列问题回溯算法框架 */
+void backtrack(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+        // 剪枝逻辑
+        if (used[i]) {
+            continue;
+        }
+        // 剪枝逻辑，固定相同的元素在排列中的相对位置
+        if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+            continue;
+        }
+        // 做选择
+        used[i] = true;
+        track.addLast(nums[i]);
+
+        backtrack(nums);
+        // 撤销选择
+        track.removeLast();
+        used[i] = false;
+    }
+}Arrays.sort(nums);
+/* 组合/子集问题回溯算法框架 */
+void backtrack(int[] nums, int start) {
+    // 回溯算法标准框架
+    for (int i = start; i < nums.length; i++) {
+        // 剪枝逻辑，跳过值相同的相邻树枝
+        if (i > start && nums[i] == nums[i - 1]) {
+            continue;
+        }
+        // 做选择
+        track.addLast(nums[i]);
+        // 注意参数
+        backtrack(nums, i + 1);
+        // 撤销选择
+        track.removeLast();
+    }
+}
+
+
+Arrays.sort(nums);
+/* 排列问题回溯算法框架 */
+void backtrack(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+        // 剪枝逻辑
+        if (used[i]) {
+            continue;
+        }
+        // 剪枝逻辑，固定相同的元素在排列中的相对位置
+        if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+            continue;
+        }
+        // 做选择
+        used[i] = true;
+        track.addLast(nums[i]);
+
+        backtrack(nums);
+        // 撤销选择
+        track.removeLast();
+        used[i] = false;
+    }
+}
+```
+
+**形式三、元素无重可复选，即 `nums` 中的元素都是唯一的，每个元素可以被使用若干次**，只要删掉去重逻辑即可，`backtrack` 核心代码如下：
+
+```java
+/* 组合/子集问题回溯算法框架 */
+void backtrack(int[] nums, int start) {
+    // 回溯算法标准框架
+    for (int i = start; i < nums.length; i++) {
+        // 做选择
+        track.addLast(nums[i]);
+        // 注意参数
+        backtrack(nums, i);
+        // 撤销选择
+        track.removeLast();
+    }
+}
+
+
+/* 排列问题回溯算法框架 */
+void backtrack(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+        // 做选择
+        track.addLast(nums[i]);
+        backtrack(nums);
+        // 撤销选择
+        track.removeLast();
+    }
+}
+```
 
 详见：<https://labuladong.gitee.io/algo/4/31/106/>
 

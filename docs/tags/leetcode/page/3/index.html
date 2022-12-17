@@ -170,6 +170,276 @@ var _hmt = _hmt || [];
 <article class="post-entry">
   <div class="post-info">
     <header class="entry-header">
+      <h2>LeetCode 64
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        思路 经典动态规划问题，构造dp[][]数组，里面存放从(0, 0)到(i, j)的最小路径，dp[i][j]由min(dp[i - 1][j], dp[i][j - 1]) &#43; gri
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-11 14:03:02 +0800 CST'>2022-12-11</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-11 16:04:32 +0800 CST'>2022-12-11</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;214 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+</footer>
+  </div> 
+  <a class="entry-link" aria-label="post link to LeetCode 64" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/"></a>
+</article>
+
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>LeetCode 494
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        思路 有三种思路： 递归思路 findTargetSumWays(nums, i, remain) = findTargetSumWays(nums, i &#43; 1, remain - nums[i]) &#43; findTargetSumWays(nums, i &#43; 1, remain &#43; nums[i])，直接看代码 回溯思路 经典回溯问题，套模板即可 动态规划 这道题还可以
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 23:32:55 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-11 00:20:05 +0800 CST'>2022-12-11</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;655 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;2 分钟
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+</footer>
+  </div> 
+  <a class="entry-link" aria-label="post link to LeetCode 494" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/"></a>
+</article>
+
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>LeetCode 518
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        思路 经典完全背包问题，直接套模板即可，详见思想篇章，可以优化空间复杂度 代码 原版 class Solution { public int change(int amount, int[] coins) { int n = coins.length; int[][] dp = new int[n &#43; 1][amount &#43; 1]; for (int i = 0; i &lt;= n;
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 22:36:12 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 22:44:42 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;210 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+</footer>
+  </div> 
+  <a class="entry-link" aria-label="post link to LeetCode 518" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/"></a>
+</article>
+
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>LeetCode 416
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        思路 其实就是背包问题，直接套背包问题模板，构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp[
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 22:02:28 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 22:20:26 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;368 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+</footer>
+  </div> 
+  <a class="entry-link" aria-label="post link to LeetCode 416" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/"></a>
+</article>
+
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>LeetCode 712
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        思路 利用动态规划的思想，同LeetCode-583，只不过不是计算删除操作数，而是删除的ASCII码 代码 class Solution { public int minimumDeleteSum(String s1, String s2) { int m = s1.length(), n = s2.length(); int[][]
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 20:40:33 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 20:47:12 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;198 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+</footer>
+  </div> 
+  <a class="entry-link" aria-label="post link to LeetCode 712" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/"></a>
+</article>
+
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>LeetCode 583
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        思路 基本同最长公共子序列：LeetCode-1143，也可以直接重用LCS，因为删除的结果不就是它俩的最长公共子序列，那么删除的次数就是wo
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 17:36:14 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-10 20:47:12 +0800 CST'>2022-12-10</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;214 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
+
+
+·&nbsp;
+<span>
+    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
+        viewBox='0 0 16 16'>
+        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
+        <path
+            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
+    </svg>
+    <span>
+        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
+    </span>
+</span>
+</footer>
+  </div> 
+  <a class="entry-link" aria-label="post link to LeetCode 583" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/"></a>
+</article>
+
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
       <h2>LeetCode 1143
       </h2>
     </header>
@@ -461,7 +731,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:25:56 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-14 23:29:45 +0800 CST'>2022-12-14</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;7486 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;15 分钟
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-09 19:25:56 +0800 CST'>2022-12-09</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-17 20:41:08 +0800 CST'>2022-12-17</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;8795 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;18 分钟
 
 
 ·&nbsp;
@@ -569,276 +839,6 @@ var _hmt = _hmt || [];
 </footer>
   </div> 
   <a class="entry-link" aria-label="post link to LeetCode 509" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>LeetCode 225
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        思路 直接套用队列实现栈的模板即可，详见思想篇章 代码 class MyStack { private Queue&lt;Integer&gt; q; private int topElem; public MyStack() { q = new LinkedList&lt;&gt;(); } public void push(int x) { q.offer(x); topElem = x; } public int pop() { int size = q.size(); while (size &gt; 2) { q.offer(q.poll()); size--; } topElem =
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-08 12:21:22 +0800 CST'>2022-12-08</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-08 12:23:33 +0800 CST'>2022-12-08</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;98 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
-
-
-·&nbsp;
-<span>
-    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
-        viewBox='0 0 16 16'>
-        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
-        <path
-            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
-    </svg>
-    <span>
-        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to LeetCode 225" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-225/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>LeetCode 232
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        思路 直接套栈实现队列模板即可，详见思想篇章 代码 class MyQueue { private Stack&lt;Integer&gt; s1, s2; public MyQueue() { s1 = new Stack&lt;&gt;(); s2 = new Stack&lt;&gt;(); } public void push(int x) { s2.push(x); } public int pop() { peek(); return s1.pop(); } public int peek() { if (s1.isEmpty()) { while (!s2.isEmpty()) { s1.push(s2.pop()); } }
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-08 12:09:36 +0800 CST'>2022-12-08</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-08 12:23:33 +0800 CST'>2022-12-08</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;91 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
-
-
-·&nbsp;
-<span>
-    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
-        viewBox='0 0 16 16'>
-        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
-        <path
-            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
-    </svg>
-    <span>
-        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to LeetCode 232" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-232/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>LeetCode 239
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        思路 利用单调队列的思想即可，保持队列中为单调递减那么队头就是最大值，入栈时把小于两头的元素全部出队（因为这些元素不可能充当窗口内最大值的角色
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 13:49:34 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 14:00:39 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;211 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
-
-
-·&nbsp;
-<span>
-    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
-        viewBox='0 0 16 16'>
-        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
-        <path
-            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
-    </svg>
-    <span>
-        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to LeetCode 239" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-239/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>LeetCode 503
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        思路 利用单调栈的思想，同LeetCode-496，只不过牵扯到循环数组的问题，常用套路就是将数组长度翻倍，代码实现的时候也可以用i % nums
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 11:08:46 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 11:13:35 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;162 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
-
-
-·&nbsp;
-<span>
-    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
-        viewBox='0 0 16 16'>
-        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
-        <path
-            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
-    </svg>
-    <span>
-        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to LeetCode 503" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>LeetCode 739
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        思路 利用单调栈的思想即可，同LeetCode-496，只不过这次存的是索引而不是元素 代码 class Solution { public int[] dailyTemperatures(int[] temperatures) { int n = temperatures.length; Deque&lt;Integer&gt; stack = new ArrayDeque&lt;&gt;(); int[] res = new int[n]; for (int i =
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 10:53:22 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 11:13:35 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;108 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
-
-
-·&nbsp;
-<span>
-    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
-        viewBox='0 0 16 16'>
-        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
-        <path
-            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
-    </svg>
-    <span>
-        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to LeetCode 739" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>LeetCode 496
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        思路 利用单调栈的思想即可，倒着入栈，碰到栈顶比自己小就出栈直到比自己大，那么这么就把两个较大元素中间的小元素去除掉了，剩下的两个元素就可以充
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 10:35:40 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-07 11:13:35 +0800 CST'>2022-12-07</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;204 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
-
-
-·&nbsp;
-<span>
-    <svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor'
-        viewBox='0 0 16 16'>
-        <path d='M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z' />
-        <path
-            d='M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z' />
-    </svg>
-    <span>
-        <a class="post-tags-meta" href="https://blog.zhangmengyang.tk/tags/leetcode/">leetcode</a>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to LeetCode 496" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
