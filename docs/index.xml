@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 18 Dec 2022 00:00:17 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Dec 2022 14:56:08 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 周赛-324</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-324/</link>
+      <pubDate>Sun, 18 Dec 2022 14:56:08 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-324/</guid>
+      <description>思路 第一题 暴力解法即可，见代码 第二题 需要知道一个数一定能被分解为质数之积，且是唯一的，分解质数的方法是从2开始除，没法整除就将2加一，再除，</description>
+    </item>
+    
     <item>
       <title>LeetCode 28</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-28/</link>
