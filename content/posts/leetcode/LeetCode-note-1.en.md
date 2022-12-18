@@ -785,6 +785,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-990/>
 
+#### 3. [寻找图中是否存在路径](https://leetcode.cn/problems/find-if-path-exists-in-graph/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1971/>
+
 ## dijkstra问题
 
 ### 解法

@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 18 Dec 2022 23:26:40 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Dec 2022 00:24:17 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 1971</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1971/</link>
+      <pubDate>Mon, 19 Dec 2022 00:24:17 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1971/</guid>
+      <description>思路 利用并查集的思想即可 代码 class Solution { public boolean validPath(int n, int[][] edges, int source, int destination) { UF uf = new UF(n); for (int[] edge : edges) { uf.union(edge[0], edge[1]); } return uf.isConnected(source, destination); } class UF { private int[] parent; public UF(int n) { parent = new int[n]; for (int i = 0; i &amp;lt; n; i++) {</description>
+    </item>
+    
     <item>
       <title>LeetCode 268</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-268/</link>
