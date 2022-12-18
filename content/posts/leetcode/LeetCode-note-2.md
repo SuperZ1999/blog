@@ -391,6 +391,94 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/>
 
+## 数独问题
+
+### 解法
+
+经典回溯问题，暴力求解即可
+
+### 题目
+
+#### 1. [解数独](https://leetcode.cn/problems/sudoku-solver/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-37/>
+
+## 括号生成
+
+### 解法
+
+经典回溯问题，穷举所有可能并且对不合理的情况剪枝即可
+
+### 题目
+
+#### 1. [括号生成](https://leetcode.cn/problems/generate-parentheses/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-22/>
+
+# BFS
+
+## BFS基本问题
+
+### 解法
+
+套模板即可，详见思想篇章
+
+### 题目
+
+#### 1. [二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-111/>
+
+#### 2. [打开转盘锁](https://leetcode.cn/problems/open-the-lock/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-752/>
+
+# 数学问题
+
+## 随机算法
+
+### 解法
+
+有洗牌算法和蓄水池抽样算法两种，详见思想篇章
+
+### 题目
+
+#### 1. [打乱数组](https://leetcode.cn/problems/shuffle-an-array/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-384/>
+
+#### 2. [链表随机节点](https://leetcode.cn/problems/linked-list-random-node/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-382/>
+
+#### 3. [随机数索引](https://leetcode.cn/problems/random-pick-index/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-398/>
+
+## 位运算
+
+### 解法
+
+就那几个技巧，详见思想篇章
+
+### 题目
+
+#### 1. [位 1 的个数](https://leetcode.cn/problems/number-of-1-bits/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-191/>
+
+#### 2. [2 的幂](https://leetcode.cn/problems/power-of-two/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-231/>
+
+#### 3. [只出现一次的数字](https://leetcode.cn/problems/single-number/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-136/>
+
+#### 4. [丢失的数字](https://leetcode.cn/problems/missing-number/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-268/>
+
 # 思想
 
 ## 动态规划
@@ -650,6 +738,8 @@ def backtrack(路径, 选择列表):
 
 ```
 
+思考回溯问题时，一定要把递归过程想成一棵树，不同的选择就是不同的分支，backtrack函数开头就是进入一个结点时要做什么，一般都是判断是否应该进入这个结点（其实就是剪枝）和当前结点是否满足结束条件，其实仔细想想，只要是牵扯到递归的都可以想象成一棵树（因为考虑问题比较方便），比如dfs，回溯，等等
+
 其实想想看，回溯算法和动态规划是不是有点像呢？动态规划的三个需要明确的点就是「状态」「选择」和「base case」，正好就对应着走过的「路径」，当前的「选择列表」和「结束条件」
 
 ### 排列组合子集问题
@@ -768,6 +858,154 @@ void backtrack(int[] nums) {
 
 详见：<https://labuladong.gitee.io/algo/4/31/106/>
 
+## BFS
+
+即广度优先搜索，不多说了，模板如下：
+
+```java
+// 计算从起点 start 到终点 target 的最近距离
+int BFS(Node start, Node target) {
+    Queue<Node> q; // 核心数据结构
+    Set<Node> visited; // 避免走回头路
+    
+    q.offer(start); // 将起点加入队列
+    visited.add(start);
+    int step = 0; // 记录扩散的步数
+
+    while (q not empty) {
+        int sz = q.size();
+        /* 将当前队列中的所有节点向四周扩散 */
+        for (int i = 0; i < sz; i++) {
+            Node cur = q.poll();
+            /* 划重点：这里判断是否到达终点 */
+            if (cur is target)
+                return step;
+            /* 将 cur 的相邻节点加入队列 */
+            for (Node x : cur.adj()) {
+                if (x not in visited) {
+                    q.offer(x);
+                    visited.add(x);
+                }
+            }
+        }
+        /* 划重点：更新步数在这里 */
+        step++;
+    }
+}
+```
+
+队列 `q` 就不说了，BFS 的核心数据结构；`cur.adj()` 泛指 `cur` 相邻的节点，比如说二维数组中，`cur` 上下左右四面的位置就是相邻节点；`visited` 的主要作用是防止走回头路，大部分时候都是必须的，但是像一般的二叉树结构，没有子节点到父节点的指针，不会走回头路就不需要 `visited`。
+
+流程如下所示：
+
+![img](https://labuladong.gitee.io/algo/images/dijkstra/1.jpeg)
+
+## 数学
+
+### 随机算法
+
+#### 洗牌算法
+
+一般解决随机打乱一个数组问题，算法如下：
+
+```java
+public int[] shuffle(int[] nums) {
+    int n = nums.length;
+    for (int i = 0 ; i < n; i++) {
+        // 生成一个 [i, n-1] 区间内的随机数
+        int r = i + rand.nextInt(n - i);
+        // 交换 nums[i] 和 nums[r]
+        swap(nums, i, r);
+    }
+    return copy;
+}
+```
+
+#### 蓄水池抽样算法
+
+可以解决在一堆数据中随机取出一个或多个数据，算法如下：
+
+```java
+/* 返回链表中一个随机节点的值 */
+int getRandom(ListNode head) {
+    Random r = new Random();
+    int i = 0, res = 0;
+    ListNode p = head;
+    // while 循环遍历链表
+    while (p != null) {
+        i++;
+        // 生成一个 [0, i) 之间的整数
+        // 这个整数等于 0 的概率就是 1/i
+        if (0 == r.nextInt(i)) {
+            res = p.val;
+        }
+        p = p.next;
+    }
+    return res;
+}
+```
+
+证明如下：
+
+![img](https://labuladong.gitee.io/algo/images/%e6%b0%b4%e5%a1%98%e6%8a%bd%e6%a0%b7/formula1.png)
+
+取出k个元素：
+
+```java
+/* 返回链表中 k 个随机节点的值 */
+int[] getRandom(ListNode head, int k) {
+    Random r = new Random();
+    int[] res = new int[k];
+    ListNode p = head;
+
+    // 前 k 个元素先默认选上
+    for (int i = 0; i < k && p != null; i++) {
+        res[i] = p.val;
+        p = p.next;
+    }
+
+    int i = k;
+    // while 循环遍历链表
+    while (p != null) {
+        i++;
+        // 生成一个 [0, i) 之间的整数
+        int j = r.nextInt(i);
+        // 这个整数小于 k 的概率就是 k/i
+        if (j < k) {
+            res[j] = p.val;
+        }
+        p = p.next;
+    }
+    return res;
+}
+```
+
+证明如下：
+
+![img](https://labuladong.gitee.io/algo/images/%e6%b0%b4%e5%a1%98%e6%8a%bd%e6%a0%b7/formula2.png)
+
+详见：<https://labuladong.gitee.io/algo/4/32/113/>
+
+### 位运算
+
+1. **判断两个数是否异号**
+
+```java
+int x = -1, y = 2;
+boolean f = ((x ^ y) < 0); // true
+
+int x = 3, y = 2;
+boolean f = ((x ^ y) < 0); // false
+```
+
+2. **n & (n-1) 的运用**
+
+消除数字 n 的二进制表示中的最后一个 1。
+
+3. **a ^ a = 0 的运用**
+
+一个数和它本身做异或运算结果为 0，即 `a ^ a = 0`；一个数和 0 做异或运算的结果为它本身，即 `a ^ 0 = a`。而且异或运算满足交换律和结合律
+
 # 其他
 
 ## 零碎
@@ -789,6 +1027,8 @@ https://labuladong.gitee.io/algo/3/28/94/没看
 https://labuladong.gitee.io/algo/3/28/91/没看
 
 https://labuladong.gitee.io/algo/3/28/92/没看
+
+https://labuladong.gitee.io/algo/4/31/111/没看
 
 山谷(Valley)问题是什么（二分查找）
 
