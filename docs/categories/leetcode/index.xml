@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Dec 2022 16:42:53 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Dec 2022 22:46:17 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 241</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/</link>
+      <pubDate>Mon, 19 Dec 2022 22:46:17 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/</guid>
+      <description>思路 经典分治思想，根据式子的运算符分成左右两个子问题，然后将两个子问题合并，就得到了原问题的答案，详见思想篇章 代码 class Solution { private Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; memo = new HashMap&amp;lt;&amp;gt;(); public List&amp;lt;Integer&amp;gt; diffWaysToCompute(String</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 372</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-372/</link>
+      <pubDate>Mon, 19 Dec 2022 20:38:10 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-372/</guid>
+      <description>思路 幂可以转换为以下形式： 这样就可以运用递归了，至于模幂运算运用(a * b) % k = ((a % k) * (b % k)) % k即可，详见思想篇章 还可以运用高效求幂，详见思</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 204</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-204/</link>
+      <pubDate>Mon, 19 Dec 2022 20:00:33 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-204/</guid>
+      <description>思路 经典素数筛选法，详见思想篇章 代码 class Solution { public int countPrimes(int n) { boolean[] isPrime = new boolean[n]; Arrays.fill(isPrime, true); double sqrtn = Math.sqrt(n); for (int i = 2; i &amp;lt; sqrtn; i++) { if (isPrime[i]) { for (int j = i * i; j &amp;lt; n; j += i) { isPrime[j] = false; } } }</description>
+    </item>
+    
     <item>
       <title>LeetCode 793</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-793/</link>

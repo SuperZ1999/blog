@@ -495,11 +495,49 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-793/>
 
+## 素数筛选法
+
+### 解法
+
+详见思想篇章
+
+### 题目
+
+#### 1. [计数质数](https://leetcode.cn/problems/count-primes/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-204/>
+
+## 模幂运算
+
+### 解法
+
+详见思想篇章
+
+### 题目
+
+#### 1. [超级次方](https://leetcode.cn/problems/super-pow/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-372/>
+
+# 经典面试题
+
+## 分治算法
+
+### 解法
+
+通过将原问题分解成小规模的子问题，然后根据子问题的结果构造出原问题的答案。
+
+### 题目
+
+#### 1. [为运算表达式设计优先级](https://leetcode.cn/problems/different-ways-to-add-parentheses/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/>
+
 # 思想
 
 ## 动态规划
 
-动态规划问题有两个重要的特点，分别是最优子结构性质和存在重叠子问题
+动态规划问题有两个重要的特点，分别是最优子结构性质和存在重叠子问题，只要满足这两个条件都可以用动态规划
 
 ### 流程
 
@@ -1022,6 +1060,90 @@ boolean f = ((x ^ y) < 0); // false
 
 一个数和它本身做异或运算结果为 0，即 `a ^ a = 0`；一个数和 0 做异或运算的结果为它本身，即 `a ^ 0 = a`。而且异或运算满足交换律和结合律
 
+### 素数筛选法
+
+求[2...n]之间的所有的素数可以这样求，从2开始遍历，遍历到的数字的整数倍一定不是素数，这样排除遍历到n的时候，没被排除的就是[2...n]的素数，模板如下：
+
+```java
+int countPrimes(int n) {
+    boolean[] isPrime = new boolean[n];
+    Arrays.fill(isPrime, true);
+    for (int i = 2; i * i < n; i++) 
+        if (isPrime[i]) 
+            for (int j = i * i; j < n; j += i) 
+                isPrime[j] = false;
+    
+    int count = 0;
+    for (int i = 2; i < n; i++)
+        if (isPrime[i]) count++;
+    
+    return count;
+}
+```
+
+这里优化了两个地方，详见：<https://labuladong.gitee.io/algo/4/32/116/>
+
+### 模幂运算
+
+模幂运算就是求`a^b%k`，就是对幂取模，所以叫模幂运算
+
+`(a * b) % k = ((a % k) * (b % k)) % k`，当a*b会溢出时可以用这个技巧，可以拓展到多个数相乘然后取余，只不过要记得每个乘法都要做一次这个运算，比如`(a * b * c) % k -> (((a % k) * (b % k)) % k) * c = (((a % k) * (b % k)) % k) * (c % k) % k`，只要做乘法就要取模
+
+#### 模板
+
+```java
+int base = 1337;
+// 计算 a 的 k 次方然后与 base 求模的结果
+int mypow(int a, int k) {
+    // 对因子求模
+    a %= base;
+    int res = 1;
+    for (int _ = 0; _ < k; _++) {
+        // 这里有乘法，是潜在的溢出点
+        res *= a;
+        // 对乘法结果求模
+        res %= base;
+    }
+    return res;
+}
+```
+
+**如何高效求幂？**
+
+利用幂运算的性质，我们可以写出这样一个递归式：
+
+![img](https://labuladong.gitee.io/algo/images/superPower/formula2.png)
+
+这样就不用傻乎乎的从第一个乘到最后一个了
+
+#### 模板
+
+```java
+int base = 1337;
+
+int mypow(int a, int k) {
+    if (k == 0) return 1;
+    a %= base;
+
+    if (k % 2 == 1) {
+        // k 是奇数
+        return (a * mypow(a, k - 1)) % base;
+    } else {
+        // k 是偶数
+        int sub = mypow(a, k / 2);
+        return (sub * sub) % base;
+    }
+}
+```
+
+## 分治算法
+
+分治算法可以认为是一种算法思想，通过将原问题分解成小规模的子问题，然后根据子问题的结果构造出原问题的答案。
+
+与动态规划和回溯类似，都是通过子问题的解推出来的原问题的解
+
+详见：<https://labuladong.gitee.io/algo/4/33/122/>
+
 # 其他
 
 ## 零碎
@@ -1045,6 +1167,8 @@ https://labuladong.gitee.io/algo/3/28/91/没看
 https://labuladong.gitee.io/algo/3/28/92/没看
 
 https://labuladong.gitee.io/algo/4/31/111/没看
+
+https://labuladong.gitee.io/algo/4/32/118/没看
 
 山谷(Valley)问题是什么（二分查找）
 
