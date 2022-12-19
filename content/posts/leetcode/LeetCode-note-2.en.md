@@ -479,6 +479,22 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-268/>
 
+## 阶乘后的零
+
+### 解法
+
+其实求阶乘结果有几个零就是求阶乘式子里可以分解出来几个因数5，其实就是n/5 + n/25 + n/125 + ....
+
+### 题目
+
+#### 1. [阶乘后的零](https://leetcode.cn/problems/factorial-trailing-zeroes/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-172/>
+
+#### 2. [阶乘函数后 K 个零](https://leetcode.cn/problems/preimage-size-of-factorial-zeroes-function/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-793/>
+
 # 思想
 
 ## 动态规划

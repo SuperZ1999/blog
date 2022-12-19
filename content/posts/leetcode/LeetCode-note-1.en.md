@@ -1016,21 +1016,13 @@ class Solution {
             //int mid = left + (right - left + 1) / 2;
             // 下面是核心逻辑，分成两个区间是因为这样扩展性更强
             // 这块主要就是筛选不可能的区间，然后缩减搜索空间，具体问题具体分析，注意left没加一时mid要加一
-            if (target > nums[mid]) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+            // 左边界，记忆方式：左边界是小于等于，下面的语句是...=mid，第二个语句和第一个语句互补，left没加一时mid要加一
             /*if (target <= nums[mid]) {
                 right = mid;
             } else {
                 left = mid + 1;
             }*/
-            /*if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
-                left = mid;
-            }*/
+            // 右边界
             /*if (target >= nums[mid]) {
                 left = mid;
             } else {
@@ -1060,16 +1052,17 @@ class Solution {
 
 ###### 注意点
 
-1. 此思路搜索空间为[left, right]，闭闭空间
-2. 循环条件写成left<right，因为循环体内把数组分成两部分，并且根据left的取值选择mid是向上或向下取整，那么一定会达到left和right重合的状态（把所有情况都模拟一边就可以得出这个结论），所以循环条件写成left<right，可以保证退出循环时left等于right
-3. 求中点时，如果使用`(left + right) / 2`有可能相加溢出，为了防止溢出使用`left + (right - left) / 2`
-4. 求中点时，left=mid+1时不需要向下取整，left=mid时需要向上取整，记忆方式：left和mid要有一个+1。这么做的原因是：向下取整时，如果还剩下两个元素，刚好又走到left=mid这个分支，就死循环了，因为此时mid就等于left。right=mid时需要向下取整，原因同理
-5. 把搜索空间分成两个区间是因为这样扩展性更强
-6. 缩减搜索空间时，将搜索空间分成两部分需要注意分出不可能的区间，然后缩减搜索空间，具体问题具体分析，根据这个不可能区间的特征写出第一个if，然后else里写和if互补的区域
-7. 注意left没加一时mid要加一
-8. 退出循环后left和right相等，并且是唯一有希望的元素（只是有希望，有可能不是它，还要再判断一下，如果该题一定存在指定的元素，那么直接`return left`就好了）
-9. 对于寻找左右侧边界的二分查找，在缩减搜索空间时一定要考虑>=或<=的情况，因为这样才能使用找左或右侧这个性质，比如`target <= nums[mid]`，可以寻找左边界，因为这时左边界不可能在mid右边所以直接`right=mid`就可以找到左边界，右边界同理。为什么找到的是左边界，也可以这么理解：`target <= nums[mid]`->`right=mid`，所以`target > nums[mid]`->`left=mid + 1`，此时left左边全部都小于target，因为退出循环时如果能找到target，left指向的就是target，又因为left左边全部都小于target，所以此时left指向左边界。找右边界同理。
-10. 对于寻找左侧边界的二分查找，说是寻找该元素的左侧边界，实际上是寻找大于等于target的所有元素的左侧边界，同理，寻找右侧边界的二分查找实际上是寻找小于等于target的所有元素的右侧边界，也可以理解成左侧边界的左边都小于target，右侧边界的右边都大于target，并且左右边界不一定等于target
+1. 可以把这里的nums[i] = x看成一个函数，只要是具有单调性的函数都可以使用二分查找，比如y = func(x)，给定一个y让你找对应的x也可以用二分查找，二分查找的使用很广泛，只要函数有单调性即可
+2. 此思路搜索空间为[left, right]，闭闭空间
+3. 循环条件写成left<right，因为循环体内把数组分成两部分，并且根据left的取值选择mid是向上或向下取整，那么一定会达到left和right重合的状态（把所有情况都模拟一边就可以得出这个结论），所以循环条件写成left<right，可以保证退出循环时left等于right
+4. 求中点时，如果使用`(left + right) / 2`有可能相加溢出，为了防止溢出使用`left + (right - left) / 2`
+5. 求中点时，left=mid+1时不需要向下取整，left=mid时需要向上取整，记忆方式：left和mid要有一个+1。这么做的原因是：向下取整时，如果还剩下两个元素，刚好又走到left=mid这个分支，就死循环了，因为此时mid就等于left。right=mid时需要向下取整，原因同理
+6. 把搜索空间分成两个区间是因为这样扩展性更强
+7. 缩减搜索空间时，将搜索空间分成两部分需要注意分出不可能的区间，然后缩减搜索空间，具体问题具体分析，根据这个不可能区间的特征写出第一个if，然后else里写和if互补的区域
+8. 注意left没加一时mid要加一
+9. 退出循环后left和right相等，并且是唯一有希望的元素（只是有希望，有可能不是它，还要再判断一下，如果该题一定存在指定的元素，那么直接`return left`就好了）
+10. 对于寻找左右侧边界的二分查找，在缩减搜索空间时一定要考虑>=或<=的情况，因为这样才能使用找左或右侧这个性质，比如`target <= nums[mid]`，可以寻找左边界，因为这时左边界不可能在mid右边所以直接`right=mid`就可以找到左边界，右边界同理。为什么找到的是左边界，也可以这么理解：`target <= nums[mid]`->`right=mid`，所以`target > nums[mid]`->`left=mid + 1`，此时left左边全部都小于target，因为退出循环时如果能找到target，left指向的就是target，又因为left左边全部都小于target，所以此时left指向左边界。找右边界同理。
+11. 对于寻找左侧边界的二分查找，说是寻找该元素的左侧边界，实际上是寻找大于等于target的所有元素的左侧边界，同理，寻找右侧边界的二分查找实际上是寻找小于等于target的所有元素的右侧边界，也可以理解成左侧边界的左边都小于target，右侧边界的右边都大于target，并且左右边界不一定等于target，所以如果target不存在时，左边界是比target大的第一个元素，右边界是比target小的第一个元素
 
 详见：leetcode笔记word版和<https://leetcode.cn/leetbook/read/learning-algorithms-with-leetcode/xs41qg/>
 
@@ -2725,6 +2718,8 @@ https://labuladong.gitee.io/algo/2/21/45/没看
 https://labuladong.gitee.io/algo/2/22/57/没看
 
 https://labuladong.gitee.io/algo/2/23/67/没看
+
+https://labuladong.gitee.io/algo/2/20/29/没看
 
 ## 技巧
 
