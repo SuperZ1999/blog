@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Dec 2022 14:06:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Dec 2022 17:21:47 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 1541</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1541/</link>
+      <pubDate>Wed, 21 Dec 2022 17:21:47 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1541/</guid>
+      <description>思路 同LeetCode-921，只不过需要注意当右括号差一个的时候需要补齐右括号 代码 class Solution { public int minInsertions(String s) { int res = 0, need = 0; for (int i = 0; i &amp;lt; s.length(); i++) { char c =</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 921</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-921/</link>
+      <pubDate>Wed, 21 Dec 2022 16:53:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-921/</guid>
+      <description>思路 设置left和right变量，代表需要的左括号数量和右括号数量，从左往右遍历一遍，碰到左括号right++，碰到右括号right&amp;nda</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 20</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-20/</link>
+      <pubDate>Wed, 21 Dec 2022 16:10:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-20/</guid>
+      <description>思路 用栈即可，直接看代码 代码 class Solution { public boolean isValid(String s) { Deque&amp;lt;Character&amp;gt; stack = new ArrayDeque&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; s.length(); i++) { char c = s.charAt(i); if (c == &amp;#39;(&amp;#39; || c == &amp;#39;[&amp;#39; || c == &amp;#39;{&amp;#39;) { stack.push(c); } else { if (stack.isEmpty() || stack.pop() != leftOf(c)) { return false; } } }</description>
+    </item>
+    
     <item>
       <title>LeetCode 224&#43;227</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-224&#43;227/</link>

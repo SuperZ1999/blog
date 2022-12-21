@@ -573,6 +573,26 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-227/>
 
+## 括号相关问题
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [有效的括号](https://leetcode.cn/problems/valid-parentheses/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-20/>
+
+#### 2. [使括号有效的最少添加](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-921/>
+
+#### 3. [平衡括号字符串的最少插入次数](https://leetcode.cn/problems/minimum-insertions-to-balance-a-parentheses-string/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1541/>
+
 # 思想
 
 ## 动态规划
