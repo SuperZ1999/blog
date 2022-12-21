@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Dec 2022 22:46:17 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Dec 2022 14:06:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 224&#43;227</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-224&#43;227/</link>
+      <pubDate>Wed, 21 Dec 2022 14:06:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-224&#43;227/</guid>
+      <description>思路 根本思想是建立一个栈，栈里存放目前遍历到的数字，比如1-2+3，栈里存放1、-2、3，最后将栈里的数字相加即可，详见：https://l</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 43</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-43/</link>
+      <pubDate>Tue, 20 Dec 2022 11:35:00 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-43/</guid>
+      <description>思路 就是大整数乘法，用列式计算的方式计算两个字符串的乘积，如下图所示： 详见：https://labuladong.gitee.io/algo</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 659</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-659/</link>
+      <pubDate>Tue, 20 Dec 2022 10:40:04 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-659/</guid>
+      <description>思路 从前往后遍历，遍历到一个元素v，只要能将所有元素分配到一个序列中即可，关键在于，我们怎么知道当前元素 v 如何进行分配呢？ 肯定得分情况讨论，</description>
+    </item>
+    
     <item>
       <title>LeetCode 241</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/</link>

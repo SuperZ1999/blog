@@ -533,6 +533,46 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/>
 
+## 分割数组为连续子序列
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [分割数组为连续子序列](https://leetcode.cn/problems/split-array-into-consecutive-subsequences/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-659/>
+
+## 大整数乘法
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [字符串相乘](https://leetcode.cn/problems/multiply-strings/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-43/>
+
+## 实现计算器
+
+### 解法
+
+根本思想是建立一个栈，栈里存放目前遍历到的数字，比如`1-2+3`，栈里存放`1、-2、3`，最后将栈里的数字相加即可，详见：<https://labuladong.gitee.io/algo/4/33/127/>
+
+### 题目
+
+#### 1. [基本计算器](https://leetcode.cn/problems/basic-calculator/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-224/>
+
+#### 2. [基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-227/>
+
 # 思想
 
 ## 动态规划
@@ -1169,6 +1209,8 @@ https://labuladong.gitee.io/algo/3/28/92/没看
 https://labuladong.gitee.io/algo/4/31/111/没看
 
 https://labuladong.gitee.io/algo/4/32/118/没看
+
+https://labuladong.gitee.io/algo/4/33/125/没看
 
 山谷(Valley)问题是什么（二分查找）
 
