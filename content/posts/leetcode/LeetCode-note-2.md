@@ -593,6 +593,26 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1541/>
 
+## 区间问题
+
+### 解法
+
+区间类问题看起来都比较复杂，情况很多难以处理，但实际上通过观察各种不同情况之间的共性可以发现规律，用简洁的代码就能处理。
+
+### 题目
+
+#### 1. [删除被覆盖区间](https://leetcode.cn/problems/remove-covered-intervals/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1288/>
+
+#### 2. [合并区间](https://leetcode.cn/problems/merge-intervals/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-56/>
+
+#### 3. [区间列表的交集](https://leetcode.cn/problems/interval-list-intersections/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/>
+
 # 思想
 
 ## 动态规划
@@ -1231,6 +1251,8 @@ https://labuladong.gitee.io/algo/4/31/111/没看
 https://labuladong.gitee.io/algo/4/32/118/没看
 
 https://labuladong.gitee.io/algo/4/33/125/没看
+
+https://labuladong.gitee.io/algo/4/33/131/没看
 
 山谷(Valley)问题是什么（二分查找）
 

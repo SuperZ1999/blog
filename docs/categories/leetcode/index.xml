@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Dec 2022 17:21:47 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Dec 2022 11:29:12 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 986</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/</link>
+      <pubDate>Fri, 23 Dec 2022 11:29:12 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/</guid>
+      <description>思路 利用双指针遍历两个区间集合，谁的终点小，谁往前走，同时判断两个指针指向的区间是否有交集，详见代码 代码 class Solution { public int[][] intervalIntersection(int[][] firstList, int[][] secondList) { int m = firstList.length, n = secondList.length; int</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 56</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-56/</link>
+      <pubDate>Fri, 23 Dec 2022 10:17:05 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-56/</guid>
+      <description>思路 先按起点排序，然后寻找可以合并的最大终点即可 代码 class Solution { public int[][] merge(int[][] intervals) { int n = intervals.length; Arrays.sort(intervals, (a, b) -&amp;gt; { return a[0] - b[0]; }); List&amp;lt;int[]&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); res.add(intervals[0]); for (int i = 1; i &amp;lt; n; i++) { int[] last = res.get(res.size() - 1);</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1288</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1288/</link>
+      <pubDate>Fri, 23 Dec 2022 09:45:26 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1288/</guid>
+      <description>思路 先按起点排序，然后遍历，如果终点小于之前最大的终点，那这个区间就可以被覆盖 代码 class Solution { public int removeCoveredIntervals(int[][] intervals) { int n = intervals.length; Arrays.sort(intervals, (a, b) -&amp;gt; { if (a[0] == b[0]) { return b[1] - a[1]; } return a[0]</description>
+    </item>
+    
     <item>
       <title>LeetCode 1541</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1541/</link>
