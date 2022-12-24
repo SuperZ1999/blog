@@ -2,7 +2,7 @@
 title: "LeetCode 1754"
 date: 2022-12-24T21:51:19+08:00
 categories: ["leetcode"]
-tags: ["leetcode"]
+tags: ["leetcode", "每日一题"]
 description: ""
 weight:
 slug: ""
