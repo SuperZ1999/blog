@@ -6,7 +6,52 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 23 Dec 2022 11:29:12 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Dec 2022 21:13:27 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 792</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-792/</link>
+      <pubDate>Sat, 24 Dec 2022 21:13:27 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-792/</guid>
+      <description>思路 同LeetCode-392，就是比较多个字符串 代码 class Solution { public int numMatchingSubseq(String s, String[] words) { int n = s.length(); Map&amp;lt;Character, List&amp;lt;Integer&amp;gt;&amp;gt; index = new HashMap&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; n; i++) { char c = s.charAt(i); if (!index.containsKey(c)) { index.put(c, new ArrayList&amp;lt;&amp;gt;()); } index.get(c).add(i); }</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 392</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-392/</link>
+      <pubDate>Sat, 24 Dec 2022 20:35:03 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-392/</guid>
+      <description>思路 将t中的字符及其位置都存到一个map中去，然后判断s中的字符是否都存在于该map中，并且该字符在t中的位置在前一个字符在t中的位置的后面</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 391</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-391/</link>
+      <pubDate>Sat, 24 Dec 2022 20:03:34 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-391/</guid>
+      <description>思路 从「面积」和「顶点」两个维度来判断： 1、判断面积，通过完美矩形的理论坐标计算出一个理论面积，然后和 rectangles 中小矩形的实际面积和做对比。 2、判断</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 11</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-11/</link>
+      <pubDate>Fri, 23 Dec 2022 14:01:43 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-11/</guid>
+      <description>思路 利用双指针的思想，每次移动比较小的那个，同时维护左右指针之间的盛水最大值即可 代码 class Solution { public int maxArea(int[] height) { int left = 0, right = height.length - 1; int res = 0; while (left &amp;lt; right) { int area</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 42</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-42/</link>
+      <pubDate>Fri, 23 Dec 2022 12:26:57 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-42/</guid>
+      <description>思路 每个格子能装多少水取决于这个格子左边最高的格子和右边最高的格子，所以可以使用双指针，分别指向左边和右边的格子，遍历这个数组，当左边最大值</description>
+    </item>
+    
     <item>
       <title>LeetCode 986</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-986/</link>

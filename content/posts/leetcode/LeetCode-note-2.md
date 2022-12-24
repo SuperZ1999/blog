@@ -613,6 +613,50 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/>
 
+## 接雨水
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [接雨水](https://leetcode.cn/problems/trapping-rain-water/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/>
+
+#### 2. [盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-11/>
+
+## 完美矩形
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [完美矩形](https://leetcode.cn/problems/perfect-rectangle/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-391/>
+
+## 二分查找高效判定子序列
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [判断子序列](https://leetcode.cn/problems/is-subsequence/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-392/>
+
+#### 2. [匹配子序列的单词数](https://leetcode.cn/problems/number-of-matching-subsequences/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-792/>
+
 # 思想
 
 ## 动态规划
@@ -1228,7 +1272,7 @@ int mypow(int a, int k) {
 
 ## 零碎
 
-
+二分查找的左侧边界的定义就是该边界及该边界右边的元素都大于等于查找元素，右侧边界的定义就是该边界及该边界左边的元素都小于等于查找元素
 
 ## 待做
 

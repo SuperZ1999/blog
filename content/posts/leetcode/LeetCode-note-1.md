@@ -1033,11 +1033,20 @@ class Solution {
         // 此时left一定等于right，所以返回left或者right都一样
         // 排除了n-1个不可能的元素，还剩下[left, right]区间的元素，而left=right，就看剩下这个是不是要寻找的元素了
         // 如果该题一定存在指定的元素，那么下一步可以省略，直接return left就好了
+        /* 如果查找与target相等的值 */
         if (nums[left] == target) {
-            return left;
+            return -1;
+        }
+        /* 如果查找target的左侧边界 */
+        if (nums[left] < target) {
+            return -1;
+        }
+        /* 如果查找target的右侧边界 */
+        if (nums[left] > target) {
+            return -1;
         }
 
-        return -1;
+        return left;
     }
 }
 ```
