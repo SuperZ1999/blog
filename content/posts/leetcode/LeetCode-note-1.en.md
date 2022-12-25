@@ -306,6 +306,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/>
 
+##### 5. [每种字符至少取 K 个](https://leetcode.cn/problems/take-k-of-each-character-from-left-and-right/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/>
+
 ## 左右指针在数组中的应用
 
 ### 二分查找
@@ -954,6 +958,32 @@ void traverse(ListNode head) {
 #### 1. [用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-225/>
+
+## 最小栈
+
+### 解法
+
+这道题的关键是getMin的实现，可以用一个辅助栈来存储每个元素入栈时的最小值，这样的话当元素出栈时也可以很容易的获取最小值
+
+### 题目
+
+#### 1. [最小栈](https://leetcode.cn/problems/min-stack/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-155/>
+
+# 排序
+
+## 快速排序
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/solutions/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/>
 
 # 思想
 
@@ -2690,6 +2720,74 @@ class MyStack {
 }
 ```
 
+## 排序
+
+### 快速排序
+
+快速排序的确定中枢位置的过程叫做快速选择，可以快速确定一个数在排序以后的位置，模板如下：
+
+```java
+/**
+ * @Description 一趟快速排序：將序列分片，基准元素左边的都是小于它的，右边的都是大于它的
+ * @Param [arr, left, right]
+ */
+public static int partition(int[] arr, int left, int right){
+    int pivot = arr[left];        	// 选取第一个为基准元素
+    while(left<right){
+        /* 先从右往移动，直到遇见小于 pivot 的元素 */
+        while (left<right && arr[right]>=pivot){
+            right--;
+        }
+        arr[left] = arr[right];         // 记录小于 pivot 的值
+        
+        /* 再从左往右移动，直到遇见大于 pivot 的元素 */
+        while(left<right && arr[left]<=pivot){
+            left++;
+        }
+        arr[right] = arr[left];         // 记录大于 pivot 的值
+    }
+    arr[left] = pivot;            		// 记录基准元素到当前指针指向的区域
+    return left;						// 返回基准元素的索引
+}
+```
+
+快速选择可以解决数组中的第K个最大元素这种问题
+
+快速排序模板如下：
+
+```java
+public static void quickSort(int[] arr, int left, int right){
+    if (left < right){
+        // 把数组分块
+        int pivot = partition(arr, left, right);
+        // 基准元素左边递归
+        quickSort(arr, left, pivot-1);
+        // 基准元素右边递归
+        quickSort(arr, pivot+1, right);
+    }
+}
+
+public static int partition(int[] arr, int left, int right){
+    int pivot = arr[left];        	// 选取第一个为基准元素
+    while(left<right){
+        /* 先从右往移动，直到遇见小于 pivot 的元素 */
+        while (left<right && arr[right]>=pivot){
+            right--;
+        }
+        arr[left] = arr[right];         // 记录小于 pivot 的值
+        
+        /* 再从左往右移动，直到遇见大于 pivot 的元素 */
+        while(left<right && arr[left]<=pivot){
+            left++;
+        }
+        arr[right] = arr[left];         // 记录大于 pivot 的值
+    }
+    arr[left] = pivot;            		// 记录基准元素到当前指针指向的区域
+    return left;						// 返回基准元素的索引
+}
+
+```
+
 # 其他
 
 ## 零碎
@@ -2715,6 +2813,8 @@ base case就是最基本的情况，从递归的角度理解就是递归出口�
 序列化就是把结构化的数据（比如树）打平（比如转换为字符串）
 
 序列化和反序列化的目的：以某种特定格式组织数据，使得数据可以独立于编程语言。
+
+Boyer-Moore(摩尔) 投票算法详见：<https://leetcode.cn/problems/majority-element/solutions/146074/duo-shu-yuan-su-by-leetcode-solution/>
 
 ## 待做
 

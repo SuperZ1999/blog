@@ -7,6 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 215</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/</link>
+      <pubDate>Sun, 25 Dec 2022 20:54:23 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/</guid>
+      <description>思路 两种思路： 最小堆 维护一个有 K 个元素的最小堆： 如果当前堆不满，直接添加； 堆满的时候，如果新读到的数小于等于堆顶，肯定不是我们要找的元素，只</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 169</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-169/</link>
+      <pubDate>Sun, 25 Dec 2022 20:11:26 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-169/</guid>
+      <description>思路 值得学习的就两种思路： 哈希 遍历一遍统计出现次数，并同时判断有没有超过n/2 Boyer-Moore 投票算法 设置一个count变量和候选数字，遍历数组，如果当前</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 155</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-155/</link>
+      <pubDate>Sun, 25 Dec 2022 18:59:39 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-155/</guid>
+      <description>思路 这道题的关键是getMin的实现，可以用一个辅助栈来存储每个元素入栈时的最小值，这样的话当元素出栈时也可以很容易的获取最小值 代码 class MinStack { private</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 6270</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:07 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/</guid>
+      <description>思路 逆向思维，利用滑动窗口的思想，从两头删去k+个abc，相当于中间的区间中abc的数目小于其总数减去k，这样就可以使用滑动窗口解决了，模板</description>
+    </item>
+    
+    <item>
       <title>LeetCode 1754</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1754/</link>
       <pubDate>Sat, 24 Dec 2022 21:51:19 +0800</pubDate>
