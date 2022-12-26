@@ -977,7 +977,7 @@ void traverse(ListNode head) {
 
 # 排序
 
-## 快速排序
+## 快速选择
 
 ### 解法
 
@@ -988,6 +988,10 @@ void traverse(ListNode head) {
 #### 1. [数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/solutions/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/>
+
+#### 2. [前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-347/>
 
 # 思想
 

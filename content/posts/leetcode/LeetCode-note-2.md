@@ -55,6 +55,10 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-139/>
 
+### 9. [比特位计数](https://leetcode.cn/problems/counting-bits/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/>
+
 ## 正则表达式匹配
 
 ### 解法
