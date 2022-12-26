@@ -105,6 +105,10 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/>
 
+#### 2. [寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-287/>
+
 ## 判断两个链表是否相交
 
 ### 解法
