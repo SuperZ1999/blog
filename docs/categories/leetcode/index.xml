@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 26 Dec 2022 10:44:05 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Dec 2022 14:21:39 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 279</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-279/</link>
+      <pubDate>Mon, 26 Dec 2022 14:21:39 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-279/</guid>
+      <description>思路 记忆化回溯 就是带备忘录的暴力算法，numSquares函数的定义为给定一个数n，返回n的完全平方数，具体做法就是将一个数有可能的平方数一</description>
+    </item>
+    
     <item>
       <title>LeetCode 139</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-139/</link>
