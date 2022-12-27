@@ -7,6 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 560</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/</link>
+      <pubDate>Tue, 27 Dec 2022 20:48:06 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/</guid>
+      <description>思路 两种思路： 枚举 把所有情况都求出来，简单粗暴 前缀和+哈希表优化 利用前缀和的思想，假如[i&amp;hellip;j]的和为k，那么就是preSum</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 461</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-461/</link>
+      <pubDate>Tue, 27 Dec 2022 20:22:01 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-461/</guid>
+      <description>思路 先将x和y异或，再运用x &amp;amp; (x - 1)去除x最右侧的1（即Brian Kernighan算法），即可统计1的数目 代码 class Solution { public int hammingDistance(int x, int y) { int z =</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 448</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-448/</link>
+      <pubDate>Tue, 27 Dec 2022 20:00:06 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-448/</guid>
+      <description>思路 原地哈希即可，同LeetCode-41 代码 class Solution { public List&amp;lt;Integer&amp;gt; findDisappearedNumbers(int[] nums) { int n = nums.length, i = 0; while (i &amp;lt; n) { if (nums[i] == nums[nums[i] - 1]) { i++; continue; } swap(nums, i, nums[i] - 1); } List&amp;lt;Integer&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); for (int j = 0; j</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 406</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-406/</link>
+      <pubDate>Tue, 27 Dec 2022 19:25:36 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-406/</guid>
+      <description>思路 我们可以将每个人按照身高从大到小进行排序，然后依次将每个人放入队列中，那么当我们放入第 i 个人时，由于之后的人都比 i 矮，所以不会对 i 当前的</description>
+    </item>
+    
+    <item>
       <title>LeetCode 394</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-394/</link>
       <pubDate>Tue, 27 Dec 2022 15:38:04 +0800</pubDate>

@@ -400,6 +400,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/>
 
+##### 2. [和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/>
+
 ### 二维数组中的前缀和
 
 #### 解法
@@ -484,6 +488,26 @@ void traverse(ListNode head) {
 #### 2. [黑名单中的随机数](https://leetcode.cn/problems/random-pick-with-blacklist/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/>
+
+## 原地哈希
+
+### 解法
+
+将元素和索引一一对应，不对应的交换元素使其对应
+
+### 题目
+
+#### 1. [找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-448/>
+
+#### 2. [寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-287/>
+
+#### 3. [缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-41/>
 
 # 二叉树
 
