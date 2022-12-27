@@ -735,6 +735,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-222/>
 
+## 合并二叉树
+
+### 解法
+
+详见题解
+
+### 题目
+
+#### 1. [合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-617/>
+
 # 图
 
 ## 图的遍历
