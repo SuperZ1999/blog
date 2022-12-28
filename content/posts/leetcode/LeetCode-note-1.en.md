@@ -404,6 +404,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/>
 
+##### 3. [除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-238/>
+
 ### 二维数组中的前缀和
 
 #### 解法
