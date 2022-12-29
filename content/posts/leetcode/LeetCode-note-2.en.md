@@ -209,6 +209,10 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-516/>
 
+#### 2. [回文子串](https://leetcode.cn/problems/palindromic-substrings/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-647/>
+
 # 背包问题
 
 ## 0-1背包问题

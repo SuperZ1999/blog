@@ -332,6 +332,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/>
 
+##### 3. [搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-240/>
+
 ### 两数之和
 
 #### 解法
@@ -386,7 +390,7 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/>
 
-## 前缀和在数组里的应用
+## 前缀和
 
 ### 一维数组中的前缀和
 
@@ -421,6 +425,18 @@ void traverse(ListNode head) {
 ##### 1. [二维区域和检索 - 矩阵不可变](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/>
+
+### 二叉树中的前缀和
+
+#### 解法
+
+我们利用先序遍历二叉树，记录下根节点 root 到当前节点 p 的路径上所有节点的前缀和，并且将该前缀和加入数据结构中，并且遍历完当前结点记得将前缀和从数据结构中去除，以免影响其他结点的前缀和
+
+#### 题目
+
+##### 1. [路径总和 III](https://leetcode.cn/problems/path-sum-iii/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-437/>
 
 ## 差分数组
 
