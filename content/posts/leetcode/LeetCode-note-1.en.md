@@ -1463,9 +1463,21 @@ void BST(TreeNode root, int target) {
 
 优点：省空间
 
+```java
+// 邻接表
+// graph[x] 存储 x 的所有邻居节点以及对应的权重
+List<int[]>[] graph;
+```
+
 #### 邻接矩阵
 
 优点：可以随机访问
+
+```java
+// 邻接矩阵
+// matrix[x][y] 记录 x 指向 y 的边的权重，0 表示不相邻
+int[][] matrix;
+```
 
 ### 遍历模板
 

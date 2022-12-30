@@ -57,7 +57,11 @@ cover:
 
 ### 9. [比特位计数](https://leetcode.cn/problems/counting-bits/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/>
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-338/>
+
+### 10. [乘积最大子数组](https://leetcode.cn/problems/maximum-product-subarray/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-152/>
 
 ## 正则表达式匹配
 
@@ -307,143 +311,159 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-253/>
 
-# 回溯问题
+# 暴力搜索算法
 
-## N皇后
+## 回溯
 
-### 解法
+### N皇后
+
+#### 解法
 
 利用回溯算法，在棋盘上从上往下下棋子，如果不能下就换个格子，如果一整行都不能下，就回溯到上一行换下一个格子
 
-### 题目
+#### 题目
 
-#### 1. [N 皇后](https://leetcode.cn/problems/n-queens/)
+##### 1. [N 皇后](https://leetcode.cn/problems/n-queens/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/>
 
-## 集合划分问题
+### 集合划分问题
 
-### 解法
+#### 解法
 
 利用回溯算法，这种排列组合问题的各种变体都可以抽象成「球盒模型」，将子集看成盒子，那么每个盒子遍历一遍数组，要么将元素放盒子里面要么不放，就这样回溯，只不过代码有点难写
 
-### 题目
+#### 题目
 
-#### 1. [划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
+##### 1. [划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-698/>
 
-## 排列组合子集问题
+### 排列组合子集问题
 
-### 解法
+#### 解法
 
 详见思想篇章
 
-### 题目
+#### 题目
 
-#### 1. [子集](https://leetcode.cn/problems/subsets/)
+##### 1. [子集](https://leetcode.cn/problems/subsets/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-78/>
 
-#### 2. [组合](https://leetcode.cn/problems/combinations/)
+##### 2. [组合](https://leetcode.cn/problems/combinations/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-77/>
 
-#### 3. [全排列](https://leetcode.cn/problems/permutations/)
+##### 3. [全排列](https://leetcode.cn/problems/permutations/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/>
 
-#### 4. [子集 II](https://leetcode.cn/problems/subsets-ii/)
+##### 4. [子集 II](https://leetcode.cn/problems/subsets-ii/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-90/>
 
-#### 5. [组合总和 II](https://leetcode.cn/problems/combination-sum-ii/)
+##### 5. [组合总和 II](https://leetcode.cn/problems/combination-sum-ii/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-40/>
 
-#### 6. [全排列 II](https://leetcode.cn/problems/permutations-ii/)
+##### 6. [全排列 II](https://leetcode.cn/problems/permutations-ii/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-47/>
 
-#### 7. [组合总和](https://leetcode.cn/problems/combination-sum/)
+##### 7. [组合总和](https://leetcode.cn/problems/combination-sum/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/>
 
-## 岛屿问题
+### 岛屿问题
 
-### 解法
+#### 解法
 
 利用dfs的思想，遍历矩阵，如果碰到陆地就从这个元素开始dfs，同时将陆地全部变为海水，同时统计岛屿的个数
 
 详见：<https://labuladong.gitee.io/algo/4/31/107/>
 
-### 题目
+#### 题目
 
-#### 1. [岛屿数量](https://leetcode.cn/problems/number-of-islands/)
+##### 1. [岛屿数量](https://leetcode.cn/problems/number-of-islands/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/>
 
-#### 2. [统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands/)
+##### 2. [统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/>
 
-#### 3. [飞地的数量](https://leetcode.cn/problems/number-of-enclaves/)
+##### 3. [飞地的数量](https://leetcode.cn/problems/number-of-enclaves/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/>
 
-#### 4. [岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
+##### 4. [岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/>
 
-#### 5. [统计子岛屿](https://leetcode.cn/problems/count-sub-islands/)
+##### 5. [统计子岛屿](https://leetcode.cn/problems/count-sub-islands/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/>
 
-#### 6. [不同岛屿的数量](https://leetcode.cn/problems/number-of-distinct-islands/)
+##### 6. [不同岛屿的数量](https://leetcode.cn/problems/number-of-distinct-islands/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/>
 
-## 数独问题
+### 数独问题
 
-### 解法
+#### 解法
 
 经典回溯问题，暴力求解即可
 
-### 题目
+#### 题目
 
-#### 1. [解数独](https://leetcode.cn/problems/sudoku-solver/)
+##### 1. [解数独](https://leetcode.cn/problems/sudoku-solver/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-37/>
 
-## 括号生成
+### 括号生成
 
-### 解法
+#### 解法
 
 经典回溯问题，穷举所有可能并且对不合理的情况剪枝即可
 
-### 题目
+#### 题目
 
-#### 1. [括号生成](https://leetcode.cn/problems/generate-parentheses/)
+##### 1. [括号生成](https://leetcode.cn/problems/generate-parentheses/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-22/>
 
-# BFS
+## BFS
 
-## BFS基本问题
+### BFS基本问题
 
-### 解法
+#### 解法
 
 套模板即可，详见思想篇章
 
-### 题目
+#### 题目
 
-#### 1. [二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
+##### 1. [二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-111/>
 
-#### 2. [打开转盘锁](https://leetcode.cn/problems/open-the-lock/)
+##### 2. [打开转盘锁](https://leetcode.cn/problems/open-the-lock/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-752/>
+
+## DFS
+
+### DFS基本问题
+
+#### 解法
+
+详见题解
+
+#### 题目
+
+##### 1. [删除无效的括号](https://leetcode.cn/problems/remove-invalid-parentheses/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/>
 
 # 数学问题
 

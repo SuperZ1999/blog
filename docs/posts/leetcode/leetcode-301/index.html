@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>LeetCode 301 | ZMY&#39;s Blog</title>
 <meta name="keywords" content="leetcode">
-<meta name="description" content="思路 两种思路： 常规思路 可以使用i &amp; (i - 1)可以去掉i最右边的一个1这个技巧，提升计算一个数比特1数目的速度 动态规划 对于所有的数字，只有两类：">
+<meta name="description" content="思路 根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.1b749c6bd9ec5667253a04614f6680eb3ba2574eee08ba967cd6532ab57b7b3c.css" integrity="sha256-G3Sca9nsVmclOgRhT2aA6zuiV07uCLqWfNZTKrV7ezw=" rel="preload stylesheet" as="style">
@@ -69,15 +69,15 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="LeetCode 301" />
-<meta property="og:description" content="思路 两种思路： 常规思路 可以使用i &amp; (i - 1)可以去掉i最右边的一个1这个技巧，提升计算一个数比特1数目的速度 动态规划 对于所有的数字，只有两类：" />
+<meta property="og:description" content="思路 根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-12-26T20:18:26&#43;08:00" />
+<meta property="article:published_time" content="2022-12-30T20:24:27&#43;08:00" />
 <meta property="article:modified_time" content="2022-12-26T23:03:34&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode 301"/>
-<meta name="twitter:description" content="思路 两种思路： 常规思路 可以使用i &amp; (i - 1)可以去掉i最右边的一个1这个技巧，提升计算一个数比特1数目的速度 动态规划 对于所有的数字，只有两类："/>
+<meta name="twitter:description" content="思路 根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的"/>
 
 
 <script type="application/ld+json">
@@ -112,14 +112,14 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "LeetCode 301",
   "name": "LeetCode 301",
-  "description": "思路 两种思路： 常规思路 可以使用i \u0026amp; (i - 1)可以去掉i最右边的一个1这个技巧，提升计算一个数比特1数目的速度 动态规划 对于所有的数字，只有两类：",
+  "description": "思路 根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的",
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 两种思路：\n常规思路 可以使用i \u0026 (i - 1)可以去掉i最右边的一个1这个技巧，提升计算一个数比特1数目的速度\n动态规划 对于所有的数字，只有两类：\n奇数，二进制表示中，奇数一定比前面那个偶数多一个 1，因为多的就是最低位的 1 偶数：二进制表示中，偶数中 1 的个数一定和除以 2 之后的那个数一样多。因为最低位是 0，除以 2 就是右移一位，也就是把那个 0 抹掉而已，所以 1 的个数是不变的 另外，0 的 1 个数为 0，这就是base case，动态规划即可，dp定义与状态转移方程详见代码\n还有其他动态规划的方式，详见：https://leetcode.cn/problems/counting-bits/solutions/627418/bi-te-wei-ji-shu-by-leetcode-solution-0t1i/\n代码 常规思路 class Solution { public int[] countBits(int n) { int[] res = new int[n + 1]; for (int i = 0; i \u003c= n; i++) { res[i] = getCount(i); } return res; } private int getCount(int n) { int count = 0; while (n != 0) { n = n \u0026 (n - 1); count++; } return count; } } 动态规划 class Solution { public int[] countBits(int n) { int[] dp = new int[n + 1]; for (int i = 1; i \u003c= n; i++) { if (i % 2 == 1) { dp[i] = dp[i - 1] + 1; } else { dp[i] = dp[i / 2]; } } return dp; } } References 1. 比特位计数 ",
-  "wordCount" : "472",
+  "articleBody": "思路 根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的情况剪枝（直接return即可），比如右括号比左括号多的情况，左括号或者右括号删多了的情况，如此一来只对合理情况进行判断，如果字符串是合理的，并且删除的左右括号数量也正确，那这个字符串就是结果之一，将这些字符串加入Set去重即可\n详见：https://leetcode.cn/problems/remove-invalid-parentheses/solutions/1068652/gong-shui-san-xie-jiang-gua-hao-de-shi-f-asu8/\n代码 class Solution { private Set\u003cString\u003e res = new HashSet\u003c\u003e(); private int max, n, len = -1; private String str; public List\u003cString\u003e removeInvalidParentheses(String s) { str = s; n = s.length(); int left = 0, right = 0; int deleteLeft = 0, deleteRight = 0; for (char c : s.toCharArray()) { if (c == '(') { left++; deleteLeft++; } else if (c == ')') { right++; if (deleteLeft == 0) { deleteRight++; } else { deleteLeft--; } } } len = n - deleteLeft - deleteRight; max = Math.min(left, right); dfs(0, \"\", deleteLeft, deleteRight, 0); return new ArrayList\u003c\u003e(res); } private void dfs(int start, String curr, int deleteLeft, int deleteRight, int score) { if (score \u003c 0 || score \u003e max || deleteLeft \u003c 0 || deleteRight \u003c 0) { return; } if (deleteLeft == 0 \u0026\u0026 deleteRight == 0 \u0026\u0026 curr.length() == len) { res.add(curr); } if (start == n) { return; } char c = str.charAt(start); if (c == '(') { dfs(start + 1, curr + c, deleteLeft, deleteRight, score + 1); dfs(start + 1, curr,deleteLeft - 1, deleteRight, score); } else if (c == ')') { dfs(start + 1, curr + c, deleteLeft, deleteRight, score - 1); dfs(start + 1, curr, deleteLeft, deleteRight - 1, score); } else { dfs(start + 1, curr + c, deleteLeft, deleteRight, score); } } } References 1. 删除无效的括号 ",
+  "wordCount" : "540",
   "inLanguage": "zh",
-  "datePublished": "2022-12-26T20:18:26+08:00",
+  "datePublished": "2022-12-30T20:24:27+08:00",
   "dateModified": "2022-12-26T23:03:34+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-26 20:18:26 +0800 CST'>2022-12-26</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-26 23:03:34 +0800 CST'>2022-12-26</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;472 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 分钟
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-30 20:24:27 +0800 CST'>2022-12-30</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-26 23:03:34 +0800 CST'>2022-12-26</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;540 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;2 分钟
 
 
 ·&nbsp;
@@ -296,26 +296,14 @@ var _hmt = _hmt || [];
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a><ul>
-                        
+                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a></li>
                 <li>
-                    <a href="#%e5%b8%b8%e8%a7%84%e6%80%9d%e8%b7%af" aria-label="常规思路">常规思路</a></li>
-                <li>
-                    <a href="#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" aria-label="动态规划">动态规划</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a><ul>
-                        
-                <li>
-                    <a href="#%e5%b8%b8%e8%a7%84%e6%80%9d%e8%b7%af-1" aria-label="常规思路">常规思路</a></li>
-                <li>
-                    <a href="#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92-1" aria-label="动态规划">动态规划</a></li></ul>
-                </li>
+                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a></li>
                 <li>
                     <a href="#references" aria-label="References">References</a><ul>
                         
                 <li>
-                    <a href="#1-%e6%af%94%e7%89%b9%e4%bd%8d%e8%ae%a1%e6%95%b0httpsleetcodecnproblemscounting-bits" aria-label="1. 比特位计数">1. <a href="https://leetcode.cn/problems/counting-bits/">比特位计数</a></a>
+                    <a href="#1-%e5%88%a0%e9%99%a4%e6%97%a0%e6%95%88%e7%9a%84%e6%8b%ac%e5%8f%b7httpsleetcodecnproblemsremove-invalid-parentheses" aria-label="1. 删除无效的括号">1. <a href="https://leetcode.cn/problems/remove-invalid-parentheses/">删除无效的括号</a></a>
                 </li>
             </ul>
             </li>
@@ -385,54 +373,63 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
-<p>两种思路：</p>
-<h4 id="常规思路">常规思路<a hidden class="anchor" aria-hidden="true" href="#常规思路">#</a></h4>
-<p>可以使用<code>i &amp; (i - 1)可以去掉i最右边的一个1</code>这个技巧，提升计算一个数比特1数目的速度</p>
-<h4 id="动态规划">动态规划<a hidden class="anchor" aria-hidden="true" href="#动态规划">#</a></h4>
-<p>对于所有的数字，只有两类：</p>
-<ul>
-<li>奇数，二进制表示中，奇数一定比前面那个偶数多一个 1，因为多的就是最低位的 1</li>
-<li>偶数：二进制表示中，偶数中 1 的个数一定和除以 2 之后的那个数一样多。因为最低位是 0，除以 2 就是右移一位，也就是把那个 0 抹掉而已，所以 1 的个数是不变的</li>
-</ul>
-<p>另外，0 的 1 个数为 0，这就是base case，动态规划即可，dp定义与状态转移方程详见代码</p>
-<p>还有其他动态规划的方式，详见：<a href="https://leetcode.cn/problems/counting-bits/solutions/627418/bi-te-wei-ji-shu-by-leetcode-solution-0t1i/">https://leetcode.cn/problems/counting-bits/solutions/627418/bi-te-wei-ji-shu-by-leetcode-solution-0t1i/</a></p>
+<p>根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的情况剪枝（直接return即可），比如右括号比左括号多的情况，左括号或者右括号删多了的情况，如此一来只对合理情况进行判断，如果字符串是合理的，并且删除的左右括号数量也正确，那这个字符串就是结果之一，将这些字符串加入Set去重即可</p>
+<p>详见：<a href="https://leetcode.cn/problems/remove-invalid-parentheses/solutions/1068652/gong-shui-san-xie-jiang-gua-hao-de-shi-f-asu8/">https://leetcode.cn/problems/remove-invalid-parentheses/solutions/1068652/gong-shui-san-xie-jiang-gua-hao-de-shi-f-asu8/</a></p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
-<h4 id="常规思路-1">常规思路<a hidden class="anchor" aria-hidden="true" href="#常规思路-1">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">countBits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">getCount</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">max</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">len</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">str</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">n</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="o">++;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h4 id="动态规划-1">动态规划<a hidden class="anchor" aria-hidden="true" href="#动态规划-1">#</a></h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">countBits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">2</span> <span class="o">==</span> <span class="n">1</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">/</span> <span class="n">2</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">removeInvalidParentheses</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">str</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">deleteLeft</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">deleteRight</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;(&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">deleteLeft</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;)&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">right</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">deleteLeft</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">deleteRight</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">deleteLeft</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">len</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">deleteLeft</span> <span class="o">-</span> <span class="n">deleteRight</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dfs</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">deleteLeft</span><span class="o">,</span> <span class="n">deleteRight</span><span class="o">,</span> <span class="n">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">res</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="n">String</span> <span class="n">curr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deleteLeft</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deleteRight</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">max</span> <span class="o">||</span> <span class="n">deleteLeft</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">deleteRight</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">deleteLeft</span> <span class="o">==</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">deleteRight</span> <span class="o">==</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">curr</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="n">len</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">start</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;(&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">c</span><span class="o">,</span> <span class="n">deleteLeft</span><span class="o">,</span> <span class="n">deleteRight</span><span class="o">,</span> <span class="n">score</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">curr</span><span class="o">,</span><span class="n">deleteLeft</span> <span class="o">-</span> <span class="n">1</span><span class="o">,</span> <span class="n">deleteRight</span><span class="o">,</span> <span class="n">score</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;)&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">c</span><span class="o">,</span> <span class="n">deleteLeft</span><span class="o">,</span> <span class="n">deleteRight</span><span class="o">,</span> <span class="n">score</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">curr</span><span class="o">,</span> <span class="n">deleteLeft</span><span class="o">,</span> <span class="n">deleteRight</span> <span class="o">-</span> <span class="n">1</span><span class="o">,</span> <span class="n">score</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">c</span><span class="o">,</span> <span class="n">deleteLeft</span><span class="o">,</span> <span class="n">deleteRight</span><span class="o">,</span> <span class="n">score</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>
 <hr>
-<h4 id="1-比特位计数httpsleetcodecnproblemscounting-bits">1. <a href="https://leetcode.cn/problems/counting-bits/">比特位计数</a><a hidden class="anchor" aria-hidden="true" href="#1-比特位计数httpsleetcodecnproblemscounting-bits">#</a></h4>
+<h4 id="1-删除无效的括号httpsleetcodecnproblemsremove-invalid-parentheses">1. <a href="https://leetcode.cn/problems/remove-invalid-parentheses/">删除无效的括号</a><a hidden class="anchor" aria-hidden="true" href="#1-删除无效的括号httpsleetcodecnproblemsremove-invalid-parentheses">#</a></h4>
 
 
         </div>
@@ -440,15 +437,10 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-347/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>LeetCode 347</span>
-  </a>
-  <a class="next" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-41/">
+  <a class="next" href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-581/">
     <span class="title">下一页 »</span>
     <br>
-    <span>LeetCode 41</span>
+    <span>LeetCode 581</span>
   </a>
 </nav>
 
