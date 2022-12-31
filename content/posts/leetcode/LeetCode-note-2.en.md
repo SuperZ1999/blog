@@ -63,6 +63,14 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-152/>
 
+### 11. [最大矩形](https://leetcode.cn/problems/maximal-rectangle/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/>
+
+### 12. [最大正方形](https://leetcode.cn/problems/maximal-square/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/>
+
 ## 正则表达式匹配
 
 ### 解法

@@ -336,6 +336,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-240/>
 
+##### 4. [寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/>
+
 ### 两数之和
 
 #### 解法

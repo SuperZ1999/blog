@@ -6,7 +6,34 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 30 Dec 2022 20:24:27 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Dec 2022 15:08:00 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 4</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/</link>
+      <pubDate>Sat, 31 Dec 2022 15:08:00 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/</guid>
+      <description>思路 三种思路： 简单朴素版 跟两个有序的数组合并思路一样，谁小就取谁，这样找到中间的那个就行了 二分查找 其实这道题就是查找第k小的元素，那么我们每</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 221</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/</link>
+      <pubDate>Sat, 31 Dec 2022 14:27:39 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/</guid>
+      <description>思路 两种思路： 暴力解法 遍历数组，将每个元素当成正方形的左上角，并检查此时正方形的面积，计算最大值即可，代码略 动态规划 同LeetCode-85</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 85</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/</link>
+      <pubDate>Sat, 31 Dec 2022 12:00:50 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/</guid>
+      <description>思路 两种思路： 动态规划 构造两个dp数组，分别存放当前元素上面有几个连续的1和左边有几个连续的1，状态转移方程为： dp_left[i][j] = dp_left[i][j - 1] + 1; dp_up[i][j] = dp_up[i - 1][j] + 1;</description>
+    </item>
+    
     <item>
       <title>LeetCode 301</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/</link>
