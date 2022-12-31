@@ -857,6 +857,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1971/>
 
+#### 4. [除法求值](https://leetcode.cn/problems/evaluate-division/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/>
+
 ## dijkstra问题
 
 ### 解法
