@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 31 Dec 2022 20:46:47 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jan 2023 11:39:09 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 周赛 326</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</link>
+      <pubDate>Sun, 01 Jan 2023 11:39:09 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</guid>
+      <description>思路 第一题 挨个除就完事了，直接看代码 第二题 遍历每个元素，并求出他们的质因数加入到set集合，最后统计set里的元素即可 第三题 贪心算法，从左往</description>
+    </item>
+    
     <item>
       <title>LeetCode 399</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-399/</link>

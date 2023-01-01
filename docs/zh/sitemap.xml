@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.zhangmengyang.tk/categories/</loc>
-    <lastmod>2022-12-31T20:46:47+08:00</lastmod>
+    <lastmod>2023-01-01T11:39:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/tags/leetcode/</loc>
-    <lastmod>2022-12-31T20:46:47+08:00</lastmod>
+    <lastmod>2023-01-01T11:39:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/categories/leetcode/</loc>
-    <lastmod>2022-12-31T20:46:47+08:00</lastmod>
+    <lastmod>2023-01-01T11:39:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -41,21 +41,21 @@
                 href="https://blog.zhangmengyang.tk/categories/leetcode/"
                 />
   </url><url>
-    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/</loc>
-    <lastmod>2022-12-31T20:46:47+08:00</lastmod>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</loc>
+    <lastmod>2023-01-01T11:39:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-399/"
+                href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/"
+                href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/"
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/tags/</loc>
-    <lastmod>2022-12-31T20:46:47+08:00</lastmod>
+    <lastmod>2023-01-01T11:39:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -68,7 +68,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/</loc>
-    <lastmod>2022-12-31T20:46:47+08:00</lastmod>
+    <lastmod>2023-01-01T11:39:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -78,6 +78,19 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://blog.zhangmengyang.tk/"
+                />
+  </url><url>
+    <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/</loc>
+    <lastmod>2022-12-31T21:31:17+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-399/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/"
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/</loc>
@@ -2538,7 +2551,7 @@
                 />
   </url><url>
     <loc>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-1/</loc>
-    <lastmod>2022-12-31T20:16:34+08:00</lastmod>
+    <lastmod>2022-12-31T21:31:17+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
