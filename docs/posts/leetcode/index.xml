@@ -7,6 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 二刷top100</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E4%BA%8C%E5%88%B7top100/</link>
+      <pubDate>Sun, 01 Jan 2023 21:42:36 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E4%BA%8C%E5%88%B7top100/</guid>
+      <description>未做 4、</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 2</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2/</link>
+      <pubDate>Sun, 01 Jan 2023 21:25:13 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2/</guid>
+      <description>思路 直接按位相加就可以了 代码 class Solution { public ListNode addTwoNumbers(ListNode l1, ListNode l2) { ListNode res = new ListNode(), p = res; int c = 0; while (l1 != null || l2 != null) { int v1 = l1 == null ? 0 : l1.val; int v2 = l2 == null ? 0 : l2.val; p.next = new ListNode((v1 +</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 1</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1/</link>
+      <pubDate>Sun, 01 Jan 2023 21:08:26 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1/</guid>
+      <description>思路 用map存一下，然后找有没有target - nums[i]即可，直接看代码 代码 class Solution { public int[] twoSum(int[] nums, int target) { Map&amp;lt;Integer, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); int n = nums.length; for (int i = 0; i &amp;lt; n; i++) {</description>
+    </item>
+    
+    <item>
       <title>LeetCode 周赛 326</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</link>
       <pubDate>Sun, 01 Jan 2023 11:39:09 +0800</pubDate>
