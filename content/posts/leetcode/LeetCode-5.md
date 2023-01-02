@@ -17,9 +17,31 @@ cover:
 
 ### 思路
 
+两种思路：
+
+#### 中心扩展法
+
 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。
 
+#### 动态规划
+
+构建dp数组，数组的元素为[i...j]是否为回文串，状态转移方程为：
+
+```java
+if (s.charAt(i) == s.charAt(j) && (j - i < 2 || dp[i + 1][j - 1])) {
+    dp[i][j] = true;
+}
+```
+
+同时统计最长回文串即可，base case为j = i + 1和 j = i的情况，可以优化空间复杂度
+
+#### 马拉车算法
+
+感觉没什么用，没看，就是一个O(n)时间复杂度求最长回文串的一个算法
+
 ### 代码
+
+#### 中心扩展法
 
 ```java
 class Solution {
@@ -43,6 +65,30 @@ class Solution {
         }
 
         return s.substring(left + 1, right);
+    }
+}
+```
+
+#### 动态规划
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        int n = s.length(), maxLen = 0, maxLeft = 0, maxRight = 0;
+        boolean[][] dp = new boolean[n][n];
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j) && (j - i < 2 || dp[i + 1][j - 1])) {
+                    dp[i][j] = true;
+                    if (j - i + 1 > maxLen) {
+                        maxLeft = i;
+                        maxRight = j;
+                        maxLen = j - i + 1;
+                    }
+                }
+            }
+        }
+        return s.substring(maxLeft, maxRight + 1);
     }
 }
 ```

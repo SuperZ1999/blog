@@ -1632,7 +1632,7 @@
       <pubDate>Sat, 24 Sep 2022 15:30:02 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-5/</guid>
-      <description>思路 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。 代码 class Solution { public String longestPalindrome(String s) { String res = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; s.length(); i++) { // 从中心向两边寻找回文串 String</description>
+      <description>思路 两种思路： 中心扩展法 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。 动态规划 构建dp数组，数组的元素为[i&amp;hellip;</description>
     </item>
     
     <item>
