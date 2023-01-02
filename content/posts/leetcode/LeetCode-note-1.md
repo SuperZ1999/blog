@@ -2900,6 +2900,8 @@ base case就是最基本的情况，从递归的角度理解就是递归出口�
 
 Boyer-Moore(摩尔) 投票算法详见：<https://leetcode.cn/problems/majority-element/solutions/146074/duo-shu-yuan-su-by-leetcode-solution/>
 
+负数取余得到的结果还是负数
+
 ## 待做
 
 https://labuladong.gitee.io/algo/1/3/的那几个算法框架及之后的几个框架文章都没看

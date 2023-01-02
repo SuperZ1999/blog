@@ -1316,6 +1316,63 @@ int mypow(int a, int k) {
 
 详见：<https://labuladong.gitee.io/algo/4/33/122/>
 
+## 自动机
+
+就是根据不同的输入进入不同的状态
+
+### 模板
+
+```java
+class Solution {
+    public int myAtoi(String s) {
+        Automaton automaton = new Automaton();
+        for (char c : s.toCharArray()) {
+            automaton.get(c);
+        }
+        return (int) (automaton.sign * automaton.res);
+    }
+
+    class Automaton {
+        int sign = 1;
+        long res = 0;
+        String state = "start";
+        Map<String, String[]> table = new HashMap<>() {
+            {
+                put("start", new String[]{"start", "signed", "in_number", "end"});
+                put("signed", new String[]{"end", "end", "in_number", "end"});
+                put("in_number", new String[]{"end", "end", "in_number", "end"});
+                put("end", new String[]{"end", "end", "end", "end"});
+            }
+        };
+
+        public void get(char c) {
+            state = table.get(state)[getCol(c)];
+            if (state == "in_number") {
+                res = res * 10 + c - '0';
+                res = sign == 1 ? Math.min(res, Integer.MAX_VALUE) : Math.min(res, -(long) Integer.MIN_VALUE);
+            } else if (state == "signed") {
+                sign = c == '+' ? 1 : -1;
+            }
+        }
+
+        private int getCol(char c) {
+            if (c == ' ') {
+                return 0;
+            }
+            if (c == '+' || c == '-') {
+                return 1;
+            }
+            if (c >= '0' && c <= '9') {
+                return 2;
+            }
+            return 3;
+        }
+    }
+}
+```
+
+这是力扣第8题的答案
+
 # 其他
 
 ## 零碎
