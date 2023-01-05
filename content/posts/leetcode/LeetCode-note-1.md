@@ -352,6 +352,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/>
 
+### 三数之和
+
+#### 解法
+
+先排序，然后确定一个数，剩下两个数用双指针确定，同两数之和，详见题解
+
+#### 题目
+
+##### 1. [三数之和](https://leetcode.cn/problems/3sum/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/>
+
 ### 反转数组
 
 #### 解法
@@ -1066,6 +1078,8 @@ void traverse(ListNode head) {
 ### 左右指针
 
 两个指针一个左一个右
+
+使用时一定要确定什么时候动左指针，什么时候动右指针，对于已排序的数组一般是相加的和，小了动左指针，大了动右指针
 
 #### 二分查找
 

@@ -323,6 +323,18 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ## 回溯
 
+### 一般回溯问题
+
+#### 解法
+
+详见题解
+
+#### 题目
+
+##### 1. [电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-17/>
+
 ### N皇后
 
 #### 解法

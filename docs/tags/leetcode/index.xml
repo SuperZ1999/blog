@@ -6,7 +6,25 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Jan 2023 20:32:36 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 20:59:58 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 17</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-17/</link>
+      <pubDate>Thu, 05 Jan 2023 20:59:58 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-17/</guid>
+      <description>思路 经典回溯问题，对于每个数字都有几种选择，套模板即可 代码 class Solution { private List&amp;lt;String&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); private char[][] table = new char[][]{ {}, {}, {&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;}, {&amp;#39;d&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;f&amp;#39;}, {&amp;#39;g&amp;#39;, &amp;#39;h&amp;#39;, &amp;#39;i&amp;#39;}, {&amp;#39;j&amp;#39;, &amp;#39;k&amp;#39;, &amp;#39;l&amp;#39;}, {&amp;#39;m&amp;#39;, &amp;#39;n&amp;#39;, &amp;#39;o&amp;#39;}, {&amp;#39;p&amp;#39;, &amp;#39;q&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;s&amp;#39;}, {&amp;#39;t&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;v&amp;#39;}, {&amp;#39;w&amp;#39;, &amp;#39;x&amp;#39;,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 15</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/</link>
+      <pubDate>Thu, 05 Jan 2023 15:36:20 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/</guid>
+      <description>思路 利用双指针的思想，这道题不是想象中的那样使用Map，而是使用双指针，这题的难点在于去重，可以先排序，然后遍历每一个元素，同时根据遍历的这</description>
+    </item>
+    
     <item>
       <title>LeetCode 9</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-9/</link>
