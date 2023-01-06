@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Jan 2023 20:59:58 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Jan 2023 22:54:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 32</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-32/</link>
+      <pubDate>Fri, 06 Jan 2023 22:54:56 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-32/</guid>
+      <description>思路 三种思路： 栈 定义一个栈，保证栈底为最后一个不匹配的右括号的下标，然后碰到左括号就入栈，碰到右括号就出栈，如果出栈后栈为空，说明当前的右括</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 31</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-31/</link>
+      <pubDate>Fri, 06 Jan 2023 21:53:37 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-31/</guid>
+      <description>思路 因为是下一个排列，所以更改的元素尽量靠右，并且需要变大，那么我们可以从右往左遍历，找到右侧存在比自己大的元素的元素（找这种元素可以从左往</description>
+    </item>
+    
     <item>
       <title>LeetCode 17</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-17/</link>
@@ -1813,7 +1831,7 @@
       <pubDate>Thu, 22 Sep 2022 23:42:59 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-21/</guid>
-      <description>思路 不解释 代码 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p = p.next; } if (list1 != null) { p.next = list1; } if (list2</description>
+      <description>思路 两种思路： 迭代 不解释 递归 不解释 代码 迭代 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p</description>
     </item>
     
     <item>

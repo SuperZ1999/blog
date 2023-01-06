@@ -71,6 +71,10 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/>
 
+### 13. [最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-32/>
+
 ## 正则表达式匹配
 
 ### 解法
