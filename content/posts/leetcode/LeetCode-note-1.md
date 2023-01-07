@@ -340,6 +340,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/>
 
+##### 5. [搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/>
+
 ### 两数之和
 
 #### 解法
@@ -1000,6 +1004,10 @@ void traverse(ListNode head) {
 ##### 3. [下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/>
+
+##### 4. [接雨水](https://leetcode.cn/problems/trapping-rain-water/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/>
 
 ## 单调队列问题
 

@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Jan 2023 22:54:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 23:56:06 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 双周赛 95</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</link>
+      <pubDate>Sat, 07 Jan 2023 23:56:06 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</guid>
+      <description>思路 第一题 不解释 第二题 用count记录一下末尾有几个value，直接看代码 第三题 其实就是计算数组各元素的异或，证明如下： 第四题 代码 第一题 class Solution</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 33</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/</link>
+      <pubDate>Sat, 07 Jan 2023 12:10:37 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/</guid>
+      <description>思路 利用二分查找的思路，每次选出一个中间元素，对于这个中间元素来说，左边和右边必有一个有序序列，那么我们可以分情况讨论，如果左边是有序序列，</description>
+    </item>
+    
     <item>
       <title>LeetCode 32</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-32/</link>
@@ -409,7 +427,7 @@
       <pubDate>Fri, 23 Dec 2022 12:26:57 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/</guid>
-      <description>思路 每个格子能装多少水取决于这个格子左边最高的格子和右边最高的格子，所以可以使用双指针，分别指向左边和右边的格子，遍历这个数组，当左边最大值</description>
+      <description>思路 四种思路： 按列求 只需要找到每一列左边最大值和右边最大值的较小值，就可以求出这一列可以接多少雨水 动态规划 按列求中，求左边右边的最大值是一个</description>
     </item>
     
     <item>
@@ -1651,7 +1669,7 @@
       <pubDate>Sun, 25 Sep 2022 00:24:53 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/</guid>
-      <description>思路 进阶版二分查找，寻找target的左右边界，在进阶版二分查找的二分阶段根据左边界或右边界的特征，选择合适的二分条件即可，来两次二分查找，</description>
+      <description>思路 经典进阶版二分查找，寻找target的左右边界，在进阶版二分查找的二分阶段根据左边界或右边界的特征，选择合适的二分条件即可，来两次二分查</description>
     </item>
     
     <item>

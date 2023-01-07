@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-进阶版二分查找，寻找target的左右边界，在进阶版二分查找的二分阶段根据左边界或右边界的特征，选择合适的二分条件即可，来两次二分查找，分别查找左边界或右边界即可，详见LeetCode-note
+经典进阶版二分查找，寻找target的左右边界，在进阶版二分查找的二分阶段根据左边界或右边界的特征，选择合适的二分条件即可，来两次二分查找，分别查找左边界或右边界即可，详见LeetCode-note-1
 
 ### 代码
 
@@ -27,34 +27,33 @@ class Solution {
         if (nums.length == 0) {
             return new int[]{-1, -1};
         }
+        return new int[]{searchLeft(nums, target), searchRight(nums, target)};
+    }
 
+    private int searchLeft(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (target > nums[mid]) {
-                left = mid + 1;
-            } else {
+            if (target <= nums[mid]) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        if (nums[left] != target) {
-            return new int[]{-1, -1};
-        }
-        int[] ans = new int[2];
-        ans[0] = left;
+        return nums[left] == target ? left : -1;
+    }
 
-        left = 0; right = nums.length - 1;
+    private int searchRight(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
         while (left < right) {
             int mid = left + (right - left + 1) / 2;
-            if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
+            if (target >= nums[mid]) {
                 left = mid;
+            } else {
+                right = mid - 1;
             }
         }
-        ans[1] = left;
-
-        return ans;
+        return nums[left] == target ? left : -1;
     }
 }
 ```

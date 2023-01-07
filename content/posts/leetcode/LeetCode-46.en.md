@@ -47,8 +47,8 @@ class Solution {
             track.add(nums[i]);
             used[i] = true;
             backtrack(track, nums, used);
-            used[i] = false;
             track.remove(track.size() - 1);
+            used[i] = false;
         }
     }
 }

@@ -116,7 +116,7 @@ var _hmt = _hmt || [];
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 经典回溯问题，直接套模板即可，决策树如下：\n代码 class Solution { private List\u003cList\u003cInteger\u003e\u003e res = new LinkedList\u003c\u003e(); public List\u003cList\u003cInteger\u003e\u003e permute(int[] nums) { int n = nums.length; boolean[] used = new boolean[n]; List\u003cInteger\u003e track = new LinkedList\u003c\u003e(); backtrack(track, nums, used); return res; } private void backtrack(List\u003cInteger\u003e track, int[] nums, boolean[] used) { if (track.size() == nums.length) { res.add(new LinkedList\u003c\u003e(track)); return; } for (int i = 0; i \u003c nums.length; i++) { if (used[i]) { continue; } track.add(nums[i]); used[i] = true; backtrack(track, nums, used); used[i] = false; track.remove(track.size() - 1); } } } References 1. 全排列 ",
+  "articleBody": "思路 经典回溯问题，直接套模板即可，决策树如下：\n代码 class Solution { private List\u003cList\u003cInteger\u003e\u003e res = new LinkedList\u003c\u003e(); public List\u003cList\u003cInteger\u003e\u003e permute(int[] nums) { int n = nums.length; boolean[] used = new boolean[n]; List\u003cInteger\u003e track = new LinkedList\u003c\u003e(); backtrack(track, nums, used); return res; } private void backtrack(List\u003cInteger\u003e track, int[] nums, boolean[] used) { if (track.size() == nums.length) { res.add(new LinkedList\u003c\u003e(track)); return; } for (int i = 0; i \u003c nums.length; i++) { if (used[i]) { continue; } track.add(nums[i]); used[i] = true; backtrack(track, nums, used); track.remove(track.size() - 1); used[i] = false; } } } References 1. 全排列 ",
   "wordCount" : "113",
   "inLanguage": "zh",
   "datePublished": "2022-12-14T22:41:32+08:00",
@@ -400,8 +400,8 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl">            <span class="n">track</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
 </span></span><span class="line"><span class="cl">            <span class="n">used</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">backtrack</span><span class="o">(</span><span class="n">track</span><span class="o">,</span> <span class="n">nums</span><span class="o">,</span> <span class="n">used</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">used</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">track</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">track</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">used</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
