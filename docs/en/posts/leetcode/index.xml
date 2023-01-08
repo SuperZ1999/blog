@@ -7,12 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 2226</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-2226/</link>
+      <pubDate>Sun, 08 Jan 2023 23:05:14 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-2226/</guid>
+      <description>思路 看到「最大化最小值」或者「最小化最大值」（其实就是那种要求一堆数字尽量平均的题）就要想到二分答案，这是一个固定的套路。 这里求小孩最多能拿</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 周赛 327</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-327/</link>
+      <pubDate>Sun, 08 Jan 2023 19:32:53 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-327/</guid>
+      <description>思路 第一题 两种思路： 暴力解法 遍历一遍并统计 二分查找 因为数组是有序的，分别查找0的左边界和右边界就可以得到正数负数的范围了，注意左边界是第一个</description>
+    </item>
+    
+    <item>
       <title>LeetCode 双周赛 95</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</link>
       <pubDate>Sat, 07 Jan 2023 23:56:06 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</guid>
-      <description>思路 第一题 不解释 第二题 用count记录一下末尾有几个value，直接看代码 第三题 其实就是计算数组各元素的异或，证明如下： 第四题 代码 第一题 class Solution</description>
+      <description>思路 第一题 不解释 第二题 用count记录一下末尾有几个value，直接看代码 第三题 其实就是计算数组各元素的异或，证明详见：https://le</description>
     </item>
     
     <item>

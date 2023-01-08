@@ -344,6 +344,18 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/>
 
+##### 6. [正整数和负整数的最大计数](https://leetcode.cn/problems/maximum-count-of-positive-integer-and-negative-integer/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-327/>
+
+##### 7. [最大化城市的最小供电站数目](https://leetcode.cn/problems/maximize-the-minimum-powered-city/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-双周赛-95/>
+
+##### 8. [每个小孩最多能分到多少糖果](https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2226/>
+
 ### 两数之和
 
 #### 解法
@@ -2923,6 +2935,12 @@ base case就是最基本的情况，从递归的角度理解就是递归出口�
 Boyer-Moore(摩尔) 投票算法详见：<https://leetcode.cn/problems/majority-element/solutions/146074/duo-shu-yuan-su-by-leetcode-solution/>
 
 负数取余得到的结果还是负数
+
+注意二分查找的左边界是第一个大于等于target的数，右边界是从右往左第一个小于等于target的数
+
+python里自带了二分查找左边界和右边界的函数，Java里有基本版的二分查找
+
+看到「最大化最小值」或者「最小化最大值」（其实就是那种要求一堆数字尽量平均的题）就要想到二分答案，这是一个固定的套路。为什么？一般来说，二分的值越大，越能/不能满足要求；二分的值越小，越不能/能满足要求，有单调性，可以二分。
 
 ## 待做
 
