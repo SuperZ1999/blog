@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 Jan 2023 14:50:52 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 22:37:46 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 周赛 328</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</link>
+      <pubDate>Sun, 15 Jan 2023 22:37:46 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</guid>
+      <description>思路 第一题 遍历一遍即可，直接看代码 第二题 二维数组一片区域同时增加一个数，可以使用差分数组的思想，跟一维的一样，一维的是把两头修改一下就可以了</description>
+    </item>
+    
     <item>
       <title>LeetCode 49</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-49/</link>

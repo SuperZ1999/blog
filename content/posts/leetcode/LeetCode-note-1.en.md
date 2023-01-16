@@ -314,6 +314,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/>
 
+##### 6. [统计好子数组的数目](https://leetcode.cn/problems/count-the-number-of-good-subarrays/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-328/>
+
 ## 左右指针在数组中的应用
 
 ### 二分查找
@@ -472,19 +476,33 @@ void traverse(ListNode head) {
 
 ## 差分数组
 
-### 解法
+### 一维差分数组
+
+#### 解法
 
 详见思想章节
 
-### 题目
+#### 题目
 
-#### 1. [航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/)
+##### 1. [航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/>
 
-#### 2. [拼车](https://leetcode.cn/problems/car-pooling/)
+##### 2. [拼车](https://leetcode.cn/problems/car-pooling/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/>
+
+### 二维差分数组
+
+#### 解法
+
+详见题解
+
+#### 题目
+
+##### 1. [子矩阵元素加 1](https://leetcode.cn/problems/increment-submatrices-by-one/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-328/>
 
 ## 矩阵的螺旋遍历
 
@@ -1320,6 +1338,8 @@ class NumArray {
 }
 ```
 
+二维前缀和，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/>
+
 ### 差分数组
 
 **差分数组的主要适用场景是频繁对原始数组的某个区间的元素进行增减**
@@ -1367,6 +1387,8 @@ class Difference {
     }
 }
 ```
+
+二维差分数组，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-328/>
 
 ## 二叉树
 
@@ -2943,6 +2965,8 @@ python里自带了二分查找左边界和右边界的函数，Java里有基本�
 看到「最大化最小值」或者「最小化最大值」（其实就是那种要求一堆数字尽量平均的题）就要想到二分答案，这是一个固定的套路。为什么？一般来说，二分的值越大，越能/不能满足要求；二分的值越小，越不能/能满足要求，有单调性，可以二分。
 
 前缀和中preSum[i + 1]是[0...i]的元素之和
+
+差分数组的前缀和就是原数组
 
 ## 待做
 
