@@ -1303,20 +1303,28 @@ int mypow(int a, int k) {
 #### 模板
 
 ```java
-int base = 1337;
-
-int mypow(int a, int k) {
+int mypow(int a, int k, int MOD) {
     if (k == 0) return 1;
-    a %= base;
+    a %= MOD;
 
     if (k % 2 == 1) {
         // k 是奇数
-        return (a * mypow(a, k - 1)) % base;
+        return (int) (((long)a * mypow(a, k - 1, MOD)) % MOD);
     } else {
         // k 是偶数
-        int sub = mypow(a, k / 2);
-        return (sub * sub) % base;
+        int sub = mypow(a, k / 2, MOD);
+        return (int) (((long)sub * sub) % MOD);
     }
+    // 还有一种迭代的写法
+//    int res = 1;
+//    while(k != 0) {
+//        if (k & 1 == 1) {
+//             res = ((long)res * a) % MOD;
+//        }
+//        k /= 2;
+//        a = ((long)a * a) % MOD;
+//    }
+//    return res;
 }
 ```
 

@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 15 Jan 2023 22:37:46 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Jan 2023 15:36:14 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 周赛 330</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</link>
+      <pubDate>Sun, 29 Jan 2023 15:36:14 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</guid>
+      <description>思路 第一题 脑筋急转弯，直接看代码 第二题 其实就是计算2^n - 2，用快速幂计算即可，只不过要注意： 求的时候同时取余，模板在思想篇章 计算过程有可能</description>
+    </item>
+    
     <item>
       <title>LeetCode 周赛 328</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</link>
