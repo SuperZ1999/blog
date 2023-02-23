@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 70</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-70/</link>
+      <pubDate>Thu, 23 Feb 2023 23:45:19 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-70/</guid>
+      <description>思路 三种思路： 动态规划 类似于斐波那契数列，定义一个dp数组，dp[i] = j的含义是，到达第i个台阶有j种方法，那么递推公式为： dp[i] = dp[i - 2] + dp[i</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 62</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-62/</link>
+      <pubDate>Thu, 23 Feb 2023 23:24:07 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-62/</guid>
+      <description>思路 两种思路： 动态规划 没这必要 数学组合 这里向下向右的步数是固定的，所以这里路径的个数等于C(向右的步数或向下的步数，总步数)，求组合详见思想</description>
+    </item>
+    
+    <item>
       <title>LeetCode 周赛 330</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</link>
       <pubDate>Sun, 29 Jan 2023 15:36:14 +0800</pubDate>

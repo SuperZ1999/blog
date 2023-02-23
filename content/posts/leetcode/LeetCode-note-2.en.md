@@ -75,6 +75,10 @@ cover:
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-32/>
 
+### 14. [爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-70/>
+
 ## 正则表达式匹配
 
 ### 解法
@@ -1327,6 +1331,22 @@ int mypow(int a, int k, int MOD) {
 //    return res;
 }
 ```
+
+### 求组合数
+
+模板如下：
+
+```java
+public int combination(int m, int n) {
+    long res = 1;
+    for (int i = n - m + 1, j = 1; j <= m; i++, j++) {
+        res = res * i / j;
+    }
+    return (int) res;
+}
+```
+
+注意i必须从n - m + 1开始乘，因为从n开始乘会溢出
 
 ### 零碎 
 
