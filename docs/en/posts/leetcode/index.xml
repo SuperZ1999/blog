@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LeetCode 94</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-94/</link>
+      <pubDate>Fri, 24 Feb 2023 22:16:35 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-94/</guid>
+      <description>思路 三种思路： 递归 经典二叉树中序遍历，闭着眼写，详见思想篇章 迭代 暂时没看 Morris 中序遍历 感觉没必要看 代码 递归 class Solution { public List&amp;lt;Integer&amp;gt; inorderTraversal(TreeNode root) { List&amp;lt;Integer&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); inorderTraversal(root, res); return res; } private</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 75</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-75/</link>
+      <pubDate>Fri, 24 Feb 2023 17:27:26 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-75/</guid>
+      <description>思路 利用双指针的思想即可，左指针指向0的最后一个的后一个，右指针指向2的第一个的前一个，然后遍历数组同时维护左右指针即可，注意点： 除了刚开始</description>
+    </item>
+    
+    <item>
       <title>LeetCode 70</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-70/</link>
       <pubDate>Thu, 23 Feb 2023 23:45:19 +0800</pubDate>
@@ -858,7 +876,7 @@
       <pubDate>Sat, 17 Dec 2022 19:15:12 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-78/</guid>
-      <description>思路 经典子集问题，不解释了，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); for (int i = start; i &amp;lt; nums.length; i++) { track.add(nums[i]); backtrack(nums, i + 1); track.remove(track.size()</description>
+      <description>思路 两种思路： 回溯 经典子集问题，不解释了，详见思想篇章 迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要</description>
     </item>
     
     <item>

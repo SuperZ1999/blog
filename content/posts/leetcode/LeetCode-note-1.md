@@ -320,6 +320,16 @@ void traverse(ListNode head) {
 
 ## 左右指针在数组中的应用
 
+### 解法
+
+见题解
+
+### 题目
+
+#### 1. [颜色分类](https://leetcode.cn/problems/sort-colors/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-75/>
+
 ### 二分查找
 
 #### 解法
@@ -606,6 +616,10 @@ void traverse(ListNode head) {
 #### 4. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/>
+
+#### 5. [二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-94/>
 
 ## 分解问题
 

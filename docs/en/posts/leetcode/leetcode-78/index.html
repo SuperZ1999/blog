@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>LeetCode 78 | ZMY&#39;s Blog</title>
 <meta name="keywords" content="leetcode">
-<meta name="description" content="思路 经典子集问题，不解释了，详见思想篇章 代码 class Solution { List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;(); List&lt;Integer&gt; track = new LinkedList&lt;&gt;(); public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList&lt;&gt;(track)); for (int i = start; i &lt; nums.length; i&#43;&#43;) { track.add(nums[i]); backtrack(nums, i &#43; 1); track.remove(track.size()">
+<meta name="description" content="思路 两种思路： 回溯 经典子集问题，不解释了，详见思想篇章 迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-78/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.1b749c6bd9ec5667253a04614f6680eb3ba2574eee08ba967cd6532ab57b7b3c.css" integrity="sha256-G3Sca9nsVmclOgRhT2aA6zuiV07uCLqWfNZTKrV7ezw=" rel="preload stylesheet" as="style">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="LeetCode 78" />
-<meta property="og:description" content="思路 经典子集问题，不解释了，详见思想篇章 代码 class Solution { List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;(); List&lt;Integer&gt; track = new LinkedList&lt;&gt;(); public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList&lt;&gt;(track)); for (int i = start; i &lt; nums.length; i&#43;&#43;) { track.add(nums[i]); backtrack(nums, i &#43; 1); track.remove(track.size()" />
+<meta property="og:description" content="思路 两种思路： 回溯 经典子集问题，不解释了，详见思想篇章 迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-78/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-17T19:15:12&#43;08:00" />
@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode 78"/>
-<meta name="twitter:description" content="思路 经典子集问题，不解释了，详见思想篇章 代码 class Solution { List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;(); List&lt;Integer&gt; track = new LinkedList&lt;&gt;(); public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList&lt;&gt;(track)); for (int i = start; i &lt; nums.length; i&#43;&#43;) { track.add(nums[i]); backtrack(nums, i &#43; 1); track.remove(track.size()"/>
+<meta name="twitter:description" content="思路 两种思路： 回溯 经典子集问题，不解释了，详见思想篇章 迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要"/>
 
 
 <script type="application/ld+json">
@@ -112,12 +112,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "LeetCode 78",
   "name": "LeetCode 78",
-  "description": "思路 经典子集问题，不解释了，详见思想篇章 代码 class Solution { List\u0026lt;List\u0026lt;Integer\u0026gt;\u0026gt; res = new LinkedList\u0026lt;\u0026gt;(); List\u0026lt;Integer\u0026gt; track = new LinkedList\u0026lt;\u0026gt;(); public List\u0026lt;List\u0026lt;Integer\u0026gt;\u0026gt; subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList\u0026lt;\u0026gt;(track)); for (int i = start; i \u0026lt; nums.length; i++) { track.add(nums[i]); backtrack(nums, i + 1); track.remove(track.size()",
+  "description": "思路 两种思路： 回溯 经典子集问题，不解释了，详见思想篇章 迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要",
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 经典子集问题，不解释了，详见思想篇章\n代码 class Solution { List\u003cList\u003cInteger\u003e\u003e res = new LinkedList\u003c\u003e(); List\u003cInteger\u003e track = new LinkedList\u003c\u003e(); public List\u003cList\u003cInteger\u003e\u003e subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList\u003c\u003e(track)); for (int i = start; i \u003c nums.length; i++) { track.add(nums[i]); backtrack(nums, i + 1); track.remove(track.size() - 1); } } } References 1. 子集 ",
-  "wordCount" : "79",
+  "articleBody": "思路 两种思路：\n回溯 经典子集问题，不解释了，详见思想篇章\n迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要么不放，可以把放进盒子看成1，不放盒子看成0，那么所有的2^n个情况就是[0, 2^n - 1]。\n代码 回溯 class Solution { List\u003cList\u003cInteger\u003e\u003e res = new LinkedList\u003c\u003e(); List\u003cInteger\u003e track = new LinkedList\u003c\u003e(); public List\u003cList\u003cInteger\u003e\u003e subsets(int[] nums) { backtrack(nums, 0); return res; } private void backtrack(int[] nums, int start) { res.add(new LinkedList\u003c\u003e(track)); for (int i = start; i \u003c nums.length; i++) { track.add(nums[i]); backtrack(nums, i + 1); track.remove(track.size() - 1); } } } 迭代 class Solution { public List\u003cList\u003cInteger\u003e\u003e subsets(int[] nums) { List\u003cInteger\u003e track = new ArrayList\u003c\u003e(); List\u003cList\u003cInteger\u003e\u003e res = new LinkedList\u003c\u003e(); int n = nums.length; for (int mask = 0; mask \u003c (1 \u003c\u003c n); mask++) { track.clear(); for (int i = 0; i \u003c n; i++) { if ((mask \u0026 (1 \u003c\u003c i)) != 0) { track.add(nums[i]); } } res.add(new ArrayList\u003c\u003e(track)); } return res; } } References 1. 子集 ",
+  "wordCount" : "241",
   "inLanguage": "en",
   "datePublished": "2022-12-17T19:15:12+08:00",
   "dateModified": "2022-12-17T20:41:08+08:00",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-17 19:15:12 +0800 CST'>2022-12-17</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-17 20:41:08 +0800 CST'>2022-12-17</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;79 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-17 19:15:12 +0800 CST'>2022-12-17</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-17 20:41:08 +0800 CST'>2022-12-17</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;241 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
 
 
 ·&nbsp;
@@ -296,9 +296,21 @@ var _hmt = _hmt || [];
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a></li>
+                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a><ul>
+                        
                 <li>
-                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a></li>
+                    <a href="#%e5%9b%9e%e6%ba%af" aria-label="回溯">回溯</a></li>
+                <li>
+                    <a href="#%e8%bf%ad%e4%bb%a3" aria-label="迭代">迭代</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9b%9e%e6%ba%af-1" aria-label="回溯">回溯</a></li>
+                <li>
+                    <a href="#%e8%bf%ad%e4%bb%a3-1" aria-label="迭代">迭代</a></li></ul>
+                </li>
                 <li>
                     <a href="#references" aria-label="References">References</a><ul>
                         
@@ -373,8 +385,13 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
+<p>两种思路：</p>
+<h4 id="回溯">回溯<a hidden class="anchor" aria-hidden="true" href="#回溯">#</a></h4>
 <p>经典子集问题，不解释了，详见思想篇章</p>
+<h4 id="迭代">迭代<a hidden class="anchor" aria-hidden="true" href="#迭代">#</a></h4>
+<p>因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要么不放，可以把放进盒子看成1，不放盒子看成0，那么所有的2^n个情况就是[0, 2^n - 1]。</p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
+<h4 id="回溯-1">回溯<a hidden class="anchor" aria-hidden="true" href="#回溯-1">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">track</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
@@ -392,6 +409,24 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl">            <span class="n">backtrack</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="n">track</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">track</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h4 id="迭代-1">迭代<a hidden class="anchor" aria-hidden="true" href="#迭代-1">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">subsets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">track</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">mask</span> <span class="o">&lt;</span> <span class="o">(</span><span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="o">);</span> <span class="n">mask</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">track</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">((</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="o">(</span><span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">))</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">track</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">track</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>
