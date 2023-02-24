@@ -40,7 +40,7 @@
       <pubDate>Thu, 23 Feb 2023 23:24:07 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-62/</guid>
-      <description>思路 两种思路： 动态规划 没这必要 数学组合 这里向下向右的步数是固定的，所以这里路径的个数等于C(向右的步数或向下的步数，总步数)，求组合详见思想</description>
+      <description>思路 两种思路： 动态规划 暂时没看 数学组合 这里向下向右的步数是固定的，所以这里路径的个数等于C(向右的步数或向下的步数，总步数)，求组合详见思想</description>
     </item>
     
     <item>
@@ -1444,7 +1444,7 @@
       <pubDate>Fri, 14 Oct 2022 11:08:45 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-96/</guid>
-      <description>思路 递归思路 递归函数定义为n个结点可以组成几种BST，那么对于n个结点的BST的种类=将n个结点逐个当成root，左右子树的种类相乘，再把这</description>
+      <description>思路 三种思路： 递归思路 递归函数定义为n个结点可以组成几种BST，那么对于n个结点的BST的种类=将n个结点逐个当成root，左右子树的种类相</description>
     </item>
     
     <item>
