@@ -1479,7 +1479,7 @@
       <pubDate>Thu, 13 Oct 2022 15:34:20 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-98/</guid>
-      <description>思路 利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小右边的的结点都比root大+左子树是BST+右子树是BST，问题</description>
+      <description>思路 两种思路： 递归 利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小+右边的的结点都比root大+左子树是BST+右子</description>
     </item>
     
     <item>
