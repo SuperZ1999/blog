@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 24 Feb 2023 22:16:35 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Feb 2023 23:00:13 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 周赛 334</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-334/</link>
+      <pubDate>Sun, 26 Feb 2023 23:00:13 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-334/</guid>
+      <description>思路 第一题 模拟即可，直接看代码 第二题 从左往右遍历字符串，每碰到一个数字，就计算前面mod m的余数 * 10 + 当前数字是否能整除m，然后再将除以m的</description>
+    </item>
+    
     <item>
       <title>LeetCode 94</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-94/</link>
