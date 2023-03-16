@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>LeetCode 206 | ZMY&#39;s Blog</title>
 <meta name="keywords" content="leetcode">
-<meta name="description" content="思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next =">
+<meta name="description" content="思路 两种思路： 递归 利用递归的思想，先反转head后面的，然后把head也反转即可。 迭代 利用头插法的思想即可，直接看代码 代码 递归 class Solution { public ListNode reverseList(ListNode head)">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-206/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.1b749c6bd9ec5667253a04614f6680eb3ba2574eee08ba967cd6532ab57b7b3c.css" integrity="sha256-G3Sca9nsVmclOgRhT2aA6zuiV07uCLqWfNZTKrV7ezw=" rel="preload stylesheet" as="style">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="LeetCode 206" />
-<meta property="og:description" content="思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next =" />
+<meta property="og:description" content="思路 两种思路： 递归 利用递归的思想，先反转head后面的，然后把head也反转即可。 迭代 利用头插法的思想即可，直接看代码 代码 递归 class Solution { public ListNode reverseList(ListNode head)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-206/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-09-23T22:01:54&#43;08:00" />
@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode 206"/>
-<meta name="twitter:description" content="思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next ="/>
+<meta name="twitter:description" content="思路 两种思路： 递归 利用递归的思想，先反转head后面的，然后把head也反转即可。 迭代 利用头插法的思想即可，直接看代码 代码 递归 class Solution { public ListNode reverseList(ListNode head)"/>
 
 
 <script type="application/ld+json">
@@ -112,12 +112,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "LeetCode 206",
   "name": "LeetCode 206",
-  "description": "思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next =",
+  "description": "思路 两种思路： 递归 利用递归的思想，先反转head后面的，然后把head也反转即可。 迭代 利用头插法的思想即可，直接看代码 代码 递归 class Solution { public ListNode reverseList(ListNode head)",
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 利用递归的思想，先反转head后面的，然后把head也反转即可。\n代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next = null; return last; } } References 1. 反转链表 ",
-  "wordCount" : "81",
+  "articleBody": "思路 两种思路：\n递归 利用递归的思想，先反转head后面的，然后把head也反转即可。\n迭代 利用头插法的思想即可，直接看代码\n代码 递归 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next = null; return last; } } 迭代 class Solution { public ListNode reverseList(ListNode head) { ListNode newHead = new ListNode(); while (head != null) { ListNode next = head.next; head.next = newHead.next; newHead.next = head; head = next; } return newHead.next; } } References 1. 反转链表 ",
+  "wordCount" : "146",
   "inLanguage": "en",
   "datePublished": "2022-09-23T22:01:54+08:00",
   "dateModified": "2022-10-13T11:11:39+08:00",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-09-23 22:01:54 +0800 CST'>2022-09-23</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-13 11:11:39 +0800 CST'>2022-10-13</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;81 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-09-23 22:01:54 +0800 CST'>2022-09-23</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-13 11:11:39 +0800 CST'>2022-10-13</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;146 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
 
 
 ·&nbsp;
@@ -296,9 +296,21 @@ var _hmt = _hmt || [];
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a></li>
+                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a><ul>
+                        
                 <li>
-                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a></li>
+                    <a href="#%e9%80%92%e5%bd%92" aria-label="递归">递归</a></li>
+                <li>
+                    <a href="#%e8%bf%ad%e4%bb%a3" aria-label="迭代">迭代</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a><ul>
+                        
+                <li>
+                    <a href="#%e9%80%92%e5%bd%92-1" aria-label="递归">递归</a></li>
+                <li>
+                    <a href="#%e8%bf%ad%e4%bb%a3-1" aria-label="迭代">迭代</a></li></ul>
+                </li>
                 <li>
                     <a href="#references" aria-label="References">References</a><ul>
                         
@@ -373,8 +385,13 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
+<p>两种思路：</p>
+<h4 id="递归">递归<a hidden class="anchor" aria-hidden="true" href="#递归">#</a></h4>
 <p>利用递归的思想，先反转head后面的，然后把head也反转即可。</p>
+<h4 id="迭代">迭代<a hidden class="anchor" aria-hidden="true" href="#迭代">#</a></h4>
+<p>利用头插法的思想即可，直接看代码</p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
+<h4 id="递归-1">递归<a hidden class="anchor" aria-hidden="true" href="#递归-1">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">reverseList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 递归出口
@@ -387,6 +404,19 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl">        <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">last</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h4 id="迭代-1">迭代<a hidden class="anchor" aria-hidden="true" href="#迭代-1">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">reverseList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">newHead</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">head</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ListNode</span> <span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">newHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">newHead</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">newHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>

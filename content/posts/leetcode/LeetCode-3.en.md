@@ -24,24 +24,21 @@ cover:
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> window = new HashMap<>();
-
-        int left = 0, right = 0, ans = 0;
-        while (right < s.length()) {
+        int n = s.length(), left = 0, right = 0, res = 0;
+        Set<Character> window = new HashSet<>();
+        while (right < n) {
             char c = s.charAt(right);
             right++;
-            window.put(c, window.getOrDefault(c, 0) + 1);
 
-            while (window.get(c) > 1) {
+            while (window.contains(c)) {
                 char d = s.charAt(left);
                 left++;
-                window.put(d, window.get(d) - 1);
+                window.remove(d);
             }
-
-            ans = Integer.max(ans, right - left);
+            window.add(c);
+            res = Math.max(res, window.size());
         }
-
-        return ans;
+        return res;
     }
 }
 ```

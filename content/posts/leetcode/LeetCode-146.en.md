@@ -17,7 +17,15 @@ cover:
 
 ### 思路
 
+两种做法：
+
+#### 手写LinkedHashMap
+
 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章
+
+#### 用Java自带的LinkedHashMap
+
+直接看代码，一般面试的时候不让用LinkedHashMap
 
 ### 代码
 
@@ -132,6 +140,8 @@ class LRUCache {
 
 #### 重用LinkedHashMap
 
+##### 手动控制访问顺序
+
 ```java
 class LRUCache {
     int cap;
@@ -172,6 +182,32 @@ class LRUCache {
         // 删除 key，重新插入到队尾
         cache.remove(key);
         cache.put(key, val);
+    }
+}
+```
+
+##### 自动控制访问顺序
+
+```java
+class LRUCache extends LinkedHashMap<Integer, Integer>{
+    private int capacity;
+
+    public LRUCache(int capacity) {
+        super(capacity, 0.75F, true);
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        return super.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        super.put(key, value);
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return size() > capacity;
     }
 }
 ```

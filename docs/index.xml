@@ -6,7 +6,25 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 26 Feb 2023 23:54:56 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Mar 2023 22:54:20 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试题笔记 背诵版</title>
+      <link>https://blog.zhangmengyang.tk/posts/tech/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%83%8C%E8%AF%B5%E7%89%88/</link>
+      <pubDate>Thu, 16 Mar 2023 22:54:20 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/tech/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%83%8C%E8%AF%B5%E7%89%88/</guid>
+      <description>项目 一般问题 碰到的bug 最有技术含量的部分 动态代理 见：https://juejin.cn/post/7011357346018361375 j</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 16</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/</link>
+      <pubDate>Mon, 06 Mar 2023 18:57:09 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/</guid>
+      <description>思路 同LeetCode-15，只不过每次找到一个三元组，都判断一下跟target的距离，去最小距离的三元组 代码 class Solution { public int threeSumClosest(int[] nums, int target) { int n = nums.length, res</description>
+    </item>
+    
     <item>
       <title>LeetCode 101</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-101/</link>
@@ -1300,7 +1318,7 @@
       <pubDate>Tue, 06 Dec 2022 15:02:34 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-146/</guid>
-      <description>思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 代码 手写轮子 class LRUCache { private Map&amp;lt;Integer, Node&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) {</description>
+      <description>思路 两种做法： 手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 用Java自带的LinkedHashMap</description>
     </item>
     
     <item>
@@ -1867,7 +1885,7 @@
       <pubDate>Fri, 23 Sep 2022 22:01:54 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/</guid>
-      <description>思路 利用递归的思想，先反转head后面的，然后把head也反转即可。 代码 class Solution { public ListNode reverseList(ListNode head) { // 递归出口 if (head == null || head.next == null) { return head; } ListNode last = reverseList(head.next); head.next.next = head; head.next =</description>
+      <description>思路 两种思路： 递归 利用递归的思想，先反转head后面的，然后把head也反转即可。 迭代 利用头插法的思想即可，直接看代码 代码 递归 class Solution { public ListNode reverseList(ListNode head)</description>
     </item>
     
     <item>

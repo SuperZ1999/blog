@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>LeetCode 146 | ZMY&#39;s Blog</title>
 <meta name="keywords" content="leetcode">
-<meta name="description" content="思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 代码 手写轮子 class LRUCache { private Map&lt;Integer, Node&gt; map = new HashMap&lt;&gt;(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) {">
+<meta name="description" content="思路 两种做法： 手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 用Java自带的LinkedHashMap">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-146/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.1b749c6bd9ec5667253a04614f6680eb3ba2574eee08ba967cd6532ab57b7b3c.css" integrity="sha256-G3Sca9nsVmclOgRhT2aA6zuiV07uCLqWfNZTKrV7ezw=" rel="preload stylesheet" as="style">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="LeetCode 146" />
-<meta property="og:description" content="思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 代码 手写轮子 class LRUCache { private Map&lt;Integer, Node&gt; map = new HashMap&lt;&gt;(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) {" />
+<meta property="og:description" content="思路 两种做法： 手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 用Java自带的LinkedHashMap" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-146/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-06T15:02:34&#43;08:00" />
@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode 146"/>
-<meta name="twitter:description" content="思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 代码 手写轮子 class LRUCache { private Map&lt;Integer, Node&gt; map = new HashMap&lt;&gt;(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) {"/>
+<meta name="twitter:description" content="思路 两种做法： 手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 用Java自带的LinkedHashMap"/>
 
 
 <script type="application/ld+json">
@@ -112,12 +112,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "LeetCode 146",
   "name": "LeetCode 146",
-  "description": "思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 代码 手写轮子 class LRUCache { private Map\u0026lt;Integer, Node\u0026gt; map = new HashMap\u0026lt;\u0026gt;(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) {",
+  "description": "思路 两种做法： 手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 用Java自带的LinkedHashMap",
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章\n代码 手写轮子 class LRUCache { private Map\u003cInteger, Node\u003e map = new HashMap\u003c\u003e(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) { return -1; } makeRecently(key); return map.get(key).val; } public void put(int key, int value) { if (map.containsKey(key)) { deleteKey(key); addRecently(key, value); return; } if (cache.size() == capacity) { removeLeastRecently(); } addRecently(key, value); } private void makeRecently(int key) { Node x = map.get(key); cache.remove(x); cache.addLast(x); } private void addRecently(int key, int val) { Node x = new Node(key, val); cache.addLast(x); map.put(key, x); } private void deleteKey(int key) { Node x = map.get(key); cache.remove(x); map.remove(key); } private void removeLeastRecently() { Node x = cache.removeFirst(); map.remove(x.key); } class Node { int key, val; Node prev, next; public Node(int key, int val) { this.key = key; this.val = val; } } class DoubleList { private Node head, tail; private int size; public DoubleList() { this.head = new Node(0, 0); this.tail = new Node(0, 0); head.next = tail; tail.prev = head; size = 0; } public void addLast(Node x) { x.next = tail; x.prev = tail.prev; tail.prev.next = x; tail.prev = x; size++; } public void remove(Node x) { x.prev.next = x.next; x.next.prev = x.prev; size--; } public Node removeFirst() { if (size == 0) { return null; } Node first = head.next; remove(first); return first; } public int size() { return size; } } } 重用LinkedHashMap class LRUCache { int cap; LinkedHashMap\u003cInteger, Integer\u003e cache = new LinkedHashMap\u003c\u003e(); public LRUCache(int capacity) { this.cap = capacity; } public int get(int key) { if (!cache.containsKey(key)) { return -1; } // 将 key 变为最近使用 makeRecently(key); return cache.get(key); } public void put(int key, int val) { if (cache.containsKey(key)) { // 修改 key 的值 cache.put(key, val); // 将 key 变为最近使用 makeRecently(key); return; } if (cache.size() \u003e= this.cap) { // 链表头部就是最久未使用的 key int oldestKey = cache.keySet().iterator().next(); cache.remove(oldestKey); } // 将新的 key 添加链表尾部 cache.put(key, val); } private void makeRecently(int key) { int val = cache.get(key); // 删除 key，重新插入到队尾 cache.remove(key); cache.put(key, val); } } References 1. LRU 缓存 ",
-  "wordCount" : "430",
+  "articleBody": "思路 两种做法：\n手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章\n用Java自带的LinkedHashMap 直接看代码，一般面试的时候不让用LinkedHashMap\n代码 手写轮子 class LRUCache { private Map\u003cInteger, Node\u003e map = new HashMap\u003c\u003e(); private DoubleList cache = new DoubleList(); private int capacity; public LRUCache(int capacity) { this.capacity = capacity; } public int get(int key) { if (!map.containsKey(key)) { return -1; } makeRecently(key); return map.get(key).val; } public void put(int key, int value) { if (map.containsKey(key)) { deleteKey(key); addRecently(key, value); return; } if (cache.size() == capacity) { removeLeastRecently(); } addRecently(key, value); } private void makeRecently(int key) { Node x = map.get(key); cache.remove(x); cache.addLast(x); } private void addRecently(int key, int val) { Node x = new Node(key, val); cache.addLast(x); map.put(key, x); } private void deleteKey(int key) { Node x = map.get(key); cache.remove(x); map.remove(key); } private void removeLeastRecently() { Node x = cache.removeFirst(); map.remove(x.key); } class Node { int key, val; Node prev, next; public Node(int key, int val) { this.key = key; this.val = val; } } class DoubleList { private Node head, tail; private int size; public DoubleList() { this.head = new Node(0, 0); this.tail = new Node(0, 0); head.next = tail; tail.prev = head; size = 0; } public void addLast(Node x) { x.next = tail; x.prev = tail.prev; tail.prev.next = x; tail.prev = x; size++; } public void remove(Node x) { x.prev.next = x.next; x.next.prev = x.prev; size--; } public Node removeFirst() { if (size == 0) { return null; } Node first = head.next; remove(first); return first; } public int size() { return size; } } } 重用LinkedHashMap 手动控制访问顺序 class LRUCache { int cap; LinkedHashMap\u003cInteger, Integer\u003e cache = new LinkedHashMap\u003c\u003e(); public LRUCache(int capacity) { this.cap = capacity; } public int get(int key) { if (!cache.containsKey(key)) { return -1; } // 将 key 变为最近使用 makeRecently(key); return cache.get(key); } public void put(int key, int val) { if (cache.containsKey(key)) { // 修改 key 的值 cache.put(key, val); // 将 key 变为最近使用 makeRecently(key); return; } if (cache.size() \u003e= this.cap) { // 链表头部就是最久未使用的 key int oldestKey = cache.keySet().iterator().next(); cache.remove(oldestKey); } // 将新的 key 添加链表尾部 cache.put(key, val); } private void makeRecently(int key) { int val = cache.get(key); // 删除 key，重新插入到队尾 cache.remove(key); cache.put(key, val); } } 自动控制访问顺序 class LRUCache extends LinkedHashMap\u003cInteger, Integer\u003e{ private int capacity; public LRUCache(int capacity) { super(capacity, 0.75F, true); this.capacity = capacity; } public int get(int key) { return super.getOrDefault(key, -1); } public void put(int key, int value) { super.put(key, value); } @Override protected boolean removeEldestEntry(Map.Entry\u003cInteger, Integer\u003e eldest) { return size() \u003e capacity; } } References 1. LRU 缓存 ",
+  "wordCount" : "567",
   "inLanguage": "en",
   "datePublished": "2022-12-06T15:02:34+08:00",
   "dateModified": "2022-12-06T15:05:20+08:00",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-06 15:02:34 +0800 CST'>2022-12-06</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-06 15:05:20 +0800 CST'>2022-12-06</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;430 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-06 15:02:34 +0800 CST'>2022-12-06</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-06 15:05:20 +0800 CST'>2022-12-06</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;567 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;2 min
 
 
 ·&nbsp;
@@ -296,14 +296,26 @@ var _hmt = _hmt || [];
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a></li>
+                    <a href="#%e6%80%9d%e8%b7%af" aria-label="思路">思路</a><ul>
+                        
+                <li>
+                    <a href="#%e6%89%8b%e5%86%99linkedhashmap" aria-label="手写LinkedHashMap">手写LinkedHashMap</a></li>
+                <li>
+                    <a href="#%e7%94%a8java%e8%87%aa%e5%b8%a6%e7%9a%84linkedhashmap" aria-label="用Java自带的LinkedHashMap">用Java自带的LinkedHashMap</a></li></ul>
+                </li>
                 <li>
                     <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a><ul>
                         
                 <li>
                     <a href="#%e6%89%8b%e5%86%99%e8%bd%ae%e5%ad%90" aria-label="手写轮子">手写轮子</a></li>
                 <li>
-                    <a href="#%e9%87%8d%e7%94%a8linkedhashmap" aria-label="重用LinkedHashMap">重用LinkedHashMap</a></li></ul>
+                    <a href="#%e9%87%8d%e7%94%a8linkedhashmap" aria-label="重用LinkedHashMap">重用LinkedHashMap</a><ul>
+                        
+                <li>
+                    <a href="#%e6%89%8b%e5%8a%a8%e6%8e%a7%e5%88%b6%e8%ae%bf%e9%97%ae%e9%a1%ba%e5%ba%8f" aria-label="手动控制访问顺序">手动控制访问顺序</a></li>
+                <li>
+                    <a href="#%e8%87%aa%e5%8a%a8%e6%8e%a7%e5%88%b6%e8%ae%bf%e9%97%ae%e9%a1%ba%e5%ba%8f" aria-label="自动控制访问顺序">自动控制访问顺序</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#references" aria-label="References">References</a><ul>
@@ -379,7 +391,11 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
+<p>两种做法：</p>
+<h4 id="手写linkedhashmap">手写LinkedHashMap<a hidden class="anchor" aria-hidden="true" href="#手写linkedhashmap">#</a></h4>
 <p>经典LRU缓存问题，直接套LRU模板即可，详见思想篇章</p>
+<h4 id="用java自带的linkedhashmap">用Java自带的LinkedHashMap<a hidden class="anchor" aria-hidden="true" href="#用java自带的linkedhashmap">#</a></h4>
+<p>直接看代码，一般面试的时候不让用LinkedHashMap</p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
 <h4 id="手写轮子">手写轮子<a hidden class="anchor" aria-hidden="true" href="#手写轮子">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">LRUCache</span> <span class="o">{</span>
@@ -487,6 +503,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h4 id="重用linkedhashmap">重用LinkedHashMap<a hidden class="anchor" aria-hidden="true" href="#重用linkedhashmap">#</a></h4>
+<h5 id="手动控制访问顺序">手动控制访问顺序<a hidden class="anchor" aria-hidden="true" href="#手动控制访问顺序">#</a></h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">LRUCache</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">cap</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;&gt;();</span>
@@ -526,6 +543,28 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl">        <span class="c1">// 删除 key，重新插入到队尾
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">cache</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">cache</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">val</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h5 id="自动控制访问顺序">自动控制访问顺序<a hidden class="anchor" aria-hidden="true" href="#自动控制访问顺序">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">LRUCache</span> <span class="kd">extends</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">capacity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">LRUCache</span><span class="o">(</span><span class="kt">int</span> <span class="n">capacity</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">(</span><span class="n">capacity</span><span class="o">,</span> <span class="n">0</span><span class="o">.</span><span class="na">75F</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">capacity</span> <span class="o">=</span> <span class="n">capacity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="o">-</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">put</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">removeEldestEntry</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">eldest</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">capacity</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>

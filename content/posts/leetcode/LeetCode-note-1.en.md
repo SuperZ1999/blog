@@ -394,6 +394,10 @@ void traverse(ListNode head) {
 
 题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/>
 
+##### 2. [最接近的三数之和](https://leetcode.cn/problems/3sum-closest/)
+
+题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/>
+
 ### 反转数组
 
 #### 解法
@@ -2697,6 +2701,8 @@ class MonotonicQueue {
 
 就是最大堆或最小堆，是一颗完全二叉树，所以可以放在数组里面，用简单的计算就能得到结点的父节点和左右孩子，基于二叉堆开发出了优先队列，优先队列插入时将插入结点放到数组最后面然后对该节点执行上浮操作，删除时将堆顶删除，然后将数组最后面的结点放到堆顶的位置，然后对堆顶做下沉操作。模板如下：
 
+#### 通用版
+
 ```java
 public class MaxPQ
     <Key extends Comparable<Key>> {
@@ -2789,6 +2795,118 @@ public class MaxPQ
     private int right(int root) {
         return root * 2 + 1;
     }
+}
+```
+
+#### 整形版
+
+```java
+class MaxPQ {
+    private int[] nums;
+    private int size = 0;
+    private int capacity;
+
+    public MaxPQ(int capacity) {
+        this.capacity = capacity;
+        nums = new int[capacity + 1];
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public boolean isFull() {
+        return size == capacity;
+    }
+
+    public int max() {
+        return nums[1];
+    }
+
+    private int parent(int root) {
+        return root / 2;
+    }
+
+    private int left(int root) {
+        return root * 2;
+    }
+
+    private int right(int root) {
+        return root * 2 + 1;
+    }
+
+    private void swap(int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    public void insert(int num) {
+        size++;
+        nums[size] = num;
+        swim(size);
+    }
+
+    public int delMax() {
+        int max = nums[1];
+        nums[1] = nums[size];
+        size--;
+        sink(1);
+        return max;
+    }
+
+    private void swim(int x) {
+        while (x > 1 && nums[x] > nums[parent(x)]) {
+            swap(x, parent(x));
+            x = parent(x);
+        }
+    }
+
+    private void sink(int x) {
+        while (left(x) <= size) {
+            int max = left(x);
+            if (right(x) <= size && nums[right(x)] > nums[max]) {
+                max = right(x);
+            }
+            if (nums[x] > nums[max]) {
+                break;
+            }
+            swap(x, max);
+            x = max;
+        }
+    }
+}
+```
+
+#### 无类版
+
+```java
+private void buildHeap(int[] heap) {
+    int size = heap.length - 1;
+    for (int i = size / 2; i >= 1; i--) {
+        sink(heap, i);
+    }
+}
+
+private void sink(int[] heap, int x) {
+    int size = heap.length - 1;
+    while (x * 2 <= size) {
+        int min = x * 2;
+        if (x * 2 + 1 <= size && heap[x * 2 + 1] < heap[min]) {
+            min = x * 2 + 1;
+        }
+        if (heap[x] < heap[min]) {
+            break;
+        }
+        swap(heap, x, min);
+        x = min;
+    }
+}
+
+private void swap(int[] heap, int i, int j) {
+    int temp = heap[i];
+    heap[i] = heap[j];
+    heap[j] = temp;
 }
 ```
 

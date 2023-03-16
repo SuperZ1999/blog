@@ -116,8 +116,8 @@ var _hmt = _hmt || [];
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 两种思路：\n最小堆 维护一个有 K 个元素的最小堆：\n如果当前堆不满，直接添加；\n堆满的时候，如果新读到的数小于等于堆顶，肯定不是我们要找的元素，只有新遍历到的数大于堆顶的时候，才将堆顶拿出，然后放入新读到的数，进而让堆自己去调整内部结构。\n数组遍历完之后堆顶就是要找的元素\n快速选择 像快排一样随机确定一个中枢所在的位置，如果这个位置刚好就是要求的第k大的元素，就直接返回，否则根据中枢与target的大小关系选择是中枢左边还是右边继续随机确定一个中枢所在的位置，直到找到target，详见思想篇章\n代码 最小堆 class Solution { public int findKthLargest(int[] nums, int k) { Queue\u003cInteger\u003e queue = new PriorityQueue\u003c\u003e(); for (int i = 0; i \u003c k; i++) { queue.offer(nums[i]); } for (int i = k; i \u003c nums.length; i++) { if (nums[i] \u003e queue.peek()) { queue.poll(); queue.offer(nums[i]); } } return queue.peek(); } } 快速选择 class Solution { public int findKthLargest(int[] nums, int k) { int target = nums.length - k, left = 0, right = nums.length - 1; while (left \u003c= right) { int pivotIndex = partition(nums, left, right); if (pivotIndex \u003e target) { right = pivotIndex - 1; } else if (pivotIndex \u003c target) { left = pivotIndex + 1; } else { return nums[target]; } } return -1; } private int partition(int[] nums, int left, int right) { int randomIndex = new Random().nextInt(right - left + 1) + left; swap(nums, left, randomIndex); int pivot = nums[left]; while (left \u003c right) { while (left \u003c right \u0026\u0026 nums[right] \u003e= pivot) { right--; } nums[left] = nums[right]; while (left \u003c right \u0026\u0026 nums[left] \u003c= pivot) { left++; } nums[right] = nums[left]; } nums[left] = pivot; return left; } private void swap(int[] nums, int a, int b) { int temp = nums[a]; nums[a] = nums[b]; nums[b] = temp; } } References 1. 数组中的第K个最大元素 ",
-  "wordCount" : "470",
+  "articleBody": "思路 两种思路：\n最小堆 维护一个有 K 个元素的最小堆：\n如果当前堆不满，直接添加；\n堆满的时候，如果新读到的数小于等于堆顶，肯定不是我们要找的元素，只有新遍历到的数大于堆顶的时候，才将堆顶拿出，然后放入新读到的数，进而让堆自己去调整内部结构。\n数组遍历完之后堆顶就是要找的元素\n快速选择 像快排一样随机确定一个中枢所在的位置，如果这个位置刚好就是要求的第k大的元素，就直接返回，否则根据中枢与target的大小关系选择是中枢左边还是右边继续随机确定一个中枢所在的位置，直到找到target，详见思想篇章\n手写堆 由于面试不让用Java的优先队列，所以需要手写堆，核心思想就三个：\n建堆：从从右往左的第一个非叶子结点开始下沉，遍历到根节点，堆就建好了 下沉：从子结点里选择一个较小（大）的，跟父节点比较，如果父节点需要下沉就交换两者的位置，然后继续这个过程 上浮：当前结点跟父节点比较，如果当前节点需要上浮就交换两者的位置，然后继续这个过程 注意点：\n设根节点的编号从1开始（不是从0开始，这样方便一些），这样的话父节点就是root/2，左孩子就是root*2，右孩子就是root*2+1，第一个非叶子结点就是size/2，size为堆的结点个数，也是结点最大的编号 分为有类版和无类版\n代码 最小堆 class Solution { public int findKthLargest(int[] nums, int k) { Queue\u003cInteger\u003e queue = new PriorityQueue\u003c\u003e(); for (int i = 0; i \u003c k; i++) { queue.offer(nums[i]); } for (int i = k; i \u003c nums.length; i++) { if (nums[i] \u003e queue.peek()) { queue.poll(); queue.offer(nums[i]); } } return queue.peek(); } } 快速选择 class Solution { public int findKthLargest(int[] nums, int k) { int target = nums.length - k, left = 0, right = nums.length - 1; while (left \u003c= right) { int pivotIndex = partition(nums, left, right); if (pivotIndex \u003e target) { right = pivotIndex - 1; } else if (pivotIndex \u003c target) { left = pivotIndex + 1; } else { return nums[target]; } } return -1; } private int partition(int[] nums, int left, int right) { int randomIndex = new Random().nextInt(right - left + 1) + left; swap(nums, left, randomIndex); int pivot = nums[left]; while (left \u003c right) { while (left \u003c right \u0026\u0026 nums[right] \u003e= pivot) { right--; } nums[left] = nums[right]; while (left \u003c right \u0026\u0026 nums[left] \u003c= pivot) { left++; } nums[right] = nums[left]; } nums[left] = pivot; return left; } private void swap(int[] nums, int a, int b) { int temp = nums[a]; nums[a] = nums[b]; nums[b] = temp; } } 手写堆 有类版 class Solution { // 手写堆 public int findKthLargest(int[] nums, int k) { MinPQ pq = new MinPQ(k); for (int i = 0; i \u003c k; i++) { pq.insert(nums[i]); } for (int i = k; i \u003c nums.length; i++) { if (nums[i] \u003e pq.min()) { pq.delMin(); pq.insert(nums[i]); } } return pq.delMin(); } class MinPQ { private int[] nums; private int size = 0; private int capacity; public MinPQ(int capacity) { this.capacity = capacity; nums = new int[capacity + 1]; } public boolean isEmpty() { return size == 0; } public boolean isFull() { return size == capacity; } public int min() { return nums[1]; } private int parent(int root) { return root / 2; } private int left(int root) { return root * 2; } private int right(int root) { return root * 2 + 1; } private void swap(int i, int j) { int temp = nums[i]; nums[i] = nums[j]; nums[j] = temp; } public void insert(int num) { size++; nums[size] = num; swim(size); } public int delMin() { int max = nums[1]; nums[1] = nums[size]; size--; sink(1); return max; } private void swim(int x) { while (x \u003e 1 \u0026\u0026 nums[x] \u003c nums[parent(x)]) { swap(x, parent(x)); x = parent(x); } } private void sink(int x) { while (left(x) \u003c= size) { int min = left(x); if (right(x) \u003c= size \u0026\u0026 nums[right(x)] \u003c nums[min]) { min = right(x); } if (nums[x] \u003c nums[min]) { break; } swap(x, min); x = min; } } } } 无类版 class Solution { public int findKthLargest(int[] nums, int k) { int[] heap = new int[k + 1]; for (int i = 0; i \u003c k; i++) { heap[i + 1] = nums[i]; } buildHeap(heap); for (int i = k; i \u003c nums.length; i++) { if (nums[i] \u003e heap[1]) { heap[1] = nums[i]; sink(heap, 1); } } return heap[1]; } private void buildHeap(int[] heap) { int size = heap.length - 1; for (int i = size / 2; i \u003e= 1; i--) { sink(heap, i); } } private void sink(int[] heap, int x) { int size = heap.length - 1; while (x * 2 \u003c= size) { int min = x * 2; if (x * 2 + 1 \u003c= size \u0026\u0026 heap[x * 2 + 1] \u003c heap[min]) { min = x * 2 + 1; } if (heap[x] \u003c heap[min]) { break; } swap(heap, x, min); x = min; } } private void swap(int[] heap, int i, int j) { int temp = heap[i]; heap[i] = heap[j]; heap[j] = temp; } } References 1. 数组中的第K个最大元素 ",
+  "wordCount" : "1182",
   "inLanguage": "en",
   "datePublished": "2022-12-25T20:54:23+08:00",
   "dateModified": "2022-12-25T22:05:39+08:00",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-25 20:54:23 +0800 CST'>2022-12-25</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-25 22:05:39 +0800 CST'>2022-12-25</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;470 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-25 20:54:23 +0800 CST'>2022-12-25</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-12-25 22:05:39 +0800 CST'>2022-12-25</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;1182 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;3 min
 
 
 ·&nbsp;
@@ -301,7 +301,9 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e6%9c%80%e5%b0%8f%e5%a0%86" aria-label="最小堆">最小堆</a></li>
                 <li>
-                    <a href="#%e5%bf%ab%e9%80%9f%e9%80%89%e6%8b%a9" aria-label="快速选择">快速选择</a></li></ul>
+                    <a href="#%e5%bf%ab%e9%80%9f%e9%80%89%e6%8b%a9" aria-label="快速选择">快速选择</a></li>
+                <li>
+                    <a href="#%e6%89%8b%e5%86%99%e5%a0%86" aria-label="手写堆">手写堆</a></li></ul>
                 </li>
                 <li>
                     <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a><ul>
@@ -309,7 +311,15 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e6%9c%80%e5%b0%8f%e5%a0%86-1" aria-label="最小堆">最小堆</a></li>
                 <li>
-                    <a href="#%e5%bf%ab%e9%80%9f%e9%80%89%e6%8b%a9-1" aria-label="快速选择">快速选择</a></li></ul>
+                    <a href="#%e5%bf%ab%e9%80%9f%e9%80%89%e6%8b%a9-1" aria-label="快速选择">快速选择</a></li>
+                <li>
+                    <a href="#%e6%89%8b%e5%86%99%e5%a0%86-1" aria-label="手写堆">手写堆</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9c%89%e7%b1%bb%e7%89%88" aria-label="有类版">有类版</a></li>
+                <li>
+                    <a href="#%e6%97%a0%e7%b1%bb%e7%89%88" aria-label="无类版">无类版</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#references" aria-label="References">References</a><ul>
@@ -401,6 +411,18 @@ var _hmt = _hmt || [];
 </ul>
 <h4 id="快速选择">快速选择<a hidden class="anchor" aria-hidden="true" href="#快速选择">#</a></h4>
 <p>像快排一样随机确定一个中枢所在的位置，如果这个位置刚好就是要求的第k大的元素，就直接返回，否则根据中枢与target的大小关系选择是中枢左边还是右边继续随机确定一个中枢所在的位置，直到找到target，详见思想篇章</p>
+<h4 id="手写堆">手写堆<a hidden class="anchor" aria-hidden="true" href="#手写堆">#</a></h4>
+<p>由于面试不让用Java的优先队列，所以需要手写堆，核心思想就三个：</p>
+<ul>
+<li>建堆：从从右往左的第一个非叶子结点开始下沉，遍历到根节点，堆就建好了</li>
+<li>下沉：从子结点里选择一个较小（大）的，跟父节点比较，如果父节点需要下沉就交换两者的位置，然后继续这个过程</li>
+<li>上浮：当前结点跟父节点比较，如果当前节点需要上浮就交换两者的位置，然后继续这个过程</li>
+</ul>
+<p>注意点：</p>
+<ul>
+<li>设根节点的编号从1开始（不是从0开始，这样方便一些），这样的话父节点就是root/2，左孩子就是root*2，右孩子就是root*2+1，第一个非叶子结点就是size/2，size为堆的结点个数，也是结点最大的编号</li>
+</ul>
+<p>分为有类版和无类版</p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
 <h4 id="最小堆-1">最小堆<a hidden class="anchor" aria-hidden="true" href="#最小堆-1">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
@@ -457,6 +479,145 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">a</span><span class="o">];</span>
 </span></span><span class="line"><span class="cl">        <span class="n">nums</span><span class="o">[</span><span class="n">a</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">b</span><span class="o">];</span>
 </span></span><span class="line"><span class="cl">        <span class="n">nums</span><span class="o">[</span><span class="n">b</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h4 id="手写堆-1">手写堆<a hidden class="anchor" aria-hidden="true" href="#手写堆-1">#</a></h4>
+<h5 id="有类版">有类版<a hidden class="anchor" aria-hidden="true" href="#有类版">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 手写堆
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findKthLargest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MinPQ</span> <span class="n">pq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MinPQ</span><span class="o">(</span><span class="n">k</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pq</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">pq</span><span class="o">.</span><span class="na">min</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="o">.</span><span class="na">delMin</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pq</span><span class="o">.</span><span class="na">delMin</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">class</span> <span class="nc">MinPQ</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="n">capacity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="nf">MinPQ</span><span class="o">(</span><span class="kt">int</span> <span class="n">capacity</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">capacity</span> <span class="o">=</span> <span class="n">capacity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">capacity</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">size</span> <span class="o">==</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFull</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">size</span> <span class="o">==</span> <span class="n">capacity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">min</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">nums</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="nf">parent</span><span class="o">(</span><span class="kt">int</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="nf">left</span><span class="o">(</span><span class="kt">int</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span> <span class="o">*</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="nf">right</span><span class="o">(</span><span class="kt">int</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span> <span class="o">*</span> <span class="n">2</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">size</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="o">[</span><span class="n">size</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">swim</span><span class="o">(</span><span class="n">size</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">delMin</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="o">[</span><span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">size</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">size</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sink</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">max</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">swim</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">1</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">parent</span><span class="o">(</span><span class="n">x</span><span class="o">)])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">swap</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">parent</span><span class="o">(</span><span class="n">x</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">                <span class="n">x</span> <span class="o">=</span> <span class="n">parent</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">sink</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="o">(</span><span class="n">left</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">left</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">right</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">(</span><span class="n">x</span><span class="o">)]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">min</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">min</span> <span class="o">=</span> <span class="n">right</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">min</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">swap</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">min</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">x</span> <span class="o">=</span> <span class="n">min</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h5 id="无类版">无类版<a hidden class="anchor" aria-hidden="true" href="#无类版">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findKthLargest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">heap</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">heap</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">buildHeap</span><span class="o">(</span><span class="n">heap</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">heap</span><span class="o">[</span><span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">heap</span><span class="o">[</span><span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sink</span><span class="o">(</span><span class="n">heap</span><span class="o">,</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">heap</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">buildHeap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heap</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">heap</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">size</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sink</span><span class="o">(</span><span class="n">heap</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">sink</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heap</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">heap</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">2</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">2</span> <span class="o">+</span> <span class="n">1</span> <span class="o">&lt;=</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">heap</span><span class="o">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">2</span> <span class="o">+</span> <span class="n">1</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">heap</span><span class="o">[</span><span class="n">min</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">min</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">2</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">heap</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">heap</span><span class="o">[</span><span class="n">min</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">swap</span><span class="o">(</span><span class="n">heap</span><span class="o">,</span> <span class="n">x</span><span class="o">,</span> <span class="n">min</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span> <span class="o">=</span> <span class="n">min</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heap</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">heap</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">heap</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">heap</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">heap</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>
