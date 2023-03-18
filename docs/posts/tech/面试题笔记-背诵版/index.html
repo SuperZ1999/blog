@@ -116,8 +116,8 @@ var _hmt = _hmt || [];
   "keywords": [
     
   ],
-  "articleBody": "项目 一般问题 碰到的bug 最有技术含量的部分 动态代理 见：https://juejin.cn/post/7011357346018361375\njdk动态代理 原理 就是先实现代理接口的方法，生成一个匿名内部类，这个匿名内部类里的操作都是调用InvocationHandler的invoke方法，在invoke方法里完成代理\n使用步骤 创建被代理类及接口（JDK代理是接口代理） 创建Handle类实现 InvocationHandler接口 ，重写invoke方法 通过Proxy的newProxyInstance()方法获取代理类对象 通过代理类对象调用被代理类的方法 cglib动态代理 原理 就是修改需要代理的那个类的字节码，生成该类的子类并重写父类的方法，这个子类的方法都会调用回调函数intercept方法，从而完成代理\n使用步骤 new Enhancer() 设置需要代理的类 设置回调 创建 jdk动态代理和cglib动态代理的区别 **原理不同：**JDK动态代理：利用反射机制生成一个实现代理接口的匿名类，在调用具体方法前调用InvokeHandler来处理。 CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节码）开源包，将代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。所以jdk动态代理的方式创建代理对象效率较高，执行效率较低，CGLib创建效率较低，执行效率高。 **适用场景不同：**jdk动态代理目标类必须是接口类，cglib代理目标类不需要实现接口，但是不能是final类 **机制不同：**jdk动态代理是委托机制，因为代理类里无法直接调用被代理类的方法，所以委托InvocationHandler去调用目标类的方法，cglib动态代理是继承机制，代理类和被代理类是父子关系，所以代理类可以调用被代理类的方法，所以通过回调函数MethodInterceptor调用父类方法执行原始逻辑 静态代理 为需要代理的类抽象出一个接口，然后编写代理类实现这个接口，实现接口方法时就可以添加代理的逻辑\n缺点：1、每个被代理类都要有一个代理类，代码比较冗余 2、一旦改动被代理类，代理类也得改动\n静态代理与动态代理的区别 静态代理在编译时就已经实现，编译完成后代理类是一个实际的class文件 动态代理是在运行时动态生成的，即编译完成后没有实际的class文件，而是在运行时动态生成的 Netty 什么是Netty Netty就是Java里NIO的封装，让用户可以很方便的使用Java的非阻塞IO\nNetty跟Java NIO有什么不同，为什么不直接使用JDK NIO类库？ 说说NIO有什么缺点吧：\nNIO的类库和API还是有点复杂，比如Buffer的使用 Selector编写复杂，如果对某个事件注册后，业务代码过于耦合，需要了解很多多线程的知识，熟悉网络编程，面对断连重连、保丢失、粘包等，处理复杂 NIO存在BUG，根据网上言论说是selector空轮训导致CPU飙升 Netty主要的优点有：\n统一的 API，支持多种传输类型，阻塞和非阻塞的。 简单而强大的线程模型。 自带编解码器解决 TCP 粘包/拆包问题，自带各种协议栈。 比直接使用 Java 核心 API 有更高的吞吐量、更低的延迟、更低的资源消耗和更少的内存复制。 社区活跃，成熟稳定，经历了大型项目的使用和考验，而且很多开源项目都使用到了 Netty， 比如我们经常接触的 Dubbo、RocketMQ 等等。 Netty 应用场景了解么？ 理论上来说，NIO 可以做的事情 ，使用 Netty 都可以做并且更好。Netty 主要用来做网络通信：\n作为 RPC 框架的网络通信工具 实现一个自己的 HTTP 服务器 实现一个即时通讯系统 实现消息推送系统 基本只要是网络通信的都可以用Netty做\nNetty的核心组件 EventLoop EventLoop 的主要作用实际就是负责监听网络事件并调用事件处理器进行相关 I/O 操作的处理。\nChannel Channel 接口是 Netty 对网络操作抽象类，它除了包括基本的 I/O 操作，如 bind()、connect()、read()、write() 等。\n比较常用的Channel接口实现类是NioServerSocketChannel（服务端）和NioSocketChannel（客户端），这两个 Channel 可以和 BIO 编程模型中的ServerSocket以及Socket两个概念对应上。Netty 的 Channel 接口所提供的 API，大大地降低了直接使用 Socket 类的复杂性。\nChannelFuture Netty 是异步非阻塞的，所有的 I/O 操作都为异步的。所以我们不能立刻得到操作的结果，我们可以通过 ChannelFuture 接口的 addListener() 方法注册一个 ChannelFutureListener，当操作执行完后，监听就会自动触发返回结果。\nChannelHandler 和 ChannelPipeline ChannelHandler 用来处理 Channel 上的各种事件，分为入站、出站两种。所有 ChannelHandler 被连在一起了，连在一起形成的链就是 ChannelPipeline\nBootstrap 和 ServerBootstrap 了解么？ Bootstrap是客户端，ServerBootstrap是服务端 Bootstrap调用connect连接，ServerBootstrap调用bind开启服务 Bootstrap 只需要配置一个EventLoopGroup ,而 ServerBootstrap需要配置两个线程组EventLoopGroup ，一个用于处理连接事件，一个用于处理读写事件。 Netty的线程模型 Netty通过Reactor模型基于多路复用器接收并处理用户请求，内部实现了两个线程池，boss线程池和work线程池，其中boss线程池的线程负责处理请求的accept事件，当接收到accept事件的请求时，把对应的socket封装到一个NioSocketChannel中，并交给work线程池，其中work线程池负责请求的read和write事件，由对应的Handler处理。\n单线程模型：所有I/O操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送/读取请求或应答/响应消息。一个NIO 线程同时处理成百上千的链路，性能上无法支撑，速度慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。\n多线程模型：有一个NIO 线程（Acceptor） 只负责监听服务端，接收客户端的TCP 连接请求；NIO 线程池负责网络IO 的操作，即消息的读取、解码、编码和发送；1 个NIO 线程可以同时处理N 条链路，但是1 个链路只对应1 个NIO 线程，这是为了防止发生并发操作问题。但在并发百万客户端连接或需要安全认证时，一个Acceptor 线程可能会存在性能不足问题。\n主从多线程模型：Acceptor 线程用于绑定监听端口，接收客户端连接，将SocketChannel 从主线程池的Reactor 线程的多路复用器上移除，重新注册到Sub 线程池的线程上，用于处理I/O 的读写等操作，从而保证mainReactor只负责接入认证、握手等操作\nReactor模型 建立新连接和处理读写操作分开就是Reactor模型\n详见：https://www.cnblogs.com/coding400/p/10865333.html\nNetty的执行流程 服务端 创建ServerBootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop就是处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 绑定并启动监听端口 当轮询到准备就绪的channel后，由Reactor线程：NioEventLoop执行pipline中的方法，最终调度并执行channelHandler 客户端 创建BootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop就是处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 发起连接 TCP 粘包/拆包的原因及解决方法 原因 粘包：\n应用程序写入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘包。 接收方法不及时读取套接字缓冲区数据，这将发生粘包。 拆包：\n应用程序写入的数据大于套接字缓冲区大小，这将会发生拆包。 进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度\u003eMSS的时候将发生拆包。 解决办法 发送端给每个数据包添加包首部，首部中应该至少包含数据包的长度，这样接收端在接收到数据后，通过读取包首部的长度字段，便知道每一个数据包的实际长度了。（FixedLengthFrameDecoder） 发送端将每个数据包封装为固定长度（不够的可以通过补0填充），这样接收端每次从接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。（DelimiterBasedFrameDecoder） 可以在数据包之间设置边界，如添加特殊符号，这样，接收端通过这个边界就可以将不同的数据包拆分开。（LengthFieldBasedFrameDecoder） 通过自定义协议进行粘包和拆包的处理。（MessageToByteEncoder和ByteToMessageDecoder） Netty 长连接、心跳机制 长连接 Netty的长连接其实就是TCP的长连接\nTCP 在进行读写之前，server 与 client 之间必须提前建立一个连接。建立连接的过程，需要我们常说的三次握手，释放/关闭连接的话需要四次挥手。这个过程是比较消耗网络资源并且有时间延迟的。\n所谓，短连接说的就是 server 端 与 client 端建立连接之后，读写完成之后就关闭掉连接，如果下一次再要互相发送消息，就要重新连接。短连接的优点很明显，就是管理和实现都比较简单，缺点也很明显，每一次的读写都要建立连接必然会带来大量网络资源的消耗，并且连接的建立也需要耗费时间。\n长连接说的就是 client 向 server 双方建立连接之后，即使 client 与 server 完成一次读写，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接。长连接的可以省去较多的 TCP 建立和关闭的操作，降低对网络资源的依赖，节约时间。对于频繁请求资源的客户来说，非常适用长连接。\n心跳机制 在 TCP 保持长连接的过程中，可能会出现断网等网络异常出现，异常发生的时候， client 与 server 之间如果没有交互的话，他们是无法发现对方已经掉线的。为了解决这个问题, 我们就需要引入 心跳机制 。\n心跳机制的工作原理是: 在 client 与 server 之间在一定时间内没有数据交互时, 即处于 idle 状态时, 客户端或服务器就会发送一个特殊的数据包给对方, 当接收方收到这个数据报文后, 也立即发送一个特殊的数据报文, 回应发送方, 此即一个 PING-PONG 交互。所以, 当某一端收到心跳消息后, 就知道了对方仍然在线, 这就确保 TCP 连接的有效性.\nTCP 实际上自带的就有长连接选项，本身是也有心跳包机制，也就是 TCP 的选项：SO_KEEPALIVE。但是，TCP 协议层面的长连接灵活性不够。所以，一般情况下我们都是在应用层协议上实现自定义信跳机制的，也就是在 Netty 层面通过编码实现。通过 Netty 实现心跳机制的话，核心类是 IdleStateHandler 。\nNetty 的零拷贝 操作系统的零拷贝 传统意义的拷贝是在发送数据的时候， 传统的实现方式是：\n\\1. File.read(bytes)\n\\2. Socket.send(bytes)\n这种方式需要四次数据拷贝和四次上下文切换：\n\\1. 数据从磁盘读取到内核的read buffer\n\\2. 数据从内核缓冲区拷贝到用户缓冲区\n\\3. 数据从用户缓冲区拷贝到内核的socket buffer\n\\4. 数据从内核的socket buffer拷贝到网卡接口（硬件）的缓冲区\n零拷贝的概念明显上面的第二步和第三步是没有必要的，通过java的FileChannel.transferTo方法，可以避免上面两次多余的拷贝（当然这需要底层操作系统支持）\n\\1. 调用transferTo,数据从文件由DMA引擎拷贝到内核read buffer\n\\2. 接着DMA从内核read buffer将数据拷贝到网卡接口buffer上面的两次操作都不需要CPU参与，所以就达到了零拷贝。\nNetty 的零拷贝 Netty 的零拷贝主要包含三个方面：\nNetty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存（注意直接内存可以内核态的缓冲区内存进行内存映射，也就是mmap）进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。 Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。 Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。 NIO的空轮询bug 原因 若Selector的轮询结果为空，也没有wakeup或新消息处理，则发生空轮询，CPU使用率100%\n解决方案 对Selector的select操作周期进行统计，每完成一次空的select操作进行一次计数， 若在某个周期内连续发生N次空轮询，则触发了epoll死循环bug。 重建Selector，判断是否是其他线程发起的重建请求，若不是则将原SocketChannel从旧的Selector上去除注册，重新注册到新的Selector上，并将原来的Selector关闭。 Netty 高性能表现在哪些方面 **IO 线程模型：**使用IO多路复用（同步非阻塞），用最少的资源做更多的事。 **零拷贝技术：**尽量减少不必要的内存拷贝，实现了更高效率的传输。 **内存池设计：**申请的内存可以重用，主要指直接内存。内部实现是用一颗二叉查找树管理内存分配情况。 **串形化处理读写：**避免使用锁带来的性能开销。即消息的处理尽可能在同一个线程内完成，期间不进行线程切换，这样就避免了多线程竞争和同步锁。表面上看，串行化设计似乎CPU利用率不高，并发程度不够。但是，通过调整NIO线程池的线程参数，可以同时启动多个串行化的线程并行运行，这种局部无锁化的串行线程设计相比一个队列-多个工作线程模型性能更优（这种串形化处理读写的设计相当于每个线程都有一个任务队列，使用时不用加锁，所以性能较高）。 **高性能序列化协议：**支持 protobuf 等高性能序列化协议。 **高效并发编程：**volatile的大量使用；CAS和原子类的广泛使用。 Netty的内存池是怎么实现的 有点复杂\n首先会预申请一大块内存Arena，Arena由许多Chunk组成，而每个Chunk默认由2048个page组成。 Chunk通过AVL树的形式组织Page，每个叶子节点表示一个Page，而中间节点表示内存区域，节点自己记录它在整个Arena中的偏移地址。 当区域被分配出去后，中间节点上的标记位会被标记，这样就表示这个中间节点以下的所有节点都已被分配了。 五种IO模型 阻塞IO、非阻塞IO、IO多路复用、信号驱动IO，异步IO\n同步与异步、阻塞与非阻塞 同步和异步描述的是消息通信的机制。\n假如A调用B\n同步：A发送request，B返回A需要的response\n异步：A发送request，B马上返回空的response或者不返回，B操作完成后，调用A的callback或者给A发信号，将A需要的数据返回给B\n阻塞和非阻塞描述的是程序在等待调用结果（消息，返回值）时的状态。\n阻塞：阻塞调用是指调用方发出request的线程因为某种原因（如：等待系统资源）被服务方挂起，当服务方得到response后就唤醒挂起线程，并将response返回给调用方。\n非阻塞：非阻塞调用是指调用方发出request的线程在没有等到结果时不会被挂起，直到得到response后才返回。\nBIO、NIO、AIO分别是什么？ BIO:同步并阻塞 ，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高\nNIO:同步非阻塞 ，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器\nAIO:异步非阻塞 ，服务器实现模式为一个有效请求一个线程，客户端的I/O请求服务器处理之前就会返回，处理完成之后会调用回调函数来返回数据\nselect、poll、epoll的机制及其区别？ 单个进程打开的文件描述符（fd文件句柄）不一致 select ：有最大连接数限制数为1024，单个进程所能打开的最大连接数由FD_ZETSIZE宏定义。\npoll：poll本质上与select没有区别，但是它没有最大连接数的限制，原因是它是基于链表来存储的。\nepoll：虽然连接有上限，但是很大，1G内存的机器可以打开10万左右的连接，以此类推。\n监听Socket的方式不一致 select ：轮询的方式，一个一个的socket检查过去，发现有socket活跃时才进行处理，当线性socket增多时，轮询的速度将会变得很慢，造成线性造成性能下降问题。\npoll：对select稍微进行了优化，只是修改了文件描述符，但是监听socket的方式还是轮询。\nepoll：epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，通知expoll来处理这个socket。（会将连接的socket注册到epoll中, 相当于socket的花名册, 如果有一个socket活跃了, 会回调一个函数, 通知epoll,赶紧过来处理）\nselect、poll、epoll时间复杂度分别是：O(n)、O(n)、O(1)\n内存空间拷贝方式（消息传递方式）不一致 select：内核想将消息传递到用户态，需要将数据从内核态拷贝到用户态,这个过程非常的耗时\npoll：同上\nepoll：epoll的内核和用户空间共享一块内存，因此内存态数据和用户态数据是共享的\nNetty底层用的什么？ Java层面用的NIO的Selector机制，操作系统层面Linux用的epoll，Windows用的IOCP\n序列化 序列化和反序列化有什么作用 实现了数据的持久化：永久性保存对象，保存对象的字节序列到本地文件或者数据库中 序列化实现远程通：通过序列化以字节流的形式使对象在网络中进行传递和接收 通过序列化在进程间传递对象 Serializable接口的作用 其实Serializable接口只是一个标识，序列化由ObjectInputStream和ObjectOutputStream执行，具体操作在jvm里\nSerializable和Externalizable的区别 Serializable只用来标识一个类是可序列化的，但是序列化操作是由jvm实现的，程序员不能控制，而Externalizable不但是可序列的标识（继承了Serializable），还可以自定义序列化操作（因为接口里有两个方法）\nRPC 不同序列化协议的优缺点 优点 缺点 Kryo 速度快，序列化后体积小 跨语言支持较复杂 Hessian 默认支持跨语言 较慢 Protostuff 速度快，基于protobuf 需静态编译 Protostuff-Runtime 无需静态编译，但序列化前需预先传入schema 不支持无默认构造函数的类，反序列化时需用户自己初始化序列化后的对象，其只负责将该对象进行赋值 Java 使用方便，可序列化所有类 速度慢，占空间 各种序列号协议的特点 详见：https://blog.csdn.net/qq_38685503/article/details/114633168?spm=1001.2014.3001.5501\n为什么选KRYO序列化 因为Kryo序列化速度快，序列化之后体积小\n各种序列化方式的原理 自定义的协议头里包括哪些内容 魔数、包类型，序列化方式、包长度\n服务注册中心 负载均衡 什么是负载均衡 指将工作任务分摊到多个节点上进行运行\n比如轮询负载均衡算法，就是将任务按照节点的顺序逐个分配\n有哪些负载均衡算法 随机算法、轮询算法、最少活跃调用数、一致性哈希\n原理 **随机算法：**就是随机选择一个结点，但是有时候结点是有权重的，这时候可以把权重加起来，然后随机选择0-权重和之间的数，然后再根据这个数进行选择\n**轮询算法：**就是依次的调用所有的结点\n**最少活跃算法：**就是每个结点都维护一个计数器，每次一个请求交给它处理时，计数器加一，请求处理完毕后计数器减一，每次选择计数器最小的那个结点，如果计数器最小的结点有多个，那就随机选择一个\n**一致性Hash算法：**就是根据哈希值来确定处理请求的结点，但不是普通的取余哈希，因为取余哈希，如果添加或删除结点的话，改动会比较大，一致性hash是先创建一个环形Hash空间，然后将结点的虚拟结点（一般是ip+port+虚拟结点编号）哈希到环上，然后再把请求哈希到环上，然后根据请求哈希到环上的位置，顺时针往下找，找到的第一个虚拟结点就是要发送的结点，详见：https://www.cnblogs.com/twoheads/p/10135896.html\n优缺点 随机算法\u0026轮询算法：\n优点：使用简单 缺点：不适合机器配置不同的场景 最少活跃算法：\n优点：根据服务器当前的请求处理情况，动态分配； 缺点：算法实现相对复杂，需要监控服务器请求连接数； 一致性hash算法：\n优点：当某一台提供者挂时，原本该发往该提供者的请求，基于虚拟节点，平摊到其他提供者，不会引起剧烈变动 缺点：实现复杂 负载均衡作用 根据集群中每个节点的负载情况将用户请求转发到合适的节点上, 以避免单点压力过大的问题 负载均衡可实现集群高可用及伸缩性 负载均衡如何保证健壮性 采用心跳机制检测宕机节点\nHTTP 和 RPC RPC 有没有可能会用 HTTP 协议 会，grpc就是用的HTTP协议\nHTTP vs RPC 零碎 匿名内部类也会生成class文件 transferTo方法是什么？ 是Java提供的零拷贝文件传输函数，需要操作系统的支持，Netty的文件传输就采用了Java的transferTo方法，详见上面Netty 的零拷贝的解释\n待做 jdk动态代理的反射体现在什么地方？ 主从多线程模型到底是什么 Netty的内存池是怎么实现的 五种IO模型 各种序列化方式的原理 ",
-  "wordCount" : "8999",
+  "articleBody": "项目 一般问题 碰到的bug 最有技术含量的部分 动态代理 见：https://juejin.cn/post/7011357346018361375\njdk动态代理 原理 就是先实现代理接口的方法，生成一个匿名内部类，这个匿名内部类里的操作都是调用InvocationHandler的invoke方法，在invoke方法里完成代理\n使用步骤 创建被代理类及接口（JDK代理是接口代理） 创建Handle类实现 InvocationHandler接口 ，重写invoke方法 通过Proxy的newProxyInstance()方法获取代理类对象 通过代理类对象调用被代理类的方法 cglib动态代理 原理 就是修改需要代理的那个类的字节码，生成该类的子类并重写父类的方法，这个子类的方法都会调用回调函数intercept方法，从而完成代理\n使用步骤 new Enhancer() 设置需要代理的类 设置回调 创建 jdk动态代理和cglib动态代理的区别 **原理不同：**JDK动态代理：利用反射机制生成一个实现代理接口的匿名类，在调用具体方法前调用InvokeHandler来处理。 CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节码）开源包，将代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。所以jdk动态代理的方式创建代理对象效率较高，执行效率较低，CGLib创建效率较低，执行效率高。 **适用场景不同：**jdk动态代理目标类必须是接口类，cglib代理目标类不需要实现接口，但是不能是final类 **机制不同：**jdk动态代理是委托机制，因为代理类里无法直接调用被代理类的方法，所以委托InvocationHandler去调用目标类的方法，cglib动态代理是继承机制，代理类和被代理类是父子关系，所以代理类可以调用被代理类的方法，所以通过回调函数MethodInterceptor调用父类方法执行原始逻辑 静态代理 为需要代理的类抽象出一个接口，然后编写代理类实现这个接口，实现接口方法时就可以添加代理的逻辑\n缺点：1、每个被代理类都要有一个代理类，代码比较冗余 2、一旦改动被代理类，代理类也得改动\n静态代理与动态代理的区别 静态代理在编译时就已经实现，编译完成后代理类是一个实际的class文件 动态代理是在运行时动态生成的，即编译完成后没有实际的class文件，而是在运行时动态生成的 Netty 什么是Netty Netty就是Java里NIO的封装，让用户可以很方便的使用Java的非阻塞IO\nNetty跟Java NIO有什么不同，为什么不直接使用JDK NIO类库？ 说说NIO有什么缺点吧：\nNIO的类库和API还是有点复杂，比如Buffer的使用 Selector编写复杂，如果对某个事件注册后，业务代码过于耦合，需要了解很多多线程的知识，熟悉网络编程，面对断连重连、保丢失、粘包等，处理复杂 NIO存在BUG，根据网上言论说是selector空轮训导致CPU飙升 Netty主要的优点有：\n统一的 API，支持多种传输类型，阻塞和非阻塞的。 简单而强大的线程模型。 自带编解码器解决 TCP 粘包/拆包问题，自带各种协议栈。 比直接使用 Java 核心 API 有更高的吞吐量、更低的延迟、更低的资源消耗和更少的内存复制。 社区活跃，成熟稳定，经历了大型项目的使用和考验，而且很多开源项目都使用到了 Netty， 比如我们经常接触的 Dubbo、RocketMQ 等等。 Netty 应用场景了解么？ 理论上来说，NIO 可以做的事情 ，使用 Netty 都可以做并且更好。Netty 主要用来做网络通信：\n作为 RPC 框架的网络通信工具 实现一个自己的 HTTP 服务器 实现一个即时通讯系统 实现消息推送系统 基本只要是网络通信的都可以用Netty做\nNetty的核心组件 EventLoop EventLoop 的主要作用实际就是负责监听网络事件并调用事件处理器进行相关 I/O 操作的处理。\nChannel Channel 接口是 Netty 对网络操作抽象类，它除了包括基本的 I/O 操作，如 bind()、connect()、read()、write() 等。\n比较常用的Channel接口实现类是NioServerSocketChannel（服务端）和NioSocketChannel（客户端），这两个 Channel 可以和 BIO 编程模型中的ServerSocket以及Socket两个概念对应上。Netty 的 Channel 接口所提供的 API，大大地降低了直接使用 Socket 类的复杂性。\nChannelFuture Netty 是异步非阻塞的，所有的 I/O 操作都为异步的。所以我们不能立刻得到操作的结果，我们可以通过 ChannelFuture 接口的 addListener() 方法注册一个 ChannelFutureListener，当操作执行完后，监听就会自动触发返回结果。\nChannelHandler 和 ChannelPipeline ChannelHandler 用来处理 Channel 上的各种事件，分为入站、出站两种。所有 ChannelHandler 被连在一起了，连在一起形成的链就是 ChannelPipeline\nBootstrap 和 ServerBootstrap 了解么？ Bootstrap是客户端，ServerBootstrap是服务端 Bootstrap调用connect连接，ServerBootstrap调用bind开启服务 Bootstrap 只需要配置一个EventLoopGroup ,而 ServerBootstrap需要配置两个线程组EventLoopGroup ，一个用于处理连接事件，一个用于处理读写事件。 Netty的线程模型 Netty通过Reactor模型基于多路复用器接收并处理用户请求，内部实现了两个线程池，boss线程池和work线程池，其中boss线程池的线程负责处理请求的accept事件，当接收到accept事件的请求时，把对应的socket封装到一个NioSocketChannel中，并交给work线程池，其中work线程池负责请求的read和write事件，由对应的Handler处理。\n单线程模型：所有I/O操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送/读取请求或应答/响应消息。一个NIO 线程同时处理成百上千的链路，性能上无法支撑，速度慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。\n多线程模型：有一个NIO 线程（Acceptor） 只负责监听服务端，接收客户端的TCP 连接请求；NIO 线程池负责网络IO 的操作，即消息的读取、解码、编码和发送；1 个NIO 线程可以同时处理N 条链路，但是1 个链路只对应1 个NIO 线程，这是为了防止发生并发操作问题。但在并发百万客户端连接或需要安全认证时，一个Acceptor 线程可能会存在性能不足问题。\n主从多线程模型：Acceptor 线程用于绑定监听端口，接收客户端连接，将SocketChannel 从主线程池的Reactor 线程的多路复用器上移除，重新注册到Sub 线程池的线程上，用于处理I/O 的读写等操作，从而保证mainReactor只负责接入认证、握手等操作\nReactor模型 建立新连接和处理读写操作分开就是Reactor模型\n详见：https://www.cnblogs.com/coding400/p/10865333.html\nNetty的执行流程 服务端 创建ServerBootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop就是处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 绑定并启动监听端口 当轮询到准备就绪的channel后，由Reactor线程：NioEventLoop执行pipline中的方法，最终调度并执行channelHandler 客户端 创建BootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop就是处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 发起连接 TCP 粘包/拆包的原因及解决方法 原因 粘包：\n应用程序写入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘包。 接收方法不及时读取套接字缓冲区数据，这将发生粘包。 拆包：\n应用程序写入的数据大于套接字缓冲区大小，这将会发生拆包。 进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度\u003eMSS的时候将发生拆包。 解决办法 发送端给每个数据包添加包首部，首部中应该至少包含数据包的长度，这样接收端在接收到数据后，通过读取包首部的长度字段，便知道每一个数据包的实际长度了。（FixedLengthFrameDecoder） 发送端将每个数据包封装为固定长度（不够的可以通过补0填充），这样接收端每次从接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。（DelimiterBasedFrameDecoder） 可以在数据包之间设置边界，如添加特殊符号，这样，接收端通过这个边界就可以将不同的数据包拆分开。（LengthFieldBasedFrameDecoder） 通过自定义协议进行粘包和拆包的处理。（MessageToByteEncoder和ByteToMessageDecoder） Netty 长连接、心跳机制 长连接 Netty的长连接其实就是TCP的长连接\nTCP 在进行读写之前，server 与 client 之间必须提前建立一个连接。建立连接的过程，需要我们常说的三次握手，释放/关闭连接的话需要四次挥手。这个过程是比较消耗网络资源并且有时间延迟的。\n所谓，短连接说的就是 server 端 与 client 端建立连接之后，读写完成之后就关闭掉连接，如果下一次再要互相发送消息，就要重新连接。短连接的优点很明显，就是管理和实现都比较简单，缺点也很明显，每一次的读写都要建立连接必然会带来大量网络资源的消耗，并且连接的建立也需要耗费时间。\n长连接说的就是 client 向 server 双方建立连接之后，即使 client 与 server 完成一次读写，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接。长连接的可以省去较多的 TCP 建立和关闭的操作，降低对网络资源的依赖，节约时间。对于频繁请求资源的客户来说，非常适用长连接。\n心跳机制 在 TCP 保持长连接的过程中，可能会出现断网等网络异常出现，异常发生的时候， client 与 server 之间如果没有交互的话，他们是无法发现对方已经掉线的。为了解决这个问题, 我们就需要引入 心跳机制 。\n心跳机制的工作原理是: 在 client 与 server 之间在一定时间内没有数据交互时, 即处于 idle 状态时, 客户端或服务器就会发送一个特殊的数据包给对方, 当接收方收到这个数据报文后, 也立即发送一个特殊的数据报文, 回应发送方, 此即一个 PING-PONG 交互。所以, 当某一端收到心跳消息后, 就知道了对方仍然在线, 这就确保 TCP 连接的有效性.\nTCP 实际上自带的就有长连接选项，本身是也有心跳包机制，也就是 TCP 的选项：SO_KEEPALIVE。但是，TCP 协议层面的长连接灵活性不够。所以，一般情况下我们都是在应用层协议上实现自定义信跳机制的，也就是在 Netty 层面通过编码实现。通过 Netty 实现心跳机制的话，核心类是 IdleStateHandler 。\nNetty 的零拷贝 操作系统的零拷贝 传统意义的拷贝是在发送数据的时候， 传统的实现方式是：\n\\1. File.read(bytes)\n\\2. Socket.send(bytes)\n这种方式需要四次数据拷贝和四次上下文切换：\n\\1. 数据从磁盘读取到内核的read buffer\n\\2. 数据从内核缓冲区拷贝到用户缓冲区\n\\3. 数据从用户缓冲区拷贝到内核的socket buffer\n\\4. 数据从内核的socket buffer拷贝到网卡接口（硬件）的缓冲区\n零拷贝的概念明显上面的第二步和第三步是没有必要的，通过java的FileChannel.transferTo方法，可以避免上面两次多余的拷贝（当然这需要底层操作系统支持）\n\\1. 调用transferTo,数据从文件由DMA引擎拷贝到内核read buffer\n\\2. 接着DMA从内核read buffer将数据拷贝到网卡接口buffer上面的两次操作都不需要CPU参与，所以就达到了零拷贝。\nNetty 的零拷贝 Netty 的零拷贝主要包含三个方面：\nNetty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存（注意直接内存可以内核态的缓冲区内存进行内存映射，也就是mmap）进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。 Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。 Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。 NIO的空轮询bug 原因 若Selector的轮询结果为空，也没有wakeup或新消息处理，则发生空轮询，CPU使用率100%\n解决方案 对Selector的select操作周期进行统计，每完成一次空的select操作进行一次计数， 若在某个周期内连续发生N次空轮询，则触发了epoll死循环bug。 重建Selector，判断是否是其他线程发起的重建请求，若不是则将原SocketChannel从旧的Selector上去除注册，重新注册到新的Selector上，并将原来的Selector关闭。 Netty 高性能表现在哪些方面 **IO 线程模型：**使用IO多路复用（同步非阻塞），用最少的资源做更多的事。 **零拷贝技术：**尽量减少不必要的内存拷贝，实现了更高效率的传输。 **内存池设计：**申请的内存可以重用，主要指直接内存。内部实现是用一颗二叉查找树管理内存分配情况。 **串形化处理读写：**避免使用锁带来的性能开销。即消息的处理尽可能在同一个线程内完成，期间不进行线程切换，这样就避免了多线程竞争和同步锁。表面上看，串行化设计似乎CPU利用率不高，并发程度不够。但是，通过调整NIO线程池的线程参数，可以同时启动多个串行化的线程并行运行，这种局部无锁化的串行线程设计相比一个队列-多个工作线程模型性能更优（这种串形化处理读写的设计相当于每个线程都有一个任务队列，使用时不用加锁，所以性能较高）。 **高性能序列化协议：**支持 protobuf 等高性能序列化协议。 **高效并发编程：**volatile的大量使用；CAS和原子类的广泛使用。 Netty的内存池是怎么实现的 有点复杂\n首先会预申请一大块内存Arena，Arena由许多Chunk组成，而每个Chunk默认由2048个page组成。 Chunk通过AVL树的形式组织Page，每个叶子节点表示一个Page，而中间节点表示内存区域，节点自己记录它在整个Arena中的偏移地址。 当区域被分配出去后，中间节点上的标记位会被标记，这样就表示这个中间节点以下的所有节点都已被分配了。 五种IO模型 阻塞IO、非阻塞IO、IO多路复用、信号驱动IO，异步IO\n同步与异步、阻塞与非阻塞 同步和异步描述的是消息通信的机制。\n假如A调用B\n同步：A发送request，B返回A需要的response\n异步：A发送request，B马上返回空的response或者不返回，B操作完成后，调用A的callback或者给A发信号，将A需要的数据返回给B\n阻塞和非阻塞描述的是程序在等待调用结果（消息，返回值）时的状态。\n阻塞：阻塞调用是指调用方发出request的线程因为某种原因（如：等待系统资源）被服务方挂起，当服务方得到response后就唤醒挂起线程，并将response返回给调用方。\n非阻塞：非阻塞调用是指调用方发出request的线程在没有等到结果时不会被挂起，直到得到response后才返回。\nBIO、NIO、AIO分别是什么？ BIO:同步并阻塞 ，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高\nNIO:同步非阻塞 ，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器\nAIO:异步非阻塞 ，服务器实现模式为一个有效请求一个线程，客户端的I/O请求服务器处理之前就会返回，处理完成之后会调用回调函数来返回数据\nselect、poll、epoll的机制及其区别？ 单个进程打开的文件描述符（fd文件句柄）不一致 select ：有最大连接数限制数为1024，单个进程所能打开的最大连接数由FD_ZETSIZE宏定义。\npoll：poll本质上与select没有区别，但是它没有最大连接数的限制，原因是它是基于链表来存储的。\nepoll：虽然连接有上限，但是很大，1G内存的机器可以打开10万左右的连接，以此类推。\n监听Socket的方式不一致 select ：轮询的方式，一个一个的socket检查过去，发现有socket活跃时才进行处理，当线性socket增多时，轮询的速度将会变得很慢，造成线性造成性能下降问题。\npoll：对select稍微进行了优化，只是修改了文件描述符，但是监听socket的方式还是轮询。\nepoll：epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，通知expoll来处理这个socket。（会将连接的socket注册到epoll中, 相当于socket的花名册, 如果有一个socket活跃了, 会回调一个函数, 通知epoll,赶紧过来处理）\nselect、poll、epoll时间复杂度分别是：O(n)、O(n)、O(1)\n内存空间拷贝方式（消息传递方式）不一致 select：内核想将消息传递到用户态，需要将数据从内核态拷贝到用户态,这个过程非常的耗时\npoll：同上\nepoll：epoll的内核和用户空间共享一块内存，因此内存态数据和用户态数据是共享的\nNetty底层用的什么？ Java层面用的NIO的Selector机制，操作系统层面Linux用的epoll，Windows用的IOCP\n序列化 序列化和反序列化有什么作用 实现了数据的持久化：永久性保存对象，保存对象的字节序列到本地文件或者数据库中 序列化实现远程通：通过序列化以字节流的形式使对象在网络中进行传递和接收 通过序列化在进程间传递对象 Serializable接口的作用 其实Serializable接口只是一个标识，序列化由ObjectInputStream和ObjectOutputStream执行，具体操作在jvm里\nSerializable和Externalizable的区别 Serializable只用来标识一个类是可序列化的，但是序列化操作是由jvm实现的，程序员不能控制，而Externalizable不但是可序列的标识（继承了Serializable），还可以自定义序列化操作（因为接口里有两个方法）\nRPC 不同序列化协议的优缺点 优点 缺点 Kryo 速度快，序列化后体积小 跨语言支持较复杂 Hessian 默认支持跨语言 较慢 Protostuff 速度快，基于protobuf 需静态编译 Protostuff-Runtime 无需静态编译，但序列化前需预先传入schema 不支持无默认构造函数的类，反序列化时需用户自己初始化序列化后的对象，其只负责将该对象进行赋值 Java 使用方便，可序列化所有类 速度慢，占空间 各种序列化协议的特点 详见：https://blog.csdn.net/qq_38685503/article/details/114633168?spm=1001.2014.3001.5501\n为什么选KRYO序列化 因为Kryo序列化速度快，序列化之后体积小\n各种序列化方式的原理 自定义的协议头里包括哪些内容 魔数、包类型，序列化方式、包长度\n服务注册中心 负载均衡 什么是负载均衡 指将工作任务分摊到多个节点上进行运行\n比如轮询负载均衡算法，就是将任务按照节点的顺序逐个分配\n有哪些负载均衡算法 随机算法、轮询算法、最少活跃调用数、一致性哈希\n原理 **随机算法：**就是随机选择一个结点，但是有时候结点是有权重的，这时候可以把权重加起来，然后随机选择0-权重和之间的数，然后再根据这个数进行选择\n**轮询算法：**就是依次的调用所有的结点\n**最少活跃算法：**就是每个结点都维护一个计数器，每次一个请求交给它处理时，计数器加一，请求处理完毕后计数器减一，每次选择计数器最小的那个结点，如果计数器最小的结点有多个，那就随机选择一个\n**一致性Hash算法：**就是根据哈希值来确定处理请求的结点，但不是普通的取余哈希，因为取余哈希，如果添加或删除结点的话，改动会比较大，一致性hash是先创建一个环形Hash空间，然后将结点的虚拟结点（一般是ip+port+虚拟结点编号）哈希到环上，然后再把请求哈希到环上，然后根据请求哈希到环上的位置，顺时针往下找，找到的第一个虚拟结点就是要发送的结点，详见：https://www.cnblogs.com/twoheads/p/10135896.html\n优缺点 随机算法\u0026轮询算法：\n优点：使用简单 缺点：不适合机器配置不同的场景 最少活跃算法：\n优点：根据服务器当前的请求处理情况，动态分配； 缺点：算法实现相对复杂，需要监控服务器请求连接数； 一致性hash算法：\n优点：当某一台提供者挂时，原本该发往该提供者的请求，基于虚拟节点，平摊到其他提供者，不会引起剧烈变动 缺点：实现复杂 负载均衡作用 根据集群中每个节点的负载情况将用户请求转发到合适的节点上, 以避免单点压力过大的问题 负载均衡可实现集群高可用及伸缩性 负载均衡如何保证健壮性 采用心跳机制检测宕机节点\nHTTP 和 RPC RPC 有没有可能会用 HTTP 协议 会，grpc就是用的HTTP协议\nHTTP vs RPC 相同点 都可以完成远程调用\n不同点 传输协议\nRPC：可以基于TCP协议，也可以基于HTTP协议。 HTTP：基于HTTP协议。 传输效率\nRPC：基于TCP可以自定义应用层协议，可以让请求报文体积更小，提高传输效率\nHTTP：如果时基于HTTP1.1的协议，请求中会包含很多无用的内容，很臃肿\n性能消耗\nRPC：序列化时可以选择二进制序列化方式\nHTTP：一般序列化都是json方式，体积和序列化耗时都比二进制序列化要更消耗性能\n负载均衡\nRPC：基本都自带了负载均衡策略\nHTTP：需要配置Nginx实现\n服务治理\nRPC：能做到自动通知，不影响上游 HTTP：需要事先通知，修改Nginx配置 使用场景 如果对效率要求更高，并且开发过程使用统一的技术栈，那么可以用RPC 如果需要更加灵活，跨语言、跨平台，HTTP更合适 Nacos Nacos vs Zookeeper vs Eureka CAP理论 CAP理论是分布式架构中重要理论：\n一致性(Consistency)：所有节点在同一时间具有相同的数据； 可用性(Availability) ：保证每个请求不管成功或者失败都有响应； 分隔容忍(Partition tolerance) ：系统中任意信息的丢失或失败不会影响系统的继续运作。 CAP不最多能保证两个，不能都保证，原因不清楚\nNacos可以保证AP或者CP\n为什么选择Nacos 因为Eureka已经停止维护了，zookeeper本质上是个文件系统，使用起来比较麻烦，所以选择了Nacos\nNacos服务注册表结构是什么样的？ Nacos最外层是namespace隔离环境，然后是group对服务进行分组，然后就是服务，一个服务下 有多个集群，集群下有多个实例。 对应Java代码，Map",
+  "wordCount" : "35144",
   "inLanguage": "zh",
   "datePublished": "2023-03-16T22:54:20+08:00",
   "dateModified": "2023-03-16T22:54:20+08:00",
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;8999 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;18 分钟
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;35144 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;71 分钟
 
 
 ·&nbsp;
@@ -423,7 +423,7 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#rpc-%e4%b8%8d%e5%90%8c%e5%ba%8f%e5%88%97%e5%8c%96%e5%8d%8f%e8%ae%ae%e7%9a%84%e4%bc%98%e7%bc%ba%e7%82%b9" aria-label="RPC 不同序列化协议的优缺点">RPC 不同序列化协议的优缺点</a></li>
                 <li>
-                    <a href="#%e5%90%84%e7%a7%8d%e5%ba%8f%e5%88%97%e5%8f%b7%e5%8d%8f%e8%ae%ae%e7%9a%84%e7%89%b9%e7%82%b9" aria-label="各种序列号协议的特点">各种序列号协议的特点</a></li>
+                    <a href="#%e5%90%84%e7%a7%8d%e5%ba%8f%e5%88%97%e5%8c%96%e5%8d%8f%e8%ae%ae%e7%9a%84%e7%89%b9%e7%82%b9" aria-label="各种序列化协议的特点">各种序列化协议的特点</a></li>
                 <li>
                     <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89kryo%e5%ba%8f%e5%88%97%e5%8c%96" aria-label="为什么选KRYO序列化">为什么选KRYO序列化</a></li>
                 <li>
@@ -457,7 +457,497 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#rpc-%e6%9c%89%e6%b2%a1%e6%9c%89%e5%8f%af%e8%83%bd%e4%bc%9a%e7%94%a8-http-%e5%8d%8f%e8%ae%ae" aria-label="RPC 有没有可能会用 HTTP 协议">RPC 有没有可能会用 HTTP 协议</a></li>
                 <li>
-                    <a href="#http-vs-rpc" aria-label="HTTP vs RPC">HTTP vs RPC</a></li></ul>
+                    <a href="#http-vs-rpc" aria-label="HTTP vs RPC">HTTP vs RPC</a><ul>
+                        
+                <li>
+                    <a href="#%e7%9b%b8%e5%90%8c%e7%82%b9" aria-label="相同点">相同点</a></li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%90%8c%e7%82%b9" aria-label="不同点">不同点</a></li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="使用场景">使用场景</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#nacos" aria-label="Nacos">Nacos</a><ul>
+                        
+                <li>
+                    <a href="#nacos-vs-zookeeper-vs-eureka" aria-label="Nacos vs Zookeeper vs Eureka">Nacos vs Zookeeper vs Eureka</a></li>
+                <li>
+                    <a href="#cap%e7%90%86%e8%ae%ba" aria-label="CAP理论">CAP理论</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9nacos" aria-label="为什么选择Nacos">为什么选择Nacos</a></li>
+                <li>
+                    <a href="#nacos%e6%9c%8d%e5%8a%a1%e6%b3%a8%e5%86%8c%e8%a1%a8%e7%bb%93%e6%9e%84%e6%98%af%e4%bb%80%e4%b9%88%e6%a0%b7%e7%9a%84" aria-label="Nacos服务注册表结构是什么样的？">Nacos服务注册表结构是什么样的？</a></li>
+                <li>
+                    <a href="#nacos%e9%85%8d%e7%bd%ae%e4%b8%ad%e5%bf%83%e5%ae%95%e6%9c%ba%e8%bf%98%e8%83%bd%e8%af%bb%e5%8f%96%e5%88%b0%e9%85%8d%e7%bd%ae%e5%90%97" aria-label="Nacos配置中心宕机，还能读取到配置吗">Nacos配置中心宕机，还能读取到配置吗</a></li>
+                <li>
+                    <a href="#%e6%9c%8d%e5%8a%a1%e6%8f%90%e4%be%9b%e8%80%85%e5%a6%82%e4%bd%95%e5%90%91nacos%e6%b3%a8%e5%86%8c%e4%b8%ad%e5%bf%83%e7%bb%ad%e7%ba%a6" aria-label="服务提供者如何向Nacos注册中心续约">服务提供者如何向Nacos注册中心续约</a></li>
+                <li>
+                    <a href="#%e5%a6%82%e4%bd%95%e7%a1%ae%e5%ae%9a%e5%ae%9e%e4%be%8b%e7%8a%b6%e6%80%81" aria-label="如何确定实例状态">如何确定实例状态</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%e9%85%8d%e7%bd%ae%e4%b8%ad%e5%bf%83" aria-label="为什么要使用配置中心">为什么要使用配置中心</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%bd%91%e7%bb%9c" aria-label="网络">网络</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80" aria-label="基础">基础</a><ul>
+                        
+                <li>
+                    <a href="#osi-%e5%92%8c-tcpip-%e7%bd%91%e7%bb%9c%e5%88%86%e5%b1%82%e6%a8%a1%e5%9e%8b" aria-label="OSI 和 TCP/IP 网络分层模型">OSI 和 TCP/IP 网络分层模型</a><ul>
+                        
+                <li>
+                    <a href="#osi-%e4%b8%83%e5%b1%82%e6%a8%a1%e5%9e%8b%e6%98%af%e4%bb%80%e4%b9%88%e6%af%8f%e4%b8%80%e5%b1%82%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88" aria-label="OSI 七层模型是什么？每一层的作用是什么？">OSI 七层模型是什么？每一层的作用是什么？</a></li>
+                <li>
+                    <a href="#tcpip-%e5%9b%9b%e5%b1%82%e6%a8%a1%e5%9e%8b%e6%98%af%e4%bb%80%e4%b9%88%e6%af%8f%e4%b8%80%e5%b1%82%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88" aria-label="TCP/IP 四层模型是什么？每一层的作用是什么？">TCP/IP 四层模型是什么？每一层的作用是什么？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e7%bd%91%e7%bb%9c%e8%a6%81%e5%88%86%e5%b1%82" aria-label="为什么网络要分层？">为什么网络要分层？</a></li>
+                <li>
+                    <a href="#%e5%ba%94%e7%94%a8%e5%b1%82%e6%9c%89%e5%93%aa%e4%ba%9b%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8d%8f%e8%ae%ae" aria-label="应用层有哪些常见的协议？">应用层有哪些常见的协议？</a><ul>
+                        
+                <li>
+                    <a href="#http%e8%b6%85%e6%96%87%e6%9c%ac%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae" aria-label="HTTP（超文本传输协议）">HTTP（超文本传输协议）</a></li>
+                <li>
+                    <a href="#smtp%e7%ae%80%e5%8d%95%e9%82%ae%e4%bb%b6%e4%bc%a0%e8%be%93%e5%8f%91%e9%80%81%e5%8d%8f%e8%ae%ae" aria-label="SMTP（简单邮件传输(发送)协议）">SMTP（简单邮件传输(发送)协议）</a><ul>
+                        
+                <li>
+                    <a href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6%e7%9a%84%e5%8f%91%e9%80%81%e8%bf%87%e7%a8%8b" aria-label="电子邮件的发送过程？">电子邮件的发送过程？</a></li>
+                <li>
+                    <a href="#%e5%a6%82%e4%bd%95%e5%88%a4%e6%96%ad%e9%82%ae%e7%ae%b1%e6%98%af%e7%9c%9f%e6%ad%a3%e5%ad%98%e5%9c%a8%e7%9a%84" aria-label="如何判断邮箱是真正存在的？">如何判断邮箱是真正存在的？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#pop3imap%e9%82%ae%e4%bb%b6%e6%8e%a5%e6%94%b6%e7%9a%84%e5%8d%8f%e8%ae%ae" aria-label="POP3/IMAP（邮件接收的协议）">POP3/IMAP（邮件接收的协议）</a></li>
+                <li>
+                    <a href="#ftp%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae" aria-label="FTP（文件传输协议）">FTP（文件传输协议）</a></li>
+                <li>
+                    <a href="#telnet%e8%bf%9c%e7%a8%8b%e7%99%bb%e9%99%86%e5%8d%8f%e8%ae%ae" aria-label="Telnet（远程登陆协议）">Telnet（远程登陆协议）</a></li>
+                <li>
+                    <a href="#ssh%e5%ae%89%e5%85%a8%e7%9a%84%e7%bd%91%e7%bb%9c%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae" aria-label="SSH（安全的网络传输协议）">SSH（安全的网络传输协议）</a><ul>
+                        
+                <li>
+                    <a href="#telnet-%e5%92%8c-ssh-%e4%b9%8b%e9%97%b4%e7%9a%84%e4%b8%bb%e8%a6%81%e5%8c%ba%e5%88%ab" aria-label="Telnet 和 SSH 之间的主要区别？">Telnet 和 SSH 之间的主要区别？</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#tcp%e5%92%8cudp" aria-label="TCP和UDP">TCP和UDP</a><ul>
+                        
+                <li>
+                    <a href="#tcp-%e4%b8%8e-udp-%e7%9a%84%e5%8c%ba%e5%88%ab%e9%87%8d%e8%a6%81" aria-label="TCP 与 UDP 的区别？（重要）">TCP 与 UDP 的区别？（重要）</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e9%80%89%e6%8b%a9-tcp%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e9%80%89-udp" aria-label="什么时候选择 TCP,什么时候选 UDP?">什么时候选择 TCP,什么时候选 UDP?</a></li>
+                <li>
+                    <a href="#http-%e5%9f%ba%e4%ba%8e-tcp-%e8%bf%98%e6%98%af-udp" aria-label="HTTP 基于 TCP 还是 UDP？">HTTP 基于 TCP 还是 UDP？</a><ul>
+                        
+                <li>
+                    <a href="#%e9%98%9f%e5%a4%b4%e9%98%bb%e5%a1%9e" aria-label="队头阻塞">队头阻塞</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8-tcp-%e7%9a%84%e5%8d%8f%e8%ae%ae%e6%9c%89%e5%93%aa%e4%ba%9b" aria-label="使用 TCP 的协议有哪些？">使用 TCP 的协议有哪些？</a></li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8-udp-%e7%9a%84%e5%8d%8f%e8%ae%ae%e6%9c%89%e5%93%aa%e4%ba%9b" aria-label="使用 UDP 的协议有哪些？">使用 UDP 的协议有哪些？</a></li>
+                <li>
+                    <a href="#tcp-%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e5%92%8c%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b%e9%9d%9e%e5%b8%b8%e9%87%8d%e8%a6%81" aria-label="TCP 三次握手和四次挥手（非常重要）">TCP 三次握手和四次挥手（非常重要）</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b" aria-label="为什么要三次握手？">为什么要三次握手？</a></li>
+                <li>
+                    <a href="#%e7%ac%ac2%e6%ac%a1%e6%8f%a1%e6%89%8b%e4%bc%a0%e5%9b%9e%e4%ba%86ack%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e8%a6%81%e4%bc%a0%e5%9b%9esyn" aria-label="第2次握手传回了ACK，为什么还要传回SYN？">第2次握手传回了ACK，为什么还要传回SYN？</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b" aria-label="为什么要四次挥手？">为什么要四次挥手？</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e8%83%bd%e6%8a%8a%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%8f%91%e9%80%81%e7%9a%84-ack-%e5%92%8c-fin-%e5%90%88%e5%b9%b6%e8%b5%b7%e6%9d%a5%e5%8f%98%e6%88%90%e4%b8%89%e6%ac%a1%e6%8c%a5%e6%89%8b" aria-label="为什么不能把服务器发送的 ACK 和 FIN 合并起来，变成三次挥手？">为什么不能把服务器发送的 ACK 和 FIN 合并起来，变成三次挥手？</a></li>
+                <li>
+                    <a href="#%e5%a6%82%e6%9e%9c%e7%ac%ac%e4%ba%8c%e6%ac%a1%e6%8c%a5%e6%89%8b%e6%97%b6%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84-ack-%e6%b2%a1%e6%9c%89%e9%80%81%e8%be%be%e5%ae%a2%e6%88%b7%e7%ab%af%e4%bc%9a%e6%80%8e%e6%a0%b7" aria-label="如果第二次挥手时服务器的 ACK 没有送达客户端，会怎样？">如果第二次挥手时服务器的 ACK 没有送达客户端，会怎样？</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e7%ac%ac%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b%e5%ae%a2%e6%88%b7%e7%ab%af%e9%9c%80%e8%a6%81%e7%ad%89%e5%be%85-2msl%e6%8a%a5%e6%96%87%e6%ae%b5%e6%9c%80%e9%95%bf%e5%af%bf%e5%91%bd%e6%97%b6%e9%97%b4%e5%90%8e%e6%89%8d%e8%bf%9b%e5%85%a5-closed-%e7%8a%b6%e6%80%81" aria-label="为什么第四次挥手客户端需要等待 2*MSL（报文段最长寿命）时间后才进入 CLOSED 状态？">为什么第四次挥手客户端需要等待 2*MSL（报文段最长寿命）时间后才进入 CLOSED 状态？</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e6%98%af2msl%e5%91%a2" aria-label="为什么是2*MSL呢">为什么是2*MSL呢</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#tcp-%e5%a6%82%e4%bd%95%e4%bf%9d%e8%af%81%e4%bc%a0%e8%be%93%e7%9a%84%e5%8f%af%e9%9d%a0%e6%80%a7" aria-label="TCP 如何保证传输的可靠性？">TCP 如何保证传输的可靠性？</a><ul>
+                        
+                <li>
+                    <a href="#tcp-%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6" aria-label="TCP 如何实现流量控制？">TCP 如何实现流量控制？</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6" aria-label="为什么需要流量控制？">为什么需要流量控制？</a></li>
+                <li>
+                    <a href="#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3%e6%98%af%e4%bb%80%e4%b9%88" aria-label="滑动窗口是什么？">滑动窗口是什么？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#tcp-%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6" aria-label="TCP 如何实现拥塞控制？">TCP 如何实现拥塞控制？</a></li>
+                <li>
+                    <a href="#arq-%e5%8d%8f%e8%ae%ae%e6%98%af%e4%bb%80%e4%b9%88" aria-label="ARQ 协议是什么">ARQ 协议是什么</a><ul>
+                        
+                <li>
+                    <a href="#%e5%81%9c%e6%ad%a2%e7%ad%89%e5%be%85-arq-%e5%8d%8f%e8%ae%ae%e5%92%8c%e8%bf%9e%e7%bb%ad-arq-%e5%8d%8f%e8%ae%ae%e7%9a%84%e5%8c%ba%e5%88%ab%e6%98%af%e4%bb%80%e4%b9%88" aria-label="停止等待 ARQ 协议和连续 ARQ 协议的区别是什么？">停止等待 ARQ 协议和连续 ARQ 协议的区别是什么？</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#http" aria-label="HTTP">HTTP</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%8e%e8%be%93%e5%85%a5url-%e5%88%b0%e9%a1%b5%e9%9d%a2%e5%b1%95%e7%a4%ba%e5%88%b0%e5%ba%95%e5%8f%91%e7%94%9f%e4%ba%86%e4%bb%80%e4%b9%88" aria-label="从输入URL 到页面展示到底发生了什么？">从输入URL 到页面展示到底发生了什么？</a></li>
+                <li>
+                    <a href="#http-%e7%8a%b6%e6%80%81%e7%a0%81%e6%9c%89%e5%93%aa%e4%ba%9b" aria-label="HTTP 状态码有哪些？">HTTP 状态码有哪些？</a></li>
+                <li>
+                    <a href="#http-%e5%92%8c-https-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab%e9%87%8d%e8%a6%81" aria-label="HTTP 和 HTTPS 有什么区别？（重要）">HTTP 和 HTTPS 有什么区别？（重要）</a></li>
+                <li>
+                    <a href="#http-10-%e5%92%8c-http-11-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="HTTP 1.0 和 HTTP 1.1 有什么区别？">HTTP 1.0 和 HTTP 1.1 有什么区别？</a></li>
+                <li>
+                    <a href="#11-vs-20-vs-30" aria-label="1.1 vs 2.0 vs 3.0">1.1 vs 2.0 vs 3.0</a></li>
+                <li>
+                    <a href="#http-%e6%98%af%e4%b8%8d%e4%bf%9d%e5%ad%98%e7%8a%b6%e6%80%81%e7%9a%84%e5%8d%8f%e8%ae%ae-%e5%a6%82%e4%bd%95%e4%bf%9d%e5%ad%98%e7%94%a8%e6%88%b7%e7%8a%b6%e6%80%81" aria-label="HTTP 是不保存状态的协议, 如何保存用户状态？">HTTP 是不保存状态的协议, 如何保存用户状态？</a><ul>
+                        
+                <li>
+                    <a href="#cookie-%e8%a2%ab%e7%a6%81%e7%94%a8%e6%80%8e%e4%b9%88%e5%8a%9e" aria-label="Cookie 被禁用怎么办?">Cookie 被禁用怎么办?</a></li></ul>
+                </li>
+                <li>
+                    <a href="#uri-%e5%92%8c-url-%e7%9a%84%e5%8c%ba%e5%88%ab%e6%98%af%e4%bb%80%e4%b9%88" aria-label="URI 和 URL 的区别是什么？">URI 和 URL 的区别是什么？</a></li>
+                <li>
+                    <a href="#get%e5%92%8cpost%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="GET和POST的区别">GET和POST的区别</a></li>
+                <li>
+                    <a href="#websocket-vs-http" aria-label="WebSocket vs HTTP">WebSocket vs HTTP</a><ul>
+                        
+                <li>
+                    <a href="#websocket" aria-label="WebSocket">WebSocket</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#arp" aria-label="ARP">ARP</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af-mac-%e5%9c%b0%e5%9d%80" aria-label="什么是 Mac 地址？">什么是 Mac 地址？</a></li>
+                <li>
+                    <a href="#arp-%e5%8d%8f%e8%ae%ae%e8%a7%a3%e5%86%b3%e4%ba%86%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98%e5%9c%b0%e4%bd%8d%e5%a6%82%e4%bd%95" aria-label="ARP 协议解决了什么问题地位如何？">ARP 协议解决了什么问题地位如何？</a></li>
+                <li>
+                    <a href="#arp-%e5%8d%8f%e8%ae%ae%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" aria-label="ARP 协议的工作原理？">ARP 协议的工作原理？</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f" aria-label="操作系统">操作系统</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80-1" aria-label="基础">基础</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f" aria-label="什么是操作系统？">什么是操作系统？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8" aria-label="什么是系统调用？">什么是系统调用？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b" aria-label="进程和线程">进程和线程</a><ul>
+                        
+                <li>
+                    <a href="#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="进程和线程的区别？">进程和线程的区别？</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e7%a8%8b%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e7%8a%b6%e6%80%81" aria-label="进程有哪几种状态？">进程有哪几种状态？</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e7%a8%8b%e9%97%b4%e7%9a%84%e9%80%9a%e4%bf%a1%e5%b8%b8%e8%a7%81%e7%9a%84%e7%9a%84%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f" aria-label="进程间的通信常见的的有哪几种方式？">进程间的通信常见的的有哪几种方式？</a></li>
+                <li>
+                    <a href="#%e7%ba%bf%e7%a8%8b%e9%97%b4%e7%9a%84%e5%90%8c%e6%ad%a5%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9c%89%e5%93%aa%e4%ba%9b%e5%91%a2" aria-label="线程间的同步的方式有哪些呢？">线程间的同步的方式有哪些呢？</a></li>
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e4%b8%ad%e8%bf%9b%e7%a8%8b%e7%9a%84%e8%b0%83%e5%ba%a6%e7%ae%97%e6%b3%95%e6%9c%89%e5%93%aa%e4%ba%9b" aria-label="操作系统中进程的调度算法有哪些？">操作系统中进程的调度算法有哪些？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e6%ad%bb%e9%94%81" aria-label="什么是死锁？">什么是死锁？</a></li>
+                <li>
+                    <a href="#%e4%ba%a7%e7%94%9f%e6%ad%bb%e9%94%81%e7%9a%84%e5%9b%9b%e4%b8%aa%e5%bf%85%e8%a6%81%e6%9d%a1%e4%bb%b6%e6%98%af%e4%bb%80%e4%b9%88" aria-label="产生死锁的四个必要条件是什么？">产生死锁的四个必要条件是什么？</a></li>
+                <li>
+                    <a href="#%e6%80%8e%e4%b9%88%e8%a7%a3%e5%86%b3%e6%ad%bb%e9%94%81" aria-label="怎么解决死锁？">怎么解决死锁？</a><ul>
+                        
+                <li>
+                    <a href="#%e6%ad%bb%e9%94%81%e5%a6%82%e4%bd%95%e9%a2%84%e9%98%b2" aria-label="死锁如何预防？">死锁如何预防？</a></li>
+                <li>
+                    <a href="#%e6%ad%bb%e9%94%81%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d" aria-label="死锁如何避免？">死锁如何避免？</a></li>
+                <li>
+                    <a href="#%e6%ad%bb%e9%94%81%e5%a6%82%e4%bd%95%e6%a3%80%e6%b5%8b" aria-label="死锁如何检测？">死锁如何检测？</a></li>
+                <li>
+                    <a href="#%e6%ad%bb%e9%94%81%e5%a6%82%e4%bd%95%e8%a7%a3%e9%99%a4" aria-label="死锁如何解除？">死锁如何解除？</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%e5%9f%ba%e7%a1%80" aria-label="操作系统内存管理基础">操作系统内存管理基础</a><ul>
+                        
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%e4%b8%bb%e8%a6%81%e6%98%af%e5%81%9a%e4%bb%80%e4%b9%88" aria-label="操作系统的内存管理主要是做什么？">操作系统的内存管理主要是做什么？</a></li>
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%e6%9c%ba%e5%88%b6%e4%ba%86%e8%a7%a3%e5%90%97%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f" aria-label="操作系统的内存管理机制了解吗？内存管理有哪几种方式？">操作系统的内存管理机制了解吗？内存管理有哪几种方式？</a></li>
+                <li>
+                    <a href="#%e5%bf%ab%e8%a1%a8%e5%92%8c%e5%a4%9a%e7%ba%a7%e9%a1%b5%e8%a1%a8%e6%98%af%e4%bb%80%e4%b9%88" aria-label="快表和多级页表是什么？">快表和多级页表是什么？</a></li>
+                <li>
+                    <a href="#%e5%88%86%e9%a1%b5%e6%9c%ba%e5%88%b6%e5%92%8c%e5%88%86%e6%ae%b5%e6%9c%ba%e5%88%b6%e6%9c%89%e5%93%aa%e4%ba%9b%e5%85%b1%e5%90%8c%e7%82%b9%e5%92%8c%e5%8c%ba%e5%88%ab%e5%91%a2" aria-label="分页机制和分段机制有哪些共同点和区别呢？">分页机制和分段机制有哪些共同点和区别呢？</a></li>
+                <li>
+                    <a href="#%e9%80%bb%e8%be%91%e5%9c%b0%e5%9d%80%e5%92%8c%e7%89%a9%e7%90%86%e5%9c%b0%e5%9d%80%e6%98%af%e4%bb%80%e4%b9%88" aria-label="逻辑地址和物理地址是什么？">逻辑地址和物理地址是什么？</a></li>
+                <li>
+                    <a href="#cpu-%e5%af%bb%e5%9d%80%e6%98%af%e4%bb%80%e4%b9%88%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e8%99%9a%e6%8b%9f%e5%9c%b0%e5%9d%80%e7%a9%ba%e9%97%b4" aria-label="CPU 寻址是什么？为什么需要虚拟地址空间？">CPU 寻址是什么？为什么需要虚拟地址空间？</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e6%9c%89%e8%99%9a%e6%8b%9f%e5%9c%b0%e5%9d%80%e7%a9%ba%e9%97%b4%e5%91%a2" aria-label="为什么要有虚拟地址空间呢？">为什么要有虚拟地址空间呢？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98" aria-label="什么是虚拟内存？">什么是虚拟内存？</a></li>
+                <li>
+                    <a href="#%e5%b1%80%e9%83%a8%e6%80%a7%e5%8e%9f%e7%90%86%e6%98%af%e4%bb%80%e4%b9%88" aria-label="局部性原理是什么？">局部性原理是什么？</a></li>
+                <li>
+                    <a href="#%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98%e6%8a%80%e6%9c%af%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0%e7%9a%84" aria-label="虚拟内存技术是怎么实现的？">虚拟内存技术是怎么实现的？</a></li>
+                <li>
+                    <a href="#%e9%a1%b5%e9%9d%a2%e7%bd%ae%e6%8d%a2%e7%ae%97%e6%b3%95%e7%9a%84%e4%bd%9c%e7%94%a8%e5%b8%b8%e8%a7%81%e7%9a%84%e9%a1%b5%e9%9d%a2%e7%bd%ae%e6%8d%a2%e7%ae%97%e6%b3%95%e6%9c%89%e5%93%aa%e4%ba%9b" aria-label="页面置换算法的作用？常见的页面置换算法有哪些？">页面置换算法的作用？常见的页面置换算法有哪些？</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="数据库">数据库</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80-2" aria-label="基础">基础</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e6%95%b0%e6%8d%ae%e5%ba%93-%e6%95%b0%e6%8d%ae%e5%ba%93%e7%ae%a1%e7%90%86%e7%b3%bb%e7%bb%9f-%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f-%e6%95%b0%e6%8d%ae%e5%ba%93%e7%ae%a1%e7%90%86%e5%91%98" aria-label="什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员？">什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%85%83%e7%bb%84-%e7%a0%81-%e5%80%99%e9%80%89%e7%a0%81-%e4%b8%bb%e7%a0%81-%e5%a4%96%e7%a0%81-%e4%b8%bb%e5%b1%9e%e6%80%a7-%e9%9d%9e%e4%b8%bb%e5%b1%9e%e6%80%a7" aria-label="什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？">什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af-er-%e5%9b%be" aria-label="什么是 ER 图？">什么是 ER 图？</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e9%87%8c%e5%b1%9e%e6%80%a7%e7%9a%84%e4%be%9d%e8%b5%96%e6%98%af%e4%bb%80%e4%b9%88" aria-label="数据库里属性的依赖是什么？">数据库里属性的依赖是什么？</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%8c%83%e5%bc%8f%e6%98%af%e4%bb%80%e4%b9%88" aria-label="数据库范式是什么？">数据库范式是什么？</a></li>
+                <li>
+                    <a href="#%e4%b8%bb%e9%94%ae%e5%92%8c%e5%a4%96%e9%94%ae%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="主键和外键有什么区别？">主键和外键有什么区别？</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e6%8e%a8%e8%8d%90%e4%bd%bf%e7%94%a8%e5%a4%96%e9%94%ae%e4%b8%8e%e7%ba%a7%e8%81%94" aria-label="为什么不推荐使用外键与级联？">为什么不推荐使用外键与级联？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8b" aria-label="什么是存储过程？">什么是存储过程？</a></li>
+                <li>
+                    <a href="#dropdelete-%e4%b8%8e-truncate-%e5%8c%ba%e5%88%ab" aria-label="drop、delete 与 truncate 区别？">drop、delete 与 truncate 区别？</a><ul>
+                        
+                <li>
+                    <a href="#%e7%94%a8%e6%b3%95%e4%b8%8d%e5%90%8c" aria-label="用法不同">用法不同</a></li>
+                <li>
+                    <a href="#%e5%b1%9e%e4%ba%8e%e4%b8%8d%e5%90%8c%e7%9a%84%e6%95%b0%e6%8d%ae%e5%ba%93%e8%af%ad%e8%a8%80" aria-label="属于不同的数据库语言">属于不同的数据库语言</a></li>
+                <li>
+                    <a href="#%e6%89%a7%e8%a1%8c%e9%80%9f%e5%ba%a6%e4%b8%8d%e5%90%8c" aria-label="执行速度不同">执行速度不同</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%ae%be%e8%ae%a1%e9%80%9a%e5%b8%b8%e5%88%86%e4%b8%ba%e5%93%aa%e5%87%a0%e6%ad%a5" aria-label="数据库设计通常分为哪几步？">数据库设计通常分为哪几步？</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#mysql" aria-label="MySQL">MySQL</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80-3" aria-label="基础">基础</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%85%b3%e7%b3%bb%e5%9e%8b%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="什么是关系型数据库？">什么是关系型数据库？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af-sql" aria-label="什么是 SQL？">什么是 SQL？</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af-mysql" aria-label="什么是 MySQL？">什么是 MySQL？</a></li>
+                <li>
+                    <a href="#mysql-%e6%9c%89%e4%bb%80%e4%b9%88%e4%bc%98%e7%82%b9" aria-label="MySQL 有什么优点？">MySQL 有什么优点？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql-%e5%9f%ba%e7%a1%80%e6%9e%b6%e6%9e%84" aria-label="MySQL 基础架构">MySQL 基础架构</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80%e4%b8%aa-sql-%e8%af%ad%e5%8f%a5%e5%9c%a8-mysql-%e4%b8%ad%e7%9a%84%e6%89%a7%e8%a1%8c%e6%b5%81%e7%a8%8b" aria-label="一个 SQL 语句在 MySQL 中的执行流程">一个 SQL 语句在 MySQL 中的执行流程</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e" aria-label="MySQL存储引擎">MySQL存储引擎</a><ul>
+                        
+                <li>
+                    <a href="#mysql-%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e%e6%9e%b6%e6%9e%84%e4%ba%86%e8%a7%a3%e5%90%97" aria-label="MySQL 存储引擎架构了解吗？">MySQL 存储引擎架构了解吗？</a></li>
+                <li>
+                    <a href="#myisam-%e5%92%8c-innodb-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="MyISAM 和 InnoDB 有什么区别？">MyISAM 和 InnoDB 有什么区别？</a></li>
+                <li>
+                    <a href="#myisam-%e5%92%8c-innodb-%e5%a6%82%e4%bd%95%e9%80%89%e6%8b%a9" aria-label="MyISAM 和 InnoDB 如何选择？">MyISAM 和 InnoDB 如何选择？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql%e6%97%a5%e5%bf%97" aria-label="MySQL日志">MySQL日志</a><ul>
+                        
+                <li>
+                    <a href="#redo-log" aria-label="redo log">redo log</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%b7%e7%9b%98%e6%97%b6%e6%9c%ba" aria-label="刷盘时机">刷盘时机</a></li>
+                <li>
+                    <a href="#%e6%97%a5%e5%bf%97%e6%96%87%e4%bb%b6%e7%bb%84" aria-label="日志文件组">日志文件组</a></li>
+                <li>
+                    <a href="#%e6%9c%89%e5%8a%9f%e5%a4%ab%e5%88%b7redo-log%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e7%9b%b4%e6%8e%a5%e5%88%b7%e6%95%b0%e6%8d%ae" aria-label="有功夫刷redo log，为什么不直接刷数据？">有功夫刷redo log，为什么不直接刷数据？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#binlog" aria-label="binlog">binlog</a><ul>
+                        
+                <li>
+                    <a href="#%e8%ae%b0%e5%bd%95%e6%a0%bc%e5%bc%8f" aria-label="记录格式">记录格式</a></li>
+                <li>
+                    <a href="#%e5%86%99%e5%85%a5%e6%9c%ba%e5%88%b6" aria-label="写入机制">写入机制</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%a4%e9%98%b6%e6%ae%b5%e6%8f%90%e4%ba%a4" aria-label="两阶段提交">两阶段提交</a></li>
+                <li>
+                    <a href="#undo-log" aria-label="undo log">undo log</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql-%e7%b4%a2%e5%bc%95" aria-label="MySQL 索引">MySQL 索引</a><ul>
+                        
+                <li>
+                    <a href="#%e7%b4%a2%e5%bc%95%e6%98%af%e4%bb%80%e4%b9%88" aria-label="索引是什么">索引是什么</a></li>
+                <li>
+                    <a href="#%e7%90%86%e8%a7%a3" aria-label="理解">理解</a></li>
+                <li>
+                    <a href="#%e7%b4%a2%e5%bc%95%e8%ae%be%e8%ae%a1" aria-label="索引设计">索引设计</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql%e4%ba%8b%e5%8a%a1" aria-label="MySQL事务">MySQL事务</a><ul>
+                        
+                <li>
+                    <a href="#mysql%e4%ba%8b%e5%8a%a1%e9%9a%94%e7%a6%bb%e7%ba%a7%e5%88%ab" aria-label="MySQL事务隔离级别">MySQL事务隔离级别</a></li>
+                <li>
+                    <a href="#mvcc" aria-label="MVCC">MVCC</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e4%ba%8b%e5%8a%a1%e5%b9%b6%e5%8f%91%e6%8e%a7%e5%88%b6" aria-label="数据库事务并发控制">数据库事务并发控制</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql%e9%94%81" aria-label="MySQL锁">MySQL锁</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a1%8c%e9%94%81%e5%92%8c%e8%a1%a8%e9%94%81" aria-label="行锁和表锁">行锁和表锁</a></li>
+                <li>
+                    <a href="#%e5%85%b1%e4%ba%ab%e9%94%81%e5%92%8c%e6%8e%92%e4%bb%96%e9%94%81" aria-label="共享锁和排他锁">共享锁和排他锁</a></li>
+                <li>
+                    <a href="#%e6%82%b2%e8%a7%82%e9%94%81%e5%92%8c%e4%b9%90%e8%a7%82%e9%94%81" aria-label="悲观锁和乐观锁">悲观锁和乐观锁</a></li>
+                <li>
+                    <a href="#record-lock%e5%92%8cgap-lock%e5%92%8cnext-key-lock" aria-label="Record Lock和Gap Lock和Next-key Lock">Record Lock和Gap Lock和Next-key Lock</a></li>
+                <li>
+                    <a href="#%e6%84%8f%e5%90%91%e9%94%81" aria-label="意向锁">意向锁</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql%e4%bc%98%e5%8c%96" aria-label="MySQL优化">MySQL优化</a><ul>
+                        
+                <li>
+                    <a href="#%e8%af%bb%e5%86%99%e5%88%86%e7%a6%bb" aria-label="读写分离">读写分离</a></li>
+                <li>
+                    <a href="#%e5%88%86%e5%ba%93%e5%88%86%e8%a1%a8" aria-label="分库分表">分库分表</a></li>
+                <li>
+                    <a href="#mysql%e6%89%a7%e8%a1%8c%e8%ae%a1%e5%88%92" aria-label="MySQL执行计划">MySQL执行计划</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mysql%e6%95%b4%e4%bd%93%e6%b5%81%e7%a8%8b" aria-label="MySQL整体流程">MySQL整体流程</a></li></ul>
+                </li>
+                <li>
+                    <a href="#redis" aria-label="Redis">Redis</a><ul>
+                        
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" aria-label="数据结构">数据结构</a><ul>
+                        
+                <li>
+                    <a href="#redis-%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e4%bb%a5%e5%8f%8a%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af%e5%88%86%e5%88%ab%e6%98%af%e4%bb%80%e4%b9%88" aria-label="Redis 数据类型以及使用场景分别是什么？">Redis 数据类型以及使用场景分别是什么？</a></li>
+                <li>
+                    <a href="#%e4%ba%94%e7%a7%8d%e5%b8%b8%e8%a7%81%e7%9a%84-redis-%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0" aria-label="五种常见的 Redis 数据类型是怎么实现？">五种常见的 Redis 数据类型是怎么实现？</a><ul>
+                        
+                <li>
+                    <a href="#string-%e7%b1%bb%e5%9e%8b" aria-label="String 类型">String 类型</a></li>
+                <li>
+                    <a href="#list-%e7%b1%bb%e5%9e%8b" aria-label="List 类型">List 类型</a></li>
+                <li>
+                    <a href="#hash-%e7%b1%bb%e5%9e%8b" aria-label="Hash 类型">Hash 类型</a></li>
+                <li>
+                    <a href="#set-%e7%b1%bb%e5%9e%8b" aria-label="Set 类型">Set 类型</a></li>
+                <li>
+                    <a href="#zset-%e7%b1%bb%e5%9e%8b" aria-label="ZSet 类型">ZSet 类型</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84-1" aria-label="数据结构">数据结构</a><ul>
+                        
+                <li>
+                    <a href="#sds" aria-label="SDS">SDS</a></li>
+                <li>
+                    <a href="#%e5%8e%8b%e7%bc%a9%e5%88%97%e8%a1%a8" aria-label="压缩列表">压缩列表</a></li>
+                <li>
+                    <a href="#%e5%8f%8c%e5%90%91%e9%93%be%e8%a1%a8" aria-label="双向链表">双向链表</a></li>
+                <li>
+                    <a href="#%e5%93%88%e5%b8%8c%e8%a1%a8" aria-label="哈希表">哈希表</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b4%e6%95%b0%e9%9b%86%e5%90%88" aria-label="整数集合">整数集合</a></li>
+                <li>
+                    <a href="#%e8%b7%b3%e8%a1%a8" aria-label="跳表">跳表</a></li>
+                <li>
+                    <a href="#quicklist" aria-label="quicklist">quicklist</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ba%bf%e7%a8%8b%e6%a8%a1%e5%9e%8b" aria-label="线程模型">线程模型</a><ul>
+                        
+                <li>
+                    <a href="#redis-%e9%87%87%e7%94%a8%e5%8d%95%e7%ba%bf%e7%a8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e8%bf%99%e4%b9%88%e5%bf%ab" aria-label="Redis 采用单线程为什么还这么快？">Redis 采用单线程为什么还这么快？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%8c%81%e4%b9%85%e5%8c%96" aria-label="持久化">持久化</a><ul>
+                        
+                <li>
+                    <a href="#aof" aria-label="AOF">AOF</a></li>
+                <li>
+                    <a href="#rdb" aria-label="RDB">RDB</a></li>
+                <li>
+                    <a href="#%e6%b7%b7%e5%90%88%e6%8c%81%e4%b9%85%e5%8c%96" aria-label="混合持久化">混合持久化</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%9b%86%e7%be%a4" aria-label="集群">集群</a></li>
+                <li>
+                    <a href="#%e8%bf%87%e6%9c%9f%e5%88%a0%e9%99%a4%e4%b8%8e%e5%86%85%e5%ad%98%e6%b7%98%e6%b1%b0" aria-label="过期删除与内存淘汰">过期删除与内存淘汰</a><ul>
+                        
+                <li>
+                    <a href="#%e8%bf%87%e6%9c%9f%e5%88%a0%e9%99%a4" aria-label="过期删除">过期删除</a></li>
+                <li>
+                    <a href="#%e5%86%85%e5%ad%98%e6%b7%98%e6%b1%b0" aria-label="内存淘汰">内存淘汰</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%bc%93%e5%ad%98" aria-label="缓存">缓存</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bc%93%e5%ad%98%e9%9b%aa%e5%b4%a9%e5%87%bb%e7%a9%bf%e7%a9%bf%e9%80%8f" aria-label="缓存雪崩、击穿、穿透">缓存雪崩、击穿、穿透</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9b%aa%e5%b4%a9" aria-label="雪崩">雪崩</a></li>
+                <li>
+                    <a href="#%e5%87%bb%e7%a9%bf" aria-label="击穿">击穿</a></li>
+                <li>
+                    <a href="#%e7%a9%bf%e9%80%8f" aria-label="穿透">穿透</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%92%8c%e7%bc%93%e5%ad%98%e5%a6%82%e4%bd%95%e4%bf%9d%e8%af%81%e4%b8%80%e8%87%b4%e6%80%a7" aria-label="数据库和缓存如何保证一致性？">数据库和缓存如何保证一致性？</a></li>
+                <li>
+                    <a href="#%e7%bc%93%e5%ad%98%e6%9b%b4%e6%96%b0%e7%ad%96%e7%95%a5" aria-label="缓存更新策略">缓存更新策略</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e6%88%98" aria-label="实战">实战</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ae%9e%e7%8e%b0%e5%bb%b6%e8%bf%9f%e9%98%9f%e5%88%97" aria-label="实现延迟队列">实现延迟队列</a></li>
+                <li>
+                    <a href="#%e5%a4%a7key%e6%80%8e%e4%b9%88%e5%88%a0%e9%99%a4" aria-label="大key怎么删除">大key怎么删除</a></li>
+                <li>
+                    <a href="#redis-%e7%ae%a1%e9%81%93%e6%9c%89%e4%bb%80%e4%b9%88%e7%94%a8" aria-label="Redis 管道有什么用？">Redis 管道有什么用？</a></li>
+                <li>
+                    <a href="#redis-%e4%ba%8b%e5%8a%a1%e6%94%af%e6%8c%81%e5%9b%9e%e6%bb%9a%e5%90%97" aria-label="Redis 事务支持回滚吗？">Redis 事务支持回滚吗？</a></li>
+                <li>
+                    <a href="#%e5%a6%82%e4%bd%95%e7%94%a8-redis-%e5%ae%9e%e7%8e%b0%e5%88%86%e5%b8%83%e5%bc%8f%e9%94%81%e7%9a%84" aria-label="如何用 Redis 实现分布式锁的？">如何用 Redis 实现分布式锁的？</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#java" aria-label="Java">Java</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80-4" aria-label="基础">基础</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9c%aa%e7%9c%8b" aria-label="未看">未看</a></li></ul>
                 </li></ul>
                 </li>
                 <li>
@@ -797,7 +1287,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 </tr>
 </tbody>
 </table>
-<h3 id="各种序列号协议的特点">各种序列号协议的特点<a hidden class="anchor" aria-hidden="true" href="#各种序列号协议的特点">#</a></h3>
+<h3 id="各种序列化协议的特点">各种序列化协议的特点<a hidden class="anchor" aria-hidden="true" href="#各种序列化协议的特点">#</a></h3>
 <p>详见：<a href="https://blog.csdn.net/qq_38685503/article/details/114633168?spm=1001.2014.3001.5501">https://blog.csdn.net/qq_38685503/article/details/114633168?spm=1001.2014.3001.5501</a></p>
 <h3 id="为什么选kryo序列化">为什么选KRYO序列化<a hidden class="anchor" aria-hidden="true" href="#为什么选kryo序列化">#</a></h3>
 <p>因为Kryo序列化速度快，序列化之后体积小</p>
@@ -843,6 +1333,1216 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <h3 id="rpc-有没有可能会用-http-协议">RPC 有没有可能会用 HTTP 协议<a hidden class="anchor" aria-hidden="true" href="#rpc-有没有可能会用-http-协议">#</a></h3>
 <p>会，grpc就是用的HTTP协议</p>
 <h3 id="http-vs-rpc">HTTP vs RPC<a hidden class="anchor" aria-hidden="true" href="#http-vs-rpc">#</a></h3>
+<h4 id="相同点">相同点<a hidden class="anchor" aria-hidden="true" href="#相同点">#</a></h4>
+<p>都可以完成远程调用</p>
+<h4 id="不同点">不同点<a hidden class="anchor" aria-hidden="true" href="#不同点">#</a></h4>
+<ol>
+<li>
+<p>传输协议</p>
+<ul>
+<li>RPC：可以基于TCP协议，也可以基于HTTP协议。</li>
+<li>HTTP：基于HTTP协议。</li>
+</ul>
+</li>
+<li>
+<p>传输效率</p>
+<ul>
+<li>
+<p>RPC：基于TCP可以自定义应用层协议，可以让请求报文体积更小，提高传输效率</p>
+</li>
+<li>
+<p>HTTP：如果时基于HTTP1.1的协议，请求中会包含很多无用的内容，很臃肿</p>
+</li>
+</ul>
+</li>
+<li>
+<p>性能消耗</p>
+<ul>
+<li>
+<p>RPC：序列化时可以选择二进制序列化方式</p>
+</li>
+<li>
+<p>HTTP：一般序列化都是json方式，体积和序列化耗时都比二进制序列化要更消耗性能</p>
+</li>
+</ul>
+</li>
+<li>
+<p>负载均衡</p>
+<ul>
+<li>
+<p>RPC：基本都自带了负载均衡策略</p>
+</li>
+<li>
+<p>HTTP：需要配置Nginx实现</p>
+</li>
+</ul>
+</li>
+<li>
+<p>服务治理</p>
+<ul>
+<li>RPC：能做到自动通知，不影响上游</li>
+<li>HTTP：需要事先通知，修改Nginx配置</li>
+</ul>
+</li>
+</ol>
+<h4 id="使用场景">使用场景<a hidden class="anchor" aria-hidden="true" href="#使用场景">#</a></h4>
+<ul>
+<li>如果对<strong>效率</strong>要求更高，并且开发过程使用<strong>统一的技术栈</strong>，那么可以用RPC</li>
+<li>如果需要更加<strong>灵活</strong>，<strong>跨语言</strong>、<strong>跨平台</strong>，HTTP更合适</li>
+</ul>
+<h2 id="nacos">Nacos<a hidden class="anchor" aria-hidden="true" href="#nacos">#</a></h2>
+<h3 id="nacos-vs-zookeeper-vs-eureka">Nacos vs Zookeeper vs Eureka<a hidden class="anchor" aria-hidden="true" href="#nacos-vs-zookeeper-vs-eureka">#</a></h3>
+<p><img loading="lazy" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cec3502b6246497ebb0e3bd18eab0ffa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"  />
+</p>
+<h3 id="cap理论">CAP理论<a hidden class="anchor" aria-hidden="true" href="#cap理论">#</a></h3>
+<p>CAP理论是分布式架构中重要理论：</p>
+<ul>
+<li>一致性(Consistency)：所有节点在同一时间具有相同的数据；</li>
+<li>可用性(Availability) ：保证每个请求不管成功或者失败都有响应；</li>
+<li>分隔容忍(Partition tolerance) ：系统中任意信息的丢失或失败不会影响系统的继续运作。</li>
+</ul>
+<p>CAP不最多能保证两个，不能都保证，原因不清楚</p>
+<p>Nacos可以保证AP或者CP</p>
+<h3 id="为什么选择nacos">为什么选择Nacos<a hidden class="anchor" aria-hidden="true" href="#为什么选择nacos">#</a></h3>
+<p>因为Eureka已经停止维护了，zookeeper本质上是个文件系统，使用起来比较麻烦，所以选择了Nacos</p>
+<h3 id="nacos服务注册表结构是什么样的">Nacos服务注册表结构是什么样的？<a hidden class="anchor" aria-hidden="true" href="#nacos服务注册表结构是什么样的">#</a></h3>
+<p>Nacos最外层是namespace隔离环境，然后是group对服务进行分组，然后就是服务，一个服务下 有多个集群，集群下有多个实例。
+对应Java代码，<code>Map&lt;String,Map&lt;String,Service&gt;&gt;</code>，最外层的key是namespaceId，值是map，内部map大的key是group拼接serviceName（group@@serviceName），值是service对象；
+service对象内部又是一个map，key是集群名称，值是Cluster对象，Cluster对象内部维护了实例对象集合。</p>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/3d7ad21f0a6040cdaa09563a932f55d3.png" alt="在这里插入图片描述"  />
+</p>
+<h3 id="nacos配置中心宕机还能读取到配置吗">Nacos配置中心宕机，还能读取到配置吗<a hidden class="anchor" aria-hidden="true" href="#nacos配置中心宕机还能读取到配置吗">#</a></h3>
+<p>可以，客户端读取到配置信息以后会缓存在本地内存，因此可以在内存中拿到数据。</p>
+<h3 id="服务提供者如何向nacos注册中心续约">服务提供者如何向Nacos注册中心续约<a hidden class="anchor" aria-hidden="true" href="#服务提供者如何向nacos注册中心续约">#</a></h3>
+<p>利用心跳机制，如果注册中心发现服务结点还活着就会续约</p>
+<h3 id="如何确定实例状态">如何确定实例状态<a hidden class="anchor" aria-hidden="true" href="#如何确定实例状态">#</a></h3>
+<p>通过发送心跳包，5秒发送一次，如果15秒没有回应，则说明服务出现了问题，
+如果30秒后没有回应，则说明服务已经停止。</p>
+<h3 id="为什么要使用配置中心">为什么要使用配置中心<a hidden class="anchor" aria-hidden="true" href="#为什么要使用配置中心">#</a></h3>
+<p>因为用配置中心可以很好的管理项目配置，比如修改配置，不用每个结点都修改一次，而且用配置中心可以动态发布配置</p>
+<h1 id="网络">网络<a hidden class="anchor" aria-hidden="true" href="#网络">#</a></h1>
+<h2 id="基础">基础<a hidden class="anchor" aria-hidden="true" href="#基础">#</a></h2>
+<h3 id="osi-和-tcpip-网络分层模型">OSI 和 TCP/IP 网络分层模型<a hidden class="anchor" aria-hidden="true" href="#osi-和-tcpip-网络分层模型">#</a></h3>
+<h4 id="osi-七层模型是什么每一层的作用是什么">OSI 七层模型是什么？每一层的作用是什么？<a hidden class="anchor" aria-hidden="true" href="#osi-七层模型是什么每一层的作用是什么">#</a></h4>
+<p><img loading="lazy" src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/cs-basics/network/osi-7-model.png" alt="OSI 七层模型"  />
+</p>
+<h4 id="tcpip-四层模型是什么每一层的作用是什么">TCP/IP 四层模型是什么？每一层的作用是什么？<a hidden class="anchor" aria-hidden="true" href="#tcpip-四层模型是什么每一层的作用是什么">#</a></h4>
+<ul>
+<li>应用层：<strong>应用层位于传输层之上，主要提供两个终端设备上的应用程序之间信息交换的服务，它定义了信息交换的格式，消息会交给下一层传输层来传输。</strong></li>
+<li>传输层：<strong>传输层的主要任务就是负责向两台终端设备进程之间的通信提供通用的数据传输服务。</strong></li>
+<li>网络层：<strong>网络层负责为网上的不同主机之间提供通信服务。</strong></li>
+<li>网络接口层：可以看做是数据链路层和物理层的合体
+<ul>
+<li>数据链路层：<strong>数据链路层的作用是将网络层交下来的 IP 数据报组装成帧，在两个相邻节点间的链路上传送帧。每一帧包括数据和必要的控制信息（如同步信息，地址信息，差错控制等）。</strong></li>
+<li>物理层：<strong>实现相邻计算机节点之间比特流的透明传送，尽可能向上屏蔽掉具体传输介质和物理设备的差异</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么网络要分层">为什么网络要分层？<a hidden class="anchor" aria-hidden="true" href="#为什么网络要分层">#</a></h3>
+<p>跟开发程序时的高内聚低耦合思想很接近</p>
+<ol>
+<li><strong>各层之间相互独立</strong>，不需要关心其他层是怎么是实现的，只需要知道怎么调用下层提供的接口就行</li>
+<li><strong>提高了整体灵活性</strong>，每一层都可以使用最适合的技术来实现，只需要提供规范的接口就可以，比较灵活</li>
+<li><strong>大问题化小</strong>，可以降低系统的复杂度</li>
+</ol>
+<h3 id="应用层有哪些常见的协议">应用层有哪些常见的协议？<a hidden class="anchor" aria-hidden="true" href="#应用层有哪些常见的协议">#</a></h3>
+<p>HTTP、SMTP、POP3/IMAP、FTP、Telnet、SSH</p>
+<h4 id="http超文本传输协议">HTTP（超文本传输协议）<a hidden class="anchor" aria-hidden="true" href="#http超文本传输协议">#</a></h4>
+<ol>
+<li>
+<p>主要是为 Web 浏览器与 Web 服务器之间的通信而设计的，访问网页的时候用的就是http协议。</p>
+</li>
+<li>
+<p>HTTP 协基于 TCP协议，目前使用的 HTTP 协议大部分都是 1.1。在 1.1 的协议里面，默认是开启了 Keep-Alive 的，这样的话建立的连接就可以在多次请求中被复用了。</p>
+</li>
+<li>
+<p>另外， HTTP 协议是”无状态”的协议，它无法记录客户端用户的状态，一般我们都是通过 Session 来记录客户端用户的状态。</p>
+</li>
+</ol>
+<h4 id="smtp简单邮件传输发送协议">SMTP（简单邮件传输(发送)协议）<a hidden class="anchor" aria-hidden="true" href="#smtp简单邮件传输发送协议">#</a></h4>
+<p>基于 TCP 协议，用来发送电子邮件。</p>
+<h5 id="电子邮件的发送过程">电子邮件的发送过程？<a hidden class="anchor" aria-hidden="true" href="#电子邮件的发送过程">#</a></h5>
+<ol>
+<li>通过SMTP协议把邮件发送到我的邮件服务器</li>
+<li>我的邮件服务器通过SMTP协议在互联网上发送给对方的邮件服务器</li>
+<li>对方的邮件服务器通知对方来取，对方使用POP3协议取走</li>
+</ol>
+<h5 id="如何判断邮箱是真正存在的">如何判断邮箱是真正存在的？<a hidden class="anchor" aria-hidden="true" href="#如何判断邮箱是真正存在的">#</a></h5>
+<ol>
+<li>查找邮箱域名对应的 SMTP 服务器地址</li>
+<li>尝试与服务器建立连接</li>
+<li>连接成功后尝试向需要验证的邮箱发送邮件</li>
+<li>根据返回结果判定邮箱地址的真实性</li>
+</ol>
+<h4 id="pop3imap邮件接收的协议">POP3/IMAP（邮件接收的协议）<a hidden class="anchor" aria-hidden="true" href="#pop3imap邮件接收的协议">#</a></h4>
+<ol>
+<li>POP3 和 IMAP 两者都是负责邮件接收的协议</li>
+<li>SMTP 协议只负责邮件的发送，真正负责接收的协议是POP3/IMAP</li>
+<li>IMAP相当于POP3的升级版</li>
+</ol>
+<h4 id="ftp文件传输协议">FTP（文件传输协议）<a hidden class="anchor" aria-hidden="true" href="#ftp文件传输协议">#</a></h4>
+<ol>
+<li>基于 TCP 实现可靠的传输</li>
+<li>两条tcp连接，21端口的用于控制，20端口用于传输数据</li>
+</ol>
+<h4 id="telnet远程登陆协议">Telnet（远程登陆协议）<a hidden class="anchor" aria-hidden="true" href="#telnet远程登陆协议">#</a></h4>
+<p>建立在可靠的传输协议 TCP 之上，但是传输的数据都是明文，很不安全，所以被SSH取代</p>
+<h4 id="ssh安全的网络传输协议">SSH（安全的网络传输协议）<a hidden class="anchor" aria-hidden="true" href="#ssh安全的网络传输协议">#</a></h4>
+<p>建立在可靠的传输协议 TCP 之上</p>
+<h5 id="telnet-和-ssh-之间的主要区别">Telnet 和 SSH 之间的主要区别？<a hidden class="anchor" aria-hidden="true" href="#telnet-和-ssh-之间的主要区别">#</a></h5>
+<p>SSH 协议会对传输的数据进行加密保证数据安全性。</p>
+<h2 id="tcp和udp">TCP和UDP<a hidden class="anchor" aria-hidden="true" href="#tcp和udp">#</a></h2>
+<h3 id="tcp-与-udp-的区别重要">TCP 与 UDP 的区别？（重要）<a hidden class="anchor" aria-hidden="true" href="#tcp-与-udp-的区别重要">#</a></h3>
+<p>简化版：</p>
+<ol>
+<li>
+<p><strong>是否面向连接</strong> ：TCP是面向连接的，UDP是面向无连接的</p>
+</li>
+<li>
+<p><strong>是否是可靠传输</strong>：TCP是可靠的，UDP是不可靠的</p>
+</li>
+<li>
+<p><strong>是否有状态</strong> ：TCP是有状态的，比如会记录发送了那些数据，接受了哪些数据，UDP是无状态的</p>
+</li>
+<li>
+<p><strong>传输效率</strong> ：由于使用 TCP 进行传输的时候多了连接、确认、重传等机制，所以 TCP 的传输效率要比 UDP 低很多。</p>
+</li>
+<li>
+<p><strong>传输形式</strong> ： TCP 是面向字节流的，UDP 是面向报文的。</p>
+</li>
+<li>
+<p><strong>首部开销</strong> ：TCP 首部开销（20 ～ 60 字节）比 UDP 首部开销（8 字节）要大。</p>
+</li>
+<li>
+<p><strong>是否提供广播或多播服务</strong> ：TCP 只支持点对点通信，UDP 支持一对一、一对多、多对一、多对多。</p>
+</li>
+</ol>
+<p>详细版：</p>
+<ol>
+<li>
+<p><strong>是否面向连接</strong> ：UDP 在传送数据之前不需要先建立连接。而 TCP 提供面向连接的服务，在传送数据之前必须先建立连接，数据传送结束后要释放连接。</p>
+</li>
+<li>
+<p><strong>是否是可靠传输</strong>：远地主机在收到 UDP 报文后，不需要给出任何确认，并且不保证数据不丢失，不保证是否顺序到达。TCP 提供可靠的传输服务，TCP 在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制。通过 TCP 连接传输的数据，无差错、不丢失、不重复、并且按序到达。</p>
+</li>
+<li>
+<p><strong>是否有状态</strong> ：这个和上面的“是否可靠传输”相对应。TCP 传输是有状态的，这个有状态说的是 TCP 会去记录自己发送消息的状态比如消息是否发送了、是否被接收了等等。为此 ，TCP 需要维持复杂的连接状态表。而 UDP 是无状态服务，简单来说就是不管发出去之后的事情了（<strong>这很渣男！</strong>）。</p>
+</li>
+<li>
+<p><strong>传输效率</strong> ：由于使用 TCP 进行传输的时候多了连接、确认、重传等机制，所以 TCP 的传输效率要比 UDP 低很多。</p>
+</li>
+<li>
+<p><strong>传输形式</strong> ： TCP 是面向字节流的，UDP 是面向报文的。</p>
+</li>
+<li>
+<p><strong>首部开销</strong> ：TCP 首部开销（20 ～ 60 字节）比 UDP 首部开销（8 字节）要大。</p>
+</li>
+<li>
+<p><strong>是否提供广播或多播服务</strong> ：TCP 只支持点对点通信，UDP 支持一对一、一对多、多对一、多对多。</p>
+</li>
+</ol>
+<p>表格版：</p>
+<table>
+<thead>
+<tr>
+<th>TCP</th>
+<th>UDP</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否面向连接</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否可靠</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否有状态</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>传输效率</td>
+<td>较慢</td>
+<td>较快</td>
+</tr>
+<tr>
+<td>传输形式</td>
+<td>字节流</td>
+<td>数据报文段</td>
+</tr>
+<tr>
+<td>首部开销</td>
+<td>20 ～ 60 bytes</td>
+<td>8 bytes</td>
+</tr>
+<tr>
+<td>是否提供广播或多播服务</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h3 id="什么时候选择-tcp什么时候选-udp">什么时候选择 TCP,什么时候选 UDP?<a hidden class="anchor" aria-hidden="true" href="#什么时候选择-tcp什么时候选-udp">#</a></h3>
+<ul>
+<li>
+<p><strong>UDP 一般用于即时通信</strong></p>
+</li>
+<li>
+<p><strong>TCP 用于对传输准确性要求特别高的场景</strong></p>
+</li>
+</ul>
+<h3 id="http-基于-tcp-还是-udp">HTTP 基于 TCP 还是 UDP？<a hidden class="anchor" aria-hidden="true" href="#http-基于-tcp-还是-udp">#</a></h3>
+<p>HTTP3.0之前基于TCP，3.0之后基于基于UDP的QUIC协议，目的是为了解决队头阻塞</p>
+<h4 id="队头阻塞">队头阻塞<a hidden class="anchor" aria-hidden="true" href="#队头阻塞">#</a></h4>
+<p>HTTP1.1的队头阻塞是因为1.1是一问一答模式，所以当一个大的响应没回来的时候，其他请求都要等待</p>
+<p>HTTP2.0使用了多路复用，就是一个HTTP连接上可以同时发送多个HTTP请求，解决了1.1的对头阻塞，但是只解决了应用层的队头阻塞，传输层依然有队头阻塞，因为如果发送3个包，第一个包丢了，那么服务端为了保证有序接受就会等待直到接收到1，但是http包都是独立的，这个时候完全可以处理2和3包，这就是HTTP2.0的队头阻塞</p>
+<p>HTTP3.0为了解决2.0的队头阻塞使用了基于UDP的QUIC协议</p>
+<h3 id="使用-tcp-的协议有哪些">使用 TCP 的协议有哪些？<a hidden class="anchor" aria-hidden="true" href="#使用-tcp-的协议有哪些">#</a></h3>
+<ul>
+<li>
+<p><strong>HTTP 协议</strong> ：超文本传输协议（HTTP，HyperText Transfer Protocol)主要是为 Web 浏览器与 Web 服务器之间的通信而设计的。当我们使用浏览器浏览网页的时候，我们网页就是通过 HTTP 请求进行加载的。</p>
+</li>
+<li>
+<p><strong>HTTPS 协议</strong> ：更安全的超文本传输协议(HTTPS,Hypertext Transfer Protocol Secure)，身披 SSL 外衣的 HTTP 协议</p>
+</li>
+<li>
+<p><strong>FTP 协议</strong>：文件传输协议 FTP（File Transfer Protocol），提供文件传输服务，<strong>基于 TCP</strong> 实现可靠的传输。使用 FTP 传输文件的好处是可以屏蔽操作系统和文件存储方式。</p>
+</li>
+<li>
+<p><strong>SMTP 协议</strong>：简单邮件传输协议（SMTP，Simple Mail Transfer Protocol）的缩写，<strong>基于 TCP 协议</strong>，用来发送电子邮件。注意 ⚠️：接受邮件的协议不是 SMTP 而是 POP3 协议。</p>
+</li>
+<li>
+<p><strong>POP3/IMAP 协议</strong>： POP3 和 IMAP 两者都是负责邮件接收的协议。</p>
+</li>
+<li>
+<p><strong>Telnet 协议</strong>：远程登陆协议，通过一个终端登陆到其他服务器。被一种称为 SSH 的非常安全的协议所取代。</p>
+</li>
+<li>
+<p><strong>SSH 协议</strong> : SSH（ Secure Shell）是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。SSH 建立在可靠的传输协议 TCP 之上。</p>
+</li>
+</ul>
+<h3 id="使用-udp-的协议有哪些">使用 UDP 的协议有哪些？<a hidden class="anchor" aria-hidden="true" href="#使用-udp-的协议有哪些">#</a></h3>
+<ul>
+<li>
+<p><strong>DHCP 协议</strong>：动态主机配置协议，动态配置 IP 地址</p>
+</li>
+<li>
+<p><strong>DNS</strong> ： <strong>域名系统（DNS，Domain Name System）将人类可读的域名 (例如，www.baidu.com) 转换为机器可读的 IP 地址 (例如，220.181.38.148)。</strong> 我们可以将其理解为专为互联网设计的电话薄。实际上 DNS 同时支持 UDP 和 TCP 协议。</p>
+</li>
+</ul>
+<h3 id="tcp-三次握手和四次挥手非常重要">TCP 三次握手和四次挥手（非常重要）<a hidden class="anchor" aria-hidden="true" href="#tcp-三次握手和四次挥手非常重要">#</a></h3>
+<p>详见：<a href="https://javaguide.cn/cs-basics/network/tcp-connection-and-disconnection.html">https://javaguide.cn/cs-basics/network/tcp-connection-and-disconnection.html</a></p>
+<p><img loading="lazy" src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e92d0ebc-7d46-413b-aec1-34a39602f787.png" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/f87afe72-c2df-4c12-ac03-9b8d581a8af8.jpg" alt="img"  />
+</p>
+<h4 id="为什么要三次握手">为什么要三次握手？<a hidden class="anchor" aria-hidden="true" href="#为什么要三次握手">#</a></h4>
+<p>三次握手的目的是建立可靠的通信信道，那三次握手是怎么建立起可靠的通信通道的呢？</p>
+<ul>
+<li>
+<p><strong>第一次握手</strong> ：Client不能确保对方收到了自己的请求</p>
+</li>
+<li>
+<p><strong>第二次握手</strong> ：Server不能确保对方收到了自己的回应</p>
+</li>
+<li>
+<p><strong>第三次握手</strong> ：双方都能确保对方收到了自己的请求</p>
+</li>
+</ul>
+<h4 id="第2次握手传回了ack为什么还要传回syn">第2次握手传回了ACK，为什么还要传回SYN？<a hidden class="anchor" aria-hidden="true" href="#第2次握手传回了ack为什么还要传回syn">#</a></h4>
+<p>回传ACK代表收到了对方的信息，回传SYN代表同意连接</p>
+<h4 id="为什么要四次挥手">为什么要四次挥手？<a hidden class="anchor" aria-hidden="true" href="#为什么要四次挥手">#</a></h4>
+<p>因为通信双方都能收发数据，所以必须保证两者都没有数据要发送的时候才能断开连接，那四次挥手是怎么保证的呢？</p>
+<ul>
+<li>
+<p><strong>第一次挥手</strong> ：只能保证A没有信息发送了，但是B可能还有信息待发送</p>
+</li>
+<li>
+<p><strong>第二次挥手</strong> ：只是让A知道B收到了断开连接请求，但是这个时候B有可能还有信息没有发完</p>
+</li>
+<li>
+<p><strong>第三次挥手</strong> ：可以保证A和B都没有信息发送了，但是如果第三次挥手包丢了的话无法保证A知道B发送完了</p>
+</li>
+<li>
+<p><strong>第四次挥手</strong> ：可以保证A和B都没有信息发送了，并且A知道B发送完了，B也知道A接收到了自己发送完的信息</p>
+</li>
+</ul>
+<h4 id="为什么不能把服务器发送的-ack-和-fin-合并起来变成三次挥手">为什么不能把服务器发送的 ACK 和 FIN 合并起来，变成三次挥手？<a hidden class="anchor" aria-hidden="true" href="#为什么不能把服务器发送的-ack-和-fin-合并起来变成三次挥手">#</a></h4>
+<p>因为服务器收到客户端断开连接的请求时，可能还有一些数据没有发完，这时先回复 ACK，表示接收到了断开连接的请求。等到数据发完之后再发 FIN，断开服务器到客户端的数据传送。</p>
+<h4 id="如果第二次挥手时服务器的-ack-没有送达客户端会怎样">如果第二次挥手时服务器的 ACK 没有送达客户端，会怎样？<a hidden class="anchor" aria-hidden="true" href="#如果第二次挥手时服务器的-ack-没有送达客户端会怎样">#</a></h4>
+<p>客户端没有收到 ACK 确认，会重新发送 FIN 请求。</p>
+<h4 id="为什么第四次挥手客户端需要等待-2msl报文段最长寿命时间后才进入-closed-状态">为什么第四次挥手客户端需要等待 2*MSL（报文段最长寿命）时间后才进入 CLOSED 状态？<a hidden class="anchor" aria-hidden="true" href="#为什么第四次挥手客户端需要等待-2msl报文段最长寿命时间后才进入-closed-状态">#</a></h4>
+<p>防止 Server 未收到 ACK</p>
+<p>解释：第四次挥手时，客户端发送给服务器的 ACK 有可能丢失，如果服务端因为某些原因而没有收到 ACK 的话，服务端就会重发 FIN，如果客户端在 2*MSL 的时间内收到了 FIN，就会重新发送 ACK 并再次等待 2MSL，防止 Server 没有收到 ACK 而不断重发 FIN。</p>
+<h5 id="为什么是2msl呢">为什么是2*MSL呢<a hidden class="anchor" aria-hidden="true" href="#为什么是2msl呢">#</a></h5>
+<p>因为加入第四次挥手的包在第一个MSL丢失，那么重发的第三次挥手的包一定在第二个MSL到达</p>
+<h3 id="tcp-如何保证传输的可靠性">TCP 如何保证传输的可靠性？<a hidden class="anchor" aria-hidden="true" href="#tcp-如何保证传输的可靠性">#</a></h3>
+<p><strong>精简版：</strong></p>
+<ul>
+<li>
+<p><strong>基于数据块传输</strong> ：应用数据被分割成数据块，再传输给网络层</p>
+</li>
+<li>
+<p><strong>对失序数据包重新排序以及去重</strong>：TCP 为了保证不发生丢包，就给每个包一个序列号，有了序列号就可以对包进行排序和去重了</p>
+</li>
+<li>
+<p><strong>校验和</strong> : TCP 将保持它报文的检验和。如果收到段的检验和有差错，TCP 将丢弃这个报文段</p>
+</li>
+<li>
+<p><strong>超时重传</strong> : 当发送方发送数据之后，如果一段时间之后没有收到这个包的回应就会重传</p>
+</li>
+<li>
+<p><strong>流量控制</strong> : 如果接收端来不及处理接收到的数据，就会提示发送方降低速率，起到流量控制的效果，具体是使用滑动窗口来实现的</p>
+</li>
+<li>
+<p><strong>拥塞控制</strong> : 当网络拥塞时，减少数据的发送。</p>
+</li>
+</ul>
+<p><strong>详细版：</strong></p>
+<ul>
+<li>
+<p><strong>基于数据块传输</strong> ：应用数据被分割成 TCP 认为最适合发送的数据块，再传输给网络层，数据块被称为报文段或段。</p>
+</li>
+<li>
+<p><strong>对失序数据包重新排序以及去重</strong>：TCP 为了保证不发生丢包，就给每个包一个序列号，有了序列号能够将接收到的数据根据序列号排序，并且去掉重复序列号的数据就可以实现数据包去重。</p>
+</li>
+<li>
+<p><strong>校验和</strong> : TCP 将保持它首部和数据的检验和。这是一个端到端的检验和，目的是检测数据在传输过程中的任何变化。如果收到段的检验和有差错，TCP 将丢弃这个报文段和不确认收到此报文段。</p>
+</li>
+<li>
+<p><strong>超时重传</strong> : 当发送方发送数据之后，它启动一个定时器，等待目的端确认收到这个报文段。接收端实体对已成功收到的包发回一个相应的确认信息（ACK）。如果发送端实体在合理的往返时延（RTT）内未收到确认消息，那么对应的数据包就被假设为<a href="https://zh.wikipedia.org/wiki/%E4%B8%A2%E5%8C%85">已丢失open in new window</a>并进行重传。</p>
+</li>
+<li>
+<p><strong>流量控制</strong> : TCP 连接的每一方都有固定大小的缓冲空间，TCP 的接收端只允许发送端发送接收端缓冲区能接纳的数据。当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。TCP 使用的流量控制协议是可变大小的滑动窗口协议（TCP 利用滑动窗口实现流量控制）。</p>
+</li>
+<li>
+<p><strong>拥塞控制</strong> : 当网络拥塞时，减少数据的发送。</p>
+</li>
+</ul>
+<h4 id="tcp-如何实现流量控制">TCP 如何实现流量控制？<a hidden class="anchor" aria-hidden="true" href="#tcp-如何实现流量控制">#</a></h4>
+<p><strong>TCP 利用滑动窗口实现流量控制。</strong> 接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发送速率。将窗口字段设置为 0，则发送方不能发送数据。</p>
+<h5 id="为什么需要流量控制">为什么需要流量控制？<a hidden class="anchor" aria-hidden="true" href="#为什么需要流量控制">#</a></h5>
+<p>因为发送方的速率与接收方的速率是不一定相等，如果发送方的速率大于接受方的速率，就会导致接受方丢掉处理不过来的包</p>
+<h5 id="滑动窗口是什么">滑动窗口是什么？<a hidden class="anchor" aria-hidden="true" href="#滑动窗口是什么">#</a></h5>
+<p>就是发送端和接收端各有一个窗口，发送窗口里是可以发送的报文，接受窗口里是可以接受的报文，如果发送窗口收到回应之后就会向前滑动知道碰到没收到回应的那个窗口，接收窗口同理</p>
+<p>见：<a href="https://javaguide.cn/cs-basics/network/tcp-reliability-guarantee.html">https://javaguide.cn/cs-basics/network/tcp-reliability-guarantee.html</a></p>
+<h4 id="tcp-如何实现拥塞控制">TCP 如何实现拥塞控制？<a hidden class="anchor" aria-hidden="true" href="#tcp-如何实现拥塞控制">#</a></h4>
+<p>主要就是通过四个算法实现的拥塞控制：</p>
+<ol>
+<li>慢启动：当TCP开始发送数据时，它会先发送一小部分数据，然后每次乘2逐渐扩大拥塞窗口</li>
+<li>拥塞避免：一旦慢启动进入拥塞避免阶段，那么拥塞窗口就会从每次乘2变成每次加1</li>
+<li>快重传：</li>
+<li>快恢复：</li>
+</ol>
+<p>见：<a href="https://javaguide.cn/cs-basics/network/tcp-reliability-guarantee.html">https://javaguide.cn/cs-basics/network/tcp-reliability-guarantee.html</a></p>
+<h4 id="arq-协议是什么">ARQ 协议是什么<a hidden class="anchor" aria-hidden="true" href="#arq-协议是什么">#</a></h4>
+<p>就是自动重传请求协议，包括停止等待 ARQ 协议和连续 ARQ 协议。</p>
+<p>ARQ协议也用到了滑动窗口，和流量控制里面的滑动窗口的区别是流量控制在传输层，ARQ协议在传输层和数据链路层。</p>
+<h5 id="停止等待-arq-协议和连续-arq-协议的区别是什么">停止等待 ARQ 协议和连续 ARQ 协议的区别是什么？<a hidden class="anchor" aria-hidden="true" href="#停止等待-arq-协议和连续-arq-协议的区别是什么">#</a></h5>
+<p>停止等待 ARQ 协议，发送并接收到确认消息才发下一个</p>
+<p>连续 ARQ 协议，维持一个发送窗口，可以连续发送多个数据包</p>
+<h2 id="http">HTTP<a hidden class="anchor" aria-hidden="true" href="#http">#</a></h2>
+<h3 id="从输入url-到页面展示到底发生了什么">从输入URL 到页面展示到底发生了什么？<a hidden class="anchor" aria-hidden="true" href="#从输入url-到页面展示到底发生了什么">#</a></h3>
+<p><img loading="lazy" src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/url%E8%BE%93%E5%85%A5%E5%88%B0%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" alt="img"  />
+</p>
+<p>详见：<a href="https://segmentfault.com/a/1190000006879700">从输入URL到页面加载发生了什么？</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1879758">浏览器从输入网址到页面展示的过程</a></p>
+<h3 id="http-状态码有哪些">HTTP 状态码有哪些？<a hidden class="anchor" aria-hidden="true" href="#http-状态码有哪些">#</a></h3>
+<p><img loading="lazy" src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/%E7%8A%B6%E6%80%81%E7%A0%81.png" alt="状态码"  />
+</p>
+<h3 id="http-和-https-有什么区别重要">HTTP 和 HTTPS 有什么区别？（重要）<a hidden class="anchor" aria-hidden="true" href="#http-和-https-有什么区别重要">#</a></h3>
+<ol>
+<li><strong>端口号</strong> ：HTTP 默认是 80，HTTPS 默认是 443。</li>
+<li><strong>URL 前缀</strong> ：HTTP 的 URL 前缀是 <code>http://</code>，HTTPS 的 URL 前缀是 <code>https://</code>。</li>
+<li><strong>安全性和资源消耗</strong> ： HTTP 协议运行在 TCP 之上，所有传输的内容都是明文。HTTPS相对于HTTP多了一层SSL加密。所以说，HTTP 安全性没有 HTTPS 高，但是 HTTPS 比 HTTP 耗费更多服务器资源。</li>
+</ol>
+<h3 id="http-10-和-http-11-有什么区别">HTTP 1.0 和 HTTP 1.1 有什么区别？<a hidden class="anchor" aria-hidden="true" href="#http-10-和-http-11-有什么区别">#</a></h3>
+<ul>
+<li><strong>默认连接方式 :</strong> HTTP 1.0 默认为短连接，HTTP 1.1 默认为长连接。</li>
+<li><strong>状态响应码 :</strong> HTTP/1.1中新加入了大量的状态码</li>
+<li><strong>缓存处理</strong>：HTTP/1.1中新加入了很多缓存头来控制缓存策略</li>
+<li><strong>带宽优化及网络连接的使用</strong>：HTTP1.0 中，只能发送完成的资源，而HTTP1.1里可以发送部分数据</li>
+<li><strong>Host头处理</strong> : HTTP/1.1在请求头中加入了<code>Host</code>字段。</li>
+</ul>
+<p>HTTP 协议的长连接和短连接，实质上是 TCP 协议的长连接和短连接。</p>
+<h3 id="11-vs-20-vs-30">1.1 vs 2.0 vs 3.0<a hidden class="anchor" aria-hidden="true" href="#11-vs-20-vs-30">#</a></h3>
+<p>1.1是收到上一个请求的响应后才能发送下一个请求，这样就产生了队头阻塞问题，而HTTP2.0相对于1.1可以连续发送多个请求，在应用层解决了队头阻塞，但是传输层还是有队头阻塞，3.0使用基于UDP的QUIC协议替代TCP协议解决了传输层的队头阻塞问题</p>
+<h3 id="http-是不保存状态的协议-如何保存用户状态">HTTP 是不保存状态的协议, 如何保存用户状态？<a hidden class="anchor" aria-hidden="true" href="#http-是不保存状态的协议-如何保存用户状态">#</a></h3>
+<p>使用session来保存状态，服务端为每个客户端创建一个session，然后将sessionID随响应一起发给客户端，客户端下次发请求带着这个sessionID（放在cookie中），服务端就知道是谁发送的请求了，通过这种方式能保存用户状态</p>
+<h4 id="cookie-被禁用怎么办">Cookie 被禁用怎么办?<a hidden class="anchor" aria-hidden="true" href="#cookie-被禁用怎么办">#</a></h4>
+<p>最常用的就是利用 URL 重写把 Session ID 直接附加在 URL 路径的后面。注意URL重写指的是服务端将页面响应给客户端之前将里面的URL全部重写，加上Session ID作为参数</p>
+<h3 id="uri-和-url-的区别是什么">URI 和 URL 的区别是什么？<a hidden class="anchor" aria-hidden="true" href="#uri-和-url-的区别是什么">#</a></h3>
+<ul>
+<li>
+<p>URI(Uniform Resource Identifier) 是统一资源标志符，可以唯一标识一个资源。</p>
+</li>
+<li>
+<p>URL(Uniform Resource Locator) 是统一资源定位符，不但可以唯一标识一个资源还可以定位这个资源</p>
+</li>
+</ul>
+<p>URI 的作用像身份证号一样，URL 的作用更像家庭住址一样。URL 是一种具体的 URI，它不仅唯一标识资源，而且还提供了定位该资源的信息。</p>
+<h3 id="get和post的区别">GET和POST的区别<a hidden class="anchor" aria-hidden="true" href="#get和post的区别">#</a></h3>
+<p>一般情况下GET是用来获取资源的，参数是放在URL里面，POST是用来处理资源的，参数一般放在请求体里面</p>
+<h3 id="websocket-vs-http">WebSocket vs HTTP<a hidden class="anchor" aria-hidden="true" href="#websocket-vs-http">#</a></h3>
+<p>TCP 协议本身是<strong>全双工</strong>的，但是HTTP协议不是全双工的，只能是客户端一问一答模式，服务端不能主动发送信息，为了解决这个问题提出了WebSocket，WebSocket是全双工的，握手阶段使用HTTP协议，握手完成后服务端可以主动发消息到客户端</p>
+<h4 id="websocket">WebSocket<a hidden class="anchor" aria-hidden="true" href="#websocket">#</a></h4>
+<ul>
+<li>TCP 协议本身是<strong>全双工</strong>的，但我们最常用的 HTTP/1.1，虽然是基于 TCP 的协议，但它是<strong>半双工</strong>的，对于大部分需要服务器主动推送数据到客户端的场景，都不太友好，因此我们需要使用支持全双工的 WebSocket 协议。</li>
+<li>在 HTTP/1.1 里，只要客户端不问，服务端就不答。基于这样的特点，对于登录页面这样的简单场景，可以使用<strong>定时轮询或者长轮询</strong>的方式实现<strong>服务器推送</strong>(comet)的效果。</li>
+<li>对于客户端和服务端之间需要频繁交互的复杂场景，比如网页游戏，都可以考虑使用 WebSocket 协议。</li>
+<li>WebSocket 和 socket 几乎没有任何关系，只是叫法相似。</li>
+<li>正因为各个浏览器都支持 HTTP协 议，所以 WebSocket 会先利用HTTP协议加上一些特殊的 header 头进行握手升级操作，升级成功后就跟 HTTP 没有任何关系了，之后就用 WebSocket 的数据格式进行收发数据。</li>
+</ul>
+<h2 id="arp">ARP<a hidden class="anchor" aria-hidden="true" href="#arp">#</a></h2>
+<h3 id="什么是-mac-地址">什么是 Mac 地址？<a hidden class="anchor" aria-hidden="true" href="#什么是-mac-地址">#</a></h3>
+<p>每个网络设备都有一个标识，这个标识就是MAC地址</p>
+<p>MAC 地址有一个特殊地址：FF-FF-FF-FF-FF-FF（全 1 地址），该地址表示广播地址。</p>
+<h3 id="arp-协议解决了什么问题地位如何">ARP 协议解决了什么问题地位如何？<a hidden class="anchor" aria-hidden="true" href="#arp-协议解决了什么问题地位如何">#</a></h3>
+<p>ARP协议就是解决了IP到MAC地址的映射，因为我们在网络上定位一个主机用的是IP地址，但是在传输的时候需要知道下一跳的物理地址，所以就需要IP到MAC的映射</p>
+<h3 id="arp-协议的工作原理">ARP 协议的工作原理？<a hidden class="anchor" aria-hidden="true" href="#arp-协议的工作原理">#</a></h3>
+<p>详见：<a href="https://javaguide.cn/cs-basics/network/arp.html">https://javaguide.cn/cs-basics/network/arp.html</a></p>
+<h1 id="操作系统">操作系统<a hidden class="anchor" aria-hidden="true" href="#操作系统">#</a></h1>
+<h2 id="基础-1">基础<a hidden class="anchor" aria-hidden="true" href="#基础-1">#</a></h2>
+<h3 id="什么是操作系统">什么是操作系统？<a hidden class="anchor" aria-hidden="true" href="#什么是操作系统">#</a></h3>
+<ul>
+<li>
+<p><strong>操作系统（Operating System，简称 OS）是管理计算机硬件与软件资源的程序，是计算机的基石。</strong></p>
+</li>
+<li>
+<p><strong>操作系统本质上是一个运行在计算机上的软件程序 ，用于管理计算机硬件和软件资源。</strong> 举例：运行在你电脑上的所有应用程序都通过操作系统来调用系统内存以及磁盘等等硬件。</p>
+</li>
+<li>
+<p><strong>操作系统存在屏蔽了硬件层的复杂性。</strong> 操作系统就像是硬件使用的负责人，统筹着各种相关事项。</p>
+</li>
+<li>
+<p><strong>操作系统的内核（Kernel）是操作系统的核心部分，它负责系统的内存管理，硬件设备的管理，文件系统的管理以及应用程序的管理</strong>。 内核是连接应用程序和硬件的桥梁，决定着系统的性能和稳定性。</p>
+</li>
+</ul>
+<h3 id="什么是系统调用">什么是系统调用？<a hidden class="anchor" aria-hidden="true" href="#什么是系统调用">#</a></h3>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html</a></p>
+<h2 id="进程和线程">进程和线程<a hidden class="anchor" aria-hidden="true" href="#进程和线程">#</a></h2>
+<h3 id="进程和线程的区别">进程和线程的区别？<a hidden class="anchor" aria-hidden="true" href="#进程和线程的区别">#</a></h3>
+<ol>
+<li><strong>拥有资源不同</strong>，进程是资源分配的基本单位，但是线程不拥有资源，线程可以访问隶属进程的资源。</li>
+<li><strong>调度不同</strong>，线程是独立调度的基本单位，在同一进程中，线程的切换不会引起进程切换，从一个进程中的线程切换到另一个进程中的线程时，会引起进程切换。</li>
+<li><strong>系统开销不同</strong>，由于创建或撤销进程时，系统都要为之分配或回收资源，如内存空间、I/O 设备等，所付出的开销远大于创建或撤销线程时的开销。类似地，在进行进程切换时，涉及当前执行进程 CPU 环境的保存及新调度进程 CPU 环境的设置，而线程切换时只需保存和设置少量寄存器内容，开销很小。</li>
+<li><strong>通信方面不同</strong>，线程间可以通过直接读写同一进程中的数据进行通信，但是进程通信需要借助 IPC。</li>
+</ol>
+<h3 id="进程有哪几种状态">进程有哪几种状态？<a hidden class="anchor" aria-hidden="true" href="#进程有哪几种状态">#</a></h3>
+<p>共5种状态：</p>
+<ul>
+<li>
+<p><strong>创建状态(new)</strong> ：进程正在被创建，尚未到就绪状态。</p>
+</li>
+<li>
+<p><strong>就绪状态(ready)</strong> ：进程已处于准备运行状态，即进程获得了除了处理器之外的一切所需资源，一旦得到处理器资源(处理器分配的时间片)即可运行。</p>
+</li>
+<li>
+<p><strong>运行状态(running)</strong> ：进程正在处理器上上运行(单核 CPU 下任意时刻只有一个进程处于运行状态)。</p>
+</li>
+<li>
+<p><strong>阻塞状态(waiting)</strong> ：又称为等待状态，进程正在等待某一事件而暂停运行如等待某资源为可用或等待 IO 操作完成。即使处理器空闲，该进程也不能运行。</p>
+</li>
+<li>
+<p><strong>结束状态(terminated)</strong> ：进程正在从系统中消失。可能是进程正常结束或其他原因中断退出运行。</p>
+</li>
+</ul>
+<p>如图：</p>
+<p><img loading="lazy" src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/d38202593012b457debbcd74994c6292.png" alt="process-state"  />
+</p>
+<h3 id="进程间的通信常见的的有哪几种方式">进程间的通信常见的的有哪几种方式？<a hidden class="anchor" aria-hidden="true" href="#进程间的通信常见的的有哪几种方式">#</a></h3>
+<p>大概有 7 种常见的进程间的通信方式</p>
+<ul>
+<li>
+<p><strong>管道/匿名管道(Pipes)</strong> ：用于具有亲缘关系的父子进程间或者兄弟进程之间的通信。</p>
+</li>
+<li>
+<p><strong>有名管道(Named Pipes)</strong> : 匿名管道由于没有名字，只能用于亲缘关系的进程间通信。为了克服这个缺点，提出了有名管道。有名管道严格遵循<strong>先进先出(first in first out)</strong>。有名管道以磁盘文件的方式存在，可以实现本机任意两个进程通信。</p>
+</li>
+<li>
+<p><strong>信号(Signal)</strong> ：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生；</p>
+</li>
+<li>
+<p><strong>消息队列(Message Queuing)</strong> ：消息队列是消息的链表,具有特定的格式,存放在内存中并由消息队列标识符标识。管道和消息队列的通信数据都是先进先出的原则。与管道（无名管道：只存在于内存中的文件；命名管道：存在于实际的磁盘介质或者文件系统）不同的是消息队列存放在内核中，只有在内核重启(即，操作系统重启)或者显式地删除一个消息队列时，该消息队列才会被真正的删除。消息队列可以实现消息的随机查询,消息不一定要以先进先出的次序读取,也可以按消息的类型读取.比 FIFO 更有优势。<strong>消息队列克服了信号承载信息量少，管道只能承载无格式字 节流以及缓冲区大小受限等缺点。</strong></p>
+</li>
+<li>
+<p><strong>信号量(Semaphores)</strong> ：信号量是一个计数器，用于多进程对共享数据的访问，信号量的意图在于进程间同步。这种通信方式主要用于解决与同步相关的问题并避免竞争条件。</p>
+</li>
+<li>
+<p><strong>共享内存(Shared memory)</strong> ：使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等。可以说这是最有用的进程间通信方式。</p>
+</li>
+<li>
+<p><strong>套接字(Sockets)</strong> : 此方法主要用于在客户端和服务器之间通过网络进行通信。套接字是支持 TCP/IP 的网络通信的基本操作单元，可以看做是不同主机之间的进程进行双向通信的端点，简单的说就是通信的两方的一种约定，用套接字中的相关函数来完成通信过程。</p>
+</li>
+</ul>
+<h3 id="线程间的同步的方式有哪些呢">线程间的同步的方式有哪些呢？<a hidden class="anchor" aria-hidden="true" href="#线程间的同步的方式有哪些呢">#</a></h3>
+<p>线程同步是两个或多个共享关键资源的线程的并发执行。应该同步线程以避免关键的资源使用冲突。操作系统一般有下面三种线程同步的方式：</p>
+<ol>
+<li><strong>互斥量(Mutex)</strong>：采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。比如 Java 中的 synchronized 关键词和各种 Lock 都是这种机制。</li>
+<li><strong>信号量(Semaphore)</strong> ：它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+<li><strong>事件(Event)</strong> :Wait/Notify：通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。</li>
+</ol>
+<h3 id="操作系统中进程的调度算法有哪些">操作系统中进程的调度算法有哪些？<a hidden class="anchor" aria-hidden="true" href="#操作系统中进程的调度算法有哪些">#</a></h3>
+<p>为了确定首先执行哪个进程以及最后执行哪个进程以实现最大 CPU 利用率，计算机科学家已经定义了一些算法，它们是：</p>
+<ul>
+<li><strong>先到先服务(FCFS)调度算法</strong> : 从就绪队列中选择一个最先进入该队列的进程为之分配资源，使它立即执行并一直执行到完成或发生某事件而被阻塞放弃占用 CPU 时再重新调度。</li>
+<li><strong>短作业优先(SJF)的调度算法</strong> : 从就绪队列中选出一个估计运行时间最短的进程为之分配资源，使它立即执行并一直执行到完成或发生某事件而被阻塞放弃占用 CPU 时再重新调度。</li>
+<li><strong>时间片轮转调度算法</strong> : 时间片轮转调度是一种最古老，最简单，最公平且使用最广的算法，又称 RR(Round robin)调度。每个进程被分配一个时间段，称作它的时间片，即该进程允许运行的时间。</li>
+<li><strong>多级反馈队列调度算法</strong> ：前面介绍的几种进程调度的算法都有一定的局限性。如<strong>短进程优先的调度算法，仅照顾了短进程而忽略了长进程</strong> 。多级反馈队列调度算法既能使高优先级的作业得到响应又能使短作业（进程）迅速完成。，因而它是目前<strong>被公认的一种较好的进程调度算法</strong>，UNIX 操作系统采取的便是这种调度算法。</li>
+<li><strong>优先级调度</strong> ： 为每个流程分配优先级，首先执行具有最高优先级的进程，依此类推。具有相同优先级的进程以 FCFS 方式执行。可以根据内存要求，时间要求或任何其他资源要求来确定优先级。</li>
+</ul>
+<h3 id="什么是死锁">什么是死锁？<a hidden class="anchor" aria-hidden="true" href="#什么是死锁">#</a></h3>
+<p>死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去；此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。</p>
+<h3 id="产生死锁的四个必要条件是什么">产生死锁的四个必要条件是什么？<a hidden class="anchor" aria-hidden="true" href="#产生死锁的四个必要条件是什么">#</a></h3>
+<ul>
+<li>
+<p><strong>互斥</strong>：资源必须处于非共享模式，即一次只有一个进程可以使用。如果另一进程申请该资源，那么必须等待直到该资源被释放为止。</p>
+</li>
+<li>
+<p><strong>占有并等待</strong>：一个进程至少应该占有一个资源，并等待另一资源，而该资源被其他进程所占有。</p>
+</li>
+<li>
+<p><strong>非抢占</strong>：资源不能被抢占。只能在持有资源的进程完成任务后，该资源才会被释放。</p>
+</li>
+<li>
+<p><strong>循环等待</strong>：有一组等待进程 <code>{P0, P1, P2}</code>， <code>P0</code> 等待的资源被 <code>P1</code> 占有，<code>P1</code> 等待的资源被 <code>P2</code> 占有，<code>P2</code> 等待的资源被 <code>P0</code> 占有。</p>
+</li>
+</ul>
+<h3 id="怎么解决死锁">怎么解决死锁？<a hidden class="anchor" aria-hidden="true" href="#怎么解决死锁">#</a></h3>
+<p>解决死锁的方法可以从多个角度去分析，一般的情况下，有<strong>预防，避免，检测和解除四种</strong>。</p>
+<ul>
+<li><strong>预防</strong> 是采用某种策略，<strong>限制并发进程对资源的请求</strong>，从而使得死锁的必要条件在系统执行的任何时间上都不满足。</li>
+<li><strong>避免</strong>则是系统在分配资源时，根据资源的使用情况<strong>提前做出预测</strong>，从而<strong>避免死锁的发生</strong></li>
+<li><strong>检测</strong>是指系统设有<strong>专门的机构</strong>，当死锁发生时，该机构能够检测死锁的发生，并精确地确定与死锁有关的进程和资源。</li>
+<li><strong>解除</strong> 是与检测相配套的一种措施，用于<strong>将进程从死锁状态下解脱出来</strong>。</li>
+</ul>
+<h4 id="死锁如何预防">死锁如何预防？<a hidden class="anchor" aria-hidden="true" href="#死锁如何预防">#</a></h4>
+<p><strong>破坏</strong> 死锁产生的四个必要条件之一就可以成功 <strong>预防系统发生死锁</strong></p>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E6%96%B9%E6%B3%95">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E6%96%B9%E6%B3%95</a></p>
+<p>第二种方法换成顺序资源分配法</p>
+<p><strong>顺序资源分配法</strong>：首先给系统中的资源编号，规定每个进程必须按编号递增的顺序请求资源，同类资源一次申请完。也就是说，只要进程提出申请分配资源R;，则该进程在以后的资源申请中就只能申请编号大于 R的资源。</p>
+<h4 id="死锁如何避免">死锁如何避免？<a hidden class="anchor" aria-hidden="true" href="#死锁如何避免">#</a></h4>
+<p>死锁的预防会导致 <strong>低效的进程运行</strong> 和 <strong>资源使用率</strong> 。而死锁的避免相反，它的角度是允许系统中<strong>同时存在四个必要条件</strong> ，只要掌握并发进程中与每个进程有关的资源动态申请情况，做出 <strong>明智和合理的选择</strong> ，仍然可以避免死锁，因为四大条件仅仅是产生死锁的必要条件。</p>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E6%96%B9%E6%B3%95">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E6%96%B9%E6%B3%95</a></p>
+<p><a href="http://www.cyc2018.xyz/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E6%AD%BB%E9%94%81.html#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D">http://www.cyc2018.xyz/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E6%AD%BB%E9%94%81.html#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D</a></p>
+<h4 id="死锁如何检测">死锁如何检测？<a hidden class="anchor" aria-hidden="true" href="#死锁如何检测">#</a></h4>
+<p>对资源的分配加以限制可以 <strong>预防和避免</strong> 死锁的发生，但是都不利于各进程对系统资源的<strong>充分共享</strong>。解决死锁问题的另一条途径是 <strong>死锁检测和解除</strong>。这种方法对资源的分配不加以任何限制，也不采取死锁避免措施，但系统 <strong>定时地运行一个 “死锁检测”</strong> 的程序，判断系统内是否出现死锁，如果检测到系统发生了死锁，再采取措施去解除它。</p>
+<p>具体操作见王道操作系统</p>
+<h4 id="死锁如何解除">死锁如何解除？<a hidden class="anchor" aria-hidden="true" href="#死锁如何解除">#</a></h4>
+<p>当死锁检测程序检测到存在死锁发生时，应设法让其解除，让系统从死锁状态中恢复过来，常用的解除死锁的方法有以下四种：</p>
+<ol>
+<li><strong>立即结束所有进程的执行，重新启动操作系统</strong> ：这种方法简单，但以前所在的工作全部作废，损失很大。</li>
+<li><strong>撤销涉及死锁的所有进程，解除死锁后继续运行</strong> ：这种方法能彻底打破<strong>死锁的循环等待</strong>条件，但将付出很大代价，例如有些进程可能已经计算了很长时间，由于被撤销而使产生的部分结果也被消除了，再重新执行时还要再次进行计算。</li>
+<li><strong>逐个撤销涉及死锁的进程，回收其资源直至死锁解除。</strong></li>
+<li><strong>抢占资源</strong> ：从涉及死锁的一个或几个进程中抢占资源，把夺得的资源再分配给涉及死锁的进程直至死锁解除。</li>
+</ol>
+<h2 id="操作系统内存管理基础">操作系统内存管理基础<a hidden class="anchor" aria-hidden="true" href="#操作系统内存管理基础">#</a></h2>
+<h3 id="操作系统的内存管理主要是做什么">操作系统的内存管理主要是做什么？<a hidden class="anchor" aria-hidden="true" href="#操作系统的内存管理主要是做什么">#</a></h3>
+<p>操作系统的内存管理主要负责内存的分配与回收（malloc 函数：申请内存，free 函数：释放内存），另外地址转换也就是将逻辑地址转换成相应的物理地址等功能也是操作系统内存管理做的事情。</p>
+<h3 id="操作系统的内存管理机制了解吗内存管理有哪几种方式">操作系统的内存管理机制了解吗？内存管理有哪几种方式？<a hidden class="anchor" aria-hidden="true" href="#操作系统的内存管理机制了解吗内存管理有哪几种方式">#</a></h3>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D</a></p>
+<p>注意看下流程</p>
+<h3 id="快表和多级页表是什么">快表和多级页表是什么？<a hidden class="anchor" aria-hidden="true" href="#快表和多级页表是什么">#</a></h3>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D</a></p>
+<p>注意看下流程</p>
+<h3 id="分页机制和分段机制有哪些共同点和区别呢">分页机制和分段机制有哪些共同点和区别呢？<a hidden class="anchor" aria-hidden="true" href="#分页机制和分段机制有哪些共同点和区别呢">#</a></h3>
+<ol>
+<li>共同点
+<ul>
+<li>分页机制和分段机制都是为了提高内存利用率，减少内存碎片。</li>
+<li>页和段都是离散存储的，所以两者都是离散分配内存的方式。但是，每个页和段中的内存是连续的。</li>
+</ul>
+</li>
+<li>区别
+<ul>
+<li>页的大小是固定的，由操作系统决定；而段的大小不固定，取决于我们当前运行的程序。</li>
+<li>分页仅仅是为了满足操作系统内存管理的需求，而段是逻辑信息的单位，在程序中可以体现为代码段，数据段，能够更好满足用户的需要。</li>
+</ul>
+</li>
+</ol>
+<h3 id="逻辑地址和物理地址是什么">逻辑地址和物理地址是什么？<a hidden class="anchor" aria-hidden="true" href="#逻辑地址和物理地址是什么">#</a></h3>
+<p>我们编程一般只有可能和逻辑地址打交道，比如在 C 语言中，指针里面存储的数值就可以理解成为内存里的一个地址，这个地址也就是我们说的逻辑地址，逻辑地址由操作系统决定。物理地址指的是真实物理内存中地址，更具体一点来说就是内存地址寄存器中的地址。物理地址是内存单元真正的地址。</p>
+<h3 id="cpu-寻址是什么为什么需要虚拟地址空间">CPU 寻址是什么？为什么需要虚拟地址空间？<a hidden class="anchor" aria-hidden="true" href="#cpu-寻址是什么为什么需要虚拟地址空间">#</a></h3>
+<h4 id="为什么要有虚拟地址空间呢">为什么要有虚拟地址空间呢？<a hidden class="anchor" aria-hidden="true" href="#为什么要有虚拟地址空间呢">#</a></h4>
+<p>都见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D</a></p>
+<p>和其他书籍，这个说的不是很好，可以看一下所有流程</p>
+<h3 id="什么是虚拟内存">什么是虚拟内存？<a hidden class="anchor" aria-hidden="true" href="#什么是虚拟内存">#</a></h3>
+<p>这个在我们平时使用电脑特别是 Windows 系统的时候太常见了。很多时候我们使用了很多占内存的软件，这些软件占用的内存可能已经远远超出了我们电脑本身具有的物理内存。<strong>为什么可以这样呢？</strong> 正是因为 <strong>虚拟内存</strong> 的存在，通过 <strong>虚拟内存</strong> 可以让程序拥有超过系统物理内存大小的可用内存空间。另外，<strong>虚拟内存为每个进程提供了一个一致的、私有的地址空间，它让每个进程产生了一种自己在独享主存的错觉（每个进程拥有一片连续完整的内存空间）</strong>。这样会更加有效地管理内存并减少出错。</p>
+<p><strong>虚拟内存</strong>是计算机系统内存管理的一种技术，我们可以手动设置自己电脑的虚拟内存。不要单纯认为虚拟内存只是“使用硬盘空间来扩展内存“的技术。<strong>虚拟内存的重要意义是它定义了一个连续的虚拟地址空间</strong>，并且 <strong>把内存扩展到硬盘空间</strong>。</p>
+<h3 id="局部性原理是什么">局部性原理是什么？<a hidden class="anchor" aria-hidden="true" href="#局部性原理是什么">#</a></h3>
+<p>局部性原理表现在以下两个方面：</p>
+<ol>
+<li><strong>时间局部性</strong> ：如果程序中的某条指令一旦执行，不久以后该指令可能再次执行；如果某数据被访问过，不久以后该数据可能再次被访问。产生时间局部性的典型原因，是由于在程序中存在着大量的循环操作。</li>
+<li><strong>空间局部性</strong> ：一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问，即程序在一段时间内所访问的地址，可能集中在一定的范围之内，这是因为指令通常是顺序存放、顺序执行的，数据也一般是以向量、数组、表等形式簇聚存储的。</li>
+</ol>
+<h3 id="虚拟内存技术是怎么实现的">虚拟内存技术是怎么实现的？<a hidden class="anchor" aria-hidden="true" href="#虚拟内存技术是怎么实现的">#</a></h3>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D</a></p>
+<h3 id="页面置换算法的作用常见的页面置换算法有哪些">页面置换算法的作用？常见的页面置换算法有哪些？<a hidden class="anchor" aria-hidden="true" href="#页面置换算法的作用常见的页面置换算法有哪些">#</a></h3>
+<p>见：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D">https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D</a></p>
+<h1 id="数据库">数据库<a hidden class="anchor" aria-hidden="true" href="#数据库">#</a></h1>
+<h2 id="基础-2">基础<a hidden class="anchor" aria-hidden="true" href="#基础-2">#</a></h2>
+<h3 id="什么是数据库-数据库管理系统-数据库系统-数据库管理员">什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员？<a hidden class="anchor" aria-hidden="true" href="#什么是数据库-数据库管理系统-数据库系统-数据库管理员">#</a></h3>
+<ul>
+<li>
+<p><strong>数据库</strong> : 数据库(DataBase 简称 DB)就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。</p>
+</li>
+<li>
+<p><strong>数据库管理系统</strong> : 数据库管理系统(Database Management System 简称 DBMS)是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。</p>
+</li>
+<li>
+<p><strong>数据库系统</strong> : 数据库系统(Data Base System，简称 DBS)通常由软件、数据库和数据管理员(DBA)组成。</p>
+</li>
+<li>
+<p><strong>数据库管理员</strong> : 数据库管理员(Database Administrator, 简称 DBA)负责全面管理和控制数据库系统。</p>
+</li>
+</ul>
+<h3 id="什么是元组-码-候选码-主码-外码-主属性-非主属性">什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？<a hidden class="anchor" aria-hidden="true" href="#什么是元组-码-候选码-主码-外码-主属性-非主属性">#</a></h3>
+<ul>
+<li>
+<p><strong>元组</strong> ： 元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。 在二维表里，元组也称为行。</p>
+</li>
+<li>
+<p><strong>码</strong> ：码就是能唯一标识实体的属性，对应表中的列。</p>
+</li>
+<li>
+<p><strong>候选码</strong> ： 若关系中的某一属性或属性组的值能唯一的标识一个元组，而其任何、子集都不能再标识，则称该属性组为候选码。例如：在学生实体中，“学号”是能唯一的区分学生实体的，同时又假设“姓名”、“班级”的属性组合足以区分学生实体，那么{学号}和{姓名，班级}都是候选码。</p>
+</li>
+<li>
+<p><strong>主码</strong> : 主码也叫主键。主码是从候选码中选出来的。 一个实体集中只能有一个主码，但可以有多个候选码。</p>
+</li>
+<li>
+<p><strong>外码</strong> : 外码也叫外键。如果一个关系中的一个属性是另外一个关系中的主码则这个属性为外码。</p>
+</li>
+<li>
+<p><strong>主属性</strong> ： 候选码中出现过的属性称为主属性。比如关系 工人（工号，身份证号，姓名，性别，部门）. 显然工号和身份证号都能够唯一标示这个关系，所以都是候选码。工号、身份证号这两个属性就是主属性。如果主码是一个属性组，那么属性组中的属性都是主属性。</p>
+</li>
+<li>
+<p><strong>非主属性：</strong> 不包含在任何一个候选码中的属性称为非主属性。比如在关系——学生（学号，姓名，年龄，性别，班级）中，主码是“学号”，那么其他的“姓名”、“年龄”、“性别”、“班级”就都可以称为非主属性。</p>
+</li>
+</ul>
+<h3 id="什么是-er-图">什么是 ER 图？<a hidden class="anchor" aria-hidden="true" href="#什么是-er-图">#</a></h3>
+<p>见：<a href="https://javaguide.cn/database/basis.html#%E4%BB%80%E4%B9%88%E6%98%AF-er-%E5%9B%BE">https://javaguide.cn/database/basis.html#%E4%BB%80%E4%B9%88%E6%98%AF-er-%E5%9B%BE</a></p>
+<h3 id="数据库里属性的依赖是什么">数据库里属性的依赖是什么？<a hidden class="anchor" aria-hidden="true" href="#数据库里属性的依赖是什么">#</a></h3>
+<ul>
+<li><strong>函数依赖（functional dependency）</strong> ：若在一张表中，在属性（或属性组）X 的值确定的情况下，必定能确定属性 Y 的值，那么就可以说 Y 函数依赖于 X，写作 X → Y。</li>
+<li><strong>部分函数依赖（partial functional dependency）</strong> ：如果 X→Y，并且存在 X 的一个真子集 X0，使得 X0→Y，则称 Y 对 X 部分函数依赖。比如学生基本信息表 R 中（学号，身份证号，姓名）当然学号属性取值是唯一的，在 R 关系中，（学号，身份证号）-&gt;（姓名），（学号）-&gt;（姓名），（身份证号）-&gt;（姓名）；所以姓名部分函数依赖与（学号，身份证号）；</li>
+<li><strong>完全函数依赖(Full functional dependency)</strong> ：在一个关系中，若某个非主属性数据项依赖于全部关键字称之为完全函数依赖。比如学生基本信息表 R（学号，班级，姓名）假设不同的班级学号有相同的，班级内学号不能相同，在 R 关系中，（学号，班级）-&gt;（姓名），但是（学号）-&gt;(姓名)不成立，（班级）-&gt;(姓名)不成立，所以姓名完全函数依赖与（学号，班级）；</li>
+<li><strong>传递函数依赖</strong> ： 在关系模式 R(U)中，设 X，Y，Z 是 U 的不同的属性子集，如果 X 确定 Y、Y 确定 Z，且有 X 不包含 Y，Y 不确定 X，（X∪Y）∩Z=空集合，则称 Z 传递函数依赖(transitive functional dependency) 于 X。传递函数依赖会导致数据冗余和异常。传递函数依赖的 Y 和 Z 子集往往同属于某一个事物，因此可将其合并放到一个表中。比如在关系 R(学号 , 姓名, 系名，系主任)中，学号 → 系名，系名 → 系主任，所以存在非主属性系主任对于学号的传递函数依赖。</li>
+</ul>
+<h3 id="数据库范式是什么">数据库范式是什么？<a hidden class="anchor" aria-hidden="true" href="#数据库范式是什么">#</a></h3>
+<p>数据库范式有 3 种：</p>
+<ul>
+<li>1NF(第一范式)：属性不可再分。</li>
+<li>2NF(第二范式)：1NF 的基础之上，消除了非主属性对于码的部分函数依赖。</li>
+<li>3NF(第三范式)：3NF 在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖 。</li>
+</ul>
+<h3 id="主键和外键有什么区别">主键和外键有什么区别？<a hidden class="anchor" aria-hidden="true" href="#主键和外键有什么区别">#</a></h3>
+<ul>
+<li>
+<p><strong>主键(主码)</strong> ：主键用于唯一标识一个元组，不能有重复，不允许为空。一个表只能有一个主键。</p>
+</li>
+<li>
+<p><strong>外键(外码)</strong> ：外键用来和其他表建立联系用，外键是另一表的主键，外键是可以有重复的，可以是空值。一个表可以有多个外键。</p>
+</li>
+</ul>
+<h3 id="为什么不推荐使用外键与级联">为什么不推荐使用外键与级联？<a hidden class="anchor" aria-hidden="true" href="#为什么不推荐使用外键与级联">#</a></h3>
+<ol>
+<li><strong>增加了复杂性：</strong> a. 每次做 DELETE 或者 UPDATE 都必须考虑外键约束，会导致开发的时候很痛苦, 测试数据极为不方便; b. 外键的主从关系是定的，假如那天需求有变化，数据库中的这个字段根本不需要和其他表有关联的话就会增加很多麻烦。</li>
+<li><strong>增加了额外工作</strong>： 数据库需要增加维护外键的工作，比如当我们做一些涉及外键字段的增，删，更新操作之后，需要触发相关操作去检查，保证数据的的一致性和正确性，这样会不得不消耗资源；（个人觉得这个不是不用外键的原因，因为即使你不使用外键，你在应用层面也还是要保证的。所以，我觉得这个影响可以忽略不计。）</li>
+<li><strong>对分库分表不友好</strong> ：因为分库分表下外键是无法生效的。</li>
+</ol>
+<h3 id="什么是存储过程">什么是存储过程？<a hidden class="anchor" aria-hidden="true" href="#什么是存储过程">#</a></h3>
+<p>存储过程可以看成是对一系列 SQL 操作的批处理。</p>
+<p>使用存储过程的好处：</p>
+<ul>
+<li>代码封装，保证了一定的安全性；</li>
+<li>代码复用；</li>
+<li>由于是预先编译，因此具有很高的性能。</li>
+</ul>
+<p>存储过程在互联网公司应用不多，因为存储过程难以调试和扩展，而且没有移植性，还会消耗数据库资源。</p>
+<h3 id="dropdelete-与-truncate-区别">drop、delete 与 truncate 区别？<a hidden class="anchor" aria-hidden="true" href="#dropdelete-与-truncate-区别">#</a></h3>
+<h4 id="用法不同">用法不同<a hidden class="anchor" aria-hidden="true" href="#用法不同">#</a></h4>
+<ul>
+<li><code>drop</code>(丢弃数据): <code>drop table 表名</code> ，直接将表都删除掉，在删除表的时候使用。</li>
+<li><code>truncate</code> (清空数据) : <code>truncate table 表名</code> ，只删除表中的数据，再插入数据的时候自增长 id 又从 1 开始，在清空表中数据的时候使用。</li>
+<li><code>delete</code>（删除数据） : <code>delete from 表名 where 列名=值</code>，删除某一行的数据，如果不加 <code>where</code> 子句和<code>truncate table 表名</code>作用类似。</li>
+</ul>
+<p><code>truncate</code> 和不带 where``子句的 <code>delete</code>、以及 <code>drop</code> 都会删除表内的数据，但是 <strong><code>truncate</code> 和 <code>delete</code> 只删除数据不删除表的结构(定义)，执行 <code>drop</code> 语句，此表的结构也会删除，也就是执行 <code>drop</code> 之后对应的表不复存在。</strong></p>
+<h4 id="属于不同的数据库语言">属于不同的数据库语言<a hidden class="anchor" aria-hidden="true" href="#属于不同的数据库语言">#</a></h4>
+<p><code>truncate</code> 和 <code>drop</code> 属于 DDL(数据定义语言)语句，操作立即生效，原数据不放到 rollback segment 中，不能回滚，操作不触发 trigger。而 <code>delete</code> 语句是 DML (数据库操作语言)语句，这个操作会放到 rollback segement 中，事务提交之后才生效。</p>
+<p><strong>DML 语句和 DDL 语句区别：</strong></p>
+<ul>
+<li>DML 是数据库操作语言（Data Manipulation Language）的缩写，是指对数据库中表记录的操作，主要包括表记录的插入、更新、删除和查询，是开发人员日常使用最频繁的操作。</li>
+<li>DDL （Data Definition Language）是数据定义语言的缩写，简单来说，就是对数据库内部的对象进行创建、删除、修改的操作语言。它和 DML 语言的最大区别是 DML 只是对表内部数据的操作，而不涉及到表的定义、结构的修改，更不会涉及到其他对象。DDL 语句更多的被数据库管理员（DBA）所使用，一般的开发人员很少使用。</li>
+</ul>
+<p>另外，由于<code>select</code>不会对表进行破坏，所以有的地方也会把<code>select</code>单独区分开叫做数据库查询语言 DQL（Data Query Language）。</p>
+<h4 id="执行速度不同">执行速度不同<a hidden class="anchor" aria-hidden="true" href="#执行速度不同">#</a></h4>
+<p>一般来说：<code>drop</code> &gt; <code>truncate</code> &gt; <code>delete</code>（这个我没有设计测试过）。</p>
+<ul>
+<li><code>delete</code>命令执行的时候会产生数据库的<code>binlog</code>日志，而日志记录是需要消耗时间的，但是也有个好处方便数据回滚恢复。</li>
+<li><code>truncate</code>命令执行的时候不会产生数据库日志，因此比<code>delete</code>要快。除此之外，还会把表的自增值重置和索引恢复到初始大小等。</li>
+<li><code>drop</code>命令会把表占用的空间全部释放掉。</li>
+</ul>
+<h3 id="数据库设计通常分为哪几步">数据库设计通常分为哪几步？<a hidden class="anchor" aria-hidden="true" href="#数据库设计通常分为哪几步">#</a></h3>
+<ol>
+<li>
+<p><strong>需求分析</strong> : 分析用户的需求，包括数据、功能和性能需求。</p>
+</li>
+<li>
+<p><strong>概念结构设计</strong> : 主要采用 E-R 模型进行设计，包括画 E-R 图。</p>
+</li>
+<li>
+<p><strong>逻辑结构设计</strong> : 通过将 E-R 图转换成表，实现从 E-R 模型到关系模型的转换。</p>
+</li>
+<li>
+<p><strong>物理结构设计</strong> : 主要是为所设计的数据库选择合适的存储结构和存取路径。</p>
+</li>
+<li>
+<p><strong>数据库实施</strong> : 包括编程、测试和试运行</p>
+</li>
+<li>
+<p><strong>数据库的运行和维护</strong> : 系统的运行与数据库的日常维护。</p>
+</li>
+</ol>
+<h1 id="mysql">MySQL<a hidden class="anchor" aria-hidden="true" href="#mysql">#</a></h1>
+<h2 id="基础-3">基础<a hidden class="anchor" aria-hidden="true" href="#基础-3">#</a></h2>
+<h3 id="什么是关系型数据库">什么是关系型数据库？<a hidden class="anchor" aria-hidden="true" href="#什么是关系型数据库">#</a></h3>
+<p>关系型数据库（RDBMS，Relational Database Management System）就是一种建立在关系模型的基础上的数据库。关系模型表明了数据库中所存储的数据之间的联系（一对一、一对多、多对多）。</p>
+<h3 id="什么是-sql">什么是 SQL？<a hidden class="anchor" aria-hidden="true" href="#什么是-sql">#</a></h3>
+<p>SQL 是一种结构化查询语言(Structured Query Language)，专门用来与数据库打交道，目的是提供一种从数据库中读写数据的简单有效的方法。</p>
+<h3 id="什么是-mysql">什么是 MySQL？<a hidden class="anchor" aria-hidden="true" href="#什么是-mysql">#</a></h3>
+<p>MySQL 是一种关系型数据库，主要用于持久化存储我们的系统中的一些数据比如用户信息。</p>
+<h3 id="mysql-有什么优点">MySQL 有什么优点？<a hidden class="anchor" aria-hidden="true" href="#mysql-有什么优点">#</a></h3>
+<p>MySQL 主要具有下面这些优点：</p>
+<ol>
+<li>成熟稳定，功能完善。</li>
+<li>开源免费。</li>
+<li>文档丰富，既有详细的官方文档，又有非常多优质文章可供参考学习。</li>
+<li>开箱即用，操作简单，维护成本低。</li>
+<li>兼容性好，支持常见的操作系统，支持多种开发语言。</li>
+<li>社区活跃，生态完善。</li>
+<li>事务支持优秀， InnoDB 存储引擎默认使用 REPEATABLE-READ 并不会有任何性能损失，并且，InnoDB 实现的 REPEATABLE-READ 隔离级别其实是可以解决幻读问题发生的。</li>
+<li>支持分库分表、读写分离、高可用。</li>
+</ol>
+<h2 id="mysql-基础架构">MySQL 基础架构<a hidden class="anchor" aria-hidden="true" href="#mysql-基础架构">#</a></h2>
+<p><img loading="lazy" src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/javaguide/13526879-3037b144ed09eb88.png" alt="img"  />
+</p>
+<ul>
+<li>
+<p><strong>连接器：</strong> 身份认证和权限相关(登录 MySQL 的时候)。</p>
+</li>
+<li>
+<p><strong>查询缓存：</strong> 执行查询语句的时候，会先查询缓存（MySQL 8.0 版本后移除，因为这个功能不太实用）。</p>
+</li>
+<li>
+<p><strong>分析器：</strong> 没有命中缓存的话，SQL 语句就会经过分析器，分析器说白了就是要先看你的 SQL 语句要干嘛，再检查你的 SQL 语句语法是否正确。</p>
+</li>
+<li>
+<p><strong>优化器：</strong> 按照 MySQL 认为最优的方案去执行。</p>
+</li>
+<li>
+<p><strong>执行器：</strong> 执行语句，然后从存储引擎返回数据。</p>
+</li>
+</ul>
+<p>简单来说 MySQL 主要分为 Server 层和存储引擎层：</p>
+<ul>
+<li><strong>Server 层</strong>：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binlog 日志模块。</li>
+<li><strong>存储引擎</strong>： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolog 模块。<strong>现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5 版本开始就被当做默认存储引擎了。</strong></li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>
+<p>MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（binlog），这个日志模块所有执行引擎都可以共用，redolog 只有 InnoDB 有。</p>
+</li>
+<li>
+<p>引擎层是插件式的，目前主要包括，MyISAM,InnoDB,Memory 等。</p>
+</li>
+</ul>
+<p>详见：<a href="https://javaguide.cn/database/mysql/how-sql-executed-in-mysql.html#_1-2-server-%E5%B1%82%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D">https://javaguide.cn/database/mysql/how-sql-executed-in-mysql.html#_1-2-server-%E5%B1%82%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D</a></p>
+<h3 id="一个-sql-语句在-mysql-中的执行流程">一个 SQL 语句在 MySQL 中的执行流程<a hidden class="anchor" aria-hidden="true" href="#一个-sql-语句在-mysql-中的执行流程">#</a></h3>
+<ul>
+<li>
+<p>查询语句的执行流程如下：连接器权限校验（如果命中缓存）&mdash;&gt;查询缓存&mdash;&gt;分析器&mdash;&gt;优化器&mdash;&gt;权限校验&mdash;&gt;执行器&mdash;&gt;引擎</p>
+</li>
+<li>
+<p>更新语句执行流程如下：连接器权限校验&mdash;-&gt;分析器&mdash;-&gt;权限校验&mdash;-&gt;执行器&mdash;&gt;引擎&mdash;redo log(prepare 状态)&mdash;&gt;binlog&mdash;&gt;redo log(commit状态)</p>
+</li>
+</ul>
+<p>详见：<a href="https://javaguide.cn/database/mysql/how-sql-executed-in-mysql.html#_1-2-server-%E5%B1%82%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D">https://javaguide.cn/database/mysql/how-sql-executed-in-mysql.html#_1-2-server-%E5%B1%82%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D</a></p>
+<h2 id="mysql存储引擎">MySQL存储引擎<a hidden class="anchor" aria-hidden="true" href="#mysql存储引擎">#</a></h2>
+<h3 id="mysql-存储引擎架构了解吗">MySQL 存储引擎架构了解吗？<a hidden class="anchor" aria-hidden="true" href="#mysql-存储引擎架构了解吗">#</a></h3>
+<p>MySQL 存储引擎采用的是 <strong>插件式架构</strong> ，支持多种存储引擎，我们甚至可以为不同的数据库表设置不同的存储引擎以适应不同场景的需要。<strong>存储引擎是基于表的，而不是数据库。</strong></p>
+<h3 id="myisam-和-innodb-有什么区别">MyISAM 和 InnoDB 有什么区别？<a hidden class="anchor" aria-hidden="true" href="#myisam-和-innodb-有什么区别">#</a></h3>
+<ul>
+<li>
+<p>InnoDB 支持行级别的锁粒度，MyISAM 不支持，只支持表级别的锁粒度。</p>
+</li>
+<li>
+<p>MyISAM 不提供事务支持。InnoDB 提供事务支持，实现了 SQL 标准定义了四个隔离级别。</p>
+</li>
+<li>
+<p>MyISAM 不支持外键，而 InnoDB 支持。</p>
+</li>
+<li>
+<p>MyISAM 不支持 MVVC，而 InnoDB 支持。</p>
+</li>
+<li>
+<p>虽然 MyISAM 引擎和 InnoDB 引擎都是使用 B+Tree 作为索引结构，但是两者的实现方式不太一样。</p>
+</li>
+<li>
+<p>MyISAM 不支持数据库异常崩溃后的安全恢复，而 InnoDB 支持。</p>
+</li>
+<li>
+<p>InnoDB 的性能比 MyISAM 更强大。</p>
+</li>
+</ul>
+<h3 id="myisam-和-innodb-如何选择">MyISAM 和 InnoDB 如何选择？<a hidden class="anchor" aria-hidden="true" href="#myisam-和-innodb-如何选择">#</a></h3>
+<p>大多数时候我们使用的都是 InnoDB 存储引擎，在某些读密集的情况下，使用 MyISAM 也是合适的。不过，前提是你的项目不介意 MyISAM 不支持事务、崩溃恢复等缺点</p>
+<h2 id="mysql日志">MySQL日志<a hidden class="anchor" aria-hidden="true" href="#mysql日志">#</a></h2>
+<p>日志分为redo log、undo log、bin log</p>
+<h3 id="redo-log">redo log<a hidden class="anchor" aria-hidden="true" href="#redo-log">#</a></h3>
+<p>redo log（重做日志）是InnoDB存储引擎独有的，它让MySQL拥有了崩溃恢复能力（即crash-safe）。</p>
+<p>每条 redo 记录由“表空间号+数据页号+偏移量+修改数据长度+具体修改的数据”组成。</p>
+<h4 id="刷盘时机">刷盘时机<a hidden class="anchor" aria-hidden="true" href="#刷盘时机">#</a></h4>
+<p>redo log有三种模式</p>
+<ul>
+<li>0，事务提交时，不写盘</li>
+<li>1，事务提交时，写盘</li>
+<li>2，事务提交时，将数据写到操作系统的page cache里，等待操作系统的fsync</li>
+</ul>
+<p>注意page cache之上还有一个redo log buffer，用来存储需要写盘的redo log</p>
+<p>除了事务提交时写盘，redo log还有一个后台线程每隔1 秒，就会把 redo log buffer 中的内容写到文件系统缓存（page cache），然后调用 fsync 刷盘。</p>
+<h4 id="日志文件组">日志文件组<a hidden class="anchor" aria-hidden="true" href="#日志文件组">#</a></h4>
+<p>日志文件共4个，循环在一起，如下图所示：</p>
+<p><img loading="lazy" src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/11.png" alt="img"  />
+</p>
+<p>有两个指针，write pos表示目前redo log写到哪了，checkpoint表示目前把redo log里的东西写数据到哪了</p>
+<h4 id="有功夫刷redo-log为什么不直接刷数据">有功夫刷redo log，为什么不直接刷数据？<a hidden class="anchor" aria-hidden="true" href="#有功夫刷redo-log为什么不直接刷数据">#</a></h4>
+<p>因为redo log是连续访问并且数据量小，刷写速度快，直接刷数据，是随机访问并且数据量大，刷写速度慢</p>
+<h3 id="binlog">binlog<a hidden class="anchor" aria-hidden="true" href="#binlog">#</a></h3>
+<p><code>redo log</code> 它是物理日志，记录内容是“在某个数据页上做了什么修改”，属于 <code>InnoDB</code> 存储引擎。</p>
+<p>而 <code>binlog</code> 是逻辑日志，记录内容是语句的原始逻辑，类似于“给 ID=2 这一行的 c 字段加 1”，属于<code>MySQL Server</code> 层。</p>
+<p>不管用什么存储引擎，只要发生了表数据更新，都会产生 <code>binlog</code> 日志。</p>
+<p>那 <code>binlog</code> 到底是用来干嘛的？</p>
+<p>可以说<code>MySQL</code>数据库的<strong>数据备份、主备、主主、主从</strong>都离不开<code>binlog</code>，需要依靠<code>binlog</code>来同步数据，保证数据一致性。</p>
+<h4 id="记录格式">记录格式<a hidden class="anchor" aria-hidden="true" href="#记录格式">#</a></h4>
+<p>binlog记录格式有三种</p>
+<ul>
+<li><strong>statement</strong>，sql语句原文</li>
+<li><strong>row</strong>，会将now()等函数换成具体的时间</li>
+<li><strong>mixed</strong>，上述两个东西的混合</li>
+</ul>
+<h4 id="写入机制">写入机制<a hidden class="anchor" aria-hidden="true" href="#写入机制">#</a></h4>
+<p><code>binlog</code>的写入时机也非常简单，事务执行过程中，先把日志写到<code>binlog cache</code>，事务提交的时候，再把<code>binlog cache</code>写到<code>binlog</code>文件中。</p>
+<h3 id="两阶段提交">两阶段提交<a hidden class="anchor" aria-hidden="true" href="#两阶段提交">#</a></h3>
+<p><code>redo log</code>（重做日志）让<code>InnoDB</code>存储引擎拥有了崩溃恢复能力。</p>
+<p><code>binlog</code>（归档日志）保证了<code>MySQL</code>集群架构的数据一致性。</p>
+<p>两者的写时机不一样，redo log是事务执行的同时就会写，binlog事务执行完毕才会写，那么有可能出现不一致的情况，为了解决这个问题提出了两阶段提交方案</p>
+<p>原理很简单，将<code>redo log</code>的写入拆成了两个步骤<code>prepare</code>和<code>commit</code>，这就是<strong>两阶段提交</strong>，如下所示</p>
+<p><img loading="lazy" src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234956774.png" alt="img"  />
+</p>
+<h3 id="undo-log">undo log<a hidden class="anchor" aria-hidden="true" href="#undo-log">#</a></h3>
+<p>就是记录之前的版本的集合，用链表的结构串起来，也是MVCC的基础之一</p>
+<p>有很多考点</p>
+<p>详见：<a href="https://javaguide.cn/database/mysql/mysql-logs.html">https://javaguide.cn/database/mysql/mysql-logs.html</a></p>
+<h2 id="mysql-索引">MySQL 索引<a hidden class="anchor" aria-hidden="true" href="#mysql-索引">#</a></h2>
+<h3 id="索引是什么">索引是什么<a hidden class="anchor" aria-hidden="true" href="#索引是什么">#</a></h3>
+<p>索引是一种用于快速查询和检索数据的数据结构，其本质可以看成是一种排序好的数据结构。索引的作用就相当于书的目录。MySQL一般使用B+树</p>
+<h3 id="理解">理解<a hidden class="anchor" aria-hidden="true" href="#理解">#</a></h3>
+<p>就是B+树，用来加速查找过程的，主键会自动建一个索引，也可以手动建索引，但是非主键索引是非聚簇索引，需要回表再查一次主键索引，为了避免回表，产生了覆盖索引，覆盖索引的key就是要查询的字段，联合索引符合最左前缀匹配原则</p>
+<p>有很多考点</p>
+<p>详见：<a href="https://javaguide.cn/database/mysql/mysql-index.html">https://javaguide.cn/database/mysql/mysql-index.html</a></p>
+<h3 id="索引设计">索引设计<a hidden class="anchor" aria-hidden="true" href="#索引设计">#</a></h3>
+<h2 id="mysql事务">MySQL事务<a hidden class="anchor" aria-hidden="true" href="#mysql事务">#</a></h2>
+<p>事务就是为了处理并发请求时保持数据一致性提出的解决方案，一般用ACID性质来判断事务隔离的等级</p>
+<p>并发事务会带来脏读、丢失修改、不可重复读、幻读等问题</p>
+<p>为了解决这些问题，提出了4个事务隔离级别，分别解决一个问题（实际上mysql的可重复读级别能解决幻读问题），事务隔离是通过锁和MVCC来实现的</p>
+<p>有很多考点</p>
+<p>详见：<a href="https://javaguide.cn/database/mysql/mysql-questions-01.html#mysql-%E4%BA%8B%E5%8A%A1">https://javaguide.cn/database/mysql/mysql-questions-01.html#mysql-%E4%BA%8B%E5%8A%A1</a></p>
+<h3 id="mysql事务隔离级别">MySQL事务隔离级别<a hidden class="anchor" aria-hidden="true" href="#mysql事务隔离级别">#</a></h3>
+<p>为了事务并发带来的问题，提出了4个事务隔离级别，RU、RC、RR、S</p>
+<p>mysql的RR级别能解决幻读问题，快照读用MVCC解决，当前读用临键锁来解决</p>
+<p>注意真正解决幻读问题必须用锁，因为快照读的情况下可以使用MVCC解决，当前读的情况下必须加临键锁解决</p>
+<ul>
+<li>快照读（一致性非锁定读），使用MVCC机制，读取快照</li>
+<li>当前读（一致性锁定读），使用锁机制，加S锁或者X锁，读取最新数据</li>
+</ul>
+<p>有很多考点</p>
+<p>详见：<a href="https://javaguide.cn/database/mysql/transaction-isolation-level.html">https://javaguide.cn/database/mysql/transaction-isolation-level.html</a></p>
+<h3 id="mvcc">MVCC<a hidden class="anchor" aria-hidden="true" href="#mvcc">#</a></h3>
+<p>MVCC即多版本并发控制，就是事务并发的时候保留记录的多个版本，以实现事务的各个隔离等级</p>
+<p>数据库并发的时候有三种情况，读读，读写，写写，读读不用管，写写加乐观锁或者悲观锁即可，那么读写呢？</p>
+<p>读写最开始是用加锁的方式解决的，但是加锁效率太低，所以进入了MVCC来解决读写问题，使读写的时候不需要阻塞</p>
+<p>MVCC依赖于记录的隐藏字段、undolog、readview来实现的：</p>
+<ul>
+<li>隐藏字段：包括隐含的自增ID、最近修改(修改/插入)事务ID、回滚指针、删除flag</li>
+<li>undolog：就是记录的多个版本组成的链表</li>
+<li>readview：就是一个结构体，里面包含未提交的事务id、未提交事务id的最小的id、readview生成时最大的事务id+1</li>
+</ul>
+<p>所以MVCC的流程就是第一次读取的时候生成一个readview，然后以后每次读取的时候都走这个生成的readview，具体流程就是，看读取记录隐藏字段的最后修改事务id是否大于readview生成时的最大事务id，或者最后修改事务id在生成readview时没有提交，这两种情况需要从undolog里找，否则直接读即可</p>
+<p>根据这个流程，每次读取都必定读取到第一次读取时的结果，所以可以把readview看成一个快照，所以这时候的读称为快照读</p>
+<p>基于MVCC就可以解决不可重复读和幻读问题，实现RR（可重复读）隔离等级</p>
+<p>注意RC隔离级别也会使用MVCC，但是和RR级别生成readview的时机不一样，RC级别每次都都会生成readview，RR级别只有第一次读会生成</p>
+<p>有很多考点</p>
+<p>详见：<a href="https://pdai.tech/md/db/sql-mysql/sql-mysql-mvcc.html">https://pdai.tech/md/db/sql-mysql/sql-mysql-mvcc.html</a></p>
+<h3 id="数据库事务并发控制">数据库事务并发控制<a hidden class="anchor" aria-hidden="true" href="#数据库事务并发控制">#</a></h3>
+<p>在数据库系统领域，并发控制机制主要有两种，即锁和多版本机制。</p>
+<p><strong>1.事务在加锁时有多种方式：</strong></p>
+<p><strong>一次性锁协议</strong>，事务开始时，即一次性申请所有的锁，之后不会再申请任何锁，如果其中某个锁不可用，则整个申请就不成功，事务就不会执行，在事务尾端，一次性释放所有的锁。一次性锁协议不会产生死锁的问题，但事务的并发度不高。</p>
+<p><strong>两阶段锁协议</strong>，整个事务分为两个阶段，前一个阶段为加锁，后一个阶段为解锁。在加锁阶段，事务只能加锁，也可以操作数据，但不能解锁，直到事务释放第一个锁，就进入解锁阶段，此过程中事务只能解锁，也可以操作数据，不能再加锁。两阶段锁协议使得事务具有较高的并发度，因为解锁不必发生在事务结尾。它的不足是没有解决死锁的问题，因为它在加锁阶段没有顺序要求。如两个事务分别申请了A, B锁，接着又申请对方的锁，此时进入死锁状态。</p>
+<p><strong>2.多版本机制</strong>：</p>
+<p>锁是针对集中式数据管理设计的，缺点是降低了事务的并发，并且锁本身有开销。在分布式系统，尤其是读多写少的系统中，采用多版本机制更合适。每个数据项都有多个副本，每个副本都有一个时间戳，根据多版本并发控制协议(MVCC)维护各个版本。</p>
+<h2 id="mysql锁">MySQL锁<a hidden class="anchor" aria-hidden="true" href="#mysql锁">#</a></h2>
+<p>有几种锁呢？</p>
+<ol>
+<li>按照锁的粒度划分：行锁、表锁</li>
+<li>按照锁的使用方式划分：共享锁、排它锁(悲观锁的一种实现)</li>
+<li>还有两种思想上的锁：悲观锁、乐观锁。</li>
+<li>InnoDB中有几种行级锁类型：Record Lock、Gap Lock、Next-key Lock</li>
+<li>一种特殊的锁，意向锁</li>
+</ol>
+<h3 id="行锁和表锁">行锁和表锁<a hidden class="anchor" aria-hidden="true" href="#行锁和表锁">#</a></h3>
+<p>一个锁行一个锁表，注意行级锁是锁索引的，所以如果加锁查询中where条件中字段索引失效的话就会全表扫描，导致全表上锁，然后过滤之后再解锁，而且如果查询字段是一个非聚簇索引，那么就会对该非聚簇索引和聚簇索引相应的记录都加锁，而且如果字段命中的是普通索引，会使用临键锁类型的行锁，因为普通索引会有相同的key，为了保证查询范围内的记录都不能更改（为了防止幻读），所以都得加锁，所以会使用临键锁类型的行锁</p>
+<h3 id="共享锁和排他锁">共享锁和排他锁<a hidden class="anchor" aria-hidden="true" href="#共享锁和排他锁">#</a></h3>
+<p>排他锁与任何的锁都不兼容，共享锁仅和共享锁兼容。</p>
+<h3 id="悲观锁和乐观锁">悲观锁和乐观锁<a hidden class="anchor" aria-hidden="true" href="#悲观锁和乐观锁">#</a></h3>
+<p>是思想上的东西，mysql里没有具体的实现，乐观锁读取时不加锁，写入时判断版本时候已经更新，悲观锁读取时即加锁</p>
+<h3 id="record-lock和gap-lock和next-key-lock">Record Lock和Gap Lock和Next-key Lock<a hidden class="anchor" aria-hidden="true" href="#record-lock和gap-lock和next-key-lock">#</a></h3>
+<p>Record Lock只对记录加锁，Gap Lock对间隙加锁，Next-key Lock对记录和间隙加锁，主要是为了解决幻读问题的</p>
+<p>至于到底加什么样的锁，主要看加什么样的锁能保证不会出现幻读问题，比如查询条件是唯一索引的列==一个具体的值，那么只需要对这条记录加锁（其实是对索引加锁）就可以了，但是如果是普通索引或者范围查找的话，就需要加临键锁了</p>
+<h3 id="意向锁">意向锁<a hidden class="anchor" aria-hidden="true" href="#意向锁">#</a></h3>
+<p>如果需要用到表锁的话，如何判断表中的记录没有行锁呢，一行一行遍历肯定是不行，性能太差。我们需要用到一个叫做意向锁的东东来快速判断是否可以对某个表使用表锁。</p>
+<p>意向锁是表级锁，共有两种：</p>
+<ul>
+<li><strong>意向共享锁（Intention Shared Lock，IS 锁）</strong>：事务有意向对表中的某些记录加共享锁（S 锁），加共享锁前必须先取得该表的 IS 锁。</li>
+<li><strong>意向排他锁（Intention Exclusive Lock，IX 锁）</strong>：事务有意向对表中的某些记录加排他锁（X 锁），加排他锁之前必须先取得该表的 IX 锁。</li>
+</ul>
+<p><strong>意向锁是有数据引擎自己维护的，用户无法手动操作意向锁，在为数据行加共享/排他锁之前，InooDB 会先获取该数据行所在在数据表的对应意向锁。</strong></p>
+<p>意向锁之间是互相兼容的。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IS 锁</th>
+<th>IX 锁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IS 锁</td>
+<td>兼容</td>
+<td>兼容</td>
+</tr>
+<tr>
+<td>IX 锁</td>
+<td>兼容</td>
+<td>兼容</td>
+</tr>
+</tbody>
+</table>
+<p>意向锁和共享锁和排它锁互斥（这里指的是表级别的共享锁和排他锁，意向锁不会与行级的共享锁和排他锁互斥）。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IS 锁</th>
+<th>IX 锁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S 锁</td>
+<td>兼容</td>
+<td>互斥</td>
+</tr>
+<tr>
+<td>X 锁</td>
+<td>互斥</td>
+<td>互斥</td>
+</tr>
+</tbody>
+</table>
+<p>有很多考点</p>
+<p>详见：<a href="https://javaguide.cn/database/mysql/mysql-questions-01.html#mysql-%E9%94%81">https://javaguide.cn/database/mysql/mysql-questions-01.html#mysql-%E9%94%81</a></p>
+<p><a href="https://ost.51cto.com/posts/11812">https://ost.51cto.com/posts/11812</a></p>
+<h2 id="mysql优化">MySQL优化<a hidden class="anchor" aria-hidden="true" href="#mysql优化">#</a></h2>
+<h3 id="读写分离">读写分离<a hidden class="anchor" aria-hidden="true" href="#读写分离">#</a></h3>
+<p><a href="https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html#%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB">https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html#%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB</a></p>
+<h3 id="分库分表">分库分表<a hidden class="anchor" aria-hidden="true" href="#分库分表">#</a></h3>
+<p><a href="https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html#%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8">https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html#%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8</a></p>
+<h3 id="mysql执行计划">MySQL执行计划<a hidden class="anchor" aria-hidden="true" href="#mysql执行计划">#</a></h3>
+<p><a href="https://javaguide.cn/database/mysql/mysql-query-execution-plan.html">https://javaguide.cn/database/mysql/mysql-query-execution-plan.html</a></p>
+<h2 id="mysql整体流程">MySQL整体流程<a hidden class="anchor" aria-hidden="true" href="#mysql整体流程">#</a></h2>
+<p>mysql默认隔离等级是RR，需要解决不可重复读和幻读的问题，如果是普通的select，那么由于MVCC机制就可以解决这个问题，这种读就是快照读，如果是带锁的select，就是当前读，带锁的select可以解决不可重复读的问题，但是不能解决幻读的问题，为了解决幻读问题，需要用到临键锁（记录锁+间隙锁），而且如果where条件没有命中索引的话，需要全表扫描，也就会全表加锁，如果where条件没有命中唯一索引或者查询的是个范围的话，会加临键锁，如果where条件命中唯一索引且只查找具体的记录的话，只加记录锁（更一般的说，只要是需要加锁的操作，都是这个模式）</p>
+<h1 id="redis">Redis<a hidden class="anchor" aria-hidden="true" href="#redis">#</a></h1>
+<p>直接看小林coding吧</p>
+<h2 id="数据结构">数据结构<a hidden class="anchor" aria-hidden="true" href="#数据结构">#</a></h2>
+<h3 id="redis-数据类型以及使用场景分别是什么">Redis 数据类型以及使用场景分别是什么？<a hidden class="anchor" aria-hidden="true" href="#redis-数据类型以及使用场景分别是什么">#</a></h3>
+<p>Redis有5种数据类型：String（字符串），Hash（哈希），List（列表），Set（集合）、Zset（有序集合）。</p>
+<p><img loading="lazy" src="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%85%AB%E8%82%A1%E6%96%87/key.png" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%85%AB%E8%82%A1%E6%96%87/%E4%BA%94%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" alt="img"  />
+</p>
+<p>Redis 五种数据类型的应用场景：</p>
+<ul>
+<li>String 类型的应用场景：缓存对象、常规计数、分布式锁、共享 session 信息等。</li>
+<li>List 类型的应用场景：消息队列（但是有两个问题：1. 生产者需要自行实现全局唯一 ID；2. 不能以消费组形式消费数据）等。</li>
+<li>Hash 类型：缓存对象、购物车等。</li>
+<li>Set 类型：聚合计算（并集、交集、差集）场景，比如点赞、共同关注、抽奖活动等。</li>
+<li>Zset 类型：排序场景，比如排行榜、电话和姓名排序等。</li>
+</ul>
+<h3 id="五种常见的-redis-数据类型是怎么实现">五种常见的 Redis 数据类型是怎么实现？<a hidden class="anchor" aria-hidden="true" href="#五种常见的-redis-数据类型是怎么实现">#</a></h3>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/9fa26a74965efbf0f56b707a03bb9b7f.png" alt="img"  />
+</p>
+<h4 id="string-类型">String 类型<a hidden class="anchor" aria-hidden="true" href="#string-类型">#</a></h4>
+<p>底层使用SDS数据结构，相当于封装好的字符串类型</p>
+<h4 id="list-类型">List 类型<a hidden class="anchor" aria-hidden="true" href="#list-类型">#</a></h4>
+<p>底层使用压缩列表或者双向链表，数据量小的时候使用压缩列表，不过新版本已经全部换成quicklist了</p>
+<h4 id="hash-类型">Hash 类型<a hidden class="anchor" aria-hidden="true" href="#hash-类型">#</a></h4>
+<p>底层使用压缩列表或者哈希表，数据量小的时候使用压缩列表，不过新版本压缩列表已经废弃了，换成listpack了</p>
+<h4 id="set-类型">Set 类型<a hidden class="anchor" aria-hidden="true" href="#set-类型">#</a></h4>
+<p>底层使用哈希表或者整数集合，如果数据都是整数并且数据量较小的话就用整数集合，否则用哈希表</p>
+<h4 id="zset-类型">ZSet 类型<a hidden class="anchor" aria-hidden="true" href="#zset-类型">#</a></h4>
+<p>底层使用压缩列表或者跳表，数据量小的时候使用压缩列表，不过新版本压缩列表已经废弃了，换成listpack了</p>
+<h3 id="数据结构-1">数据结构<a hidden class="anchor" aria-hidden="true" href="#数据结构-1">#</a></h3>
+<h4 id="sds">SDS<a hidden class="anchor" aria-hidden="true" href="#sds">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/516738c4058cdf9109e40a7812ef4239.png" alt="img"  />
+</p>
+<p>看图</p>
+<h4 id="压缩列表">压缩列表<a hidden class="anchor" aria-hidden="true" href="#压缩列表">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/a3b1f6235cf0587115b21312fe60289c.png" alt="img"  />
+</p>
+<p>zlbytes：占用的字节数</p>
+<p>zltail：尾结点的偏移量</p>
+<p>zllen：结点的个数</p>
+<p>zlend：结束的标识符，0xFF</p>
+<p>prevlen：前一个结点的长度，为了实现从后向前遍历</p>
+<p>encoding：当前结点的类型和长度</p>
+<p>data：当前结点的真实数据</p>
+<p>会发生连锁反应，因为压缩列表在内存中是连续的，一个结点如果修改了之后变大了，那么后一个结点的prevlen就有可能从1字节变成5字节，这样就会导致后面节点变大了，后面节点变大了又会导致后面后面的结点变大了，以此类推</p>
+<h4 id="双向链表">双向链表<a hidden class="anchor" aria-hidden="true" href="#双向链表">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/cadf797496816eb343a19c2451437f1e.png" alt="img"  />
+</p>
+<p>就是很正常的双向链表，看图</p>
+<h4 id="哈希表">哈希表<a hidden class="anchor" aria-hidden="true" href="#哈希表">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/2fedbc9cd4cb7236c302d695686dd478.png" alt="img"  />
+</p>
+<p>跟Java的map一样都是链地址法，dict里的两个ht是用来rehash的，为什么要rehash？因为随着数据量的增加，哈希桶不变的情况下，hash碰撞会越来越多，链表也越来越长，所以要适当增加哈希桶，那么就需要rehash，先在ht[1]里rehash，然后交换ht[0]和ht[1]，但是rehash阻塞太久了，所以可以采用渐进式rehash，就是redis增删改查的时候顺便给操作的元素rehash了，只要时间足够久，就能把元素全部rehash到另一个表上</p>
+<h3 id="整数集合">整数集合<a hidden class="anchor" aria-hidden="true" href="#整数集合">#</a></h3>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/e2e3e19fc934e70563fbdfde2af39a2b.png" alt="img"  />
+</p>
+<p>整数集合就是整数数组，有时候整数数组的元素类型是int，但是传进来一个long，那么就需要升级，升级的操作就是先开辟一个2倍空间的数组，然后将原元素均匀的分布在新数组上</p>
+<h3 id="跳表">跳表<a hidden class="anchor" aria-hidden="true" href="#跳表">#</a></h3>
+<p><img loading="lazy" src="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/3%E5%B1%82%E8%B7%B3%E8%A1%A8-%E8%B7%A8%E5%BA%A6.drawio.png" alt="img"  />
+</p>
+<p>普通链表查询只能从左往右找一遍，但是跳表是有顺序的，可以直接从最高层找，这样就可以加快查找速度</p>
+<p>为什么用跳表而不用平衡树？范围查找方便、内存占用少、算法实现简单</p>
+<h3 id="quicklist">quicklist<a hidden class="anchor" aria-hidden="true" href="#quicklist">#</a></h3>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/f46cbe347f65ded522f1cc3fd8dba549.png" alt="img"  />
+</p>
+<p>融合了双向链表和压缩列表</p>
+<h2 id="线程模型">线程模型<a hidden class="anchor" aria-hidden="true" href="#线程模型">#</a></h2>
+<p>redis是单线程IO多路复用</p>
+<p><img loading="lazy" src="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%85%AB%E8%82%A1%E6%96%87/redis%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.drawio.png" alt="img"  />
+</p>
+<h3 id="redis-采用单线程为什么还这么快">Redis 采用单线程为什么还这么快？<a hidden class="anchor" aria-hidden="true" href="#redis-采用单线程为什么还这么快">#</a></h3>
+<ul>
+<li>Redis 的大部分操作<strong>都在内存中完成</strong>，并且采用了高效的数据结构</li>
+<li>Redis 采用单线程模型可以<strong>避免了多线程之间的竞争</strong></li>
+<li>Redis 采用了 <strong>I/O 多路复用机制</strong>处理大量的客户端 Socket 请求</li>
+</ul>
+<h2 id="持久化">持久化<a hidden class="anchor" aria-hidden="true" href="#持久化">#</a></h2>
+<p>为了实现数据不丢失，所以redis需要持久化</p>
+<h3 id="aof">AOF<a hidden class="anchor" aria-hidden="true" href="#aof">#</a></h3>
+<p>就是把命令存到AOF文件里</p>
+<p>流程：</p>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/4eeef4dd1bedd2ffe0b84d4eaa0dbdea.png" alt="img"  />
+</p>
+<p>三种写回策略：</p>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/98987d9417b2bab43087f45fc959d32a.png" alt="img"  />
+</p>
+<p>如果AOF过大就会重写，重写的原理就是读取内存的数据，然后写到新的AOF文件里，但是这样会阻塞很久，所以有了后台重写的方案，就是开一个子进程，子进程和父进程的页表一样，所以指向同一块内存，由于写时复制技术，当一个进程修改内存时，会把该内存复制一份，所以就好像两个进程各自有一块内存，那么子进程就可以读取此时的内存并写入AOF文件中，但是注意这时候的子进程的内存是个快照，在写入AOF文件的时候，主进程依然在接受命令，所以将这些命令存到AOF重写缓冲区中，等子进程重写完AOF就把这个缓冲区的命令加到AOF文件里面，这样就保证了新AOF文件和内存数据的一致性</p>
+<h3 id="rdb">RDB<a hidden class="anchor" aria-hidden="true" href="#rdb">#</a></h3>
+<p>就是把当前的内存全量复制到RDB文件里</p>
+<p>也是用到了写时复制技术，所以写到RDB文件里的实际上是快照</p>
+<h3 id="混合持久化">混合持久化<a hidden class="anchor" aria-hidden="true" href="#混合持久化">#</a></h3>
+<p>由于RDB恢复速度快，但是如果发生意外丢失的数据比较多</p>
+<p>AOF发生意外丢失的数据少，但是恢复速度慢，所以出现了混合持久化的方案</p>
+<p>就是AOF文件重写的时候，先将内存数据以RDB的方式保存到AOF文件，然后追加命令像普通的AOF方式一样</p>
+<h2 id="集群">集群<a hidden class="anchor" aria-hidden="true" href="#集群">#</a></h2>
+<p>集群就是多个redis节点统一提供服务，哨兵就是如果主节点挂了那就由哨兵选出来一个新的主节点，内容比较碎，直接看：</p>
+<p><a href="https://www.xiaolincoding.com/redis/cluster/sentinel.html">https://www.xiaolincoding.com/redis/cluster/sentinel.html</a></p>
+<p><a href="https://www.xiaolincoding.com/redis/cluster/master_slave_replication.html">https://www.xiaolincoding.com/redis/cluster/master_slave_replication.html</a></p>
+<h2 id="过期删除与内存淘汰">过期删除与内存淘汰<a hidden class="anchor" aria-hidden="true" href="#过期删除与内存淘汰">#</a></h2>
+<p>过期删除是删除过期的键值对，内存淘汰是，内存满了，怎么把一些淘汰掉即使这些键值对没有过期</p>
+<h3 id="过期删除">过期删除<a hidden class="anchor" aria-hidden="true" href="#过期删除">#</a></h3>
+<p>有三种策略：</p>
+<ul>
+<li>定时删除：设置key的时候就设置一个定时删除事件</li>
+<li>惰性删除：不主动删除，每次访问键值对的时候，如果过期了就删除</li>
+<li>定期删除：每隔一段时间随机选出来一定数量的key删除</li>
+</ul>
+<p>redis使用的惰性删除+定期删除</p>
+<h3 id="内存淘汰">内存淘汰<a hidden class="anchor" aria-hidden="true" href="#内存淘汰">#</a></h3>
+<p>常用的有两种：</p>
+<ul>
+<li>lru：淘汰最久未使用的键值</li>
+<li>lfu：淘汰最少使用的键值</li>
+</ul>
+<h2 id="缓存">缓存<a hidden class="anchor" aria-hidden="true" href="#缓存">#</a></h2>
+<h3 id="缓存雪崩击穿穿透">缓存雪崩、击穿、穿透<a hidden class="anchor" aria-hidden="true" href="#缓存雪崩击穿穿透">#</a></h3>
+<h4 id="雪崩">雪崩<a hidden class="anchor" aria-hidden="true" href="#雪崩">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/717343a0da7a1b05edab1d1cdf8f28e5.png" alt="图片"  />
+</p>
+<h4 id="击穿">击穿<a hidden class="anchor" aria-hidden="true" href="#击穿">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/acb5f4e7ef24a524a53c39eb016f63d4.png" alt="图片"  />
+</p>
+<h4 id="穿透">穿透<a hidden class="anchor" aria-hidden="true" href="#穿透">#</a></h4>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/img_convert/b7031182f770a7a5b3c82eaf749f53b0.png" alt="图片"  />
+</p>
+<h3 id="数据库和缓存如何保证一致性">数据库和缓存如何保证一致性？<a hidden class="anchor" aria-hidden="true" href="#数据库和缓存如何保证一致性">#</a></h3>
+<p>先更新数据库，再删除缓存，具体原因看：<a href="https://www.xiaolincoding.com/redis/architecture/mysql_redis_consistency.html">https://www.xiaolincoding.com/redis/architecture/mysql_redis_consistency.html</a></p>
+<h3 id="缓存更新策略">缓存更新策略<a hidden class="anchor" aria-hidden="true" href="#缓存更新策略">#</a></h3>
+<ul>
+<li>Cache Aside（旁路缓存）策略：Cache Aside（旁路缓存）策略是最常用的，应用程序直接与「数据库、缓存」交互，并负责对缓存的维护，该策略又可以细分为「读策略」和「写策略」。</li>
+<li>Read/Write Through（读穿 / 写穿）策略：Read/Write Through（读穿 / 写穿）策略原则是应用程序只和缓存交互，不再和数据库交互，而是由缓存和数据库交互，相当于更新数据库的操作由缓存自己代理了。</li>
+<li>Write Back（写回）策略：Write Back（写回）策略在更新数据的时候，只更新缓存，同时将缓存数据设置为脏的，然后立马返回，并不会更新数据库。对于数据库的更新，会通过批量异步更新的方式进行。</li>
+</ul>
+<h2 id="实战">实战<a hidden class="anchor" aria-hidden="true" href="#实战">#</a></h2>
+<h3 id="实现延迟队列">实现延迟队列<a hidden class="anchor" aria-hidden="true" href="#实现延迟队列">#</a></h3>
+<p>看小林coding</p>
+<h3 id="大key怎么删除">大key怎么删除<a hidden class="anchor" aria-hidden="true" href="#大key怎么删除">#</a></h3>
+<p>先查找大key，可以用</p>
+<ul>
+<li><em><strong>redis-cli &ndash;bigkeys 查找大key</strong></em></li>
+<li><em><strong>使用 SCAN 命令查找大 key</strong></em></li>
+<li><em><strong>使用 RdbTools 工具查找大 key</strong></em></li>
+</ul>
+<p>然后删除，可以用</p>
+<ul>
+<li><em><strong>分批次删除</strong></em></li>
+<li>unlink异步删除</li>
+</ul>
+<h3 id="redis-管道有什么用">Redis 管道有什么用？<a hidden class="anchor" aria-hidden="true" href="#redis-管道有什么用">#</a></h3>
+<p>可以一次发送多条指令</p>
+<h3 id="redis-事务支持回滚吗">Redis 事务支持回滚吗？<a hidden class="anchor" aria-hidden="true" href="#redis-事务支持回滚吗">#</a></h3>
+<p>不支持</p>
+<h3 id="如何用-redis-实现分布式锁的">如何用 Redis 实现分布式锁的？<a hidden class="anchor" aria-hidden="true" href="#如何用-redis-实现分布式锁的">#</a></h3>
+<p>分布式锁就是分布式的应用访问同一个资源的锁，对于多个应用，加锁方式是在redis里面设置一个值，添加NX字段，这个字段说明这个值必须不存在才能添加成功，那么谁能添加值成功，谁就拿到了分布式锁</p>
+<h1 id="java">Java<a hidden class="anchor" aria-hidden="true" href="#java">#</a></h1>
+<h2 id="基础-4">基础<a hidden class="anchor" aria-hidden="true" href="#基础-4">#</a></h2>
+<h3 id="未看">未看<a hidden class="anchor" aria-hidden="true" href="#未看">#</a></h3>
+<p><a href="https://javaguide.cn/java/basis/unsafe.html">https://javaguide.cn/java/basis/unsafe.html</a></p>
+<p><a href="https://javaguide.cn/java/basis/spi.html">https://javaguide.cn/java/basis/spi.html</a></p>
+<p><a href="https://javaguide.cn/java/basis/syntactic-sugar.html">https://javaguide.cn/java/basis/syntactic-sugar.html</a></p>
+<p><a href="https://javaguide.cn/java/collection/concurrent-hash-map-source-code.html">https://javaguide.cn/java/collection/concurrent-hash-map-source-code.html</a></p>
+<p><a href="https://www.xiaolincoding.com/os/8_network_system/selete_poll_epoll.html">https://www.xiaolincoding.com/os/8_network_system/selete_poll_epoll.html</a></p>
 <h1 id="零碎">零碎<a hidden class="anchor" aria-hidden="true" href="#零碎">#</a></h1>
 <ul>
 <li>匿名内部类也会生成class文件</li>
@@ -856,6 +2556,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <li>Netty的内存池是怎么实现的</li>
 <li>五种IO模型</li>
 <li>各种序列化方式的原理</li>
+<li>CAP为什么不能保证三个</li>
 </ul>
 
 
