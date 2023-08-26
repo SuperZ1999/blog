@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>👨🏻‍💻 Technology on ZMY&#39;s Blog</title>
+    <link>https://blog.zhangmengyang.tk/en/posts/tech/</link>
+    <description>Recent content in 👨🏻‍💻 Technology on ZMY&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://blog.zhangmengyang.tk/en/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试题笔记 背诵版</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/tech/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%83%8C%E8%AF%B5%E7%89%88/</link>
+      <pubDate>Thu, 16 Mar 2023 22:54:20 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/tech/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%83%8C%E8%AF%B5%E7%89%88/</guid>
+      <description>项目 一般问题 碰到的bug 最有技术含量的部分 动态代理 见：https://juejin.cn/post/7011357346018361375 j</description>
+    </item>
+    
+  </channel>
+</rss>
