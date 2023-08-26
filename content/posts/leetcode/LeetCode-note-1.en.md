@@ -1242,8 +1242,8 @@ class Solution {
 7. 缩减搜索空间时，将搜索空间分成两部分需要注意分出不可能的区间，然后缩减搜索空间，具体问题具体分析，根据这个不可能区间的特征写出第一个if，然后else里写和if互补的区域
 8. 注意left没加一时mid要加一
 9. 退出循环后left和right相等，并且是唯一有希望的元素（只是有希望，有可能不是它，还要再判断一下，如果该题一定存在指定的元素，那么直接`return left`就好了）
-10. 对于寻找左右侧边界的二分查找，在缩减搜索空间时一定要考虑>=或<=的情况，因为这样才能使用找左或右侧这个性质，比如`target <= nums[mid]`，可以寻找左边界，因为这时左边界不可能在mid右边所以直接`right=mid`就可以找到左边界，右边界同理。为什么找到的是左边界，也可以这么理解：`target <= nums[mid]`->`right=mid`，所以`target > nums[mid]`->`left=mid + 1`，此时left左边全部都小于target，因为退出循环时如果能找到target，left指向的就是target，又因为left左边全部都小于target，所以此时left指向左边界。找右边界同理。
-11. 对于寻找左侧边界的二分查找，说是寻找该元素的左侧边界，实际上是寻找大于等于target的所有元素的左侧边界，同理，寻找右侧边界的二分查找实际上是寻找小于等于target的所有元素的右侧边界，也可以理解成左侧边界的左边都小于target，右侧边界的右边都大于target，并且左右边界不一定等于target，所以如果target不存在时，左边界是比target大的第一个元素，右边界是比target小的第一个元素
+10. 对于寻找左右侧边界的二分查找，在缩减搜索空间时一定要考虑>=或<=的情况，因为这样才能使用找左或右侧这个性质，比如`target <= nums[mid]`，可以寻找左边界，因为这时左边界不可能在mid右边所以直接`right=mid`就可以找到左边界，右边界同理。为什么找到的是左边界，因为此时，`nums[mid]`要么大于`target`，要么等于`target`，不管那种情况，左边界一定在`mid`处或`mid`左边，也可以这么理解：`target <= nums[mid]`->`right=mid`，所以`target > nums[mid]`->`left=mid + 1`，此时left左边全部都小于target，因为退出循环时如果能找到target，left指向的就是target，又因为left左边全部都小于target，所以此时left指向左边界。找右边界同理。
+11. 对于寻找左侧边界的二分查找，说是寻找该元素的左侧边界，实际上是寻找大于等于target的所有元素的左侧边界，同理，寻找右侧边界的二分查找实际上是寻找小于等于target的所有元素的右侧边界，也可以理解成左侧边界的左边都小于target右边都大于等于target，右侧边界的右边都大于target左边都小于等于target，并且左右边界不一定等于target，所以如果target不存在时，左边界是比target大的第一个元素，右边界是比target小的第一个元素
 
 详见：leetcode笔记word版和<https://leetcode.cn/leetbook/read/learning-algorithms-with-leetcode/xs41qg/>
 
@@ -1382,7 +1382,7 @@ class Difference {
 
         diff[0] = nums[0];
         for (int i = 1; i < nums.length; i++) {
-            diff[i] = nums[1] - nums[0];
+            diff[i] = nums[i] - nums[i-1];
         }
     }
 
@@ -1653,7 +1653,7 @@ void traverse(Graph graph, int v) {
         if (!visited[neighbor]) {
             // 相邻节点 neighbor 没有被访问过
             // 那么应该给节点 neighbor 涂上和节点 v 不同的颜色
-            color[neighbor] = color[v];
+            color[neighbor] = !color[v];
             traverse(graph, neighbor);
         } else {
             // 相邻节点 neighbor 已经被访问过
@@ -3006,7 +3006,7 @@ class MyStack {
 public static int partition(int[] arr, int left, int right){
     int pivot = arr[left];        	// 选取第一个为基准元素
     while(left<right){
-        /* 先从右往移动，直到遇见小于 pivot 的元素 */
+        /* 先从右往左移动，直到遇见小于 pivot 的元素 */
         while (left<right && arr[right]>=pivot){
             right--;
         }

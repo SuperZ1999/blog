@@ -737,7 +737,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 精简流程
 
-1. 构造一个dp数组
+1. 构造一个dp数组，确定数组的索引是什么含义
 2. 确定dp数组里面放什么
 3. dp数组里的元素怎么根据前面元素推出来（即状态转移方程）
 4. base case
@@ -1350,7 +1350,7 @@ public int combination(int m, int n) {
 
 ### 零碎 
 
-- 四平方和定理证明了任意一个正整数都可以被表示为至多四个正整数的平方和。这给出了本题的答案的上界。四平方和定理证明了任意一个正整数都可以被表示为至多四个正整数的平方和。这给出了本题的答案的上界。详见：<https://leetcode.cn/problems/perfect-squares/solutions/822940/wan-quan-ping-fang-shu-by-leetcode-solut-t99c/>
+- 四平方和定理证明了任意一个正整数都可以被表示为至多四个正整数的平方和。这给出了本题的答案的上界。详见：<https://leetcode.cn/problems/perfect-squares/solutions/822940/wan-quan-ping-fang-shu-by-leetcode-solut-t99c/>
 
 ## 分治算法
 
