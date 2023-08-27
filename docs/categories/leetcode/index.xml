@@ -6,7 +6,16 @@
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Mar 2023 18:57:09 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Aug 2023 22:13:14 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode </title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-/</link>
+      <pubDate>Sun, 27 Aug 2023 22:13:14 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-/</guid>
+      <description>思路 经典快排不解释，注意数组如果本来就有序，快排会变得很慢，这时可以随机选中枢，而不是以left为中枢 代码 class Solution { public int[] sortArray(int[] nums) { quickSort(nums, 0, nums.length - 1); return nums; } private</description>
+    </item>
+    
     <item>
       <title>LeetCode 16</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/</link>
