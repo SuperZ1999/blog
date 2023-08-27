@@ -1,5 +1,5 @@
 ---
-title: "LeetCode "
+title: "LeetCode 912"
 date: 2023-08-27T22:13:14+08:00
 categories: ["leetcode"]
 tags: ["leetcode"]

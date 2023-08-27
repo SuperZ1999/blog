@@ -6,13 +6,22 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 Aug 2023 22:13:14 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Aug 2023 22:55:40 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LeetCode </title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-/</link>
+      <title>LeetCode 102</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-102/</link>
+      <pubDate>Sun, 27 Aug 2023 22:55:40 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-102/</guid>
+      <description>思路 经典层序遍历，BFS即可 代码 class Solution { public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; levelOrder(TreeNode root) { if (root == null) { return new ArrayList&amp;lt;&amp;gt;(); } Queue&amp;lt;TreeNode&amp;gt; queue = new ArrayDeque&amp;lt;&amp;gt;(); queue.offer(root); ArrayList&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); while (!queue.isEmpty()) { int size = queue.size(); ArrayList&amp;lt;Integer&amp;gt; level = new ArrayList&amp;lt;&amp;gt;(); while (size-- != 0) { TreeNode node = queue.poll(); level.add(node.val); if (node.left != null)</description>
+    </item>
+    
+    <item>
+      <title>LeetCode 912</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-912/</link>
       <pubDate>Sun, 27 Aug 2023 22:13:14 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-/</guid>
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-912/</guid>
       <description>思路 经典快排不解释，注意数组如果本来就有序，快排会变得很慢，这时可以随机选中枢，而不是以left为中枢 代码 class Solution { public int[] sortArray(int[] nums) { quickSort(nums, 0, nums.length - 1); return nums; } private</description>
     </item>
     
