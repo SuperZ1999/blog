@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 Aug 2023 22:55:40 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 22:56:46 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nowcoder JZ8</title>
+      <link>https://blog.zhangmengyang.tk/en/posts/leetcode/nowcoder-jz8/</link>
+      <pubDate>Tue, 29 Aug 2023 22:56:46 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/nowcoder-jz8/</guid>
+      <description>思路 有两种思路： 中序遍历法 先中序遍历一次，得到遍历序列，然后从序列里找到当前待查找的结点，然后再找到这个节点的下一个节点 分类直接寻找法 可以分</description>
+    </item>
+    
     <item>
       <title>LeetCode 102</title>
       <link>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-102/</link>
