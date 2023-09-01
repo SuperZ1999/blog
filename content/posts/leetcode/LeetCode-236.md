@@ -19,23 +19,22 @@ cover:
 
 使用二叉树遍历的思想，遍历每一个节点，当左子树找到了q或p，右子树也找到了的话，该节点就是LCA，直接返回即可，注意返回值只有可能是p或q或qp的LCA
 
+明确函数的定义，这个函数的定义就是如果在root的树中只找到了p就返回p，只找到了q就返回q，两个都找到了就返回公共祖先，都没找到就返回null
+
 ### 代码
 
 ```java
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return findLCA(root, p.val, q.val);
-    }
-
-    private TreeNode findLCA(TreeNode root, int p, int q) {
         if (root == null) {
             return null;
         }
-        if (root.val == p || root.val == q) {
+        if (root == p || root == q) {
             return root;
         }
-        TreeNode left = findLCA(root.left, p, q);
-        TreeNode right = findLCA(root.right, p, q);
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
         if (left != null && right != null) {
             return root;
         }
