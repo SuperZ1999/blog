@@ -1912,7 +1912,7 @@
       <pubDate>Fri, 23 Sep 2022 22:52:35 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-92/</guid>
-      <description>思路 与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和right</description>
+      <description>思路 递归法 与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和ri</description>
     </item>
     
     <item>
