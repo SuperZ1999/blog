@@ -6,7 +6,16 @@
     <description>Recent content on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 01 Sep 2023 18:34:36 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Sep 2023 21:42:53 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 103</title>
+      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-103/</link>
+      <pubDate>Fri, 01 Sep 2023 21:42:53 +0800</pubDate>
+      
+      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-103/</guid>
+      <description>思路 和二叉树的层序遍历差不多，只不过需要注意每层需要用一个flag来判断这层是正序的还是倒序的 代码 class Solution { public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; zigzagLevelOrder(TreeNode root) { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); if (root == null) { return res; }</description>
+    </item>
+    
     <item>
       <title>LeetCode 88</title>
       <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-88/</link>
