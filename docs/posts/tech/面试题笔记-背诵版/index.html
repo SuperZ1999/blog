@@ -118,8 +118,8 @@ var _hmt = _hmt || [];
   "keywords": [
     
   ],
-  "articleBody": "项目 一般问题 碰到的bug 最有技术含量的部分 动态代理 见：https://juejin.cn/post/7011357346018361375\njdk动态代理 原理 就是先实现代理接口的方法，生成一个匿名内部类，这个匿名内部类里的操作都是调用InvocationHandler的invoke方法，在invoke方法里完成代理\n使用步骤 创建被代理类及接口（JDK代理是接口代理） 创建Handle类实现 InvocationHandler接口 ，重写invoke方法 通过Proxy的newProxyInstance()方法获取代理类对象 通过代理类对象调用被代理类的方法 cglib动态代理 原理 就是修改需要代理的那个类的字节码，生成该类的子类并重写父类的方法，这个子类的方法都会调用回调函数intercept方法，从而完成代理\n使用步骤 new Enhancer() 设置需要代理的类 设置回调 创建 jdk动态代理和cglib动态代理的区别 **原理不同：**JDK动态代理：利用反射机制生成一个实现代理接口的匿名类，在调用具体方法前调用InvokeHandler来处理。 CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节码）开源包，将代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。所以jdk动态代理的方式创建代理对象效率较高，执行效率较低（因为调用方法的时候需要反射），CGLib创建效率较低，执行效率高。 **适用场景不同：**jdk动态代理目标类必须是接口类，cglib代理目标类不需要实现接口，但是不能是final类 **机制不同：**jdk动态代理是委托机制，因为代理类里无法直接调用被代理类的方法，所以委托InvocationHandler去调用目标类的方法，cglib动态代理是继承机制，代理类和被代理类是父子关系，所以代理类可以调用被代理类的方法，所以通过回调函数MethodInterceptor调用父类方法执行原始逻辑 静态代理 为需要代理的类抽象出一个接口，然后编写代理类实现这个接口，实现接口方法时就可以添加代理的逻辑\n缺点：1、每个被代理类都要有一个代理类，代码比较冗余 2、一旦改动被代理类，代理类也得改动\n静态代理与动态代理的区别 静态代理在编译时就已经实现，编译完成后代理类是一个实际的class文件 动态代理是在运行时动态生成的，即编译完成后没有实际的class文件，而是在运行时动态生成的 Netty 什么是Netty Netty就是Java里NIO的封装，让用户可以很方便的使用Java的非阻塞IO\nNetty跟Java NIO有什么不同，为什么不直接使用JDK NIO类库？ 说说NIO有什么缺点吧：\nNIO的类库和API还是有点复杂，比如Buffer的使用 Selector编写复杂，如果对某个事件注册后，业务代码过于耦合，需要了解很多多线程的知识，熟悉网络编程，面对断连重连、保丢失、粘包等，处理复杂 NIO存在BUG，根据网上言论说是selector空轮询导致CPU飙升 Netty主要的优点有：\n统一的 API，支持多种传输类型，阻塞和非阻塞的。 简单而强大的线程模型。 自带编解码器解决 TCP 粘包/拆包问题，自带各种协议栈。 比直接使用 Java 核心 API 有更高的吞吐量、更低的延迟、更低的资源消耗和更少的内存复制。 社区活跃，成熟稳定，经历了大型项目的使用和考验，而且很多开源项目都使用到了 Netty， 比如我们经常接触的 Dubbo、RocketMQ 等等。 Netty 应用场景了解么？ 理论上来说，NIO 可以做的事情 ，使用 Netty 都可以做并且更好。Netty 主要用来做网络通信：\n作为 RPC 框架的网络通信工具 实现一个自己的 HTTP 服务器 实现一个即时通讯系统 实现消息推送系统 基本只要是网络通信的都可以用Netty做\nNetty的核心组件 EventLoop EventLoop 的主要作用实际就是负责监听网络事件并调用事件处理器进行相关 I/O 操作的处理。\nChannel Channel 接口是 Netty 对网络操作抽象类，它除了包括基本的 I/O 操作，如 bind()、connect()、read()、write() 等。\n比较常用的Channel接口实现类是NioServerSocketChannel（服务端）和NioSocketChannel（客户端），这两个 Channel 可以和 BIO 编程模型中的ServerSocket以及Socket两个概念对应上。Netty 的 Channel 接口所提供的 API，大大地降低了直接使用 Socket 类的复杂性。\nChannelFuture Netty 是异步非阻塞的，所有的 I/O 操作都为异步的。所以我们不能立刻得到操作的结果，我们可以通过 ChannelFuture 接口的 addListener() 方法注册一个 ChannelFutureListener，当操作执行完后，监听就会自动触发返回结果。\nChannelHandler 和 ChannelPipeline ChannelHandler 用来处理 Channel 上的各种事件，分为入站、出站两种。所有 ChannelHandler 被连在一起了，连在一起形成的链就是 ChannelPipeline\nBootstrap 和 ServerBootstrap 了解么？ Bootstrap是客户端，ServerBootstrap是服务端 Bootstrap调用connect连接，ServerBootstrap调用bind开启服务 Bootstrap 只需要配置一个EventLoopGroup ,而 ServerBootstrap需要配置两个线程组EventLoopGroup ，一个用于处理连接事件，一个用于处理读写事件。 Netty的线程模型 Netty通过Reactor模型基于多路复用器接收并处理用户请求，内部实现了两个线程池，boss线程池和work线程池，其中boss线程池的线程负责处理请求的accept事件，当接收到accept事件的请求时，把对应的socket封装到一个NioSocketChannel中，并交给work线程池，其中work线程池负责请求的read和write事件，由对应的Handler处理。\n单线程模型：所有I/O操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送/读取请求或应答/响应消息。一个NIO 线程同时处理成百上千的链路，性能上无法支撑，速度慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。\n多线程模型：有一个NIO 线程（Acceptor） 只负责监听服务端，接收客户端的TCP 连接请求；NIO 线程池负责网络IO 的操作，即消息的读取、解码、编码和发送；1 个NIO 线程可以同时处理N 条链路，但是1 个链路只对应1 个NIO 线程，这是为了防止发生并发操作问题。但在并发百万客户端连接或需要安全认证时，一个Acceptor 线程可能会存在性能不足问题。\n主从多线程模型：Acceptor 线程用于绑定监听端口，接收客户端连接，将SocketChannel 从主线程池的Reactor 线程的多路复用器上移除，重新注册到Sub 线程池的线程上，用于处理I/O 的读写等操作，从而保证mainReactor只负责接入认证、握手等操作\nReactor模型 建立新连接和处理读写操作分开就是Reactor模型\n详见：https://www.cnblogs.com/coding400/p/10865333.html\nNetty的执行流程 服务端 创建ServerBootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop可以处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 绑定并启动监听端口 当轮询到准备就绪的channel后，由Reactor线程：NioEventLoop执行pipline中的方法，最终调度并执行channelHandler 客户端 创建BootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop可以处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 发起连接 TCP 粘包/拆包的原因及解决方法 原因 粘包：\n应用程序写入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘包。 接收方法不及时读取套接字缓冲区数据，这将发生粘包。 拆包：\n应用程序写入的数据大于套接字缓冲区大小，这将会发生拆包。 进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度\u003eMSS的时候将发生拆包。 解决办法 发送端给每个数据包添加包首部，首部中应该至少包含数据包的长度，这样接收端在接收到数据后，通过读取包首部的长度字段，便知道每一个数据包的实际长度了。（LengthFieldBasedFrameDecoder） 发送端将每个数据包封装为固定长度（不够的可以通过补0填充），这样接收端每次从接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。（FixedLengthFrameDecoder） 可以在数据包之间设置边界，如添加特殊符号，这样，接收端通过这个边界就可以将不同的数据包拆分开。（DelimiterBasedFrameDecoder） 通过自定义协议进行粘包和拆包的处理。（MessageToByteEncoder和ByteToMessageDecoder） Netty 长连接、心跳机制 长连接 Netty的长连接其实就是TCP的长连接\nTCP 在进行读写之前，server 与 client 之间必须提前建立一个连接。建立连接的过程，需要我们常说的三次握手，释放/关闭连接的话需要四次挥手。这个过程是比较消耗网络资源并且有时间延迟的。\n所谓，短连接说的就是 server 端 与 client 端建立连接之后，读写完成之后就关闭掉连接，如果下一次再要互相发送消息，就要重新连接。短连接的优点很明显，就是管理和实现都比较简单，缺点也很明显，每一次的读写都要建立连接必然会带来大量网络资源的消耗，并且连接的建立也需要耗费时间。\n长连接说的就是 client 向 server 双方建立连接之后，即使 client 与 server 完成一次读写，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接。长连接的可以省去较多的 TCP 建立和关闭的操作，降低对网络资源的依赖，节约时间。对于频繁请求资源的客户来说，非常适用长连接。\n心跳机制 在 TCP 保持长连接的过程中，可能会出现断网等网络异常出现，异常发生的时候， client 与 server 之间如果没有交互的话，他们是无法发现对方已经掉线的。为了解决这个问题, 我们就需要引入 心跳机制 。\n心跳机制的工作原理是: 在 client 与 server 之间在一定时间内没有数据交互时, 即处于 idle 状态时, 客户端或服务器就会发送一个特殊的数据包给对方, 当接收方收到这个数据报文后, 也立即发送一个特殊的数据报文, 回应发送方, 此即一个 PING-PONG 交互。所以, 当某一端收到心跳消息后, 就知道了对方仍然在线, 这就确保 TCP 连接的有效性.\nTCP 实际上自带的就有长连接选项，本身是也有心跳包机制，也就是 TCP 的选项：SO_KEEPALIVE。但是，TCP 协议层面的长连接灵活性不够。所以，一般情况下我们都是在应用层协议上实现自定义信跳机制的，也就是在 Netty 层面通过编码实现。通过 Netty 实现心跳机制的话，核心类是 IdleStateHandler 。\nNetty 的零拷贝 操作系统的零拷贝 传统意义的拷贝是在发送数据的时候， 传统的实现方式是：\n\\1. File.read(bytes)\n\\2. Socket.send(bytes)\n这种方式需要四次数据拷贝和四次上下文切换：\n\\1. 数据从磁盘读取到内核的read buffer\n\\2. 数据从内核缓冲区拷贝到用户缓冲区\n\\3. 数据从用户缓冲区拷贝到内核的socket buffer\n\\4. 数据从内核的socket buffer拷贝到网卡接口（硬件）的缓冲区\n零拷贝的概念明显上面的第二步和第三步是没有必要的，通过java的FileChannel.transferTo方法，可以避免上面两次多余的拷贝（当然这需要底层操作系统支持）\n\\1. 调用transferTo,数据从文件由DMA引擎拷贝到内核read buffer\n\\2. 接着DMA从内核read buffer将数据拷贝到网卡接口buffer上面的两次操作都不需要CPU参与，所以就达到了零拷贝。\nNetty 的零拷贝 Netty 的零拷贝主要包含三个方面：\nNetty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存（注意直接内存可以与内核态的缓冲区内存进行内存映射，也就是mmap）进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。 Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。 Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。 NIO的空轮询bug 原因 若Selector的轮询结果为空，也没有wakeup或新消息处理，则发生空轮询，CPU使用率100%\n解决方案 对Selector的select操作周期进行统计，每完成一次空的select操作进行一次计数， 若在某个周期内连续发生N次空轮询，则触发了epoll死循环bug。 重建Selector，判断是否是其他线程发起的重建请求，若不是则将原SocketChannel从旧的Selector上去除注册，重新注册到新的Selector上，并将原来的Selector关闭。 Netty 高性能表现在哪些方面 **IO 线程模型：**使用IO多路复用（同步非阻塞），用最少的资源做更多的事。 **零拷贝技术：**尽量减少不必要的内存拷贝，实现了更高效率的传输。 **内存池设计：**申请的内存可以重用，主要指直接内存。内部实现是用一颗二叉查找树管理内存分配情况。 **串形化处理读写：**避免使用锁带来的性能开销。即消息的处理尽可能在同一个线程内完成，期间不进行线程切换，这样就避免了多线程竞争和同步锁。表面上看，串行化设计似乎CPU利用率不高，并发程度不够。但是，通过调整NIO线程池的线程参数，可以同时启动多个串行化的线程并行运行，这种局部无锁化的串行线程设计相比一个队列-多个工作线程模型性能更优（这种串形化处理读写的设计相当于每个线程都有一个任务队列，使用时不用加锁，所以性能较高）。 **高性能序列化协议：**支持 protobuf 等高性能序列化协议。 **高效并发编程：**volatile的大量使用；CAS和原子类的广泛使用。 Netty的内存池是怎么实现的 有点复杂\n首先会预申请一大块内存Arena，Arena由许多Chunk组成，而每个Chunk默认由2048个page组成。 Chunk通过AVL树的形式组织Page，每个叶子节点表示一个Page，而中间节点表示内存区域，节点自己记录它在整个Arena中的偏移地址。 当区域被分配出去后，中间节点上的标记位会被标记，这样就表示这个中间节点以下的所有节点都已被分配了。 五种IO模型 阻塞IO、非阻塞IO、IO多路复用、信号驱动IO，异步IO\n同步与异步、阻塞与非阻塞 同步和异步描述的是消息通信的机制。\n假如A调用B\n同步：A发送request，B返回A需要的response\n异步：A发送request，B马上返回空的response或者不返回，B操作完成后，调用A的callback或者给A发信号，将A需要的数据返回给B\n阻塞和非阻塞描述的是程序在等待调用结果（消息，返回值）时的状态。\n阻塞：阻塞调用是指调用方发出request的线程因为某种原因（如：等待系统资源）被服务方挂起，当服务方得到response后就唤醒挂起线程，并将response返回给调用方。\n非阻塞：非阻塞调用是指调用方发出request的线程在没有等到结果时不会被挂起，直到得到response后才返回。\nBIO、NIO、AIO分别是什么？ BIO:同步并阻塞 ，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高\nNIO:同步非阻塞 ，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器\nAIO:异步非阻塞 ，服务器实现模式为一个有效请求一个线程，客户端的I/O请求服务器处理之前就会返回，处理完成之后会调用回调函数来返回数据\nselect、poll、epoll的机制及其区别？ 单个进程打开的文件描述符（fd文件句柄）不一致 select ：有最大连接数限制数为1024，单个进程所能打开的最大连接数由FD_ZETSIZE宏定义。\npoll：poll本质上与select没有区别，但是它没有最大连接数的限制，原因是它是基于链表来存储的。\nepoll：虽然连接有上限，但是很大，1G内存的机器可以打开10万左右的连接，以此类推。\n监听Socket的方式不一致 select ：轮询的方式，一个一个的socket检查过去，发现有socket活跃时才进行处理，当线性socket增多时，轮询的速度将会变得很慢，造成线性造成性能下降问题。\npoll：对select稍微进行了优化，只是修改了文件描述符，但是监听socket的方式还是轮询。\nepoll：epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，通知epoll来处理这个socket。（会将连接的socket注册到epoll中, 相当于socket的花名册, 如果有一个socket活跃了, 会回调一个函数, 通知epoll,赶紧过来处理）\nselect、poll、epoll时间复杂度分别是：O(n)、O(n)、O(1)\n内存空间拷贝方式（消息传递方式）不一致 select：内核想将消息传递到用户态，需要将数据从内核态拷贝到用户态,这个过程非常的耗时\npoll：同上\nepoll：epoll的内核和用户空间共享一块内存，因此内核态数据和用户态数据是共享的\nNetty底层用的什么？ Java层面用的NIO的Selector机制，操作系统层面Linux用的epoll，Windows用的IOCP\n序列化 序列化和反序列化有什么作用 实现了数据的持久化：永久性保存对象，保存对象的字节序列到本地文件或者数据库中 序列化实现远程通：通过序列化以字节流的形式使对象在网络中进行传递和接收 通过序列化在进程间传递对象 Serializable接口的作用 其实Serializable接口只是一个标识，序列化由ObjectInputStream和ObjectOutputStream执行，具体操作在jvm里\nSerializable和Externalizable的区别 Serializable只用来标识一个类是可序列化的，但是序列化操作是由jvm实现的，程序员不能控制，而Externalizable不但是可序列的标识（继承了Serializable），还可以自定义序列化操作（因为接口里有两个方法）\nRPC 不同序列化协议的优缺点 优点 缺点 Kryo 速度快，序列化后体积小 跨语言支持较复杂 Hessian 默认支持跨语言 较慢 Protostuff 速度快，基于protobuf 需静态编译 Protostuff-Runtime 无需静态编译，但序列化前需预先传入schema 不支持无默认构造函数的类，反序列化时需用户自己初始化序列化后的对象，其只负责将该对象进行赋值 Java 使用方便，可序列化所有类 速度慢，占空间 各种序列化协议的特点 详见：https://blog.csdn.net/qq_38685503/article/details/114633168?spm=1001.2014.3001.5501\n为什么选KRYO序列化 因为Kryo序列化速度快，序列化之后体积小\n各种序列化方式的原理 自定义的协议头里包括哪些内容 魔数、包类型，序列化方式、包长度\n负载均衡 什么是负载均衡 指将工作任务分摊到多个节点上进行运行\n比如轮询负载均衡算法，就是将任务按照节点的顺序逐个分配\n有哪些负载均衡算法 随机算法、轮询算法、最少活跃调用数、一致性哈希\n原理 **随机算法：**就是随机选择一个结点，但是有时候结点是有权重的，这时候可以把权重加起来，然后随机选择0-权重和之间的数，然后再根据这个数进行选择\n**轮询算法：**就是依次的调用所有的结点\n**最少活跃算法：**就是每个结点都维护一个计数器，每次一个请求交给它处理时，计数器加一，请求处理完毕后计数器减一，每次选择计数器最小的那个结点，如果计数器最小的结点有多个，那就随机选择一个\n**一致性Hash算法：**就是根据哈希值来确定处理请求的结点，但不是普通的取余哈希，因为取余哈希，如果添加或删除结点的话，改动会比较大，一致性hash是先创建一个环形Hash空间，然后将结点的虚拟结点（一般是ip+port+虚拟结点编号）哈希到环上，然后再把请求哈希到环上，然后根据请求哈希到环上的位置，顺时针往下找，找到的第一个虚拟结点就是要发送的结点，详见：https://www.cnblogs.com/twoheads/p/10135896.html\n优缺点 随机算法\u0026轮询算法：\n优点：使用简单 缺点：不适合机器配置不同的场景 最少活跃算法：\n优点：根据服务器当前的请求处理情况，动态分配； 缺点：算法实现相对复杂，需要监控服务器请求连接数； 一致性hash算法：\n优点：当某一台提供者挂时，原本该发往该提供者的请求，基于虚拟节点，平摊到其他提供者，不会引起剧烈变动 缺点：实现复杂 负载均衡作用 根据集群中每个节点的负载情况将用户请求转发到合适的节点上, 以避免单点压力过大的问题 负载均衡可实现集群高可用及伸缩性 负载均衡如何保证健壮性 采用心跳机制检测宕机节点\nHTTP 和 RPC RPC 有没有可能会用 HTTP 协议 会，grpc就是用的HTTP协议\nHTTP vs RPC 相同点 都可以完成远程调用\n不同点 传输协议\nRPC：可以基于TCP协议，也可以基于HTTP协议。 HTTP：基于HTTP协议。 传输效率\nRPC：基于TCP可以自定义应用层协议，可以让请求报文体积更小，提高传输效率\nHTTP：如果时基于HTTP1.1的协议，请求中会包含很多无用的内容，很臃肿\n性能消耗\nRPC：序列化时可以选择二进制序列化方式\nHTTP：一般序列化都是json方式，体积和序列化耗时都比二进制序列化要更消耗性能\n负载均衡\nRPC：基本都自带了负载均衡策略\nHTTP：需要配置Nginx实现\n服务治理\nRPC：能做到自动通知，不影响上游 HTTP：需要事先通知，修改Nginx配置 使用场景 如果对效率要求更高，并且开发过程使用统一的技术栈，那么可以用RPC 如果需要更加灵活，跨语言、跨平台，HTTP更合适 服务注册中心 Nacos vs Zookeeper vs Eureka CAP理论 CAP理论是分布式架构中重要理论：\n一致性(Consistency)：所有节点在同一时间具有相同的数据； 可用性(Availability) ：保证每个请求不管成功或者失败都有响应； 分隔容忍(Partition tolerance) ：系统中任意信息的丢失或失败不会影响系统的继续运作。 CAP不最多能保证两个，不能都保证，原因不清楚\nNacos可以保证AP或者CP\n为什么选择Nacos 因为Eureka已经停止维护了，zookeeper本质上是个文件系统，使用起来比较麻烦，所以选择了Nacos\nNacos服务注册表结构是什么样的？ Nacos最外层是namespace隔离环境，然后是group对服务进行分组，然后就是服务，一个服务下 有多个集群，集群下有多个实例。 对应Java代码，Map",
-  "wordCount" : "41309",
+  "articleBody": "项目 一般问题 碰到的bug 最有技术含量的部分 动态代理 见：https://juejin.cn/post/7011357346018361375\njdk动态代理 原理 就是先实现代理接口的方法，生成一个匿名内部类，这个匿名内部类里的操作都是调用InvocationHandler的invoke方法，在invoke方法里完成代理\n使用步骤 创建被代理类及接口（JDK代理是接口代理） 创建Handle类实现 InvocationHandler接口 ，重写invoke方法 通过Proxy的newProxyInstance()方法获取代理类对象 通过代理类对象调用被代理类的方法 jdk动态代理的反射体现在什么地方 调用代理对象方法，会调用handler的invoke方法，invoke方法里面调用原始对象方法就是使用的反射\ncglib动态代理 原理 就是修改需要代理的那个类的字节码，生成该类的子类并重写父类的方法，这个子类的方法都会调用回调函数intercept方法，从而完成代理\n使用步骤 new Enhancer() 设置需要代理的类 设置回调 创建 jdk动态代理和cglib动态代理的区别 **原理不同：**JDK动态代理：利用反射机制生成一个实现代理接口的匿名类，在调用具体方法前调用InvokeHandler来处理。 CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节码）开源包，将代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。所以jdk动态代理的方式创建代理对象效率较高，执行效率较低（因为调用方法的时候需要反射），CGLib创建效率较低，执行效率高。 **适用场景不同：**jdk动态代理目标类必须是接口类，cglib代理目标类不需要实现接口，但是不能是final类 **机制不同：**jdk动态代理是委托机制，因为代理类里无法直接调用被代理类的方法，所以委托InvocationHandler去调用目标类的方法，cglib动态代理是继承机制，代理类和被代理类是父子关系，所以代理类可以调用被代理类的方法，所以通过回调函数MethodInterceptor调用父类方法执行原始逻辑 静态代理 为需要代理的类抽象出一个接口，然后编写代理类实现这个接口，实现接口方法时就可以添加代理的逻辑\n缺点：1、每个被代理类都要有一个代理类，代码比较冗余 2、一旦改动被代理类，代理类也得改动\n静态代理与动态代理的区别 静态代理在编译时就已经实现，编译完成后代理类是一个实际的class文件 动态代理是在运行时动态生成的，即编译完成后没有实际的class文件，而是在运行时动态生成的 Netty 什么是Netty Netty就是Java里NIO的封装，让用户可以很方便的使用Java的非阻塞IO\nNetty跟Java NIO有什么不同，为什么不直接使用JDK NIO类库？ 说说NIO有什么缺点吧：\nNIO的类库和API还是有点复杂，比如Buffer的使用、Selector编写复杂，如果对某个事件注册后，业务代码过于耦合，需要了解很多多线程的知识，熟悉网络编程，面对断连重连、保丢失、粘包等，处理复杂 NIO存在BUG，根据网上言论说是selector空轮询导致CPU飙升 Netty主要的优点有：\n统一的 API，支持多种传输类型，阻塞和非阻塞的。（对NIO的封装，使用起来比较简单） 简单而强大的线程模型。（Reactor模型） 自带编解码器解决 TCP 粘包/拆包问题，自带各种协议栈。 比直接使用 Java 核心 API 有更高的吞吐量、更低的延迟、更低的资源消耗和更少的内存复制。（零拷贝技术） 社区活跃，成熟稳定，经历了大型项目的使用和考验，而且很多开源项目都使用到了 Netty， 比如我们经常接触的 Dubbo、RocketMQ 等等。 Netty 应用场景了解么？ 理论上来说，NIO 可以做的事情 ，使用 Netty 都可以做并且更好。Netty 主要用来做网络通信：\n作为 RPC 框架的网络通信工具 实现一个自己的 HTTP 服务器 实现一个即时通讯系统 实现消息推送系统 基本只要是网络通信的都可以用Netty做\nNetty的核心组件 EventLoop EventLoop 的主要作用实际就是负责监听网络事件并调用事件处理器进行相关 I/O 操作的处理。\nChannel Channel 接口是 Netty 对网络操作抽象类，它包括基本的 I/O 操作，如 bind()、connect()、read()、write() 等。\n比较常用的Channel接口实现类是NioServerSocketChannel（服务端）和NioSocketChannel（客户端），这两个 Channel 可以和 BIO 编程模型中的ServerSocket以及Socket两个概念对应上。Netty 的 Channel 接口所提供的 API，大大地降低了直接使用 Socket 类的复杂性。\nChannelFuture Netty 是异步非阻塞的，所有的 I/O 操作都为异步的。所以我们不能立刻得到操作的结果，我们可以通过 ChannelFuture 接口的 addListener() 方法注册一个 ChannelFutureListener，当操作执行完后，监听就会自动触发返回结果。\nChannelHandler 和 ChannelPipeline ChannelHandler 用来处理 Channel 上的各种事件，分为入站、出站两种。所有 ChannelHandler 被连在一起了，连在一起形成的链就是 ChannelPipeline\nBootstrap 和 ServerBootstrap 了解么？ Bootstrap是客户端，ServerBootstrap是服务端 Bootstrap调用connect连接，ServerBootstrap调用bind开启服务 Bootstrap 只需要配置一个EventLoopGroup ,而 ServerBootstrap需要配置两个线程组EventLoopGroup ，一个用于处理连接事件，一个用于处理读写事件。 Netty的线程模型 Netty通过Reactor模型基于多路复用器接收并处理用户请求，内部实现了两个线程池，boss线程池和work线程池，其中boss线程池的线程负责处理请求的accept事件，当接收到accept事件的请求时，把对应的socket封装到一个NioSocketChannel中，并交给work线程池，其中work线程池负责请求的read和write事件，由对应的Handler处理。\n单线程模型：所有I/O操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送/读取请求或应答/响应消息。一个NIO 线程同时处理成百上千的链路，性能上无法支撑，速度慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。\n多线程模型：有一个NIO 线程（Acceptor） 只负责监听服务端，接收客户端的TCP 连接请求；NIO 线程池负责网络IO 的操作，即消息的读取、解码、编码和发送；1 个NIO 线程可以同时处理N 条链路，但是1 个链路只对应1 个NIO 线程，这是为了防止发生并发操作问题。但在并发百万客户端连接或需要安全认证时，一个Acceptor 线程可能会存在性能不足问题。\n主从多线程模型：Acceptor 线程用于绑定监听端口，接收客户端连接，将SocketChannel 从主线程池的Reactor 线程的多路复用器上移除，重新注册到Sub 线程池的线程上，用于处理I/O 的读写等操作，从而保证mainReactor只负责接入认证、握手等操作\nReactor模型 建立新连接和处理读写操作分开就是Reactor模型\n详见：https://www.cnblogs.com/coding400/p/10865333.html\nNetty的执行流程 服务端 创建ServerBootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop可以处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 绑定并启动监听端口 当轮询到准备就绪的channel后，由Reactor线程：NioEventLoop执行pipline中的方法，最终调度并执行channelHandler 客户端 创建BootStrap实例 设置并绑定Reactor线程池（线程模型）：EventLoopGroup，EventLoop可以处理所有注册到本线程的Selector上面的Channel 设置并绑定服务端的channel（IO模型） 创建处理网络事件的ChannelPipeline和handler 发起连接 TCP 粘包/拆包的原因及解决方法 原因 粘包：\n应用程序写入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘包。 接收方法不及时读取套接字缓冲区数据，这将发生粘包。 拆包：\n应用程序写入的数据大于套接字缓冲区大小，这将会发生拆包。 进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度\u003eMSS的时候将发生拆包。 解决办法 发送端给每个数据包添加包首部，首部中应该至少包含数据包的长度，这样接收端在接收到数据后，通过读取包首部的长度字段，便知道每一个数据包的实际长度了。（LengthFieldBasedFrameDecoder） 发送端将每个数据包封装为固定长度（不够的可以通过补0填充），这样接收端每次从接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。（FixedLengthFrameDecoder） 可以在数据包之间设置边界，如添加特殊符号，这样，接收端通过这个边界就可以将不同的数据包拆分开。（DelimiterBasedFrameDecoder） 通过自定义协议进行粘包和拆包的处理。（MessageToByteEncoder和ByteToMessageDecoder） Netty 长连接、心跳机制 长连接 Netty的长连接其实就是TCP的长连接\nTCP 在进行读写之前，server 与 client 之间必须提前建立一个连接。建立连接的过程，需要我们常说的三次握手，释放/关闭连接的话需要四次挥手。这个过程是比较消耗网络资源并且有时间延迟的。\n所谓，短连接说的就是 server 端 与 client 端建立连接之后，读写完成之后就关闭掉连接，如果下一次再要互相发送消息，就要重新连接。短连接的优点很明显，就是管理和实现都比较简单，缺点也很明显，每一次的读写都要建立连接必然会带来大量网络资源的消耗，并且连接的建立也需要耗费时间。\n长连接说的就是 client 向 server 双方建立连接之后，即使 client 与 server 完成一次读写，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接。长连接的可以省去较多的 TCP 建立和关闭的操作，降低对网络资源的依赖，节约时间。对于频繁请求资源的客户来说，非常适用长连接。\n心跳机制 在 TCP 保持长连接的过程中，可能会出现断网等网络异常出现，异常发生的时候， client 与 server 之间如果没有交互的话，他们是无法发现对方已经掉线的。为了解决这个问题, 我们就需要引入 心跳机制 。\n心跳机制的工作原理是: 在 client 与 server 之间在一定时间内没有数据交互时, 即处于 idle 状态时, 客户端或服务器就会发送一个特殊的数据包给对方, 当接收方收到这个数据报文后, 也立即发送一个特殊的数据报文, 回应发送方, 此即一个 PING-PONG 交互。所以, 当某一端收到心跳消息后, 就知道了对方仍然在线, 这就确保 TCP 连接的有效性.\nTCP 实际上自带的就有长连接选项，本身是也有心跳包机制，也就是 TCP 的选项：SO_KEEPALIVE。但是，TCP 协议层面的长连接灵活性不够。所以，一般情况下我们都是在应用层协议上实现自定义心跳机制的，也就是在 Netty 层面通过编码实现。通过 Netty 实现心跳机制的话，核心类是 IdleStateHandler 。\nNetty 的零拷贝 操作系统的零拷贝 传统意义的拷贝是在发送数据的时候， 传统的实现方式是：\n\\1. File.read(bytes)\n\\2. Socket.send(bytes)\n这种方式需要四次数据拷贝和四次上下文切换：\n\\1. 数据从磁盘读取到内核的read buffer\n\\2. 数据从内核缓冲区拷贝到用户缓冲区\n\\3. 数据从用户缓冲区拷贝到内核的socket buffer\n\\4. 数据从内核的socket buffer拷贝到网卡接口（硬件）的缓冲区\n零拷贝的概念明显上面的第二步和第三步是没有必要的，通过java的FileChannel.transferTo方法，可以避免上面两次多余的拷贝（当然这需要底层操作系统支持）\n\\1. 调用transferTo,数据从文件由DMA引擎拷贝到内核read buffer\n\\2. 接着DMA从内核read buffer将数据拷贝到网卡接口buffer上面的两次操作都不需要CPU参与，所以就达到了零拷贝。\nNetty 的零拷贝 Netty 的零拷贝主要包含三个方面：\nNetty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存（注意直接内存可以与内核态的缓冲区内存进行内存映射，也就是mmap）进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝（不是堆外直接内存吗）。 Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。 Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。 NIO的空轮询bug 原因 若Selector的轮询结果为空，也没有wakeup或新消息处理，则发生空轮询，CPU使用率100%\n解决方案 对Selector的select操作周期进行统计，每完成一次空的select操作进行一次计数， 若在某个周期内连续发生N次空轮询，则触发了epoll死循环bug。 重建Selector，判断是否是其他线程发起的重建请求，若不是则将原SocketChannel从旧的Selector上去除注册，重新注册到新的Selector上，并将原来的Selector关闭。 Netty 高性能表现在哪些方面 **IO 线程模型：**使用IO多路复用（同步非阻塞），用最少的资源做更多的事。 **零拷贝技术：**尽量减少不必要的内存拷贝，实现了更高效率的传输。 **内存池设计：**申请的内存可以重用，主要指直接内存。内部实现是用一颗二叉查找树管理内存分配情况。 **串形化处理读写：**避免使用锁带来的性能开销。即消息的处理尽可能在同一个线程内完成，期间不进行线程切换，这样就避免了多线程竞争和同步锁。表面上看，串行化设计似乎CPU利用率不高，并发程度不够。但是，通过调整NIO线程池的线程参数，可以同时启动多个串行化的线程并行运行，这种局部无锁化的串行线程设计相比一个队列-多个工作线程模型性能更优（这种串形化处理读写的设计相当于每个线程都有一个任务队列，使用时不用加锁，所以性能较高）。 **高性能序列化协议：**支持 protobuf 等高性能序列化协议。 **高效并发编程：**volatile的大量使用；CAS和原子类的广泛使用。 Netty的内存池是怎么实现的 有点复杂\n首先会预申请一大块内存Arena，Arena由许多Chunk组成，而每个Chunk默认由2048个page组成。 Chunk通过AVL树的形式组织Page，每个叶子节点表示一个Page，而中间节点表示内存区域，节点自己记录它在整个Arena中的偏移地址。 当区域被分配出去后，中间节点上的标记位会被标记，这样就表示这个中间节点以下的所有节点都已被分配了。 五种IO模型 阻塞IO、非阻塞IO、IO多路复用、信号驱动IO，异步IO\n同步与异步、阻塞与非阻塞 同步和异步描述的是消息通信的机制。\n假如A调用B\n同步：A发送request，B返回A需要的response\n异步：A发送request，B马上返回空的response或者不返回，B操作完成后，调用A的callback或者给A发信号，将A需要的数据返回给B\n阻塞和非阻塞描述的是程序在等待调用结果（消息，返回值）时的状态。\n阻塞：阻塞调用是指调用方发出request的线程因为某种原因（如：等待系统资源）被服务方挂起，当服务方得到response后就唤醒挂起线程，并将response返回给调用方。\n非阻塞：非阻塞调用是指调用方发出request的线程在没有等到结果时不会被挂起，直到得到response后才返回。\nBIO、NIO、AIO分别是什么？ BIO（Blocking I/O）：采用阻塞式 I/O 模型，线程在等待 I/O 操作时，无法处理其他任务，适用于连接数较少且稳定的场景。\nNIO（New I/O 或 Non-blocking I/O）：使用非阻塞 I/O 模型，线程在等待 I/O 时可执行其他任务，通过 Selector 监控多个 Channel 上的事件，提高性能和可伸缩性，适用于高并发场景。\nAIO（Asynchronous I/O）：采用异步 I/O 模型，线程发起 I/O 请求后立即返回，当 I/O 操作完成时通过回调函数通知线程，进一步提高了并发处理能力，适用于高吞吐量场景。\nselect、poll、epoll的机制及其区别？ 单个进程打开的文件描述符（fd文件句柄）不一致 select ：有最大连接数限制数为1024，单个进程所能打开的最大连接数由FD_ZETSIZE宏定义。\npoll：poll本质上与select没有区别，但是它没有最大连接数的限制，原因是它是基于链表来存储的。\nepoll：虽然连接有上限，但是很大，1G内存的机器可以打开10万左右的连接，以此类推。\n监听Socket的方式不一致 select ：轮询的方式，一个一个的socket检查过去，发现有socket活跃时才进行处理，当线性socket增多时，轮询的速度将会变得很慢，造成线性造成性能下降问题。\npoll：对select稍微进行了优化，只是修改了文件描述符，但是监听socket的方式还是轮询。\nepoll：epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，通知epoll来处理这个socket。（会将连接的socket注册到epoll中, 相当于socket的花名册, 如果有一个socket活跃了, 会回调一个函数, 通知epoll,赶紧过来处理）\nselect、poll、epoll时间复杂度分别是：O(n)、O(n)、O(1)\n内存空间拷贝方式（消息传递方式）不一致 select：内核想将消息传递到用户态，需要将数据从内核态拷贝到用户态,这个过程非常的耗时\npoll：同上\nepoll：epoll的内核和用户空间共享一块内存，因此内核态数据和用户态数据是共享的\nNetty底层用的什么？ Java层面用的NIO的Selector机制，操作系统层面Linux用的epoll，Windows用的IOCP\n序列化 序列化和反序列化有什么作用 实现了数据的持久化：永久性保存对象，保存对象的字节序列到本地文件或者数据库中 序列化实现远程通信：通过序列化以字节流的形式使对象在网络中进行传递和接收 通过序列化在进程间传递对象 Serializable接口的作用 其实Serializable接口只是一个标识，序列化由ObjectInputStream和ObjectOutputStream执行，具体操作在jvm里\nSerializable和Externalizable的区别 Serializable只用来标识一个类是可序列化的，但是序列化操作是由jvm实现的，程序员不能控制，而Externalizable不但是可序列的标识（继承了Serializable），还可以自定义序列化操作（因为接口里有两个方法）\nRPC 不同序列化协议的优缺点 优点 缺点 Kryo 速度快，序列化后体积小 跨语言支持较复杂 Hessian 默认支持跨语言 较慢 Protostuff 速度快，基于protobuf 需静态编译 Protostuff-Runtime 无需静态编译，但序列化前需预先传入schema 不支持无默认构造函数的类，反序列化时需用户自己初始化序列化后的对象，其只负责将该对象进行赋值 Java 使用方便，可序列化所有类 速度慢，占空间 各种序列化协议的特点 详见：https://blog.csdn.net/qq_38685503/article/details/114633168?spm=1001.2014.3001.5501\n为什么选KRYO序列化 因为Kryo序列化速度快，序列化之后体积小\n各种序列化方式的原理 自定义的协议头里包括哪些内容 魔数、包类型，序列化方式、包长度\n负载均衡 什么是负载均衡 指将工作任务分摊到多个节点上进行运行\n比如轮询负载均衡算法，就是将任务按照节点的顺序逐个分配\n有哪些负载均衡算法 随机算法、轮询算法、最少活跃调用数、一致性哈希\n原理 **随机算法：**就是随机选择一个结点，但是有时候结点是有权重的，这时候可以把权重加起来，然后随机选择0-权重和之间的数，然后再根据这个数进行选择\n**轮询算法：**就是依次的调用所有的结点\n**最少活跃算法：**就是每个结点都维护一个计数器，每次一个请求交给它处理时，计数器加一，请求处理完毕后计数器减一，每次选择计数器最小的那个结点，如果计数器最小的结点有多个，那就随机选择一个\n**一致性Hash算法：**就是根据哈希值来确定处理请求的结点，但不是普通的取余哈希，因为取余哈希，如果添加或删除结点的话，改动会比较大，一致性hash是先创建一个环形Hash空间，然后将结点的虚拟结点（一般是ip+port+虚拟结点编号）哈希到环上，然后再把请求哈希到环上，然后根据请求哈希到环上的位置，顺时针往下找，找到的第一个虚拟结点就是要发送的结点，详见：https://www.cnblogs.com/twoheads/p/10135896.html\n优缺点 随机算法\u0026轮询算法：\n优点：使用简单 缺点：不能根据当前的场景动态的改变策略 最少活跃算法：\n优点：根据服务器当前的请求处理情况，动态分配； 缺点：算法实现相对复杂，需要监控服务器请求连接数； 一致性hash算法：\n优点：当某一台提供者挂时，原本该发往该提供者的请求，基于虚拟节点，平摊到其他提供者，不会引起剧烈变动 缺点：实现复杂 负载均衡作用 根据集群中每个节点的负载情况将用户请求转发到合适的节点上, 以避免单点压力过大的问题 负载均衡可实现集群高可用及伸缩性 负载均衡如何保证健壮性 采用心跳机制检测宕机节点\nHTTP 和 RPC RPC 有没有可能会用 HTTP 协议 会，grpc就是用的HTTP协议\nHTTP vs RPC 相同点 都可以完成远程调用\n不同点 传输协议\nRPC：可以基于TCP协议，也可以基于HTTP协议。 HTTP：基于HTTP协议。 传输效率\nRPC：基于TCP可以自定义应用层协议，可以让请求报文体积更小，提高传输效率\nHTTP：如果时基于HTTP1.1的协议，请求中会包含很多无用的内容，很臃肿\n性能消耗\nRPC：序列化时可以选择二进制序列化方式\nHTTP：一般序列化都是json方式，体积和序列化耗时都比二进制序列化要更消耗性能\n负载均衡\nRPC：基本都自带了负载均衡策略\nHTTP：需要配置Nginx实现\n服务治理\nRPC：能做到自动通知，不影响上游 HTTP：需要事先通知，修改Nginx配置 使用场景 如果对效率要求更高，并且开发过程使用统一的技术栈，那么可以用RPC 如果需要更加灵活，跨语言、跨平台，HTTP更合适 服务注册中心 Nacos vs Zookeeper vs Eureka CAP理论 CAP理论是分布式架构中重要理论：\n一致性(Consistency)：所有节点在同一时间具有相同的数据； 可用性(Availability) ：保证每个请求不管成功或者失败都有响应； 分隔容忍(Partition tolerance) ：系统中任意信息的丢失或失败不会影响系统的继续运作。 CAP不最多能保证两个，不能都保证，原因不清楚\nNacos可以保证AP或者CP\n为什么选择Nacos 因为Eureka已经停止维护了，zookeeper本质上是个文件系统，使用起来比较麻烦，所以选择了Nacos\nNacos服务注册表结构是什么样的？ Nacos最外层是namespace隔离环境，然后是group对服务进行分组，然后就是服务，一个服务下 有多个集群，集群下有多个实例。 对应Java代码，Map",
+  "wordCount" : "47643",
   "inLanguage": "zh",
   "datePublished": "2023-03-16T22:54:20+08:00",
   "dateModified": "2023-03-16T22:54:20+08:00",
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;41309 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;83 分钟
+<span title='创建日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<span title='更新日期'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2023-03-16 22:54:20 +0800 CST'>2023-03-16</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;47643 字&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;96 分钟
 
 
 ·&nbsp;
@@ -306,7 +306,9 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e5%8e%9f%e7%90%86" aria-label="原理">原理</a></li>
                 <li>
-                    <a href="#%e4%bd%bf%e7%94%a8%e6%ad%a5%e9%aa%a4" aria-label="使用步骤">使用步骤</a></li></ul>
+                    <a href="#%e4%bd%bf%e7%94%a8%e6%ad%a5%e9%aa%a4" aria-label="使用步骤">使用步骤</a></li>
+                <li>
+                    <a href="#jdk%e5%8a%a8%e6%80%81%e4%bb%a3%e7%90%86%e7%9a%84%e5%8f%8d%e5%b0%84%e4%bd%93%e7%8e%b0%e5%9c%a8%e4%bb%80%e4%b9%88%e5%9c%b0%e6%96%b9" aria-label="jdk动态代理的反射体现在什么地方">jdk动态代理的反射体现在什么地方</a></li></ul>
                 </li>
                 <li>
                     <a href="#cglib%e5%8a%a8%e6%80%81%e4%bb%a3%e7%90%86" aria-label="cglib动态代理">cglib动态代理</a><ul>
@@ -771,6 +773,8 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#update-%e8%af%ad%e5%8f%a5%e7%9a%84%e6%89%a7%e8%a1%8c%e8%bf%87%e7%a8%8b" aria-label="update 语句的执行过程">update 语句的执行过程</a></li>
                 <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e6%98%af%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e5%88%b7%e6%96%b0%e8%bf%9b%e7%a1%ac%e7%9b%98%e7%9a%84" aria-label="数据是什么时候刷新进硬盘的">数据是什么时候刷新进硬盘的</a></li>
+                <li>
                     <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e4%b8%a4%e9%98%b6%e6%ae%b5%e6%8f%90%e4%ba%a4" aria-label="为什么需要两阶段提交">为什么需要两阶段提交</a></li>
                 <li>
                     <a href="#%e4%b8%a4%e9%98%b6%e6%ae%b5%e6%8f%90%e4%ba%a4%e7%9a%84%e8%bf%87%e7%a8%8b%e6%98%af%e6%80%8e%e6%a0%b7%e7%9a%84" aria-label="两阶段提交的过程是怎样的">两阶段提交的过程是怎样的</a></li>
@@ -853,7 +857,9 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e5%88%86%e5%ba%93%e5%88%86%e8%a1%a8" aria-label="分库分表">分库分表</a></li>
                 <li>
-                    <a href="#mysql%e6%89%a7%e8%a1%8c%e8%ae%a1%e5%88%92" aria-label="MySQL执行计划">MySQL执行计划</a></li></ul>
+                    <a href="#mysql%e6%89%a7%e8%a1%8c%e8%ae%a1%e5%88%92" aria-label="MySQL执行计划">MySQL执行计划</a></li>
+                <li>
+                    <a href="#%e6%85%a2sql" aria-label="慢SQL">慢SQL</a></li></ul>
                 </li>
                 <li>
                     <a href="#mysql%e6%95%b4%e4%bd%93%e6%b5%81%e7%a8%8b" aria-label="MySQL整体流程">MySQL整体流程</a></li></ul>
@@ -978,7 +984,11 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d%e7%bc%93%e5%ad%98%e5%87%bb%e7%a9%bf" aria-label="如何避免缓存击穿">如何避免缓存击穿</a></li>
                 <li>
-                    <a href="#%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d%e7%bc%93%e5%ad%98%e7%a9%bf%e9%80%8f" aria-label="如何避免缓存穿透">如何避免缓存穿透</a></li></ul>
+                    <a href="#%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d%e7%bc%93%e5%ad%98%e7%a9%bf%e9%80%8f" aria-label="如何避免缓存穿透">如何避免缓存穿透</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%b8%83%e9%9a%86%e8%bf%87%e6%bb%a4%e5%99%a8" aria-label="什么是布隆过滤器">什么是布隆过滤器</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%92%8c%e7%bc%93%e5%ad%98%e5%a6%82%e4%bd%95%e4%bf%9d%e8%af%81%e4%b8%80%e8%87%b4%e6%80%a7" aria-label="数据库和缓存如何保证一致性？">数据库和缓存如何保证一致性？</a></li>
@@ -1006,6 +1016,8 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#%e5%9f%ba%e7%a1%80-3" aria-label="基础">基础</a><ul>
                         
+                <li>
+                    <a href="#%e6%8a%bd%e8%b1%a1%e7%b1%bb%e5%92%8c%e6%8e%a5%e5%8f%a3%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="抽象类和接口的区别">抽象类和接口的区别</a></li>
                 <li>
                     <a href="#%e6%9c%aa%e7%9c%8b" aria-label="未看">未看</a></li></ul>
                 </li>
@@ -1081,15 +1093,95 @@ var _hmt = _hmt || [];
                 </li></ul>
                 </li>
                 <li>
+                    <a href="#jvm" aria-label="JVM">JVM</a><ul>
+                        
+                <li>
+                    <a href="#java%e5%86%85%e5%ad%98%e5%8c%ba%e5%9f%9f" aria-label="Java内存区域">Java内存区域</a></li>
+                <li>
+                    <a href="#%e5%a0%86%e7%a9%ba%e9%97%b4%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%bb%93%e6%9e%84" aria-label="堆空间的基本结构">堆空间的基本结构</a></li>
+                <li>
+                    <a href="#%e5%86%85%e5%ad%98%e5%88%86%e9%85%8d%e5%8e%9f%e5%88%99" aria-label="内存分配原则">内存分配原则</a></li>
+                <li>
+                    <a href="#%e5%86%85%e5%ad%98%e5%9b%9e%e6%94%b6%e5%8e%9f%e5%88%99" aria-label="内存回收原则">内存回收原则</a><ul>
+                        
+                <li>
+                    <a href="#gc%e7%a7%8d%e7%b1%bb" aria-label="GC种类">GC种类</a></li>
+                <li>
+                    <a href="#%e6%ad%bb%e4%ba%a1%e5%af%b9%e8%b1%a1%e5%88%a4%e6%96%ad%e6%96%b9%e6%b3%95" aria-label="死亡对象判断方法">死亡对象判断方法</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8%e8%ae%a1%e6%95%b0%e6%b3%95" aria-label="引用计数法">引用计数法</a></li>
+                <li>
+                    <a href="#%e5%8f%af%e8%be%be%e6%80%a7%e5%88%86%e6%9e%90%e7%ae%97%e6%b3%95" aria-label="可达性分析算法">可达性分析算法</a></li>
+                <li>
+                    <a href="#%e5%9b%9b%e7%a7%8d%e5%bc%95%e7%94%a8%e7%b1%bb%e5%9e%8b" aria-label="四种引用类型">四种引用类型</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e7%ae%97%e6%b3%95" aria-label="垃圾回收算法">垃圾回收算法</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e8%ae%b0-%e6%b8%85%e9%99%a4%e7%ae%97%e6%b3%95" aria-label="标记-清除算法">标记-清除算法</a></li>
+                <li>
+                    <a href="#%e5%a4%8d%e5%88%b6%e7%ae%97%e6%b3%95" aria-label="复制算法">复制算法</a></li>
+                <li>
+                    <a href="#%e6%a0%87%e8%ae%b0-%e6%95%b4%e7%90%86%e7%ae%97%e6%b3%95" aria-label="标记-整理算法">标记-整理算法</a></li>
+                <li>
+                    <a href="#%e5%88%86%e4%bb%a3%e6%94%b6%e9%9b%86%e7%ae%97%e6%b3%95" aria-label="分代收集算法">分代收集算法</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9e%83%e5%9c%be%e6%94%b6%e9%9b%86%e5%99%a8" aria-label="垃圾收集器">垃圾收集器</a><ul>
+                        
+                <li>
+                    <a href="#serial-%e6%94%b6%e9%9b%86%e5%99%a8" aria-label="Serial 收集器">Serial 收集器</a></li>
+                <li>
+                    <a href="#g1-%e6%94%b6%e9%9b%86%e5%99%a8" aria-label="G1 收集器">G1 收集器</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%b1%bb%e5%8a%a0%e8%bd%bd" aria-label="类加载">类加载</a><ul>
+                        
+                <li>
+                    <a href="#%e7%b1%bb%e5%8a%a0%e8%bd%bd%e8%bf%87%e7%a8%8b" aria-label="类加载过程">类加载过程</a></li>
+                <li>
+                    <a href="#%e7%b1%bb%e5%8a%a0%e8%bd%bd%e5%99%a8" aria-label="类加载器">类加载器</a></li>
+                <li>
+                    <a href="#%e5%8f%8c%e4%ba%b2%e5%a7%94%e6%b4%be%e6%a8%a1%e5%9e%8b" aria-label="双亲委派模型">双亲委派模型</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e5%8f%8c%e4%ba%b2%e5%a7%94%e6%b4%be%e6%a8%a1%e5%9e%8b%e7%9a%84%e5%a5%bd%e5%a4%84" aria-label="使用双亲委派模型的好处">使用双亲委派模型的好处</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#spring" aria-label="Spring">Spring</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#spring%e6%98%af%e5%a6%82%e4%bd%95%e8%a7%a3%e5%86%b3%e7%9a%84%e5%be%aa%e7%8e%af%e4%be%9d%e8%b5%96" aria-label="Spring是如何解决的循环依赖">Spring是如何解决的循环依赖</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e7%ba%a7%e7%bc%93%e5%ad%98%e9%83%bd%e6%98%af%e4%bb%80%e4%b9%88" aria-label="三级缓存都是什么">三级缓存都是什么</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%e4%b8%89%e7%ba%a7%e7%bc%93%e5%ad%98%e5%91%a2%e4%ba%8c%e7%ba%a7%e7%bc%93%e5%ad%98%e8%83%bd%e8%a7%a3%e5%86%b3%e5%be%aa%e7%8e%af%e4%be%9d%e8%b5%96%e5%90%97" aria-label="为什么要使用三级缓存呢？二级缓存能解决循环依赖吗？">为什么要使用三级缓存呢？二级缓存能解决循环依赖吗？</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#%e7%b3%bb%e7%bb%9f%e8%ae%be%e8%ae%a1" aria-label="系统设计">系统设计</a><ul>
+                        
+                <li>
+                    <a href="#%e8%b6%85%e5%8d%96%e9%97%ae%e9%a2%98" aria-label="超卖问题">超卖问题</a></li></ul>
+                </li>
+                <li>
                     <a href="#%e9%9b%b6%e7%a2%8e" aria-label="零碎">零碎</a></li>
                 <li>
                     <a href="#%e5%be%85%e5%81%9a" aria-label="待做">待做</a><ul>
                         <ul>
                         
                 <li>
-                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f-1" aria-label="操作系统">操作系统</a></li>
+                    <a href="#%e9%ab%98%e4%bc%98%e5%85%88%e7%ba%a7" aria-label="高优先级">高优先级</a></li>
                 <li>
-                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="数据库">数据库</a>
+                    <a href="#%e4%b8%ad%e4%bc%98%e5%85%88%e7%ba%a7" aria-label="中优先级">中优先级</a></li>
+                <li>
+                    <a href="#%e4%bd%8e%e4%bc%98%e5%85%88%e7%ba%a7" aria-label="低优先级">低优先级</a>
                 </li>
             </ul>
             </ul>
@@ -1175,6 +1267,8 @@ var _hmt = _hmt || [];
 <li>通过Proxy的newProxyInstance()方法获取代理类对象</li>
 <li>通过代理类对象调用被代理类的方法</li>
 </ol>
+<h4 id="jdk动态代理的反射体现在什么地方">jdk动态代理的反射体现在什么地方<a hidden class="anchor" aria-hidden="true" href="#jdk动态代理的反射体现在什么地方">#</a></h4>
+<p>调用代理对象方法，会调用handler的invoke方法，invoke方法里面调用原始对象方法就是使用的反射</p>
 <h3 id="cglib动态代理">cglib动态代理<a hidden class="anchor" aria-hidden="true" href="#cglib动态代理">#</a></h3>
 <h4 id="原理-1">原理<a hidden class="anchor" aria-hidden="true" href="#原理-1">#</a></h4>
 <p>就是修改需要代理的那个类的字节码，生成该类的子类并重写父类的方法，这个子类的方法都会调用回调函数intercept方法，从而完成代理</p>
@@ -1206,15 +1300,15 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <h3 id="netty跟java-nio有什么不同为什么不直接使用jdk-nio类库">Netty跟Java NIO有什么不同，为什么不直接使用JDK NIO类库？<a hidden class="anchor" aria-hidden="true" href="#netty跟java-nio有什么不同为什么不直接使用jdk-nio类库">#</a></h3>
 <p>说说NIO有什么缺点吧：</p>
 <ol>
-<li>NIO的类库和API还是有点复杂，比如Buffer的使用 Selector编写复杂，如果对某个事件注册后，业务代码过于耦合，需要了解很多多线程的知识，熟悉网络编程，面对断连重连、保丢失、粘包等，处理复杂</li>
+<li>NIO的类库和API还是有点复杂，比如Buffer的使用、Selector编写复杂，如果对某个事件注册后，业务代码过于耦合，需要了解很多多线程的知识，熟悉网络编程，面对断连重连、保丢失、粘包等，处理复杂</li>
 <li>NIO存在BUG，根据网上言论说是selector空轮询导致CPU飙升</li>
 </ol>
 <p>Netty主要的优点有：</p>
 <ol>
-<li>统一的 API，支持多种传输类型，阻塞和非阻塞的。</li>
-<li>简单而强大的线程模型。</li>
+<li>统一的 API，支持多种传输类型，阻塞和非阻塞的。（对NIO的封装，使用起来比较简单）</li>
+<li>简单而强大的线程模型。（Reactor模型）</li>
 <li>自带编解码器解决 TCP 粘包/拆包问题，自带各种协议栈。</li>
-<li>比直接使用 Java 核心 API 有更高的吞吐量、更低的延迟、更低的资源消耗和更少的内存复制。</li>
+<li>比直接使用 Java 核心 API 有更高的吞吐量、更低的延迟、更低的资源消耗和更少的内存复制。（零拷贝技术）</li>
 <li>社区活跃，成熟稳定，经历了大型项目的使用和考验，而且很多开源项目都使用到了 Netty， 比如我们经常接触的 Dubbo、RocketMQ 等等。</li>
 </ol>
 <h3 id="netty-应用场景了解么">Netty 应用场景了解么？<a hidden class="anchor" aria-hidden="true" href="#netty-应用场景了解么">#</a></h3>
@@ -1230,7 +1324,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <h4 id="eventloop">EventLoop<a hidden class="anchor" aria-hidden="true" href="#eventloop">#</a></h4>
 <p>EventLoop 的主要作用实际就是负责监听网络事件并调用事件处理器进行相关 I/O 操作的处理。</p>
 <h4 id="channel">Channel<a hidden class="anchor" aria-hidden="true" href="#channel">#</a></h4>
-<p><strong>Channel</strong> 接口是 <strong>Netty</strong> 对网络操作抽象类，它除了包括基本的 <strong>I/O</strong> 操作，如 <strong>bind()</strong>、<strong>connect()</strong>、<strong>read()</strong>、<strong>write()</strong> 等。</p>
+<p><strong>Channel</strong> 接口是 <strong>Netty</strong> 对网络操作抽象类，它包括基本的 <strong>I/O</strong> 操作，如 <strong>bind()</strong>、<strong>connect()</strong>、<strong>read()</strong>、<strong>write()</strong> 等。</p>
 <p>比较常用的<strong>Channel</strong>接口实现类是<strong>NioServerSocketChannel</strong>（服务端）和<strong>NioSocketChannel</strong>（客户端），这两个 <strong>Channel</strong> 可以和 <strong>BIO</strong> 编程模型中的<strong>ServerSocket</strong>以及<strong>Socket</strong>两个概念对应上。<strong>Netty</strong> 的 <strong>Channel</strong> 接口所提供的 <strong>API</strong>，大大地降低了直接使用 <strong>Socket</strong> 类的复杂性。</p>
 <h4 id="channelfuture">ChannelFuture<a hidden class="anchor" aria-hidden="true" href="#channelfuture">#</a></h4>
 <p><strong>Netty</strong> 是异步非阻塞的，所有的 I/O 操作都为异步的。所以我们不能立刻得到操作的结果，我们可以通过 <strong>ChannelFuture</strong> 接口的 <strong>addListener()</strong> 方法注册一个 <strong>ChannelFutureListener</strong>，当操作执行完后，监听就会自动触发返回结果。</p>
@@ -1296,7 +1390,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <h4 id="心跳机制">心跳机制<a hidden class="anchor" aria-hidden="true" href="#心跳机制">#</a></h4>
 <p>在 TCP 保持长连接的过程中，可能会出现断网等网络异常出现，异常发生的时候， client 与 server 之间如果没有交互的话，他们是无法发现对方已经掉线的。为了解决这个问题, 我们就需要引入 <strong>心跳机制</strong> 。</p>
 <p>心跳机制的工作原理是: 在 client 与 server 之间在一定时间内没有数据交互时, 即处于 idle 状态时, 客户端或服务器就会发送一个特殊的数据包给对方, 当接收方收到这个数据报文后, 也立即发送一个特殊的数据报文, 回应发送方, 此即一个 PING-PONG 交互。所以, 当某一端收到心跳消息后, 就知道了对方仍然在线, 这就确保 TCP 连接的有效性.</p>
-<p>TCP 实际上自带的就有长连接选项，本身是也有心跳包机制，也就是 TCP 的选项：SO_KEEPALIVE。但是，TCP 协议层面的长连接灵活性不够。所以，一般情况下我们都是在应用层协议上实现自定义信跳机制的，也就是在 Netty 层面通过编码实现。通过 Netty 实现心跳机制的话，核心类是 IdleStateHandler 。</p>
+<p>TCP 实际上自带的就有长连接选项，本身是也有心跳包机制，也就是 TCP 的选项：SO_KEEPALIVE。但是，TCP 协议层面的长连接灵活性不够。所以，一般情况下我们都是在应用层协议上实现自定义心跳机制的，也就是在 Netty 层面通过编码实现。通过 Netty 实现心跳机制的话，核心类是 IdleStateHandler 。</p>
 <h3 id="netty-的零拷贝">Netty 的零拷贝<a hidden class="anchor" aria-hidden="true" href="#netty-的零拷贝">#</a></h3>
 <h4 id="操作系统的零拷贝">操作系统的零拷贝<a hidden class="anchor" aria-hidden="true" href="#操作系统的零拷贝">#</a></h4>
 <p>传统意义的拷贝是在发送数据的时候， 传统的实现方式是：</p>
@@ -1313,7 +1407,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <h4 id="netty-的零拷贝-1">Netty 的零拷贝<a hidden class="anchor" aria-hidden="true" href="#netty-的零拷贝-1">#</a></h4>
 <p>Netty 的零拷贝主要包含三个方面：</p>
 <ol>
-<li>Netty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存（注意直接内存可以与内核态的缓冲区内存进行内存映射，也就是mmap）进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。</li>
+<li>Netty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存（注意直接内存可以与内核态的缓冲区内存进行内存映射，也就是mmap）进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝（不是堆外直接内存吗）。</li>
 <li>Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。</li>
 <li>Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。</li>
 </ol>
@@ -1353,9 +1447,9 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <p>阻塞：阻塞调用是指调用方发出request的线程因为某种原因（如：等待系统资源）被服务方挂起，当服务方得到response后就唤醒挂起线程，并将response返回给调用方。</p>
 <p>非阻塞：非阻塞调用是指调用方发出request的线程在没有等到结果时不会被挂起，直到得到response后才返回。</p>
 <h3 id="bionioaio分别是什么">BIO、NIO、AIO分别是什么？<a hidden class="anchor" aria-hidden="true" href="#bionioaio分别是什么">#</a></h3>
-<p>BIO:同步并阻塞 ，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高</p>
-<p>NIO:同步非阻塞 ，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器</p>
-<p>AIO:异步非阻塞 ，服务器实现模式为一个有效请求一个线程，客户端的I/O请求服务器处理之前就会返回，处理完成之后会调用回调函数来返回数据</p>
+<p>BIO（Blocking I/O）：采用阻塞式 I/O 模型，线程在等待 I/O 操作时，无法处理其他任务，适用于连接数较少且稳定的场景。</p>
+<p>NIO（New I/O 或 Non-blocking I/O）：使用非阻塞 I/O 模型，线程在等待 I/O 时可执行其他任务，通过 Selector 监控多个 Channel 上的事件，提高性能和可伸缩性，适用于高并发场景。</p>
+<p>AIO（Asynchronous I/O）：采用异步 I/O 模型，线程发起 I/O 请求后立即返回，当 I/O 操作完成时通过回调函数通知线程，进一步提高了并发处理能力，适用于高吞吐量场景。</p>
 <h3 id="selectpollepoll的机制及其区别">select、poll、epoll的机制及其区别？<a hidden class="anchor" aria-hidden="true" href="#selectpollepoll的机制及其区别">#</a></h3>
 <ol>
 <li>单个进程打开的文件描述符（fd文件句柄）不一致</li>
@@ -1382,7 +1476,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <h3 id="序列化和反序列化有什么作用">序列化和反序列化有什么作用<a hidden class="anchor" aria-hidden="true" href="#序列化和反序列化有什么作用">#</a></h3>
 <ol>
 <li><strong>实现了数据的持久化</strong>：永久性保存对象，保存对象的字节序列到本地文件或者数据库中</li>
-<li><strong>序列化实现远程通</strong>：通过序列化以字节流的形式使对象在网络中进行传递和接收</li>
+<li><strong>序列化实现远程通信</strong>：通过序列化以字节流的形式使对象在网络中进行传递和接收</li>
 <li>通过序列化在进程间传递对象</li>
 </ol>
 <h3 id="serializable接口的作用">Serializable接口的作用<a hidden class="anchor" aria-hidden="true" href="#serializable接口的作用">#</a></h3>
@@ -1448,7 +1542,7 @@ CGLib动态代理：利用ASM（开源的Java字节码编辑库，操作字节�
 <p><strong>随机算法&amp;轮询算法：</strong></p>
 <ul>
 <li>优点：使用简单</li>
-<li>缺点：不适合机器配置不同的场景</li>
+<li>缺点：不能根据当前的场景动态的改变策略</li>
 </ul>
 <p><strong>最少活跃算法：</strong></p>
 <ul>
@@ -1579,9 +1673,8 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <h3 id="为什么网络要分层">为什么网络要分层？<a hidden class="anchor" aria-hidden="true" href="#为什么网络要分层">#</a></h3>
 <p>跟开发程序时的高内聚低耦合思想很接近</p>
 <ol>
-<li><strong>各层之间相互独立</strong>，不需要关心其他层是怎么是实现的，只需要知道怎么调用下层提供的接口就行</li>
+<li><strong>各层之间相互独立</strong>，不需要关心其他层是怎么是实现的，只需要知道怎么调用下层提供的接口就行，<strong>大问题化小</strong>，可以降低系统的复杂度</li>
 <li><strong>提高了整体灵活性</strong>，每一层都可以使用最适合的技术来实现，只需要提供规范的接口就可以，比较灵活</li>
-<li><strong>大问题化小</strong>，可以降低系统的复杂度</li>
 </ol>
 <h3 id="应用层有哪些常见的协议">应用层有哪些常见的协议？<a hidden class="anchor" aria-hidden="true" href="#应用层有哪些常见的协议">#</a></h3>
 <p>HTTP、SMTP、POP3/IMAP、FTP、Telnet、SSH</p>
@@ -1739,7 +1832,7 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <p>HTTP3.0之前基于TCP，3.0之后基于基于UDP的QUIC协议，目的是为了解决队头阻塞</p>
 <h4 id="队头阻塞">队头阻塞<a hidden class="anchor" aria-hidden="true" href="#队头阻塞">#</a></h4>
 <p>HTTP1.1的队头阻塞是因为1.1是一问一答模式，所以当一个大的响应没回来的时候，其他请求都要等待</p>
-<p>HTTP2.0使用了多路复用，就是一个HTTP连接上可以同时发送多个HTTP请求，解决了1.1的对头阻塞，但是只解决了应用层的队头阻塞，传输层依然有队头阻塞，因为如果发送3个包，第一个包丢了，那么服务端为了保证有序接受就会等待直到接收到1，但是http包都是独立的，这个时候完全可以处理2和3包，这就是HTTP2.0的队头阻塞</p>
+<p>HTTP2.0使用了多路复用，就是一个HTTP连接上可以同时发送多个HTTP请求，解决了1.1的队头阻塞，但是只解决了应用层的队头阻塞，传输层依然有队头阻塞，因为如果发送3个包，第一个包丢了，那么服务端为了保证有序接受就会等待直到接收到1，但是http包都是独立的，这个时候完全可以处理2和3包，这就是HTTP2.0的队头阻塞</p>
 <p>HTTP3.0为了解决2.0的队头阻塞使用了基于UDP的QUIC协议</p>
 <h3 id="使用-tcp-的协议有哪些">使用 TCP 的协议有哪些？<a hidden class="anchor" aria-hidden="true" href="#使用-tcp-的协议有哪些">#</a></h3>
 <ul>
@@ -2308,6 +2401,14 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 </li>
 <li>至此，一条更新语句执行完成。</li>
 </ol>
+<h3 id="数据是什么时候刷新进硬盘的">数据是什么时候刷新进硬盘的<a hidden class="anchor" aria-hidden="true" href="#数据是什么时候刷新进硬盘的">#</a></h3>
+<p>脏页被写入到磁盘的时候数据才真正被写进磁盘了，脏页被写入磁盘有四种情况：</p>
+<ol>
+<li>redo log满了，此时停止所有更新操作，根据redo log将buffer pool里的脏页刷新到硬盘，然后checkpoint向后移动</li>
+<li>buffer pool已经满了，需要淘汰数据页时，如果淘汰的数据页是脏页就会刷新到硬盘</li>
+<li>系统空闲时也会刷盘</li>
+<li>Mysql关闭时会将buffer pool的所有脏页刷新到硬盘</li>
+</ol>
 <h3 id="为什么需要两阶段提交">为什么需要两阶段提交<a hidden class="anchor" aria-hidden="true" href="#为什么需要两阶段提交">#</a></h3>
 <p>因为redo log 和 binlog的写盘的独立的，有可能出现一个写入了，一个没写入的情况，redo log 影响主库的数据，binlog 影响从库的数据，所以 redo log 和 binlog 必须保持一致才能保证主从数据一致。MySQL 为了避免出现两份日志之间的逻辑不一致的问题，使用了「两阶段提交」来解决，两阶段提交把单个事务的提交拆分成了 2 个阶段，分别是「准备（Prepare）阶段」和「提交（Commit）阶段」</p>
 <h3 id="两阶段提交的过程是怎样的">两阶段提交的过程是怎样的<a hidden class="anchor" aria-hidden="true" href="#两阶段提交的过程是怎样的">#</a></h3>
@@ -2336,7 +2437,7 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 </ul>
 <h3 id="b树-vs-b树">B+树 vs B树<a hidden class="anchor" aria-hidden="true" href="#b树-vs-b树">#</a></h3>
 <ul>
-<li>B+Tree 只在叶子节点存储数据，而 B 树 的非叶子节点也要存储数据</li>
+<li>B+Tree 只在叶子节点存储数据，而 B 树 的非叶子节点也要存储数据，所以B树非叶子节点的指针少，那么树就会变高，树变高了就会增加磁盘IO次数，性能比B+树低</li>
 <li>B+Tree 叶子节点采用的是双链表连接，适合 MySQL 中常见的基于范围的顺序查找，而 B 树无法做到这一点</li>
 </ul>
 <h3 id="b树-vs-二叉树">B+树 vs 二叉树<a hidden class="anchor" aria-hidden="true" href="#b树-vs-二叉树">#</a></h3>
@@ -2526,9 +2627,90 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <h3 id="分库分表">分库分表<a hidden class="anchor" aria-hidden="true" href="#分库分表">#</a></h3>
 <p><a href="https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html#%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8">https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html#%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8</a></p>
 <h3 id="mysql执行计划">MySQL执行计划<a hidden class="anchor" aria-hidden="true" href="#mysql执行计划">#</a></h3>
-<p><a href="https://javaguide.cn/database/mysql/mysql-query-execution-plan.html">https://javaguide.cn/database/mysql/mysql-query-execution-plan.html</a></p>
+<p>有三个比较重要的字段：</p>
+<ul>
+<li>type：查询执行的类型，描述了查询是如何执行的。所有值的顺序从最优到最差排序为：system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</li>
+<li>key：使用到的索引列</li>
+<li>Extra：这列包含了 MySQL 解析查询的额外信息，如下所示
+<ul>
+<li><strong>Using filesort</strong>：在排序时使用了外部的索引排序，没有用到表内索引进行排序。</li>
+<li><strong>Using temporary</strong>：MySQL 需要创建临时表来存储查询的结果，常见于 ORDER BY 和 GROUP BY。</li>
+<li><strong>Using index</strong>：表明查询使用了覆盖索引，不用回表，查询效率非常高。</li>
+<li><strong>Using index condition</strong>：表示查询优化器选择使用了索引条件下推这个特性。</li>
+<li><strong>Using where</strong>：表明查询使用了 WHERE 子句进行条件过滤。一般在没有使用到索引的时候会出现。</li>
+<li><strong>Using join buffer (Block Nested Loop)</strong>：连表查询的方式，表示当被驱动表的没有使用索引的时候，MySQL 会先将驱动表读出来放到 join buffer 中，再遍历被驱动表与驱动表进行查询。</li>
+</ul>
+</li>
+</ul>
+<p>详见：<a href="https://javaguide.cn/database/mysql/mysql-query-execution-plan.html">https://javaguide.cn/database/mysql/mysql-query-execution-plan.html</a></p>
+<h3 id="慢sql">慢SQL<a hidden class="anchor" aria-hidden="true" href="#慢sql">#</a></h3>
+<p>可以通过慢查询日志查找慢sql</p>
+<p><strong>导致慢sql的原因有以下几种：</strong></p>
+<ol>
+<li>
+<p><strong>未加索引或索引失效或选错了索引</strong>，具体排查可以用explain命令查看有没有走索引，如果走了索引说明是走错索引了，有如下三种解决方案，如果没走索引就得加索引，如果已经加了索引那就说明索引失效了，具体索引失效的情况见上方。</p>
+<ol>
+<li>使用强制索引：<code>force index</code></li>
+<li>重写 SQL，引导它使用我们期望的索引</li>
+<li>新建一个更合适的索引</li>
+</ol>
+</li>
+<li>
+<p><strong>limit 深分页</strong>，深分页会导致扫描很多行，扫描很多行也导致回表很多次，所以导致了慢SQL，有以下两种解决方案：</p>
+<ol>
+<li>通过子查询优化，先找到需要的行的id，再通过id查询聚簇索引减少回表次数（使用in）</li>
+<li>通过内连接延迟关联，先找到需要的行的id，再通过id与原表内连接（这时会走id的索引）减少回表次数</li>
+</ol>
+</li>
+<li>
+<p><strong>单表数据量太大</strong>，三层B+树最多保存2000w行数据，如果超过2000w行数据，B+树就会变成四层，由于树变高了，那IO次数就会变高，IO次数变多了，性能就会下降，解决方案如下：</p>
+<ol>
+<li>历史数据归档，就是把哪些不常访问的数据放到归档库里去，比如三年前的订单</li>
+<li>分库分表，具体见上方</li>
+</ol>
+</li>
+<li>
+<p><strong>join或者子查询过多</strong>，由于join和子查询出产生临时表，性能太低，导致慢sql，解决方案为：可以在应用层完成join和子查询</p>
+</li>
+<li>
+<p><strong>in元素过多</strong>，可以分批查询</p>
+</li>
+<li>
+<p><strong>数据库在刷新脏页</strong>，redo log满了或者一个查询要淘汰多个脏页都会导致刷新脏页</p>
+</li>
+<li>
+<p><strong>order by触发文件排序</strong>，order by一般在<code>sort_buffer</code>里排序，如果排序的数据大小超过了buffer的限制，就会触发文件排序，可以使用explain命令看一下，如果Extra列显示<code>Using filesort</code>，则使用了文件排序，解决方案有两个：</p>
+<ol>
+<li>对order by的字段建立索引</li>
+<li>调整<code>sort_buffer</code>的大小</li>
+</ol>
+</li>
+<li>
+<p><strong>等待锁</strong>，需要等待锁的释放，这种情况可以使用<code>show processlist</code>命令查看语句处于什么状态</p>
+</li>
+<li>
+<p><strong>delete + in子查询不走索引</strong></p>
+</li>
+<li>
+<p><strong>group by 使用临时表和文件排序</strong>，由于group by会使用临时表，如果临时表过大会使用磁盘临时表，group by还默认排序，如果排序的数据量过大也会使用文件排序，解决方案有个：</p>
+</li>
+<li>
+<p>order by null禁用排序</p>
+</li>
+<li>
+<p>group by 后面的字段加索引，这样就不会使用到临时表了</p>
+</li>
+<li>
+<p>sql编写时注意临时表不要太大，避免使用磁盘临时表</p>
+</li>
+</ol>
+<p>参考资料：</p>
+<p><a href="https://learnku.com/articles/68200">对线面试官：12个MySQL慢查询的原因分析 | Laravel China 社区 (learnku.com)</a></p>
+<p>[10 MySQL为什么有时候会选错索引？ (lianglianglee.com)](<a href="https://learn.lianglianglee.com/">https://learn.lianglianglee.com/</a>专栏/MySQL实战45讲/10  MySQL为什么有时候会选错索引？.md)</p>
+<p><a href="https://juejin.cn/post/7012016858379321358">实战！聊聊如何解决MySQL深分页问题 - 掘金 (juejin.cn)</a></p>
+<p><a href="https://juejin.cn/post/6907825992731983885">长文图解：单张表数据量太大问题怎么解决？请记住这六个字 - 掘金 (juejin.cn)</a></p>
 <h2 id="mysql整体流程">MySQL整体流程<a hidden class="anchor" aria-hidden="true" href="#mysql整体流程">#</a></h2>
-<p>mysql默认隔离等级是RR，需要解决不可重复读和幻读的问题，如果是普通的select，那么由于MVCC机制就可以解决这个问题，这种读就是快照读，如果是带锁的select，就是当前读，带锁的select可以解决不可重复读的问题，但是不能解决幻读的问题，为了解决幻读问题，需要用到临键锁（记录锁+间隙锁），而且如果where条件没有命中索引的话，需要全表扫描，也就会全表加锁，如果where条件没有命中唯一索引或者查询的是个范围的话，会加临键锁，如果where条件命中唯一索引且只查找具体的记录的话，只加记录锁（更一般的说，只要是需要加锁的操作，都是这个模式）</p>
+<p>mysql默认隔离等级是RR，需要解决不可重复读和幻读的问题，如果是普通的select，那么由于MVCC机制就可以解决这个问题，这种读就是快照读，如果是带锁的select，就是当前读，带锁的select如果加记录锁可以解决不可重复读的问题，但是不能解决幻读的问题，为了解决幻读问题，需要用到临键锁（记录锁+间隙锁），所以通过MVCC和加锁可以让mysql在RR等级下解决幻读问题，而且如果where条件没有命中索引的话，需要全表扫描，也就会全表加锁（临键锁），如果where条件没有命中唯一索引或者查询的是个范围的话，会加临键锁，如果where条件命中唯一索引且只查找具体的记录的话，只加记录锁（更一般的说，只要是需要加锁的操作，都是这个模式）</p>
 <h1 id="redis">Redis<a hidden class="anchor" aria-hidden="true" href="#redis">#</a></h1>
 <p>直接看小林coding吧</p>
 <h2 id="数据结构">数据结构<a hidden class="anchor" aria-hidden="true" href="#数据结构">#</a></h2>
@@ -2730,6 +2912,10 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <li><strong>设置空值或者默认值</strong>：当我们线上业务发现缓存穿透的现象时，可以针对查询的数据，在缓存中设置一个空值或者默认值</li>
 <li><strong>使用布隆过滤器快速判断数据是否存在，避免通过查询数据库来判断数据是否存在</strong></li>
 </ol>
+<h5 id="什么是布隆过滤器">什么是布隆过滤器<a hidden class="anchor" aria-hidden="true" href="#什么是布隆过滤器">#</a></h5>
+<p>布隆过滤器可以快速判断数据是否存在</p>
+<p><strong>具体原理：<strong>布隆过滤器由位图数组和哈希函数组成，写入数据的时候，将该数据哈希映射后在位图数组中的位置做个标记，那么如果之后查询到数据对应的位置如果没有标记说明一定不存在，如果有标记则</strong>不一定存在</strong>。</p>
+<p>ps：哈希函数有多个</p>
 <h3 id="数据库和缓存如何保证一致性">数据库和缓存如何保证一致性？<a hidden class="anchor" aria-hidden="true" href="#数据库和缓存如何保证一致性">#</a></h3>
 <p>先更新数据库，再删除缓存，因为比如是先删除缓存，再更新数据库的话，可能还没更新数据库呢，缓存就被另一个线程给填上了</p>
 <p>具体原因看：<a href="https://www.xiaolincoding.com/redis/architecture/mysql_redis_consistency.html">https://www.xiaolincoding.com/redis/architecture/mysql_redis_consistency.html</a></p>
@@ -2759,9 +2945,41 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <h3 id="redis-事务支持回滚吗">Redis 事务支持回滚吗？<a hidden class="anchor" aria-hidden="true" href="#redis-事务支持回滚吗">#</a></h3>
 <p>不支持</p>
 <h3 id="如何用-redis-实现分布式锁的">如何用 Redis 实现分布式锁的？<a hidden class="anchor" aria-hidden="true" href="#如何用-redis-实现分布式锁的">#</a></h3>
-<p>分布式锁就是分布式的应用访问同一个资源的锁，对于多个应用，加锁方式是在redis里面设置一个值，添加NX字段，这个字段说明这个值必须不存在才能添加成功，那么谁能添加值成功，谁就拿到了分布式锁</p>
+<p>分布式锁就是分布式的应用访问同一个资源的锁，对于多个应用，加锁方式是在redis里面设置一个值，添加NX参数，这个字段说明这个值必须不存在才能添加成功，那么谁能添加值成功，谁就拿到了分布式锁</p>
+<p>**问题1：**客户端拿到锁后发生异常，导致锁一直无法释放，需要设置过期时间，添加EX/PX参数即可，但是很难设置一个合理的过期时间，所以可以开启一个守护线程定时续约，等任务执行完就停止续约</p>
+<p>**问题2：**在释放锁时，出现误释放操作，使用 SET 命令设置锁变量值时，每个客户端设置的值是一个唯一值，用于标识客户端，释放锁的时候，我们要先判断锁的 value 是否为加锁客户端，是的话，才将锁删除。因为是两个操作，所以可以使用lua脚本保证原子性</p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>性能高效</li>
+<li>实现方便</li>
+<li>可以避免单点故障</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>超时时间不好设置</li>
+<li>Redis 主从复制模式中的数据是异步复制的，这样导致分布式锁的不可靠性</li>
+</ol>
+<p>ps：解决分布式锁的不可靠性可以使用redlock算法，是让客户端和多个独立的 Redis 节点依次请求申请加锁，如果客户端能够和半数以上的节点成功地完成加锁操作，那么我们就认为，客户端成功地获得分布式锁，否则加锁失败。</p>
+<p>redlock算法能保证分布式锁的可靠性的原因是：不过有没有结点故障，最多只有一个能获得锁（因为只有一个能获取半数以上的锁）。</p>
+<p>加锁时统计加锁用了多长时间，如果超过了锁的过期时间那就是加锁失败，否则就是加锁成功。</p>
+<p>释放锁和单节点一样，只不过需要对所有 Redis 节点发起释放锁的操作。</p>
 <h1 id="java">Java<a hidden class="anchor" aria-hidden="true" href="#java">#</a></h1>
 <h2 id="基础-3">基础<a hidden class="anchor" aria-hidden="true" href="#基础-3">#</a></h2>
+<h3 id="抽象类和接口的区别">抽象类和接口的区别<a hidden class="anchor" aria-hidden="true" href="#抽象类和接口的区别">#</a></h3>
+<p>分为两个层面：</p>
+<p><strong>语法层面上：</strong></p>
+<ol>
+<li>抽象类可以提供成员方法的实现细节，而接口中只能存在 public abstract 方法；</li>
+<li>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的；</li>
+<li>接口中不能含有静态代码块，而抽象类可以有静态代码块；</li>
+<li>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</li>
+</ol>
+<p><strong>设计层面上：</strong></p>
+<ol>
+<li>抽象类是对事物整体的抽象，子类和抽象类是is-a的关系，接口是对行为或能力的抽象。</li>
+<li>抽象类是模板式设计，接口是规范，是一种辐射类设计，抽象类是模板所以如果抽象类更改之后子类不一定需要更改，而接口是行为规范，接口发生了更改的话实现这个接口的类都需要更改。</li>
+</ol>
+<p>详见：<a href="https://javabetter.cn/oo/abstract-vs-interface.html">https://javabetter.cn/oo/abstract-vs-interface.html</a></p>
 <h3 id="未看">未看<a hidden class="anchor" aria-hidden="true" href="#未看">#</a></h3>
 <p><a href="https://javaguide.cn/java/basis/unsafe.html">https://javaguide.cn/java/basis/unsafe.html</a></p>
 <p><a href="https://javaguide.cn/java/basis/spi.html">https://javaguide.cn/java/basis/spi.html</a></p>
@@ -2826,7 +3044,7 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <li>在<code>synchronized</code>内部可以调用<code>wait()</code>使线程进入等待状态；</li>
 <li>必须在已获得的锁对象上调用<code>wait()</code>方法；</li>
 <li>在<code>synchronized</code>内部可以调用<code>notify()</code>或<code>notifyAll()</code>唤醒其他等待线程；</li>
-<li>必须在已获得的锁对象上调用<code>notify()</code>或<code>notifyAll()</code>方法；</li>
+<li>必须在已获得的锁对象上调用<code>notify()</code>或<code>notifyAll()</code>方法；TODO 为什么？</li>
 <li>已唤醒的线程还需要重新获得锁后才能继续执行。</li>
 </ul>
 <h3 id="volatile的作用和原理">volatile的作用和原理<a hidden class="anchor" aria-hidden="true" href="#volatile的作用和原理">#</a></h3>
@@ -2955,6 +3173,158 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 <h4 id="原理-4">原理<a hidden class="anchor" aria-hidden="true" href="#原理-4">#</a></h4>
 <p>AtomicInteger 类主要利用 CAS和 volatile 和 native 方法来保证原子操作，从而避免 synchronized 的高开销，执行效率大为提升。</p>
 <h3 id="aqs">AQS<a hidden class="anchor" aria-hidden="true" href="#aqs">#</a></h3>
+<h1 id="jvm">JVM<a hidden class="anchor" aria-hidden="true" href="#jvm">#</a></h1>
+<p>参考资料：</p>
+<p><a href="https://javabetter.cn/jvm/zongjie.html">https://javabetter.cn/jvm/zongjie.html</a></p>
+<p><a href="https://javaguide.cn/java/jvm/memory-area.html">Java内存区域详解（重点） | JavaGuide(Java面试 + 学习指南)</a></p>
+<h2 id="java内存区域">Java内存区域<a hidden class="anchor" aria-hidden="true" href="#java内存区域">#</a></h2>
+<p><strong>JDK7及之前：</strong></p>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/java-runtime-data-areas-jdk1.7.png" alt="Java 运行时数据区域（JDK1.7）"  />
+</p>
+<p><strong>JDK8及之后：</strong></p>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/java-runtime-data-areas-jdk1.8.png" alt="Java 运行时数据区域（JDK1.8 ）"  />
+</p>
+<ul>
+<li>程序计数器：当前线程所执行的字节码的行号指示器</li>
+<li>Java虚拟机栈：线程每调用一个方法，就会把这个方法的变量和其他信息封装成一个栈帧，放到Java虚拟机栈里面</li>
+<li>本地方法栈：和Java虚拟机栈类似，只不过这里是调用的本地方法</li>
+<li>堆：此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存</li>
+<li>方法区（元空间）：存储已被虚拟机加载的 类信息、字段信息、方法信息、常量、静态变量、即时编译器编译后的代码缓存等数据</li>
+<li>直接内存：在本地内存上分配的内存</li>
+</ul>
+<h2 id="堆空间的基本结构">堆空间的基本结构<a hidden class="anchor" aria-hidden="true" href="#堆空间的基本结构">#</a></h2>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/hotspot-heap-structure.png" alt="堆内存结构"  />
+</p>
+<h2 id="内存分配原则">内存分配原则<a hidden class="anchor" aria-hidden="true" href="#内存分配原则">#</a></h2>
+<p>对象优先在新生代中 Eden 区分配。当 Eden 区没有足够空间进行分配时，虚拟机将发起一次 Minor GC。Minor GC会把存活的对象放到Survivor 1区，然后继续在Eden区分配对象，如果当前存活的对象大于S1区的空间，通过分配担保机制，会把当前存活的对象放到老年代里去，新生代对象进入老年代有四种情况：</p>
+<ul>
+<li>Minor GC时存活对象大于S1区的空间，通过分配担保机制，当前存活的对象会进入老年代</li>
+<li>大对象会直接进入老年代</li>
+<li>在新生代中经过15次Minor GC（长期存活）的对象会进入老年代</li>
+<li>新生代存活对象中相同年龄的对象占用空间之和如果大于S区的50%，大于等于该年龄的对象都会进入老年代</li>
+</ul>
+<h2 id="内存回收原则">内存回收原则<a hidden class="anchor" aria-hidden="true" href="#内存回收原则">#</a></h2>
+<h3 id="gc种类">GC种类<a hidden class="anchor" aria-hidden="true" href="#gc种类">#</a></h3>
+<ul>
+<li>Minor GC/Young GC：只对新生代进行垃圾收集</li>
+<li>Major GC/Old GC：只对老年代进行垃圾收集</li>
+<li>Full GC：收集整个 Java 堆和方法区</li>
+</ul>
+<p>所有GC都需要Stop The World</p>
+<p>内存回收的是死亡对象，所以第一步要判断哪些对象是死亡对象</p>
+<h3 id="死亡对象判断方法">死亡对象判断方法<a hidden class="anchor" aria-hidden="true" href="#死亡对象判断方法">#</a></h3>
+<h4 id="引用计数法">引用计数法<a hidden class="anchor" aria-hidden="true" href="#引用计数法">#</a></h4>
+<p>每个Java对象都保存一个计数器，代表该Java对象的引用个数，引用为零则代表该对象已死亡，但是会用循环依赖问题，所以没有使用这种方法</p>
+<h4 id="可达性分析算法">可达性分析算法<a hidden class="anchor" aria-hidden="true" href="#可达性分析算法">#</a></h4>
+<p>通过一系列的称为 <strong>“GC Roots”</strong> 的对象作为起点，从这些节点开始向下搜索，能到达的对象都是存活着的，不能到达的对象都是死亡的，需要回收，可以作为GC Roots的对象有：</p>
+<ul>
+<li>虚拟机栈(栈帧中的局部变量表)中引用的对象</li>
+<li>本地方法栈(Native 方法)中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>所有被同步锁持有的对象</li>
+<li>JNI（Java Native Interface）引用的对象</li>
+</ul>
+<p>ps：死亡的对象不一定都被回收，因为在回收之前要调用finalize方法，如果finalize方法里又把该对象和GC Roots关联起来了，那么就不会回收</p>
+<h4 id="四种引用类型">四种引用类型<a hidden class="anchor" aria-hidden="true" href="#四种引用类型">#</a></h4>
+<ul>
+<li>强引用：如果对象有强引用，那么不会回收他</li>
+<li>软引用：如果对象只有软引用，那么这个对象可有可无，在内存不足的的时候会回收它</li>
+<li>弱引用：如果对象只有弱引用，那么这个对象可有可无，在内存充足的的时候也会回收它</li>
+<li>虚引用：如果对象只有弱引用，那就跟没有引用一样</li>
+</ul>
+<h3 id="垃圾回收算法">垃圾回收算法<a hidden class="anchor" aria-hidden="true" href="#垃圾回收算法">#</a></h3>
+<h4 id="标记-清除算法">标记-清除算法<a hidden class="anchor" aria-hidden="true" href="#标记-清除算法">#</a></h4>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/mark-and-sweep-garbage-collection-algorithm.png" alt="标记-清除算法"  />
+</p>
+<p>有两个问题：</p>
+<ul>
+<li><strong>效率问题</strong>：标记和清除两个过程效率都不高。</li>
+<li><strong>空间问题</strong>：标记清除后会产生大量不连续的内存碎片。</li>
+</ul>
+<h4 id="复制算法">复制算法<a hidden class="anchor" aria-hidden="true" href="#复制算法">#</a></h4>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/copying-garbage-collection-algorithm.png" alt="复制算法"  />
+</p>
+<p>有两个问题：</p>
+<ul>
+<li><strong>可用内存变小</strong>：可用内存缩小为原来的一半。</li>
+<li><strong>复制占用性能</strong>：如果存活对象数量比较大，复制性能会变得很差。</li>
+</ul>
+<h4 id="标记-整理算法">标记-整理算法<a hidden class="anchor" aria-hidden="true" href="#标记-整理算法">#</a></h4>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/mark-and-compact-garbage-collection-algorithm.png" alt="标记-整理算法"  />
+</p>
+<p>有一个问题：</p>
+<ul>
+<li>多了整理这一步，性能变低</li>
+</ul>
+<h4 id="分代收集算法">分代收集算法<a hidden class="anchor" aria-hidden="true" href="#分代收集算法">#</a></h4>
+<p>根据对象存活周期的不同将内存分为几个区域，我们可以根据各个区域的特点选择合适的垃圾收集算法。</p>
+<h3 id="垃圾收集器">垃圾收集器<a hidden class="anchor" aria-hidden="true" href="#垃圾收集器">#</a></h3>
+<h4 id="serial-收集器">Serial 收集器<a hidden class="anchor" aria-hidden="true" href="#serial-收集器">#</a></h4>
+<ul>
+<li>单线程</li>
+<li>垃圾收集时必须STW</li>
+<li>新生代采用标记-复制算法，老年代采用标记-整理算法</li>
+</ul>
+<h4 id="g1-收集器">G1 收集器<a hidden class="anchor" aria-hidden="true" href="#g1-收集器">#</a></h4>
+<ul>
+<li>并行与并发</li>
+<li>分代收集</li>
+<li>空间整合，从整体来看是基于“标记-整理”算法实现的收集器；从局部上来看是基于“标记-复制”算法实现的</li>
+<li>可预测的停顿，能让使用者明确指定在一个时间间隔内消耗在垃圾收集上的时间不得超过 N 毫秒。</li>
+</ul>
+<p>ps：从JDK9开始G1成为默认的垃圾收集器</p>
+<h2 id="类加载">类加载<a hidden class="anchor" aria-hidden="true" href="#类加载">#</a></h2>
+<h3 id="类加载过程">类加载过程<a hidden class="anchor" aria-hidden="true" href="#类加载过程">#</a></h3>
+<ul>
+<li>类加载过程：<strong>加载-&gt;连接-&gt;初始化</strong>。</li>
+<li>连接过程又可分为三步：<strong>验证-&gt;准备-&gt;解析</strong>。</li>
+</ul>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/class-loading-procedure.png" alt="类加载过程"  />
+</p>
+<p>加载的作用就是读取class文件，将class文件解析为class对象保存到方法区里面</p>
+<h3 id="类加载器">类加载器<a hidden class="anchor" aria-hidden="true" href="#类加载器">#</a></h3>
+<p>JVM 中内置了三个重要的 <code>ClassLoader</code>：</p>
+<ol>
+<li><strong><code>BootstrapClassLoader</code>(启动类加载器)</strong>：最顶层的加载类，由 C++实现，通常表示为 null，并且没有父级，主要用来加载 JDK 内部的核心类库（ <code>%JAVA_HOME%/lib</code>目录下的 <code>rt.jar</code>、<code>resources.jar</code>、<code>charsets.jar</code>等 jar 包和类）以及被 <code>-Xbootclasspath</code>参数指定的路径下的所有类。</li>
+<li><strong><code>ExtensionClassLoader</code>(扩展类加载器)</strong>：主要负责加载 <code>%JRE_HOME%/lib/ext</code> 目录下的 jar 包和类以及被 <code>java.ext.dirs</code> 系统变量所指定的路径下的所有类。</li>
+<li><strong><code>AppClassLoader</code>(应用程序类加载器)</strong>：面向我们用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。</li>
+</ol>
+<p>自定义类加载器：继承 <code>ClassLoader</code>抽象类，并且重写方法</p>
+<h3 id="双亲委派模型">双亲委派模型<a hidden class="anchor" aria-hidden="true" href="#双亲委派模型">#</a></h3>
+<p><img loading="lazy" src="https://oss.javaguide.cn/github/javaguide/java/jvm/class-loader-parents-delegation-model.png" alt="类加载器层次关系图"  />
+</p>
+<p>查找类是否被加载时从下往上找，加载类时从上往下找能加载类的类加载器</p>
+<h4 id="使用双亲委派模型的好处">使用双亲委派模型的好处<a hidden class="anchor" aria-hidden="true" href="#使用双亲委派模型的好处">#</a></h4>
+<p>双亲委派模型保证了 Java 程序的稳定运行，可以避免类的重复加载（JVM 区分不同类的方式不仅仅根据类名，相同的类文件被不同的类加载器加载产生的是两个不同的类），也保证了 Java 的核心 API 不被篡改。</p>
+<h1 id="spring">Spring<a hidden class="anchor" aria-hidden="true" href="#spring">#</a></h1>
+<p>详见https://javaguide.cn/system-design/framework/spring/spring-knowledge-and-questions-summary.html中及这里的其他文章</p>
+<h3 id="spring是如何解决的循环依赖">Spring是如何解决的循环依赖<a hidden class="anchor" aria-hidden="true" href="#spring是如何解决的循环依赖">#</a></h3>
+<p>Spring通过三级缓存解决了循环依赖，其中一级缓存为单例池（<code>singletonObjects</code>）,二级缓存为早期曝光对象<code>earlySingletonObjects</code>，三级缓存为早期曝光对象工厂（<code>singletonFactories</code>）。当A、B两个类发生循环引用时，在A完成实例化后，就使用实例化后的对象去创建一个对象工厂，并添加到三级缓存中，如果A被AOP代理，那么通过这个工厂获取到的就是A代理后的对象，如果A没有被AOP代理，那么这个工厂获取到的就是A实例化的对象。当A进行属性注入时，会去创建B，同时B又依赖了A，所以创建B的同时又会去调用getBean(a)来获取需要的依赖，此时的getBean(a)会从缓存中获取，第一步，先获取到三级缓存中的工厂；第二步，调用对象工厂的getObject方法来获取到对应的对象，得到这个对象后将其放到二级缓存中并删除三级缓存的ObjectFactory，并将其注入到B中。紧接着B会走完它的生命周期流程，包括初始化、后置处理器等。当B创建完后，会将B再注入到A中，此时A再完成它的整个生命周期。至此，循环依赖结束！</p>
+<p>流程图如下：</p>
+<p><img loading="lazy" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vd3hfY2MzNDdiZTY5Ni9ibG9nSW1hZ2UvcmF3L21hc3Rlci9pbWFnZS0yMDIwMDcwNjE2MTcwOTgyOS5wbmc?x-oss-process=image/format,png" alt=""  />
+</p>
+<p>详见：<a href="https://developer.aliyun.com/article/766880">面试必杀技，讲一讲Spring中的循环依赖-阿里云开发者社区 (aliyun.com)</a></p>
+<p><a href="https://juejin.cn/post/6985337310472568839">Spring中的循环依赖及解决 - 掘金 (juejin.cn)</a></p>
+<p>ps：</p>
+<ol>
+<li>自引用也是循环依赖的一种</li>
+<li>注入bean的时候首先getBean，如果有缓存就找缓存，没有缓存就createBean，所以A注入B的时候会创建B，但是B注入A的时候会找缓存</li>
+</ol>
+<h3 id="三级缓存都是什么">三级缓存都是什么<a hidden class="anchor" aria-hidden="true" href="#三级缓存都是什么">#</a></h3>
+<p>singletonObjects：缓存经过完整生命周期的bean</p>
+<p>earlySingletonObjects：如果没有使用AOP就缓存还没有进行依赖注入的bean，如果使用了AOP就缓存代理对象（通过调用ObjectFactory来获取代理对象）</p>
+<p>singletonFactories：缓存的是ObjectFactory，表示对象工厂，用来创建某个对象的，如果bean使用了AOP就返回AOP对象，如果没使用AOP就返回原始对象</p>
+<h3 id="为什么要使用三级缓存呢二级缓存能解决循环依赖吗">为什么要使用三级缓存呢？二级缓存能解决循环依赖吗？<a hidden class="anchor" aria-hidden="true" href="#为什么要使用三级缓存呢二级缓存能解决循环依赖吗">#</a></h3>
+<p>如果要使用二级缓存解决循环依赖，意味着所有需要AOP的Bean在实例化后就要完成AOP代理，这样违背了Spring设计的原则，Spring在设计之初就是通过<code>AnnotationAwareAspectJAutoProxyCreator</code>这个后置处理器来在Bean生命周期的最后一步来完成AOP代理，而不是在实例化后就立马进行AOP代理。</p>
+<h1 id="系统设计">系统设计<a hidden class="anchor" aria-hidden="true" href="#系统设计">#</a></h1>
+<h2 id="超卖问题">超卖问题<a hidden class="anchor" aria-hidden="true" href="#超卖问题">#</a></h2>
+<p>有两种解决方案：</p>
+<ol>
+<li>对数据库加锁，可以使用乐观锁或者悲观锁</li>
+<li>使用Redis的单线程预减库存，就是在减真正的库存前先减Redis里面的库存，只有成功减Redis库存的请求才能减真正的库存，这种做法是基于Redis是单线程的不会出现并发的特性</li>
+</ol>
+<p>详见：<a href="https://www.cnblogs.com/bearbrick0/p/15976399.html">如何解决高并发下的超卖问题？ - BearBrick0 - 博客园 (cnblogs.com)</a></p>
 <h1 id="零碎">零碎<a hidden class="anchor" aria-hidden="true" href="#零碎">#</a></h1>
 <ul>
 <li>匿名内部类也会生成class文件</li>
@@ -2962,28 +3332,30 @@ service对象内部又是一个map，key是集群名称，值是Cluster对象，
 </ul>
 <p>是Java提供的零拷贝文件传输函数，需要操作系统的支持，Netty的文件传输就采用了Java的transferTo方法，详见上面<code>Netty 的零拷贝</code>的解释</p>
 <h1 id="待做">待做<a hidden class="anchor" aria-hidden="true" href="#待做">#</a></h1>
+<h3 id="高优先级">高优先级<a hidden class="anchor" aria-hidden="true" href="#高优先级">#</a></h3>
 <ul>
-<li>jdk动态代理的反射体现在什么地方？</li>
+<li>各种序列化方式的原理</li>
+<li>12306里面的系统设计问题</li>
+<li>分库分表</li>
+</ul>
+<h3 id="中优先级">中优先级<a hidden class="anchor" aria-hidden="true" href="#中优先级">#</a></h3>
+<ul>
+<li>看一下常用的线程池和阻塞队列</li>
+<li>synchronized 锁升级：<a href="https://www.cnblogs.com/star95/p/17542850.html">浅析synchronized锁升级的原理与实现 - 小新成长之路 - 博客园 (cnblogs.com)</a>、<a href="https://www.cnblogs.com/star95/p/17522142.html">java对象的内存布局 - 小新成长之路 - 博客园 (cnblogs.com)</a></li>
+<li>AQS</li>
+<li>整理mysql优化、索引怎么设计</li>
+<li>把mysql的流程从头到尾过一遍</li>
+<li>小林coding看一遍</li>
+</ul>
+<h3 id="低优先级">低优先级<a hidden class="anchor" aria-hidden="true" href="#低优先级">#</a></h3>
+<ul>
 <li>主从多线程模型到底是什么</li>
 <li>Netty的内存池是怎么实现的</li>
 <li>五种IO模型</li>
-<li>各种序列化方式的原理</li>
 <li>CAP为什么不能保证三个</li>
-<li>布隆过滤器是什么</li>
-<li>synchronized 锁升级</li>
-<li>看一下常用的线程池和阻塞队列</li>
-<li>AQS</li>
-</ul>
-<h3 id="操作系统-1">操作系统<a hidden class="anchor" aria-hidden="true" href="#操作系统-1">#</a></h3>
-<ul>
 <li>内存相关，从头到尾捋一遍</li>
-</ul>
-<h3 id="数据库">数据库<a hidden class="anchor" aria-hidden="true" href="#数据库">#</a></h3>
-<ul>
-<li>数据是什么时候刷新进硬盘的，事务提交的时候做了哪些操作</li>
-<li>把mysql的流程从头到尾过一遍</li>
-<li>整理mysql优化、索引怎么设计</li>
 <li>mysql深入学一遍</li>
+<li>事务提交的时候做了哪些操作</li>
 </ul>
 
 
