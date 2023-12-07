@@ -264,7 +264,7 @@
       <pubDate>Sun, 01 Jan 2023 21:08:26 +0800</pubDate>
       
       <guid>https://blog.zhangmengyang.tk/en/posts/leetcode/leetcode-1/</guid>
-      <description>思路 用map存一下，然后找有没有target - nums[i]即可，直接看代码 代码 class Solution { public int[] twoSum(int[] nums, int target) { Map&amp;lt;Integer, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); int n = nums.length; for (int i = 0; i &amp;lt; n; i++) {</description>
+      <description>思路 用map存一下，然后找有没有target - nums[i]即可，直接看代码。 代码 class Solution { public int[] twoSum(int[] nums, int target) { Map&amp;lt;Integer, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); int n = nums.length; for (int i = 0; i &amp;lt; n; i++)</description>
     </item>
     
     <item>
