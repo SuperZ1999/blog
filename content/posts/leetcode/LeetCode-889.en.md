@@ -19,7 +19,7 @@ cover:
 
 同LeetCode-105，就是改一下递归的参数，而且前序和后序无法唯一确定一棵树
 
-详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/>
+详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-105/>
 
 ### 代码
 

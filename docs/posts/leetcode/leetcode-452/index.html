@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
-<p>其实就是求解无重叠区间最多有几个，同<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-435/">LeetCode-435</a>，因为可以每一发都打在无重叠区间中每个区间的最右边，这样下一个区间之前的区间都被贯穿，如下图所示：</p>
+<p>其实就是求解无重叠区间最多有几个，同<a href="https://superz1999.github.io/blog/posts/leetcode/leetcode-435/">LeetCode-435</a>，因为可以每一发都打在无重叠区间中每个区间的最右边，这样下一个区间之前的区间都被贯穿，如下图所示：</p>
 <p><img loading="lazy" src="https://labuladong.gitee.io/algo/images/interval/3.jpg" alt="img"  />
 </p>
 <p>只不过这道题相邻的两个区间边界触碰也算是重叠区间，<code>interval[0] &gt;= x_end</code>改成<code>interval[0] &gt; x_end</code>就可以了</p>

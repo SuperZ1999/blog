@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-921](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-921/)，只不过需要注意当右括号差一个的时候需要补齐右括号
+同[LeetCode-921](https://superz1999.github.io/blog/posts/leetcode/leetcode-921/)，只不过需要注意当右括号差一个的时候需要补齐右括号
 
 ### 代码
 

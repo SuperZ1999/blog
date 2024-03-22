@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-利用单调栈的思想即可，同[LeetCode-496](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/)，只不过这次存的是索引而不是元素
+利用单调栈的思想即可，同[LeetCode-496](https://superz1999.github.io/blog/posts/leetcode/leetcode-496/)，只不过这次存的是索引而不是元素
 
 ### 代码
 

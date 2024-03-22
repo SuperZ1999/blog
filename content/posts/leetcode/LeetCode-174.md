@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-与[LeetCode-64](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/)类似，只不过dp数组中dp\[i\]\[j\]的定义是从 grid\[i\]\[j\] 到达终点（右下角）所需的最少生命值
+与[LeetCode-64](https://superz1999.github.io/blog/posts/leetcode/leetcode-64/)类似，只不过dp数组中dp\[i\]\[j\]的定义是从 grid\[i\]\[j\] 到达终点（右下角）所需的最少生命值
 
 ### 代码
 

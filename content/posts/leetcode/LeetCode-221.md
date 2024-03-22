@@ -25,7 +25,7 @@ cover:
 
 #### 动态规划
 
-同[LeetCode-85](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/)，只不过85是矩形，这里是正方形，计算面积的时候注意长宽一致即可，其实也可以不用85这种思路，也可以建立dp数组，dp\[i\]\[j\] = x表示以\[i\]\[j\]元素为正方形右下角的正方形边长最长为x，状态转移方程为：
+同[LeetCode-85](https://superz1999.github.io/blog/posts/leetcode/leetcode-85/)，只不过85是矩形，这里是正方形，计算面积的时候注意长宽一致即可，其实也可以不用85这种思路，也可以建立dp数组，dp\[i\]\[j\] = x表示以\[i\]\[j\]元素为正方形右下角的正方形边长最长为x，状态转移方程为：
 
 ```java
 dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;

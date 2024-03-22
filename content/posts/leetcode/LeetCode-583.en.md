@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-基本同最长公共子序列：[LeetCode-1143](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/)，也可以直接重用LCS，因为删除的结果不就是它俩的最长公共子序列，那么删除的次数就是`word1.length() + word2.length() - 2 * lcsLen`
+基本同最长公共子序列：[LeetCode-1143](https://superz1999.github.io/blog/posts/leetcode/leetcode-53/)，也可以直接重用LCS，因为删除的结果不就是它俩的最长公共子序列，那么删除的次数就是`word1.length() + word2.length() - 2 * lcsLen`
 
 ### 代码
 

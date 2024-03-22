@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
-<p>这道题可以复用<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-172/">LeetCode-172</a>的函数，从0-Long.MAX_VALUE之间寻找trailingZeroes(n) == k的值，由于trailingZeroes(n)是单调的，所以可以用二分查找确定左右边界（这点不容易想到），这样比穷举快多了，二分查找相关细节见思想篇章</p>
+<p>这道题可以复用<a href="https://superz1999.github.io/blog/posts/leetcode/leetcode-172/">LeetCode-172</a>的函数，从0-Long.MAX_VALUE之间寻找trailingZeroes(n) == k的值，由于trailingZeroes(n)是单调的，所以可以用二分查找确定左右边界（这点不容易想到），这样比穷举快多了，二分查找相关细节见思想篇章</p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">preimageSizeFZF</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>

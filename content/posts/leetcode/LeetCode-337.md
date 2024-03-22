@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-198](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-198/)，只不过变成了二叉树
+同[LeetCode-198](https://superz1999.github.io/blog/posts/leetcode/leetcode-198/)，只不过变成了二叉树
 
 ### 代码
 

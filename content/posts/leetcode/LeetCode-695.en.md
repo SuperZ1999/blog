@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-200](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/)，把返回值改成淹没陆地的数量即可
+同[LeetCode-200](https://superz1999.github.io/blog/posts/leetcode/leetcode-200/)，把返回值改成淹没陆地的数量即可
 
 ### 代码
 

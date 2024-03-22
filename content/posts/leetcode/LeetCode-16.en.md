@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-15](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/)，只不过每次找到一个三元组，都判断一下跟target的距离，去最小距离的三元组
+同[LeetCode-15](https://superz1999.github.io/blog/posts/leetcode/leetcode-15/)，只不过每次找到一个三元组，都判断一下跟target的距离，去最小距离的三元组
 
 ### 代码
 

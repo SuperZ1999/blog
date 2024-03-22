@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-198](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-198/)，只不过首尾不能同时偷，共有三种情况，其中第一种情况不需要考虑因为肯定比其他两种小
+同[LeetCode-198](https://superz1999.github.io/blog/posts/leetcode/leetcode-198/)，只不过首尾不能同时偷，共有三种情况，其中第一种情况不需要考虑因为肯定比其他两种小
 
 ![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gibkIz0MVqdG9kDIzE6qfsOcugRP3xn8nlATHI4e9ib8SUiar0s2OR8zQdvficwknUKDwfcKWV0sc3WwL1lC0Cw5GQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
 

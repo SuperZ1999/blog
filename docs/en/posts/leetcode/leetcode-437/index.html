@@ -391,7 +391,7 @@ var _hmt = _hmt || [];
 <h4 id="dfs">DFS<a hidden class="anchor" aria-hidden="true" href="#dfs">#</a></h4>
 <p>遍历二叉树的所有结点，遍历到每个结点同时计算以此结点为头部，往下拓展有几个路径之和为target的情况，求和即可</p>
 <h4 id="前缀和">前缀和<a hidden class="anchor" aria-hidden="true" href="#前缀和">#</a></h4>
-<p>基本思想同<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/">LeetCode-560</a>，我们利用先序遍历二叉树，记录下根节点 root 到当前节点 p 的路径上除当前节点以外所有节点的前缀和，在已保存的路径前缀和中查找是否存在前缀和刚好等于当前节点到根节点的前缀和 curr 减去 targetSum，其实跟<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/">LeetCode-560</a>一样，就是变成了二叉树的前缀和，而且要注意需要提前记录前缀和0，遍历完当前结点记得从map中去除当前的前缀和</p>
+<p>基本思想同<a href="https://superz1999.github.io/blog/posts/leetcode/leetcode-560/">LeetCode-560</a>，我们利用先序遍历二叉树，记录下根节点 root 到当前节点 p 的路径上除当前节点以外所有节点的前缀和，在已保存的路径前缀和中查找是否存在前缀和刚好等于当前节点到根节点的前缀和 curr 减去 targetSum，其实跟<a href="https://superz1999.github.io/blog/posts/leetcode/leetcode-560/">LeetCode-560</a>一样，就是变成了二叉树的前缀和，而且要注意需要提前记录前缀和0，遍历完当前结点记得从map中去除当前的前缀和</p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
 <h4 id="dfs-1">DFS<a hidden class="anchor" aria-hidden="true" href="#dfs-1">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>

@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-200](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/)，只不过需要提前把边界的岛屿淹没
+同[LeetCode-200](https://superz1999.github.io/blog/posts/leetcode/leetcode-200/)，只不过需要提前把边界的岛屿淹没
 
 ### 代码
 

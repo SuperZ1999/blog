@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-利用动态规划的思想，同[LeetCode-583](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/)，只不过不是计算删除操作数，而是删除的ASCII码
+利用动态规划的思想，同[LeetCode-583](https://superz1999.github.io/blog/posts/leetcode/leetcode-583/)，只不过不是计算删除操作数，而是删除的ASCII码
 
 ### 代码
 

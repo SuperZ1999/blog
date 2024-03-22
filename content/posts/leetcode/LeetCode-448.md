@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-原地哈希即可，同[LeetCode-41](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-41/)
+原地哈希即可，同[LeetCode-41](https://superz1999.github.io/blog/posts/leetcode/leetcode-41/)
 
 ### 代码
 

@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同LeetCode-54，只不过这里是往里填元素，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/>
+同LeetCode-54，只不过这里是往里填元素，详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-54/>
 
 ### 代码
 

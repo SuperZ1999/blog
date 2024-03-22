@@ -27,7 +27,7 @@ cover:
 
 #### 1. [合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-21/>
 
 ## 单链表的分解
 
@@ -39,7 +39,7 @@ cover:
 
 #### 1. [分隔链表](https://leetcode.cn/problems/partition-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-86/>
 
 ## 合并 k 个有序链表
 
@@ -51,7 +51,7 @@ cover:
 
 #### 1. [合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-23/>
 
 ## 寻找单链表的倒数第 k 个节点
 
@@ -65,7 +65,7 @@ cover:
 
 #### 1. [删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-19/>
 
 ## 单链表的中点
 
@@ -79,7 +79,7 @@ cover:
 
 #### 1. [链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-876/>
 
 ## 判断链表是否包含环
 
@@ -91,7 +91,7 @@ cover:
 
 #### 1. [环形链表](https://leetcode.cn/problems/linked-list-cycle/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-141/>
 
 ## 存在环的链表中寻找环起点
 
@@ -103,11 +103,11 @@ cover:
 
 #### 1. [环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-142/>
 
 #### 2. [寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-287/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-287/>
 
 ## 判断两个链表是否相交
 
@@ -134,7 +134,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-160/>
 
 ## 反转单链表
 
@@ -158,7 +158,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [反转链表](https://leetcode.cn/problems/reverse-linked-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-206/>
 
 ## 反转链表前n个节点
 
@@ -174,7 +174,7 @@ l2 -> null -> l1 -> null
 
 无
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/反转链表前n个节点/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/反转链表前n个节点/>
 
 ## 反转链表节点(m, n)
 
@@ -186,7 +186,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-92/>
 
 ## K 个一组翻转链表
 
@@ -204,7 +204,7 @@ l2 -> null -> l1 -> null
 
 #### 1. [K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-25/>
 
 ## 链表的前后序遍历
 
@@ -244,7 +244,7 @@ void traverse(ListNode head) {
 
 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-链表后序遍历/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-234-链表后序遍历/>
 
 ##### 利用栈
 
@@ -256,7 +256,7 @@ void traverse(ListNode head) {
 
 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-快慢指针+反转链表/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-234-快慢指针+反转链表/>
 
 ### 题目
 
@@ -272,7 +272,7 @@ void traverse(ListNode head) {
 
 慢指针指向当前已经去重的数据的最后一个，快指针去前面探路，碰到和slow不一样的数据就让这个数据放在slow后面，slow++。
 
-具体变种详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26+83+27+283/>
+具体变种详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-26+83+27+283/>
 
 #### 题目
 
@@ -296,27 +296,27 @@ void traverse(ListNode head) {
 
 ##### 1. [最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-76/>
 
 ##### 2. [字符串的排列](https://leetcode.cn/problems/permutation-in-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-567/>
 
 ##### 3. [找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-438/>
 
 ##### 4. [无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-3/>
 
 ##### 5. [每种字符至少取 K 个](https://leetcode.cn/problems/take-k-of-each-character-from-left-and-right/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-6270/>
 
 ##### 6. [统计好子数组的数目](https://leetcode.cn/problems/count-the-number-of-good-subarrays/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-328/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-周赛-328/>
 
 ## 左右指针在数组中的应用
 
@@ -328,7 +328,7 @@ void traverse(ListNode head) {
 
 #### 1. [颜色分类](https://leetcode.cn/problems/sort-colors/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-75/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-75/>
 
 ### 二分查找
 
@@ -340,35 +340,35 @@ void traverse(ListNode head) {
 
 ##### 1. [在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-34/>
 
 ##### 2. [二分查找](https://leetcode.cn/problems/binary-search/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-704/>
 
 ##### 3. [搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-240/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-240/>
 
 ##### 4. [寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-4/>
 
 ##### 5. [搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-33/>
 
 ##### 6. [正整数和负整数的最大计数](https://leetcode.cn/problems/maximum-count-of-positive-integer-and-negative-integer/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-327/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-周赛-327/>
 
 ##### 7. [最大化城市的最小供电站数目](https://leetcode.cn/problems/maximize-the-minimum-powered-city/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-双周赛-95/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-双周赛-95/>
 
 ##### 8. [每个小孩最多能分到多少糖果](https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2226/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-2226/>
 
 ### 两数之和
 
@@ -380,7 +380,7 @@ void traverse(ListNode head) {
 
 ##### 1. [两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-167/>
 
 ### 三数之和
 
@@ -392,11 +392,11 @@ void traverse(ListNode head) {
 
 ##### 1. [三数之和](https://leetcode.cn/problems/3sum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-15/>
 
 ##### 2. [最接近的三数之和](https://leetcode.cn/problems/3sum-closest/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-16/>
 
 ### 反转数组
 
@@ -418,15 +418,15 @@ void traverse(ListNode head) {
 
 ##### 1. [反转字符串](https://leetcode.cn/problems/reverse-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-344/>
 
 ##### 2. [反转字符串中的单词](https://leetcode.cn/problems/reverse-words-in-a-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-151/>
 
 ##### 3. [旋转图像](https://leetcode.cn/problems/rotate-image/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-48/>
 
 ### 回文串判断
 
@@ -438,7 +438,7 @@ void traverse(ListNode head) {
 
 ##### 1. [最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-5/>
 
 ## 前缀和
 
@@ -452,15 +452,15 @@ void traverse(ListNode head) {
 
 ##### 1. [区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-303/>
 
 ##### 2. [和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-560/>
 
 ##### 3. [除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-238/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-238/>
 
 ### 二维数组中的前缀和
 
@@ -474,7 +474,7 @@ void traverse(ListNode head) {
 
 ##### 1. [二维区域和检索 - 矩阵不可变](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-304/>
 
 ### 二叉树中的前缀和
 
@@ -486,7 +486,7 @@ void traverse(ListNode head) {
 
 ##### 1. [路径总和 III](https://leetcode.cn/problems/path-sum-iii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-437/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-437/>
 
 ## 差分数组
 
@@ -500,11 +500,11 @@ void traverse(ListNode head) {
 
 ##### 1. [航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1109/>
 
 ##### 2. [拼车](https://leetcode.cn/problems/car-pooling/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1094/>
 
 ### 二维差分数组
 
@@ -516,7 +516,7 @@ void traverse(ListNode head) {
 
 ##### 1. [子矩阵元素加 1](https://leetcode.cn/problems/increment-submatrices-by-one/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-328/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-周赛-328/>
 
 ## 矩阵的螺旋遍历
 
@@ -532,11 +532,11 @@ void traverse(ListNode head) {
 
 #### 1. [螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-54/>
 
 #### 2. [螺旋矩阵 II](https://leetcode.cn/problems/spiral-matrix-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-59/>
 
 ## 带权重的随机选择算法
 
@@ -553,7 +553,7 @@ void traverse(ListNode head) {
 
 #### 1. [按权重随机选择](https://leetcode.cn/problems/random-pick-with-weight/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-528/>
 
 ## 常数时间删除/查找数组中的任意元素
 
@@ -567,11 +567,11 @@ void traverse(ListNode head) {
 
 #### 1. [O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-380/>
 
 #### 2. [黑名单中的随机数](https://leetcode.cn/problems/random-pick-with-blacklist/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-710/>
 
 ## 原地哈希
 
@@ -583,15 +583,15 @@ void traverse(ListNode head) {
 
 #### 1. [找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-448/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-448/>
 
 #### 2. [寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-287/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-287/>
 
 #### 3. [缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-41/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-41/>
 
 # 二叉树
 
@@ -607,7 +607,7 @@ void traverse(ListNode head) {
 
 #### 1. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-104/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-104/>
 
 #### 2. [二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
 
@@ -615,15 +615,15 @@ void traverse(ListNode head) {
 
 #### 3. [翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-226/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-226/>
 
 #### 4. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-116/>
 
 #### 5. [二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-94/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-94/>
 
 ## 分解问题
 
@@ -639,19 +639,19 @@ void traverse(ListNode head) {
 
 #### 1. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-104/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-104/>
 
 #### 2. [二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-543/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-543/>
 
 #### 3. [翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-226/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-226/>
 
 #### 4. [二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-114/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-114/>
 
 ## 层序遍历
 
@@ -663,7 +663,7 @@ void traverse(ListNode head) {
 
 #### 1. [填充每个节点的下一个右侧节点指针](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-116/>
 
 ## 构造二叉树
 
@@ -675,19 +675,19 @@ void traverse(ListNode head) {
 
 #### 1. [最大二叉树](https://leetcode.cn/problems/maximum-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-654/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-654/>
 
 #### 2. [从前序和中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-105/>
 
 #### 3. [从后序和中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-106/>
 
 #### 4. [根据前序和后序遍历构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-889/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-889/>
 
 ## 二叉搜索树性质
 
@@ -699,11 +699,11 @@ void traverse(ListNode head) {
 
 #### 1. [二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-230/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-230/>
 
 #### 2. [把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-538/>
 
 ## 二叉搜索树合法性
 
@@ -715,7 +715,7 @@ void traverse(ListNode head) {
 
 #### 1. [验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-98/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-98/>
 
 ## 二叉搜索树增删改查
 
@@ -727,15 +727,15 @@ void traverse(ListNode head) {
 
 #### 1. [二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-700/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-700/>
 
 #### 2. [二叉搜索树中的插入操作](https://leetcode.cn/problems/insert-into-a-binary-search-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-701/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-701/>
 
 #### 3. [删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-504/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-504/>
 
 ## n个结点的BST的种类
 
@@ -753,11 +753,11 @@ void traverse(ListNode head) {
 
 #### 1. [不同的二叉搜索树](https://leetcode.cn/problems/unique-binary-search-trees/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-96/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-96/>
 
 #### 2. [不同的二叉搜索树 II](https://leetcode.cn/problems/unique-binary-search-trees-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-95/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-95/>
 
 ## 扁平化嵌套列表迭代器
 
@@ -775,7 +775,7 @@ void traverse(ListNode head) {
 
 #### 1. [扁平化嵌套列表迭代器](https://leetcode.cn/problems/flatten-nested-list-iterator/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-341/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-341/>
 
 ## 最近公共祖先
 
@@ -787,11 +787,11 @@ void traverse(ListNode head) {
 
 #### 1. [二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-236/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-236/>
 
 #### 2. [二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-235/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-235/>
 
 ## 最近公共祖先
 
@@ -803,11 +803,11 @@ void traverse(ListNode head) {
 
 #### 1. [二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-236/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-236/>
 
 #### 2. [二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-235/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-235/>
 
 ## 完全二叉树的结点个数
 
@@ -821,7 +821,7 @@ void traverse(ListNode head) {
 
 #### 1. [完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-222/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-222/>
 
 ## 合并二叉树
 
@@ -833,7 +833,7 @@ void traverse(ListNode head) {
 
 #### 1. [合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-617/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-617/>
 
 # 图
 
@@ -847,7 +847,7 @@ void traverse(ListNode head) {
 
 #### 1. [所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-797/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-797/>
 
 ## 环检测
 
@@ -865,7 +865,7 @@ void traverse(ListNode head) {
 
 #### 1. [课程表](https://leetcode.cn/problems/course-schedule/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-207/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-207/>
 
 ## 拓扑排序
 
@@ -883,7 +883,7 @@ void traverse(ListNode head) {
 
 #### 1. [课程表 II](https://leetcode.cn/problems/course-schedule-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-210/>
 
 ## 二分图的判断
 
@@ -895,11 +895,11 @@ void traverse(ListNode head) {
 
 #### 1. [判断二分图](https://leetcode.cn/problems/is-graph-bipartite/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-785/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-785/>
 
 #### 2. [可能的二分法](https://leetcode.cn/problems/possible-bipartition/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-886/>
 
 ## 并查集
 
@@ -911,19 +911,19 @@ void traverse(ListNode head) {
 
 #### 1. [被围绕的区域](https://leetcode.cn/problems/surrounded-regions/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-130/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-130/>
 
 #### 2. [等式方程的可满足性](https://leetcode.cn/problems/satisfiability-of-equality-equations/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-990/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-990/>
 
 #### 3. [寻找图中是否存在路径](https://leetcode.cn/problems/find-if-path-exists-in-graph/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1971/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1971/>
 
 #### 4. [除法求值](https://leetcode.cn/problems/evaluate-division/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-399/>
 
 ## dijkstra问题
 
@@ -935,15 +935,15 @@ void traverse(ListNode head) {
 
 #### 1. [网络延迟时间](https://leetcode.cn/problems/network-delay-time/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-743/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-743/>
 
 #### 2. [最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1631/>
 
 #### 3. [概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1514/>
 
 ## kruskal问题
 
@@ -955,7 +955,7 @@ void traverse(ListNode head) {
 
 #### 1. [连接所有点的最小费用](https://leetcode.cn/problems/min-cost-to-connect-all-points/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1584/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1584/>
 
 ## prim问题
 
@@ -967,7 +967,7 @@ void traverse(ListNode head) {
 
 #### 1. [连接所有点的最小费用](https://leetcode.cn/problems/min-cost-to-connect-all-points/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1584/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1584/>
 
 # 设计数据结构
 
@@ -981,7 +981,7 @@ void traverse(ListNode head) {
 
 #### 1. [LRU 缓存](https://leetcode.cn/problems/lru-cache/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-146/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-146/>
 
 ## LFU
 
@@ -993,7 +993,7 @@ void traverse(ListNode head) {
 
 #### 1. [LFU 缓存](https://leetcode.cn/problems/lfu-cache/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-460/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-460/>
 
 ## TrieMap和TrieSet
 
@@ -1005,19 +1005,19 @@ void traverse(ListNode head) {
 
 #### 1. [实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-208/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-208/>
 
 #### 2. [单词替换](https://leetcode.cn/problems/replace-words/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-648/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-648/>
 
 #### 3. [添加与搜索单词 - 数据结构设计](https://leetcode.cn/problems/design-add-and-search-words-data-structure/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-211/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-211/>
 
 #### 4. [键值映射](https://leetcode.cn/problems/map-sum-pairs/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-677/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-677/>
 
 ## 数据流的中位数
 
@@ -1029,7 +1029,7 @@ void traverse(ListNode head) {
 
 #### 1. [数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-295/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-295/>
 
 ## 单调栈问题
 
@@ -1043,19 +1043,19 @@ void traverse(ListNode head) {
 
 ##### 1. [下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-496/>
 
 ##### 2. [每日温度](https://leetcode.cn/problems/daily-temperatures/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-739/>
 
 ##### 3. [下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-503/>
 
 ##### 4. [接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-42/>
 
 ## 单调队列问题
 
@@ -1069,7 +1069,7 @@ void traverse(ListNode head) {
 
 ##### 1. [滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-239/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-239/>
 
 ## 用栈实现队列
 
@@ -1081,7 +1081,7 @@ void traverse(ListNode head) {
 
 #### 1. [用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-232/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-232/>
 
 ## 用队列实现栈
 
@@ -1093,7 +1093,7 @@ void traverse(ListNode head) {
 
 #### 1. [用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-225/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-225/>
 
 ## 最小栈
 
@@ -1105,7 +1105,7 @@ void traverse(ListNode head) {
 
 #### 1. [最小栈](https://leetcode.cn/problems/min-stack/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-155/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-155/>
 
 # 排序
 
@@ -1119,11 +1119,11 @@ void traverse(ListNode head) {
 
 #### 1. [数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/solutions/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-215/>
 
 #### 2. [前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-347/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-347/>
 
 # 思想
 
@@ -1356,7 +1356,7 @@ class NumArray {
 }
 ```
 
-二维前缀和，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/>
+二维前缀和，详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-304/>
 
 ### 差分数组
 
@@ -1406,7 +1406,7 @@ class Difference {
 }
 ```
 
-二维差分数组，详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-周赛-328/>
+二维差分数组，详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-周赛-328/>
 
 ## 二叉树
 

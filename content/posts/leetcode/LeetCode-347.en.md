@@ -23,7 +23,7 @@ cover:
 
 #### 最小堆
 
-用map统计次数，然后将map转为entry数组，原问题就转换为了求数组里的前 k 大的值，这个问题用最小堆即可解决，同[LeetCode-215](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/)
+用map统计次数，然后将map转为entry数组，原问题就转换为了求数组里的前 k 大的值，这个问题用最小堆即可解决，同[LeetCode-215](https://superz1999.github.io/blog/posts/leetcode/leetcode-215/)
 
 #### 快速选择
 

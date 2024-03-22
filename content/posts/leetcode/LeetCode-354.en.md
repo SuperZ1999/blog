@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-本质上就是最长递增子序列问题，见[LeetCode-300](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/)，只不过需要先对width升序排序，然后计算height的最长递增子序列即可
+本质上就是最长递增子序列问题，见[LeetCode-300](https://superz1999.github.io/blog/posts/leetcode/leetcode-300/)，只不过需要先对width升序排序，然后计算height的最长递增子序列即可
 
 ps：此版本会超时，需要融合二分查找
 

@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-1254](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/)，将边界淹没后，直接统计单元格即可
+同[LeetCode-1254](https://superz1999.github.io/blog/posts/leetcode/leetcode-1254/)，将边界淹没后，直接统计单元格即可
 
 ### 代码
 

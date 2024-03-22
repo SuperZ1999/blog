@@ -25,59 +25,59 @@ cover:
 
 ### 1. [斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-509/>
 
 ### 2. [零钱兑换](https://leetcode.cn/problems/coin-change/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-322/>
 
 ### 3. [下降路径最小和](https://leetcode.cn/problems/minimum-falling-path-sum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-931/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-931/>
 
 ### 4. [最小路径和](https://leetcode.cn/problems/minimum-path-sum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-64/>
 
 ### 5. [地下城游戏](https://leetcode.cn/problems/dungeon-game/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-174/>
 
 ### 6. [鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-887/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-887/>
 
 ### 7. [戳气球](https://leetcode.cn/problems/burst-balloons/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-312/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-312/>
 
 ### 8. [单词拆分](https://leetcode.cn/problems/word-break/solutions/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-139/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-139/>
 
 ### 9. [比特位计数](https://leetcode.cn/problems/counting-bits/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-338/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-338/>
 
 ### 10. [乘积最大子数组](https://leetcode.cn/problems/maximum-product-subarray/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-152/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-152/>
 
 ### 11. [最大矩形](https://leetcode.cn/problems/maximal-rectangle/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-85/>
 
 ### 12. [最大正方形](https://leetcode.cn/problems/maximal-square/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-221/>
 
 ### 13. [最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-32/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-32/>
 
 ### 14. [爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-70/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-70/>
 
 ## 正则表达式匹配
 
@@ -89,7 +89,7 @@ cover:
 
 #### 1. [正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-10/>
 
 ## 股票问题
 
@@ -121,15 +121,15 @@ cover:
 
 #### 1. [打家劫舍](https://leetcode.cn/problems/house-robber/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-198/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-198/>
 
 #### 2. [打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-213/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-213/>
 
 #### 2. [打家劫舍 III](https://leetcode.cn/problems/house-robber-iii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-337/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-337/>
 
 ## KMP算法
 
@@ -141,11 +141,11 @@ cover:
 
 #### 1. [实现 strStr()](https://leetcode.cn/problems/implement-strstr/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-28/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-28/>
 
 #### 2. [通过连接另一个数组的子数组得到一个数组](https://leetcode.cn/problems/form-array-by-concatenating-subarrays-of-another-array/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1764/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1764/>
 
 # 子序列问题
 
@@ -159,11 +159,11 @@ cover:
 
 #### 1. [最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-300/>
 
 #### 2. [俄罗斯套娃信封问题](https://leetcode.cn/problems/russian-doll-envelopes/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-354/>
 
 ## 编辑距离
 
@@ -181,7 +181,7 @@ base case是第一行和第一列，可以优化空间复杂度但是懒得弄�
 
 #### 1. [编辑距离](https://leetcode.cn/problems/edit-distance/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-72/>
 
 ## 最大子数组和
 
@@ -195,7 +195,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-53/>
 
 ## 最长公共子序列
 
@@ -207,15 +207,15 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1143/>
 
 #### 2. [两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-583/>
 
 #### 3. [两个字符串的最小ASCII删除和](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-712/>
 
 ## 最长回文子序列
 
@@ -227,11 +227,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [最长回文子序列](https://leetcode.cn/problems/longest-palindromic-subsequence/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-516/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-516/>
 
 #### 2. [回文子串](https://leetcode.cn/problems/palindromic-substrings/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-647/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-647/>
 
 # 背包问题
 
@@ -251,11 +251,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-416/>
 
 #### 2. [目标和](https://leetcode.cn/problems/target-sum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-494/>
 
 ## 完全背包问题
 
@@ -267,7 +267,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [零钱兑换 II](https://leetcode.cn/problems/coin-change-2/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-518/>
 
 # 贪心算法
 
@@ -281,11 +281,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [无重叠区间](https://leetcode.cn/problems/non-overlapping-intervals/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-435/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-435/>
 
 #### 2. [用最少数量的箭引爆气球](https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-452/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-452/>
 
 ## 最少需要几个区间才能覆盖整个x轴
 
@@ -297,7 +297,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [视频拼接](https://leetcode.cn/problems/video-stitching/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1024/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1024/>
 
 ## 跳跃游戏
 
@@ -309,11 +309,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [跳跃游戏](https://leetcode.cn/problems/jump-game/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-55/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-55/>
 
 #### 2. [跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-45/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-45/>
 
 ## 同一时刻最多有多少重叠区间
 
@@ -325,7 +325,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [会议室 II](https://leetcode.cn/problems/meeting-rooms-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-253/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-253/>
 
 # 暴力搜索算法
 
@@ -341,7 +341,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-17/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-17/>
 
 ### N皇后
 
@@ -353,7 +353,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [N 皇后](https://leetcode.cn/problems/n-queens/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-51/>
 
 ### 集合划分问题
 
@@ -365,7 +365,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [划分为k个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-698/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-698/>
 
 ### 排列组合子集问题
 
@@ -377,31 +377,31 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [子集](https://leetcode.cn/problems/subsets/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-78/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-78/>
 
 ##### 2. [组合](https://leetcode.cn/problems/combinations/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-77/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-77/>
 
 ##### 3. [全排列](https://leetcode.cn/problems/permutations/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-46/>
 
 ##### 4. [子集 II](https://leetcode.cn/problems/subsets-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-90/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-90/>
 
 ##### 5. [组合总和 II](https://leetcode.cn/problems/combination-sum-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-40/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-40/>
 
 ##### 6. [全排列 II](https://leetcode.cn/problems/permutations-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-47/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-47/>
 
 ##### 7. [组合总和](https://leetcode.cn/problems/combination-sum/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-39/>
 
 ### 岛屿问题
 
@@ -415,27 +415,27 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [岛屿数量](https://leetcode.cn/problems/number-of-islands/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-200/>
 
 ##### 2. [统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1254/>
 
 ##### 3. [飞地的数量](https://leetcode.cn/problems/number-of-enclaves/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1020/>
 
 ##### 4. [岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-695/>
 
 ##### 5. [统计子岛屿](https://leetcode.cn/problems/count-sub-islands/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1905/>
 
 ##### 6. [不同岛屿的数量](https://leetcode.cn/problems/number-of-distinct-islands/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-694/>
 
 ### 数独问题
 
@@ -447,7 +447,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [解数独](https://leetcode.cn/problems/sudoku-solver/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-37/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-37/>
 
 ### 括号生成
 
@@ -459,7 +459,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [括号生成](https://leetcode.cn/problems/generate-parentheses/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-22/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-22/>
 
 ## BFS
 
@@ -473,11 +473,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-111/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-111/>
 
 ##### 2. [打开转盘锁](https://leetcode.cn/problems/open-the-lock/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-752/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-752/>
 
 ## DFS
 
@@ -491,7 +491,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 ##### 1. [删除无效的括号](https://leetcode.cn/problems/remove-invalid-parentheses/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-301/>
 
 # 数学问题
 
@@ -505,15 +505,15 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [打乱数组](https://leetcode.cn/problems/shuffle-an-array/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-384/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-384/>
 
 #### 2. [链表随机节点](https://leetcode.cn/problems/linked-list-random-node/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-382/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-382/>
 
 #### 3. [随机数索引](https://leetcode.cn/problems/random-pick-index/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-398/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-398/>
 
 ## 位运算
 
@@ -525,19 +525,19 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [位 1 的个数](https://leetcode.cn/problems/number-of-1-bits/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-191/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-191/>
 
 #### 2. [2 的幂](https://leetcode.cn/problems/power-of-two/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-231/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-231/>
 
 #### 3. [只出现一次的数字](https://leetcode.cn/problems/single-number/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-136/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-136/>
 
 #### 4. [丢失的数字](https://leetcode.cn/problems/missing-number/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-268/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-268/>
 
 ## 阶乘后的零
 
@@ -549,11 +549,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [阶乘后的零](https://leetcode.cn/problems/factorial-trailing-zeroes/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-172/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-172/>
 
 #### 2. [阶乘函数后 K 个零](https://leetcode.cn/problems/preimage-size-of-factorial-zeroes-function/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-793/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-793/>
 
 ## 素数筛选法
 
@@ -565,7 +565,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [计数质数](https://leetcode.cn/problems/count-primes/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-204/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-204/>
 
 ## 模幂运算
 
@@ -577,7 +577,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [超级次方](https://leetcode.cn/problems/super-pow/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-372/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-372/>
 
 # 经典面试题
 
@@ -591,7 +591,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [为运算表达式设计优先级](https://leetcode.cn/problems/different-ways-to-add-parentheses/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-241/>
 
 ## 分割数组为连续子序列
 
@@ -603,7 +603,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [分割数组为连续子序列](https://leetcode.cn/problems/split-array-into-consecutive-subsequences/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-659/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-659/>
 
 ## 大整数乘法
 
@@ -615,7 +615,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [字符串相乘](https://leetcode.cn/problems/multiply-strings/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-43/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-43/>
 
 ## 实现计算器
 
@@ -627,11 +627,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [基本计算器](https://leetcode.cn/problems/basic-calculator/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-224/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-224/>
 
 #### 2. [基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-227/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-227/>
 
 ## 括号相关问题
 
@@ -643,15 +643,15 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [有效的括号](https://leetcode.cn/problems/valid-parentheses/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-20/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-20/>
 
 #### 2. [使括号有效的最少添加](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-921/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-921/>
 
 #### 3. [平衡括号字符串的最少插入次数](https://leetcode.cn/problems/minimum-insertions-to-balance-a-parentheses-string/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1541/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1541/>
 
 ## 区间问题
 
@@ -663,15 +663,15 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [删除被覆盖区间](https://leetcode.cn/problems/remove-covered-intervals/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1288/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-1288/>
 
 #### 2. [合并区间](https://leetcode.cn/problems/merge-intervals/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-56/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-56/>
 
 #### 3. [区间列表的交集](https://leetcode.cn/problems/interval-list-intersections/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-986/>
 
 ## 接雨水
 
@@ -683,11 +683,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-42/>
 
 #### 2. [盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-11/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-11/>
 
 ## 完美矩形
 
@@ -699,7 +699,7 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [完美矩形](https://leetcode.cn/problems/perfect-rectangle/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-391/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-391/>
 
 ## 二分查找高效判定子序列
 
@@ -711,11 +711,11 @@ dp数组里放以该元素结尾的最大子数组和，可以由前面那个元
 
 #### 1. [判断子序列](https://leetcode.cn/problems/is-subsequence/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-392/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-392/>
 
 #### 2. [匹配子序列的单词数](https://leetcode.cn/problems/number-of-matching-subsequences/)
 
-题解详见：<https://blog.zhangmengyang.tk/posts/leetcode/leetcode-792/>
+题解详见：<https://superz1999.github.io/blog/posts/leetcode/leetcode-792/>
 
 # 思想
 

@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-392](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-392/)，就是比较多个字符串
+同[LeetCode-392](https://superz1999.github.io/blog/posts/leetcode/leetcode-392/)，就是比较多个字符串
 
 ### 代码
 

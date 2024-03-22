@@ -25,7 +25,7 @@ cover:
 
 #### 前缀和
 
-基本思想同[LeetCode-560](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/)，我们利用先序遍历二叉树，记录下根节点 root 到当前节点 p 的路径上除当前节点以外所有节点的前缀和，在已保存的路径前缀和中查找是否存在前缀和刚好等于当前节点到根节点的前缀和 curr 减去 targetSum，其实跟[LeetCode-560](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/)一样，就是变成了二叉树的前缀和，而且要注意需要提前记录前缀和0，遍历完当前结点记得从map中去除当前的前缀和
+基本思想同[LeetCode-560](https://superz1999.github.io/blog/posts/leetcode/leetcode-560/)，我们利用先序遍历二叉树，记录下根节点 root 到当前节点 p 的路径上除当前节点以外所有节点的前缀和，在已保存的路径前缀和中查找是否存在前缀和刚好等于当前节点到根节点的前缀和 curr 减去 targetSum，其实跟[LeetCode-560](https://superz1999.github.io/blog/posts/leetcode/leetcode-560/)一样，就是变成了二叉树的前缀和，而且要注意需要提前记录前缀和0，遍历完当前结点记得从map中去除当前的前缀和
 
 ### 代码
 

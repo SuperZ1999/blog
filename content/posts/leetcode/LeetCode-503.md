@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-利用单调栈的思想，同[LeetCode-496](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/)，只不过牵扯到循环数组的问题，常用套路就是将数组长度翻倍，代码实现的时候也可以用i % nums.length来模拟数组长度翻倍
+利用单调栈的思想，同[LeetCode-496](https://superz1999.github.io/blog/posts/leetcode/leetcode-496/)，只不过牵扯到循环数组的问题，常用套路就是将数组长度翻倍，代码实现的时候也可以用i % nums.length来模拟数组长度翻倍
 
 ### 代码
 

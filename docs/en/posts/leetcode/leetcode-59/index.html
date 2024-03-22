@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>LeetCode 59 | ZMY&#39;s Blog</title>
 <meta name="keywords" content="leetcode">
-<meta name="description" content="思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/posts/leet">
+<meta name="description" content="思路 同LeetCode-54，只不过这里是往里填元素，详见：https://superz1999.github.io/blog/posts/">
 <meta name="author" content="">
 <link rel="canonical" href="https://superz1999.github.io/blog/en/posts/leetcode/leetcode-59/">
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.1b749c6bd9ec5667253a04614f6680eb3ba2574eee08ba967cd6532ab57b7b3c.css" integrity="" rel="preload stylesheet" as="style">
@@ -71,7 +71,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="LeetCode 59" />
-<meta property="og:description" content="思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/posts/leet" />
+<meta property="og:description" content="思路 同LeetCode-54，只不过这里是往里填元素，详见：https://superz1999.github.io/blog/posts/" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://superz1999.github.io/blog/en/posts/leetcode/leetcode-59/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-09-26T21:53:13&#43;08:00" />
@@ -79,7 +79,7 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode 59"/>
-<meta name="twitter:description" content="思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/posts/leet"/>
+<meta name="twitter:description" content="思路 同LeetCode-54，只不过这里是往里填元素，详见：https://superz1999.github.io/blog/posts/"/>
 
 
 <script type="application/ld+json">
@@ -114,12 +114,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "LeetCode 59",
   "name": "LeetCode 59",
-  "description": "思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/posts/leet",
+  "description": "思路 同LeetCode-54，只不过这里是往里填元素，详见：https://superz1999.github.io/blog/posts/",
   "keywords": [
     "leetcode"
   ],
-  "articleBody": "思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/\n代码 class Solution { public int[][] generateMatrix(int n) { int upperBound = 0, lowerBound = n - 1; int leftBound = 0, rightBound = n - 1; int[][] matrix = new int[n][n]; int num = 1; while (num \u003c= n * n){ if (upperBound \u003c= lowerBound) { for (int i = leftBound; i \u003c= rightBound; i++) { matrix[upperBound][i] = num; num++; } upperBound++; } if (leftBound \u003c= rightBound) { for (int i = upperBound; i \u003c= lowerBound; i++) { matrix[i][rightBound] = num; num++; } rightBound--; } if (upperBound \u003c= lowerBound) { for (int i = rightBound; i \u003e= leftBound; i--) { matrix[lowerBound][i] = num; num++; } lowerBound--; } if (leftBound \u003c= rightBound) { for (int i = lowerBound; i \u003e= upperBound; i--) { matrix[i][leftBound] = num; num++; } leftBound++; } } return matrix; } } References 1. 螺旋矩阵 II ",
-  "wordCount" : "230",
+  "articleBody": "思路 同LeetCode-54，只不过这里是往里填元素，详见：https://superz1999.github.io/blog/posts/leetcode/leetcode-54/\n代码 class Solution { public int[][] generateMatrix(int n) { int upperBound = 0, lowerBound = n - 1; int leftBound = 0, rightBound = n - 1; int[][] matrix = new int[n][n]; int num = 1; while (num \u003c= n * n){ if (upperBound \u003c= lowerBound) { for (int i = leftBound; i \u003c= rightBound; i++) { matrix[upperBound][i] = num; num++; } upperBound++; } if (leftBound \u003c= rightBound) { for (int i = upperBound; i \u003c= lowerBound; i++) { matrix[i][rightBound] = num; num++; } rightBound--; } if (upperBound \u003c= lowerBound) { for (int i = rightBound; i \u003e= leftBound; i--) { matrix[lowerBound][i] = num; num++; } lowerBound--; } if (leftBound \u003c= rightBound) { for (int i = lowerBound; i \u003e= upperBound; i--) { matrix[i][leftBound] = num; num++; } leftBound++; } } return matrix; } } References 1. 螺旋矩阵 II ",
+  "wordCount" : "234",
   "inLanguage": "en",
   "datePublished": "2022-09-26T21:53:13+08:00",
   "dateModified": "2022-10-13T11:11:39+08:00",
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
 
 
 
-<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-09-26 21:53:13 +0800 CST'>2022-09-26</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-13 11:11:39 +0800 CST'>2022-10-13</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;230 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
+<span title='Creation Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-09-26 21:53:13 +0800 CST'>2022-09-26</span>&nbsp;·&nbsp;<span title='Update Date'><svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/></svg></span>&nbsp;<span title='2022-10-13 11:11:39 +0800 CST'>2022-10-13</span>&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:3px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>&nbsp;234 words&nbsp;·&nbsp;<svg xmlns='http://www.w3.org/2000/svg' style='position:relative; top:4px;' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z'/><path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z'/></svg>&nbsp;1 min
 
 
 ·&nbsp;
@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
 </script>
         
         <div class="post-content"><h3 id="思路">思路<a hidden class="anchor" aria-hidden="true" href="#思路">#</a></h3>
-<p>同LeetCode-54，只不过这里是往里填元素，详见：<a href="https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/">https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/</a></p>
+<p>同LeetCode-54，只不过这里是往里填元素，详见：<a href="https://superz1999.github.io/blog/posts/leetcode/leetcode-54/">https://superz1999.github.io/blog/posts/leetcode/leetcode-54/</a></p>
 <h3 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">generateMatrix</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>

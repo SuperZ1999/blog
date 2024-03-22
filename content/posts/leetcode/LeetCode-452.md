@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-其实就是求解无重叠区间最多有几个，同[LeetCode-435](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-435/)，因为可以每一发都打在无重叠区间中每个区间的最右边，这样下一个区间之前的区间都被贯穿，如下图所示：
+其实就是求解无重叠区间最多有几个，同[LeetCode-435](https://superz1999.github.io/blog/posts/leetcode/leetcode-435/)，因为可以每一发都打在无重叠区间中每个区间的最右边，这样下一个区间之前的区间都被贯穿，如下图所示：
 
 ![img](https://labuladong.gitee.io/algo/images/interval/3.jpg)
 

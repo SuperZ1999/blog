@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-这道题可以复用[LeetCode-172](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-172/)的函数，从0-Long.MAX_VALUE之间寻找trailingZeroes(n) == k的值，由于trailingZeroes(n)是单调的，所以可以用二分查找确定左右边界（这点不容易想到），这样比穷举快多了，二分查找相关细节见思想篇章
+这道题可以复用[LeetCode-172](https://superz1999.github.io/blog/posts/leetcode/leetcode-172/)的函数，从0-Long.MAX_VALUE之间寻找trailingZeroes(n) == k的值，由于trailingZeroes(n)是单调的，所以可以用二分查找确定左右边界（这点不容易想到），这样比穷举快多了，二分查找相关细节见思想篇章
 
 ### 代码
 

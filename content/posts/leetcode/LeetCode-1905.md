@@ -17,7 +17,7 @@ cover:
 
 ### 思路
 
-同[LeetCode-1254](https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/)，只不过需要提前把不可能是子岛屿的岛屿淹掉，剩下的就是子岛屿了
+同[LeetCode-1254](https://superz1999.github.io/blog/posts/leetcode/leetcode-1254/)，只不过需要提前把不可能是子岛屿的岛屿淹掉，剩下的就是子岛屿了
 
 ### 代码
 
