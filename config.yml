@@ -198,7 +198,7 @@ params:
 
     label:
         text: "ZMY's Blog"
-        icon: "/static/letter-z.png"
+        icon: "static/letter-z.png"
         iconHeight: 35
 
     # analytics:
@@ -206,11 +206,11 @@ params:
     #         SiteVerificationTag: ""
 
     assets:
-        favicon: "/static/letter-z.png"
-        favicon16x16: "/static/letter-z.png"
-        favicon32x32: "/static/letter-z.png"
-        apple_touch_icon: "/static/letter-z.png"
-        safari_pinned_tab: "/static/letter-z.png"
+        favicon: "static/letter-z.png"
+        favicon16x16: "static/letter-z.png"
+        favicon32x32: "static/letter-z.png"
+        apple_touch_icon: "static/letter-z.png"
+        safari_pinned_tab: "static/letter-z.png"
 
     cover:
         hidden: false # hide everywhere but not in structured data
