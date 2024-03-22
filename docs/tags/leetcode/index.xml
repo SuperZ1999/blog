@@ -2,2006 +2,2006 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>leetcode on ZMY&#39;s Blog</title>
-    <link>https://blog.zhangmengyang.tk/tags/leetcode/</link>
+    <link>https://superz1999.github.io/blog/tags/leetcode/</link>
     <description>Recent content in leetcode on ZMY&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 01 Sep 2023 21:42:53 +0800</lastBuildDate><atom:link href="https://blog.zhangmengyang.tk/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Sep 2023 21:42:53 +0800</lastBuildDate><atom:link href="https://superz1999.github.io/blog/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode 103</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-103/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-103/</link>
       <pubDate>Fri, 01 Sep 2023 21:42:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-103/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-103/</guid>
       <description>思路 和二叉树的层序遍历差不多，只不过需要注意每层需要用一个flag来判断这层是正序的还是倒序的 代码 class Solution { public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; zigzagLevelOrder(TreeNode root) { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); if (root == null) { return res; }</description>
     </item>
     
     <item>
       <title>LeetCode 88</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-88/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-88/</link>
       <pubDate>Fri, 01 Sep 2023 18:34:36 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-88/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-88/</guid>
       <description>思路 和合并有序链表一样，只不过这里为了防止多次移动数组元素，从后面往前合并，使用逆序双指针 代码 class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { int i = m - 1, j = n</description>
     </item>
     
     <item>
       <title>nowcoder JZ8</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/nowcoder-jz8/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/nowcoder-jz8/</link>
       <pubDate>Tue, 29 Aug 2023 22:56:46 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/nowcoder-jz8/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/nowcoder-jz8/</guid>
       <description>思路 有两种思路： 中序遍历法 先中序遍历一次，得到遍历序列，然后从序列里找到当前待查找的结点，然后再找到这个节点的下一个节点 分类直接寻找法 可以分</description>
     </item>
     
     <item>
       <title>LeetCode 102</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-102/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-102/</link>
       <pubDate>Sun, 27 Aug 2023 22:55:40 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-102/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-102/</guid>
       <description>思路 经典层序遍历，BFS即可 代码 class Solution { public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; levelOrder(TreeNode root) { if (root == null) { return new ArrayList&amp;lt;&amp;gt;(); } Queue&amp;lt;TreeNode&amp;gt; queue = new ArrayDeque&amp;lt;&amp;gt;(); queue.offer(root); ArrayList&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); while (!queue.isEmpty()) { int size = queue.size(); ArrayList&amp;lt;Integer&amp;gt; level = new ArrayList&amp;lt;&amp;gt;(); while (size-- != 0) { TreeNode node = queue.poll(); level.add(node.val); if (node.left != null)</description>
     </item>
     
     <item>
       <title>LeetCode 912</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-912/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-912/</link>
       <pubDate>Sun, 27 Aug 2023 22:13:14 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-912/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-912/</guid>
       <description>思路 经典快排不解释，注意数组如果本来就有序，快排会变得很慢，这时可以随机选中枢，而不是以left为中枢 代码 class Solution { public int[] sortArray(int[] nums) { quickSort(nums, 0, nums.length - 1); return nums; } private</description>
     </item>
     
     <item>
       <title>LeetCode 16</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-16/</link>
       <pubDate>Mon, 06 Mar 2023 18:57:09 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-16/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-16/</guid>
       <description>思路 同LeetCode-15，只不过每次找到一个三元组，都判断一下跟target的距离，去最小距离的三元组 代码 class Solution { public int threeSumClosest(int[] nums, int target) { int n = nums.length, res</description>
     </item>
     
     <item>
       <title>LeetCode 101</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-101/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-101/</link>
       <pubDate>Sun, 26 Feb 2023 23:54:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-101/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-101/</guid>
       <description>思路 两种思路： 递归 因为是判断树是否镜像对称，所以需要递归判断左子树的左子树与右子树的右子树和左子树的右子树与右子树的左子树是否镜像对称，这样</description>
     </item>
     
     <item>
       <title>LeetCode 周赛 334</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-334/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-334/</link>
       <pubDate>Sun, 26 Feb 2023 23:00:13 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-334/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-334/</guid>
       <description>思路 第一题 模拟即可，直接看代码 第二题 从左往右遍历字符串，每碰到一个数字，就计算前面mod m的余数 * 10 + 当前数字是否能整除m，然后再将除以m的</description>
     </item>
     
     <item>
       <title>LeetCode 94</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-94/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-94/</link>
       <pubDate>Fri, 24 Feb 2023 22:16:35 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-94/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-94/</guid>
       <description>思路 三种思路： 递归 经典二叉树中序遍历，闭着眼写，详见思想篇章 迭代 暂时没看 Morris 中序遍历 感觉没必要看 代码 递归 class Solution { public List&amp;lt;Integer&amp;gt; inorderTraversal(TreeNode root) { List&amp;lt;Integer&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); inorderTraversal(root, res); return res; } private</description>
     </item>
     
     <item>
       <title>LeetCode 75</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-75/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-75/</link>
       <pubDate>Fri, 24 Feb 2023 17:27:26 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-75/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-75/</guid>
       <description>思路 利用双指针的思想即可，左指针指向0的最后一个的后一个，右指针指向2的第一个的前一个，然后遍历数组同时维护左右指针即可，注意点： 除了刚开始</description>
     </item>
     
     <item>
       <title>LeetCode 70</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-70/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-70/</link>
       <pubDate>Thu, 23 Feb 2023 23:45:19 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-70/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-70/</guid>
       <description>思路 三种思路： 动态规划 类似于斐波那契数列，定义一个dp数组，dp[i] = j的含义是，到达第i个台阶有j种方法，那么递推公式为： dp[i] = dp[i - 2] + dp[i</description>
     </item>
     
     <item>
       <title>LeetCode 62</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-62/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-62/</link>
       <pubDate>Thu, 23 Feb 2023 23:24:07 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-62/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-62/</guid>
       <description>思路 两种思路： 动态规划 暂时没看 数学组合 这里向下向右的步数是固定的，所以这里路径的个数等于C(向右的步数或向下的步数，总步数)，求组合详见思想</description>
     </item>
     
     <item>
       <title>LeetCode 周赛 330</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</link>
       <pubDate>Sun, 29 Jan 2023 15:36:14 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-330/</guid>
       <description>思路 第一题 脑筋急转弯，直接看代码 第二题 其实就是计算2^n - 2，用快速幂计算即可，只不过要注意： 求的时候同时取余，模板在思想篇章 计算过程有可能</description>
     </item>
     
     <item>
       <title>LeetCode 周赛 328</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</link>
       <pubDate>Sun, 15 Jan 2023 22:37:46 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-328/</guid>
       <description>思路 第一题 遍历一遍即可，直接看代码 第二题 二维数组一片区域同时增加一个数，可以使用差分数组的思想，跟一维的一样，一维的是把两头修改一下就可以了</description>
     </item>
     
     <item>
       <title>LeetCode 49</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-49/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-49/</link>
       <pubDate>Mon, 09 Jan 2023 14:50:52 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-49/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-49/</guid>
       <description>思路 使用哈希表存储每一组字母异位词，哈希表的键为一组字母异位词的标志，哈希表的值为一组字母异位词列表。遍历每个字符串，对于每个字符串，得到该</description>
     </item>
     
     <item>
       <title>LeetCode 2226</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2226/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-2226/</link>
       <pubDate>Sun, 08 Jan 2023 23:05:14 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2226/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-2226/</guid>
       <description>思路 看到「最大化最小值」或者「最小化最大值」（其实就是那种要求一堆数字尽量平均的题）就要想到二分答案，这是一个固定的套路。 这里求小孩最多能拿</description>
     </item>
     
     <item>
       <title>LeetCode 周赛 327</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-327/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-327/</link>
       <pubDate>Sun, 08 Jan 2023 19:32:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-327/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-327/</guid>
       <description>思路 第一题 两种思路： 暴力解法 遍历一遍并统计 二分查找 因为数组是有序的，分别查找0的左边界和右边界就可以得到正数负数的范围了，注意左边界是第一个</description>
     </item>
     
     <item>
       <title>LeetCode 双周赛 95</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</link>
       <pubDate>Sat, 07 Jan 2023 23:56:06 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%8F%8C%E5%91%A8%E8%B5%9B-95/</guid>
       <description>思路 第一题 不解释 第二题 用count记录一下末尾有几个value，直接看代码 第三题 其实就是计算数组各元素的异或，证明详见：https://le</description>
     </item>
     
     <item>
       <title>LeetCode 33</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-33/</link>
       <pubDate>Sat, 07 Jan 2023 12:10:37 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-33/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-33/</guid>
       <description>思路 利用二分查找的思路，每次选出一个中间元素，对于这个中间元素来说，左边和右边必有一个有序序列，那么我们可以分情况讨论，如果左边是有序序列，</description>
     </item>
     
     <item>
       <title>LeetCode 32</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-32/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-32/</link>
       <pubDate>Fri, 06 Jan 2023 22:54:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-32/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-32/</guid>
       <description>思路 三种思路： 栈 定义一个栈，保证栈底为最后一个不匹配的右括号的下标，然后碰到左括号就入栈，碰到右括号就出栈，如果出栈后栈为空，说明当前的右括</description>
     </item>
     
     <item>
       <title>LeetCode 31</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-31/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-31/</link>
       <pubDate>Fri, 06 Jan 2023 21:53:37 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-31/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-31/</guid>
       <description>思路 因为是下一个排列，所以更改的元素尽量靠右，并且需要变大，那么我们可以从右往左遍历，找到右侧存在比自己大的元素的元素（找这种元素可以从左往</description>
     </item>
     
     <item>
       <title>LeetCode 17</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-17/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-17/</link>
       <pubDate>Thu, 05 Jan 2023 20:59:58 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-17/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-17/</guid>
       <description>思路 经典回溯问题，对于每个数字都有几种选择，套模板即可 代码 class Solution { private List&amp;lt;String&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); private char[][] table = new char[][]{ {}, {}, {&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;}, {&amp;#39;d&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;f&amp;#39;}, {&amp;#39;g&amp;#39;, &amp;#39;h&amp;#39;, &amp;#39;i&amp;#39;}, {&amp;#39;j&amp;#39;, &amp;#39;k&amp;#39;, &amp;#39;l&amp;#39;}, {&amp;#39;m&amp;#39;, &amp;#39;n&amp;#39;, &amp;#39;o&amp;#39;}, {&amp;#39;p&amp;#39;, &amp;#39;q&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;s&amp;#39;}, {&amp;#39;t&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;v&amp;#39;}, {&amp;#39;w&amp;#39;, &amp;#39;x&amp;#39;,</description>
     </item>
     
     <item>
       <title>LeetCode 15</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-15/</link>
       <pubDate>Thu, 05 Jan 2023 15:36:20 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-15/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-15/</guid>
       <description>思路 利用双指针的思想，这道题不是想象中的那样使用Map，而是使用双指针，这题的难点在于去重，可以先排序，然后遍历每一个元素，同时根据遍历的这</description>
     </item>
     
     <item>
       <title>LeetCode 9</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-9/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-9/</link>
       <pubDate>Mon, 02 Jan 2023 20:32:36 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-9/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-9/</guid>
       <description>思路 简单粗暴版 将数字翻转过来，然后判断与翻转前的数字是否相等 巧妙解法 只翻转一半即可，见代码 代码 简单粗暴版 class Solution { public boolean isPalindrome(int x) { if (x &amp;lt; 0) { return false; } long res</description>
     </item>
     
     <item>
       <title>LeetCode 8</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-8/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-8/</link>
       <pubDate>Mon, 02 Jan 2023 15:41:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-8/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-8/</guid>
       <description>思路 两种思路： 一次遍历 先去除前导空格，然后判断符号位，最后读取数字，注意溢出判断可以通过res除以10是否等于之前的res来判断，详见代码 自</description>
     </item>
     
     <item>
       <title>LeetCode 7</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-7/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-7/</link>
       <pubDate>Mon, 02 Jan 2023 15:03:48 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-7/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-7/</guid>
       <description>思路 每次取最后一位然后加到res上即可，需要注意这里的判断是否溢出： if (res &amp;gt; Integer.MAX_VALUE / 10 || res == Integer.MAX_VALUE / 10 &amp;amp;&amp;amp; num &amp;gt; 7) { return 0; } if (res &amp;lt; Integer.MIN_VALUE / 10 || res == Integer.MIN_VALUE / 10 &amp;amp;&amp;amp; num &amp;lt; -8)</description>
     </item>
     
     <item>
       <title>LeetCode 6</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-6/</link>
       <pubDate>Mon, 02 Jan 2023 14:39:08 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-6/</guid>
       <description>思路 设置几个行，遍历字符串，每次将遍历到的字符加入行中，然后指针指向下一行，当指针到头之后，倒着改变指针就可以了 代码 class Solution { public String convert(String s, int numRows) { if (numRows</description>
     </item>
     
     <item>
       <title>LeetCode 2</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-2/</link>
       <pubDate>Sun, 01 Jan 2023 21:25:13 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-2/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-2/</guid>
       <description>思路 直接按位相加就可以了 代码 class Solution { public ListNode addTwoNumbers(ListNode l1, ListNode l2) { ListNode res = new ListNode(), p = res; int c = 0; while (l1 != null || l2 != null) { int v1 = l1 == null ? 0 : l1.val; int v2 = l2 == null ? 0 : l2.val; p.next = new ListNode((v1 +</description>
     </item>
     
     <item>
       <title>LeetCode 1</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1/</link>
       <pubDate>Sun, 01 Jan 2023 21:08:26 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1/</guid>
       <description>思路 用map存一下，然后找有没有target - nums[i]即可，直接看代码。 代码 class Solution { public int[] twoSum(int[] nums, int target) { Map&amp;lt;Integer, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); int n = nums.length; for (int i = 0; i &amp;lt; n; i++)</description>
     </item>
     
     <item>
       <title>LeetCode 周赛 326</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</link>
       <pubDate>Sun, 01 Jan 2023 11:39:09 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-326/</guid>
       <description>思路 第一题 挨个除就完事了，直接看代码 第二题 遍历每个元素，并求出他们的质因数加入到set集合，最后统计set里的元素即可 第三题 贪心算法，从左往</description>
     </item>
     
     <item>
       <title>LeetCode 399</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-399/</link>
       <pubDate>Sat, 31 Dec 2022 20:46:47 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-399/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-399/</guid>
       <description>思路 利用并查集的思想，有倍数关系的变量通过并查集连接起来，并且将边的权值设为边两头的结点的倍数大小，当求两个变量的倍数关系时，判断这两个结点</description>
     </item>
     
     <item>
       <title>LeetCode 4</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-4/</link>
       <pubDate>Sat, 31 Dec 2022 15:08:00 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-4/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-4/</guid>
       <description>思路 三种思路： 简单朴素版 跟两个有序的数组合并思路一样，谁小就取谁，这样找到中间的那个就行了 二分查找 其实这道题就是查找第k小的元素，那么我们每</description>
     </item>
     
     <item>
       <title>LeetCode 221</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-221/</link>
       <pubDate>Sat, 31 Dec 2022 14:27:39 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-221/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-221/</guid>
       <description>思路 两种思路： 暴力解法 遍历数组，将每个元素当成正方形的左上角，并检查此时正方形的面积，计算最大值即可，代码略 动态规划 同LeetCode-85</description>
     </item>
     
     <item>
       <title>LeetCode 85</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-85/</link>
       <pubDate>Sat, 31 Dec 2022 12:00:50 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-85/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-85/</guid>
       <description>思路 两种思路： 动态规划 构造两个dp数组，分别存放当前元素上面有几个连续的1和左边有几个连续的1，状态转移方程为： dp_left[i][j] = dp_left[i][j - 1] + 1; dp_up[i][j] = dp_up[i - 1][j] + 1;</description>
     </item>
     
     <item>
       <title>LeetCode 301</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-301/</link>
       <pubDate>Fri, 30 Dec 2022 20:24:27 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-301/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-301/</guid>
       <description>思路 根本思想就是将字符串删去字符的所有情况都找出来，所以可以用DFS爆搜，就是对于每个括号字符，要么删，要么不删，并且在搜索过程中将不合理的</description>
     </item>
     
     <item>
       <title>LeetCode 581</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-581/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-581/</link>
       <pubDate>Fri, 30 Dec 2022 16:50:06 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-581/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-581/</guid>
       <description>思路 两种思路： 排序+检测位置不对的元素 先复制数组，然后排序，再比较排序后的数组和原数组，看看哪些位置不对即可 O(N)时间复杂度 由于无序子数组</description>
     </item>
     
     <item>
       <title>LeetCode 152</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-152/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-152/</link>
       <pubDate>Fri, 30 Dec 2022 16:10:49 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-152/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-152/</guid>
       <description>思路 两种思路： 暴力枚举 把所有情况都列举出来，直接看代码 动态规划 这里需要构建两个dp数组，因为以当前元素结尾的乘积最大子数组不一定是由前面元素</description>
     </item>
     
     <item>
       <title>LeetCode 437</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-437/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-437/</link>
       <pubDate>Thu, 29 Dec 2022 22:31:28 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-437/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-437/</guid>
       <description>思路 两种思路： DFS 遍历二叉树的所有结点，遍历到每个结点同时计算以此结点为头部，往下拓展有几个路径之和为target的情况，求和即可 前缀和 基本思</description>
     </item>
     
     <item>
       <title>LeetCode 240</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-240/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-240/</link>
       <pubDate>Thu, 29 Dec 2022 22:00:13 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-240/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-240/</guid>
       <description>思路 从右上角看成一颗二叉搜索树即可，如果当前元素大于target说明整列都大于target，所以这一列可以忽略，去掉这一列的矩阵还是一个矩阵</description>
     </item>
     
     <item>
       <title>LeetCode 647</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-647/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-647/</link>
       <pubDate>Thu, 29 Dec 2022 12:00:58 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-647/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-647/</guid>
       <description>思路 三种思路： 中心扩展法 遍历字符串，然后从中心扩展，同时统计回文串的数量 动态规划 设置dp数组，dp[i][j] = x代表[i&amp;hellip;j</description>
     </item>
     
     <item>
       <title>LeetCode 238</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-238/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-238/</link>
       <pubDate>Wed, 28 Dec 2022 22:43:11 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-238/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-238/</guid>
       <description>思路 利用前缀和的思想，从左往右遍历一遍，从右往左遍历一遍同时记录该数组的左右乘积，每个元素的左乘积乘以右乘积就是答案，还可以优化空间复杂度，</description>
     </item>
     
     <item>
       <title>LeetCode 621</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-621/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-621/</link>
       <pubDate>Wed, 28 Dec 2022 21:37:50 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-621/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-621/</guid>
       <description>思路 这道题明显符合贪心性质，即每次选择需要执行次数最多的且可以执行的任务，这样执行完任务所需的时间就是最优解，以此为根据有两种思路： 模拟 建立</description>
     </item>
     
     <item>
       <title>LeetCode 617</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-617/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-617/</link>
       <pubDate>Tue, 27 Dec 2022 21:48:18 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-617/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-617/</guid>
       <description>思路 两种思路： 递归（DFS） 直接看代码 迭代（BFS） 构建三个队列，分别存放需要合并子结点的合并后的结点、相应的第一颗树的结点、相应的第二颗树</description>
     </item>
     
     <item>
       <title>LeetCode 560</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-560/</link>
       <pubDate>Tue, 27 Dec 2022 20:48:06 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-560/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-560/</guid>
       <description>思路 两种思路： 枚举 把所有情况都求出来，简单粗暴 前缀和+哈希表优化 利用前缀和的思想，假如[i&amp;hellip;j]的和为k，那么就是preSum</description>
     </item>
     
     <item>
       <title>LeetCode 461</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-461/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-461/</link>
       <pubDate>Tue, 27 Dec 2022 20:22:01 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-461/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-461/</guid>
       <description>思路 先将x和y异或，再运用x &amp;amp; (x - 1)去除x最右侧的1（即Brian Kernighan算法），即可统计1的数目 代码 class Solution { public int hammingDistance(int x, int y) { int z =</description>
     </item>
     
     <item>
       <title>LeetCode 448</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-448/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-448/</link>
       <pubDate>Tue, 27 Dec 2022 20:00:06 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-448/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-448/</guid>
       <description>思路 原地哈希即可，同LeetCode-41 代码 class Solution { public List&amp;lt;Integer&amp;gt; findDisappearedNumbers(int[] nums) { int n = nums.length, i = 0; while (i &amp;lt; n) { if (nums[i] == nums[nums[i] - 1]) { i++; continue; } swap(nums, i, nums[i] - 1); } List&amp;lt;Integer&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); for (int j = 0; j</description>
     </item>
     
     <item>
       <title>LeetCode 406</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-406/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-406/</link>
       <pubDate>Tue, 27 Dec 2022 19:25:36 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-406/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-406/</guid>
       <description>思路 我们可以将每个人按照身高从大到小进行排序，然后依次将每个人放入队列中，那么当我们放入第 i 个人时，由于之后的人都比 i 矮，所以不会对 i 当前的</description>
     </item>
     
     <item>
       <title>LeetCode 394</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-394/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-394/</link>
       <pubDate>Tue, 27 Dec 2022 15:38:04 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-394/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-394/</guid>
       <description>思路 两种思路： 递归 一种是模拟递归（就是我写的），一种是利用文法（见：https://leetcode.cn/problems/decode-</description>
     </item>
     
     <item>
       <title>LeetCode 347</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-347/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-347/</link>
       <pubDate>Mon, 26 Dec 2022 21:35:21 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-347/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-347/</guid>
       <description>思路 简单粗暴版 用map统计次数，用优先队列根据次数选择前k个，具体看代码 最小堆 用map统计次数，然后将map转为entry数组，原问题就转换</description>
     </item>
     
     <item>
       <title>LeetCode 338</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-338/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-338/</link>
       <pubDate>Mon, 26 Dec 2022 20:18:26 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-338/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-338/</guid>
       <description>思路 两种思路： 常规思路 可以使用i &amp;amp; (i - 1)可以去掉i最右边的一个1这个技巧，提升计算一个数比特1数目的速度 动态规划 对于所有的数字，只有两类：</description>
     </item>
     
     <item>
       <title>LeetCode 41</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-41/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-41/</link>
       <pubDate>Mon, 26 Dec 2022 19:35:57 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-41/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-41/</guid>
       <description>思路 原地哈希即可，将1-n的数字放在索引0-n-1里面，这样最后再遍历一遍，不满足这个规则的就是缺失的第一个正数 代码 class Solution { public int firstMissingPositive(int[] nums) { int n = nums.length,</description>
     </item>
     
     <item>
       <title>LeetCode 287</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-287/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-287/</link>
       <pubDate>Mon, 26 Dec 2022 16:39:16 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-287/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-287/</guid>
       <description>思路 原地哈希 将元素和索引一一对应，不对应的交换元素使其对应，当碰到对应索引已经有相应的元素时，就找到了重复的元素 快慢指针 将索引对应的元素当成</description>
     </item>
     
     <item>
       <title>LeetCode 279</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-279/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-279/</link>
       <pubDate>Mon, 26 Dec 2022 14:21:39 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-279/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-279/</guid>
       <description>思路 记忆化回溯 就是带备忘录的暴力算法，numSquares函数的定义为给定一个数n，返回n的完全平方数，具体做法就是将一个数有可能的平方数一</description>
     </item>
     
     <item>
       <title>LeetCode 139</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-139/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-139/</link>
       <pubDate>Mon, 26 Dec 2022 10:44:05 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-139/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-139/</guid>
       <description>思路 两种思路： 记忆化回溯 回溯算法暴力求解，一个一个单词试，不行就回溯，由于存在大量重叠子问题，所以可以用备忘录消除重叠子问题，又因为带备忘录</description>
     </item>
     
     <item>
       <title>LeetCode 215</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-215/</link>
       <pubDate>Sun, 25 Dec 2022 20:54:23 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-215/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-215/</guid>
       <description>思路 两种思路： 最小堆 维护一个有 K 个元素的最小堆： 如果当前堆不满，直接添加； 堆满的时候，如果新读到的数小于等于堆顶，肯定不是我们要找的元素，只</description>
     </item>
     
     <item>
       <title>LeetCode 169</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-169/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-169/</link>
       <pubDate>Sun, 25 Dec 2022 20:11:26 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-169/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-169/</guid>
       <description>思路 值得学习的就两种思路： 哈希 遍历一遍统计出现次数，并同时判断有没有超过n/2 Boyer-Moore 投票算法 设置一个count变量和候选数字，遍历数组，如果当前</description>
     </item>
     
     <item>
       <title>LeetCode 155</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-155/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-155/</link>
       <pubDate>Sun, 25 Dec 2022 18:59:39 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-155/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-155/</guid>
       <description>思路 这道题的关键是getMin的实现，可以用一个辅助栈来存储每个元素入栈时的最小值，这样的话当元素出栈时也可以很容易的获取最小值 代码 class MinStack { private</description>
     </item>
     
     <item>
       <title>LeetCode 6270</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-6270/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:07 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-6270/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-6270/</guid>
       <description>思路 逆向思维，利用滑动窗口的思想，从两头删去k+个abc，相当于中间的区间中abc的数目小于其总数减去k，这样就可以使用滑动窗口解决了，模板</description>
     </item>
     
     <item>
       <title>LeetCode 1754</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1754/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1754/</link>
       <pubDate>Sat, 24 Dec 2022 21:51:19 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1754/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1754/</guid>
       <description>思路 贪心算法，每次选择字典序较大的字符串的第一个字符拼接到merge后即可，唯一要记住的点是字符串比较大小的方式，见零碎部分 代码 class Solution { public String largestMerge(String</description>
     </item>
     
     <item>
       <title>LeetCode 792</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-792/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-792/</link>
       <pubDate>Sat, 24 Dec 2022 21:13:27 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-792/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-792/</guid>
       <description>思路 同LeetCode-392，就是比较多个字符串 代码 class Solution { public int numMatchingSubseq(String s, String[] words) { int n = s.length(); Map&amp;lt;Character, List&amp;lt;Integer&amp;gt;&amp;gt; index = new HashMap&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; n; i++) { char c = s.charAt(i); if (!index.containsKey(c)) { index.put(c, new ArrayList&amp;lt;&amp;gt;()); } index.get(c).add(i); }</description>
     </item>
     
     <item>
       <title>LeetCode 392</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-392/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-392/</link>
       <pubDate>Sat, 24 Dec 2022 20:35:03 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-392/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-392/</guid>
       <description>思路 将t中的字符及其位置都存到一个map中去，然后判断s中的字符是否都存在于该map中，并且该字符在t中的位置在前一个字符在t中的位置的后面</description>
     </item>
     
     <item>
       <title>LeetCode 391</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-391/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-391/</link>
       <pubDate>Sat, 24 Dec 2022 20:03:34 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-391/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-391/</guid>
       <description>思路 从「面积」和「顶点」两个维度来判断： 1、判断面积，通过完美矩形的理论坐标计算出一个理论面积，然后和 rectangles 中小矩形的实际面积和做对比。 2、判断</description>
     </item>
     
     <item>
       <title>LeetCode 11</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-11/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-11/</link>
       <pubDate>Fri, 23 Dec 2022 14:01:43 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-11/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-11/</guid>
       <description>思路 利用双指针的思想，每次移动比较小的那个，同时维护左右指针之间的盛水最大值即可 代码 class Solution { public int maxArea(int[] height) { int left = 0, right = height.length - 1; int res = 0; while (left &amp;lt; right) { int area</description>
     </item>
     
     <item>
       <title>LeetCode 42</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-42/</link>
       <pubDate>Fri, 23 Dec 2022 12:26:57 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-42/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-42/</guid>
       <description>思路 四种思路： 按列求 只需要找到每一列左边最大值和右边最大值的较小值，就可以求出这一列可以接多少雨水 动态规划 按列求中，求左边右边的最大值是一个</description>
     </item>
     
     <item>
       <title>LeetCode 986</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-986/</link>
       <pubDate>Fri, 23 Dec 2022 11:29:12 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-986/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-986/</guid>
       <description>思路 利用双指针遍历两个区间集合，谁的终点小，谁往前走，同时判断两个指针指向的区间是否有交集，详见代码 代码 class Solution { public int[][] intervalIntersection(int[][] firstList, int[][] secondList) { int m = firstList.length, n = secondList.length; int</description>
     </item>
     
     <item>
       <title>LeetCode 56</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-56/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-56/</link>
       <pubDate>Fri, 23 Dec 2022 10:17:05 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-56/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-56/</guid>
       <description>思路 先按起点排序，然后寻找可以合并的最大终点即可 代码 class Solution { public int[][] merge(int[][] intervals) { int n = intervals.length; Arrays.sort(intervals, (a, b) -&amp;gt; { return a[0] - b[0]; }); List&amp;lt;int[]&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); res.add(intervals[0]); for (int i = 1; i &amp;lt; n; i++) { int[] last = res.get(res.size() - 1);</description>
     </item>
     
     <item>
       <title>LeetCode 1288</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1288/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1288/</link>
       <pubDate>Fri, 23 Dec 2022 09:45:26 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1288/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1288/</guid>
       <description>思路 先按起点排序，然后遍历，如果终点小于之前最大的终点，那这个区间就可以被覆盖 代码 class Solution { public int removeCoveredIntervals(int[][] intervals) { int n = intervals.length; Arrays.sort(intervals, (a, b) -&amp;gt; { if (a[0] == b[0]) { return b[1] - a[1]; } return a[0]</description>
     </item>
     
     <item>
       <title>LeetCode 1541</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1541/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1541/</link>
       <pubDate>Wed, 21 Dec 2022 17:21:47 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1541/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1541/</guid>
       <description>思路 同LeetCode-921，只不过需要注意当右括号差一个的时候需要补齐右括号 代码 class Solution { public int minInsertions(String s) { int res = 0, need = 0; for (int i = 0; i &amp;lt; s.length(); i++) { char c =</description>
     </item>
     
     <item>
       <title>LeetCode 921</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-921/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-921/</link>
       <pubDate>Wed, 21 Dec 2022 16:53:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-921/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-921/</guid>
       <description>思路 设置left和right变量，代表需要的左括号数量和右括号数量，从左往右遍历一遍，碰到左括号right++，碰到右括号right&amp;nda</description>
     </item>
     
     <item>
       <title>LeetCode 20</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-20/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-20/</link>
       <pubDate>Wed, 21 Dec 2022 16:10:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-20/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-20/</guid>
       <description>思路 用栈即可，直接看代码 代码 class Solution { public boolean isValid(String s) { Deque&amp;lt;Character&amp;gt; stack = new ArrayDeque&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; s.length(); i++) { char c = s.charAt(i); if (c == &amp;#39;(&amp;#39; || c == &amp;#39;[&amp;#39; || c == &amp;#39;{&amp;#39;) { stack.push(c); } else { if (stack.isEmpty() || stack.pop() != leftOf(c)) { return false; } } }</description>
     </item>
     
     <item>
       <title>LeetCode 224&#43;227</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-224&#43;227/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-224&#43;227/</link>
       <pubDate>Wed, 21 Dec 2022 14:06:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-224&#43;227/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-224&#43;227/</guid>
       <description>思路 根本思想是建立一个栈，栈里存放目前遍历到的数字，比如1-2+3，栈里存放1、-2、3，最后将栈里的数字相加即可，详见：https://l</description>
     </item>
     
     <item>
       <title>LeetCode 43</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-43/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-43/</link>
       <pubDate>Tue, 20 Dec 2022 11:35:00 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-43/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-43/</guid>
       <description>思路 就是大整数乘法，用列式计算的方式计算两个字符串的乘积，如下图所示： 详见：https://labuladong.gitee.io/algo</description>
     </item>
     
     <item>
       <title>LeetCode 659</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-659/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-659/</link>
       <pubDate>Tue, 20 Dec 2022 10:40:04 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-659/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-659/</guid>
       <description>思路 从前往后遍历，遍历到一个元素v，只要能将所有元素分配到一个序列中即可，关键在于，我们怎么知道当前元素 v 如何进行分配呢？ 肯定得分情况讨论，</description>
     </item>
     
     <item>
       <title>LeetCode 241</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-241/</link>
       <pubDate>Mon, 19 Dec 2022 22:46:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-241/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-241/</guid>
       <description>思路 经典分治思想，根据式子的运算符分成左右两个子问题，然后将两个子问题合并，就得到了原问题的答案，详见思想篇章 代码 class Solution { private Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; memo = new HashMap&amp;lt;&amp;gt;(); public List&amp;lt;Integer&amp;gt; diffWaysToCompute(String</description>
     </item>
     
     <item>
       <title>LeetCode 372</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-372/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-372/</link>
       <pubDate>Mon, 19 Dec 2022 20:38:10 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-372/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-372/</guid>
       <description>思路 幂可以转换为以下形式： 这样就可以运用递归了，至于模幂运算运用(a * b) % k = ((a % k) * (b % k)) % k即可，详见思想篇章 还可以运用高效求幂，详见思</description>
     </item>
     
     <item>
       <title>LeetCode 204</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-204/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-204/</link>
       <pubDate>Mon, 19 Dec 2022 20:00:33 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-204/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-204/</guid>
       <description>思路 经典素数筛选法，详见思想篇章 代码 class Solution { public int countPrimes(int n) { boolean[] isPrime = new boolean[n]; Arrays.fill(isPrime, true); double sqrtn = Math.sqrt(n); for (int i = 2; i &amp;lt; sqrtn; i++) { if (isPrime[i]) { for (int j = i * i; j &amp;lt; n; j += i) { isPrime[j] = false; } } }</description>
     </item>
     
     <item>
       <title>LeetCode 793</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-793/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-793/</link>
       <pubDate>Mon, 19 Dec 2022 16:42:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-793/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-793/</guid>
       <description>思路 这道题可以复用LeetCode-172的函数，从0-Long.MAX_VALUE之间寻找trailingZeroes(n) == k的值，由于</description>
     </item>
     
     <item>
       <title>LeetCode 172</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-172/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-172/</link>
       <pubDate>Mon, 19 Dec 2022 14:25:57 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-172/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-172/</guid>
       <description>思路 其实求阶乘结果有几个零就是求阶乘式子里可以分解出来几个因数5，其实就是n/5 + n/25 + n/125 + &amp;hellip;. 代码 class Solution { public int trailingZeroes(int n) { int res = 0, divisor = 5; while (divisor &amp;lt;= n) { res +=</description>
     </item>
     
     <item>
       <title>LeetCode 1971</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1971/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1971/</link>
       <pubDate>Mon, 19 Dec 2022 00:24:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1971/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1971/</guid>
       <description>思路 利用并查集的思想即可 代码 class Solution { public boolean validPath(int n, int[][] edges, int source, int destination) { UF uf = new UF(n); for (int[] edge : edges) { uf.union(edge[0], edge[1]); } return uf.isConnected(source, destination); } class UF { private int[] parent; public UF(int n) { parent = new int[n]; for (int i = 0; i &amp;lt; n; i++) {</description>
     </item>
     
     <item>
       <title>LeetCode 268</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-268/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-268/</link>
       <pubDate>Sun, 18 Dec 2022 23:26:40 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-268/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-268/</guid>
       <description>思路 两种思路： 常规思路 求[0&amp;hellip;n]的前n项和然后减去nums的数之和，就得到了缺失的数组 位运算思路 由于异或的性质，只要把所有的</description>
     </item>
     
     <item>
       <title>LeetCode 136</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-136/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-136/</link>
       <pubDate>Sun, 18 Dec 2022 23:20:45 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-136/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-136/</guid>
       <description>思路 由于一个数和它本身做异或运算结果为 0，即 a ^ a = 0；一个数和 0 做异或运算的结果为它本身，即 a ^ 0 = a。那么这道题将所有数异或就得到了结果</description>
     </item>
     
     <item>
       <title>LeetCode 231</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-231/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-231/</link>
       <pubDate>Sun, 18 Dec 2022 23:16:25 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-231/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-231/</guid>
       <description>思路 用 n &amp;amp; (n-1) 的技巧来判断n的二进制表示是不是只有一个1 代码 class Solution { public boolean isPowerOfTwo(int n) { if (n &amp;lt;= 0) { return false; } return (n &amp;amp; (n - 1)) == 0; } } References 1. 2 的幂</description>
     </item>
     
     <item>
       <title>LeetCode 191</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-191/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-191/</link>
       <pubDate>Sun, 18 Dec 2022 23:08:47 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-191/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-191/</guid>
       <description>思路 需要知道 n &amp;amp; (n - 1) 可以消除最后一个 1，所以可以用一个循环不停地消除 1 同时计数，直到 n 变成 0 为止。 代码 public class Solution { // you need to treat n as an unsigned value public int hammingWeight(int n)</description>
     </item>
     
     <item>
       <title>LeetCode 398</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-398/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-398/</link>
       <pubDate>Sun, 18 Dec 2022 22:40:35 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-398/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-398/</guid>
       <description>思路 不解释了，直接看代码 代码 class Solution { private Map&amp;lt;Integer, List&amp;lt;Integer&amp;gt;&amp;gt; map; public Solution(int[] nums) { map = new HashMap&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; nums.length; i++) { if (!map.containsKey(nums[i])) { map.put(nums[i], new LinkedList&amp;lt;&amp;gt;()); } map.get(nums[i]).add(i); } } public int pick(int target) { List&amp;lt;Integer&amp;gt; list = map.get(target); return list.get(new Random().nextInt(list.size())); } } References 1. 随机数索引</description>
     </item>
     
     <item>
       <title>LeetCode 382</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-382/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-382/</link>
       <pubDate>Sun, 18 Dec 2022 22:15:21 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-382/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-382/</guid>
       <description>思路 从一堆数据里随机取出一个数据，可以使用蓄水池抽样算法，详见思想篇章 代码 class Solution { private ListNode head; public Solution(ListNode head) { this.head = head; } public int getRandom() { Random random = new Random(); int i = 0, res = 0; ListNode p =</description>
     </item>
     
     <item>
       <title>LeetCode 384</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-384/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-384/</link>
       <pubDate>Sun, 18 Dec 2022 20:54:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-384/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-384/</guid>
       <description>思路 随机算法问题，使用洗牌算法即可，详见思想篇章 代码 class Solution { private int[] nums; private Random random; public Solution(int[] nums) { this.nums = nums; this.random = new Random(); } public int[] reset() { return nums; } public int[] shuffle() { int n = nums.length; int[] copy = Arrays.copyOf(nums, n); for (int i</description>
     </item>
     
     <item>
       <title>LeetCode 752</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-752/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-752/</link>
       <pubDate>Sun, 18 Dec 2022 20:03:24 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-752/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-752/</guid>
       <description>思路 四个拨轮，每个都可以向上或者向下，所以有8种选择，由此可以抽象为一个图，BFS算法第一次碰到target时走过的长度就是开锁的最少操作次</description>
     </item>
     
     <item>
       <title>LeetCode 111</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-111/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-111/</link>
       <pubDate>Sun, 18 Dec 2022 19:43:42 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-111/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-111/</guid>
       <description>思路 经典BFS问题，BFS同时看是不是叶子节点，是叶子结点就返回深度 代码 class Solution { public int minDepth(TreeNode root) { if (root == null) { return 0; } Queue&amp;lt;TreeNode&amp;gt; queue = new ArrayDeque&amp;lt;&amp;gt;(); queue.offer(root); int depth = 1; while (!queue.isEmpty()) { int size = queue.size(); for</description>
     </item>
     
     <item>
       <title>LeetCode 22</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-22/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-22/</link>
       <pubDate>Sun, 18 Dec 2022 19:16:38 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-22/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-22/</guid>
       <description>思路 经典回溯问题，穷举所有可能并且对不合理的情况剪枝即可，剪枝代码如下： if (right &amp;lt; left) { return; } if (right &amp;lt; 0 || left &amp;lt; 0) { return; } 代码 class Solution { public List&amp;lt;String&amp;gt; generateParenthesis(int n) { List&amp;lt;String&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); StringBuilder</description>
     </item>
     
     <item>
       <title>LeetCode 37</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-37/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-37/</link>
       <pubDate>Sun, 18 Dec 2022 16:16:02 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-37/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-37/</guid>
       <description>思路 经典回溯问题，暴力求解即可 代码 class Solution { public void solveSudoku(char[][] board) { backtrack(board, 0, 0); } private boolean backtrack(char[][] board, int i, int j) { if (j == 9) { i++; j = 0; } if (i == 9) { return true; } if (board[i][j] != &amp;#39;.&amp;#39;) { return backtrack(board, i, j + 1); } boolean[] isValid</description>
     </item>
     
     <item>
       <title>LeetCode 周赛-324</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-324/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-324/</link>
       <pubDate>Sun, 18 Dec 2022 14:56:08 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-324/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-324/</guid>
       <description>思路 第一题 暴力解法即可，见代码 第二题 需要知道一个数一定能被分解为质数之积，且是唯一的，分解质数的方法是从2开始除，没法整除就将2加一，再除，</description>
     </item>
     
     <item>
       <title>LeetCode 28</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-28/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-28/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-28/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-28/</guid>
       <description>思路 标准KMP算法，套模板即可，详见思想篇章 代码 class Solution { public int strStr(String haystack, String needle) { return new KMP(needle).search(haystack); } class KMP { private String pat; private int[][] dp; public KMP(String pat) { this.pat = pat; int M = pat.length(); this.dp = new int[M][256]; dp[0][pat.charAt(0)] = 1; int X = 0; for</description>
     </item>
     
     <item>
       <title>LeetCode 1764</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1764/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1764/</link>
       <pubDate>Sat, 17 Dec 2022 23:38:35 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1764/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1764/</guid>
       <description>思路 用双指针逐行比较即可，可以用KMP优化 代码 class Solution { private boolean isMatch(int[] group, int[] nums, int start) { if (group.length &amp;gt; nums.length - start) { return false; } for (int i = 0; i &amp;lt; group.length; i++) { if (group[i] != nums[start + i]) { return false; } } return true; } public</description>
     </item>
     
     <item>
       <title>LeetCode 694</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-694/</link>
       <pubDate>Sat, 17 Dec 2022 22:55:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-694/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-694/</guid>
       <description>思路 和其他岛屿类似，但是需要判断形状是否相同，解决办法也比较巧妙，通过遍历岛屿单元格的顺序来判断形状是否相同，还要把这些顺序序列化成字符串方</description>
     </item>
     
     <item>
       <title>LeetCode 1905</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1905/</link>
       <pubDate>Sat, 17 Dec 2022 22:13:19 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1905/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1905/</guid>
       <description>思路 同LeetCode-1254，只不过需要提前把不可能是子岛屿的岛屿淹掉，剩下的就是子岛屿了 代码 class Solution { private void dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i</description>
     </item>
     
     <item>
       <title>LeetCode 695</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-695/</link>
       <pubDate>Sat, 17 Dec 2022 21:38:07 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-695/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-695/</guid>
       <description>思路 同LeetCode-200，把返回值改成淹没陆地的数量即可 代码 class Solution { private int dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i &amp;lt; 0 || i &amp;gt;= m || j &amp;lt; 0 || j &amp;gt;= n) { return</description>
     </item>
     
     <item>
       <title>LeetCode 1020</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1020/</link>
       <pubDate>Sat, 17 Dec 2022 21:34:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1020/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1020/</guid>
       <description>思路 同LeetCode-1254，将边界淹没后，直接统计单元格即可 代码 class Solution { private void dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i &amp;lt; 0 || i &amp;gt;= m || j &amp;lt; 0 || j &amp;gt;= n)</description>
     </item>
     
     <item>
       <title>LeetCode 1254</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1254/</link>
       <pubDate>Sat, 17 Dec 2022 21:27:28 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1254/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1254/</guid>
       <description>思路 同LeetCode-200，只不过需要提前把边界的岛屿淹没 代码 class Solution { private void dfs(int[][] grid, int i, int j) { int m = grid.length, n = grid[0].length; if (i &amp;lt; 0 || i &amp;gt;= m || j &amp;lt; 0 || j &amp;gt;= n) { return;</description>
     </item>
     
     <item>
       <title>LeetCode 200</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-200/</link>
       <pubDate>Sat, 17 Dec 2022 21:13:20 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-200/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-200/</guid>
       <description>思路 利用dfs的思想，遍历矩阵，如果碰到陆地就从这个元素开始dfs，同时将陆地全部变为海水，同时统计岛屿的个数 代码 class Solution { public int numIslands(char[][] grid) { int m = grid.length, n</description>
     </item>
     
     <item>
       <title>LeetCode 39</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-39/</link>
       <pubDate>Sat, 17 Dec 2022 20:29:05 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-39/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-39/</guid>
       <description>思路 经典可复选组合问题，保证递归的时候还能选择已经选择的元素即可 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); int trackSum = 0; private void backtrack(int[] nums, int start, int target) { if (trackSum == target) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); return; } if</description>
     </item>
     
     <item>
       <title>LeetCode 47</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-47/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-47/</link>
       <pubDate>Sat, 17 Dec 2022 20:00:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-47/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-47/</guid>
       <description>思路 经典有重复元素的全排列问题，需要注意怎么去重，可以固定相同元素在全排列里的相对位置来去重，代码如下： if (i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1] &amp;amp;&amp;amp; !used[i - 1]) { continue; } 代</description>
     </item>
     
     <item>
       <title>LeetCode 40</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-40/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-40/</link>
       <pubDate>Sat, 17 Dec 2022 19:52:20 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-40/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-40/</guid>
       <description>思路 经典带重复元素的组合问题，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); int trackSum = 0; private void backtrack(int[] nums, int start, int target) { if (trackSum == target) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); return; } if (trackSum &amp;gt; target) { return; } for (int i = start;</description>
     </item>
     
     <item>
       <title>LeetCode 90</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-90/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-90/</link>
       <pubDate>Sat, 17 Dec 2022 19:50:57 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-90/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-90/</guid>
       <description>思路 经典带重复元素的子集问题，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); private void backtrack(int[] nums, int start) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); for (int i = start; i &amp;lt; nums.length; i++) { if (i &amp;gt; start &amp;amp;&amp;amp; nums[i] == nums[i - 1]) { continue; } track.add(nums[i]); backtrack(nums,</description>
     </item>
     
     <item>
       <title>LeetCode 77</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-77/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-77/</link>
       <pubDate>Sat, 17 Dec 2022 19:28:21 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-77/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-77/</guid>
       <description>思路 经典组合问题，不解释了，详见思想篇章 代码 class Solution { List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; combine(int n, int k) { backtrack(n, 1, k); return res; } private void backtrack(int n, int start, int k) { if (track.size() == k) { res.add(new LinkedList&amp;lt;&amp;gt;(track)); return; } for (int i =</description>
     </item>
     
     <item>
       <title>LeetCode 78</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-78/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-78/</link>
       <pubDate>Sat, 17 Dec 2022 19:15:12 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-78/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-78/</guid>
       <description>思路 两种思路： 回溯 经典子集问题，不解释了，详见思想篇章 迭代 因为每一个元素要么选要么不选，所以可以看成有n个盒子n个数，每个数要么放进盒子，要</description>
     </item>
     
     <item>
       <title>LeetCode 698</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-698/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-698/</link>
       <pubDate>Sat, 17 Dec 2022 18:48:50 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-698/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-698/</guid>
       <description>思路 利用回溯算法，这种排列组合问题的各种变体都可以抽象成「球盒模型」，将子集看成盒子，那么每个盒子遍历一遍数组，要么将元素放盒子里面要么不放</description>
     </item>
     
     <item>
       <title>LeetCode 51</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-51/</link>
       <pubDate>Wed, 14 Dec 2022 23:18:28 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-51/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-51/</guid>
       <description>思路 利用回溯算法，在棋盘上从上往下下棋子，如果不能下就换个格子，如果一整行都不能下，就回溯到上一行换下一个格子 代码 class Solution { List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; solveNQueens(int n) {</description>
     </item>
     
     <item>
       <title>LeetCode 46</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-46/</link>
       <pubDate>Wed, 14 Dec 2022 22:41:32 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-46/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-46/</guid>
       <description>思路 经典回溯问题，直接套模板即可，决策树如下： 代码 class Solution { private List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new LinkedList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; permute(int[] nums) { int n = nums.length; boolean[] used = new boolean[n]; List&amp;lt;Integer&amp;gt; track = new LinkedList&amp;lt;&amp;gt;(); backtrack(track, nums, used); return res; } private void backtrack(List&amp;lt;Integer&amp;gt; track, int[] nums, boolean[] used) { if (track.size()</description>
     </item>
     
     <item>
       <title>LeetCode 253</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-253/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-253/</link>
       <pubDate>Wed, 14 Dec 2022 21:49:15 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-253/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-253/</guid>
       <description>思路 其实就是求同一时刻最多有多少重叠区间，其实投影到x轴然后看看有几个区间重合到一起了就可以，有两种代码思路： 用数组表示x轴+差分数组优化 举</description>
     </item>
     
     <item>
       <title>LeetCode 45</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-45/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-45/</link>
       <pubDate>Wed, 14 Dec 2022 21:14:41 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-45/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-45/</guid>
       <description>思路 利用贪心算法，每次跳的时候选择一个最有潜力的结点跳，只不过代码有点难写 代码 class Solution { public int jump(int[] nums) { int n = nums.length, farthest = 0, jumps = 0, end = 0; for (int i = 0; i &amp;lt; n - 1;</description>
     </item>
     
     <item>
       <title>LeetCode 55</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-55/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-55/</link>
       <pubDate>Wed, 14 Dec 2022 20:55:31 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-55/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-55/</guid>
       <description>思路 利用贪心算法，每一步都计算一下从当前位置最远能够跳到哪里，然后和一个全局最优的最远位置 farthest 做对比，通过每一步的最优解，更新全局最优解 代码 class</description>
     </item>
     
     <item>
       <title>LeetCode 1024</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1024/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1024/</link>
       <pubDate>Tue, 13 Dec 2022 23:32:03 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1024/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1024/</guid>
       <description>思路 利用贪心算法，思路很简单，先按start排序，遍历区间，找end最大的区间，然后再遍历区间找start小于前一个end，end最大的区间</description>
     </item>
     
     <item>
       <title>LeetCode 452</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-452/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-452/</link>
       <pubDate>Tue, 13 Dec 2022 22:30:48 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-452/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-452/</guid>
       <description>思路 其实就是求解无重叠区间最多有几个，同LeetCode-435，因为可以每一发都打在无重叠区间中每个区间的最右边，这样下一个区间之前的区间</description>
     </item>
     
     <item>
       <title>LeetCode 435</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-435/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-435/</link>
       <pubDate>Tue, 13 Dec 2022 22:03:10 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-435/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-435/</guid>
       <description>思路 利用贪心算法，每次选择结束最早的区间（这就是局部最优选择），然后统计就可以了 代码 class Solution { private int intervalSchedule(int[][] intervals) { Arrays.sort(intervals, (a, b) -&amp;gt; { return a[1] - b[1]; }); int count = 1, x_end = intervals[0][1]; for (int[] interval</description>
     </item>
     
     <item>
       <title>LeetCode 312</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-312/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-312/</link>
       <pubDate>Tue, 13 Dec 2022 14:15:00 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-312/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-312/</guid>
       <description>思路 利用动态规划的思想，dp[i][j] = x表示，戳破气球i和气球j之间（开区间，不包括i和j）的所有气球，可以获得的最高分数为x。状态转移</description>
     </item>
     
     <item>
       <title>LeetCode 887</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-887/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-887/</link>
       <pubDate>Mon, 12 Dec 2022 22:55:21 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-887/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-887/</guid>
       <description>思路 比较复杂，详见：https://leetcode.cn/problems/super-egg-drop/solutions/44427/</description>
     </item>
     
     <item>
       <title>LeetCode 337</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-337/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-337/</link>
       <pubDate>Mon, 12 Dec 2022 15:03:50 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-337/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-337/</guid>
       <description>思路 同LeetCode-198，只不过变成了二叉树 代码 原版 class Solution { private Map&amp;lt;TreeNode, Integer&amp;gt; memo = new HashMap&amp;lt;&amp;gt;(); public int rob(TreeNode root) { if (root == null) { return 0; } if (memo.containsKey(root)) { return memo.get(root); } int do_it = root.val + (root.left == null ? 0 : rob(root.left.left)</description>
     </item>
     
     <item>
       <title>LeetCode 213</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-213/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-213/</link>
       <pubDate>Mon, 12 Dec 2022 14:25:48 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-213/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-213/</guid>
       <description>思路 同LeetCode-198，只不过首尾不能同时偷，共有三种情况，其中第一种情况不需要考虑因为肯定比其他两种小 代码 class Solution { private int robRange(int[] nums, int start, int end) {</description>
     </item>
     
     <item>
       <title>LeetCode 198</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-198/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-198/</link>
       <pubDate>Mon, 12 Dec 2022 13:51:41 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-198/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-198/</guid>
       <description>思路 利用动态规划的思想，dp数组里存截止到当前户最多偷到多少钱，状态转移方程为： dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 2]); base case 为dp[0]和dp[1]为0，可</description>
     </item>
     
     <item>
       <title>LeetCode 121&#43;122&#43;123&#43;188&#43;309&#43;714</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-121&#43;122&#43;123&#43;188&#43;309&#43;714/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-121&#43;122&#43;123&#43;188&#43;309&#43;714/</link>
       <pubDate>Sun, 11 Dec 2022 21:42:50 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-121&#43;122&#43;123&#43;188&#43;309&#43;714/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-121&#43;122&#43;123&#43;188&#43;309&#43;714/</guid>
       <description>思路 比较复杂，详见：https://labuladong.gitee.io/algo/3/28/96/ 代码 121题 class Solution { public int maxProfit(int[] prices) { int n = prices.length; int[][]</description>
     </item>
     
     <item>
       <title>LeetCode 516</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-516/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-516/</link>
       <pubDate>Sun, 11 Dec 2022 20:18:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-516/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-516/</guid>
       <description>思路 利用动态规划的思想，dp数组里存s[i&amp;hellip;j]的最长回文子序列，状态转移方程如下： if (s.charAt(j) == s.charAt(j + i)) { dp[j][j + i] = 2 + dp[j + 1][j + i - 1]; }</description>
     </item>
     
     <item>
       <title>LeetCode 10</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-10/</link>
       <pubDate>Sun, 11 Dec 2022 19:15:55 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-10/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-10/</guid>
       <description>思路 dp数组里存s[i&amp;hellip;]和p[j&amp;hellip;]是否匹配，状态转移方程需要根据s[i]和p[j]是否相等来选择，具体如下：</description>
     </item>
     
     <item>
       <title>LeetCode 174</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-174/</link>
       <pubDate>Sun, 11 Dec 2022 14:42:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-174/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-174/</guid>
       <description>思路 与LeetCode-64类似，只不过dp数组中dp[i][j]的定义是从 grid[i][j] 到达终点（右下角）所需的最少生命值 代码 class Solution { public int calculateMinimumHP(int[][] dungeon) { int m = dungeon.length,</description>
     </item>
     
     <item>
       <title>LeetCode 64</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-64/</link>
       <pubDate>Sun, 11 Dec 2022 14:03:02 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-64/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-64/</guid>
       <description>思路 经典动态规划问题，构造dp[][]数组，里面存放从(0, 0)到(i, j)的最小路径，dp[i][j]由min(dp[i - 1][j], dp[i][j - 1]) + gri</description>
     </item>
     
     <item>
       <title>LeetCode 494</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-494/</link>
       <pubDate>Sat, 10 Dec 2022 23:32:55 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-494/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-494/</guid>
       <description>思路 有三种思路： 递归思路 findTargetSumWays(nums, i, remain) = findTargetSumWays(nums, i + 1, remain - nums[i]) + findTargetSumWays(nums, i + 1, remain + nums[i])，直接看代码 回溯思路 经典回溯问题，套模板即可 动态规划 这道题还可以</description>
     </item>
     
     <item>
       <title>LeetCode 518</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-518/</link>
       <pubDate>Sat, 10 Dec 2022 22:36:12 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-518/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-518/</guid>
       <description>思路 经典完全背包问题，直接套模板即可，详见思想篇章，可以优化空间复杂度 代码 原版 class Solution { public int change(int amount, int[] coins) { int n = coins.length; int[][] dp = new int[n + 1][amount + 1]; for (int i = 0; i &amp;lt;= n;</description>
     </item>
     
     <item>
       <title>LeetCode 416</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-416/</link>
       <pubDate>Sat, 10 Dec 2022 22:02:28 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-416/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-416/</guid>
       <description>思路 其实就是背包问题，直接套背包问题模板，构造二维dp数组，dp[i][w] 的定义如下：对于前 i 个物品，当前背包的容量为 w，这种情况下 dp[</description>
     </item>
     
     <item>
       <title>LeetCode 712</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-712/</link>
       <pubDate>Sat, 10 Dec 2022 20:40:33 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-712/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-712/</guid>
       <description>思路 利用动态规划的思想，同LeetCode-583，只不过不是计算删除操作数，而是删除的ASCII码 代码 class Solution { public int minimumDeleteSum(String s1, String s2) { int m = s1.length(), n = s2.length(); int[][]</description>
     </item>
     
     <item>
       <title>LeetCode 583</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-583/</link>
       <pubDate>Sat, 10 Dec 2022 17:36:14 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-583/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-583/</guid>
       <description>思路 基本同最长公共子序列：LeetCode-1143，也可以直接重用LCS，因为删除的结果不就是它俩的最长公共子序列，那么删除的次数就是wo</description>
     </item>
     
     <item>
       <title>LeetCode 1143</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1143/</link>
       <pubDate>Sat, 10 Dec 2022 17:18:32 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1143/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1143/</guid>
       <description>思路 利用动态规划的思想，dp数组里存s1[0&amp;hellip;i]和s2[0&amp;hellip;j]的最长公共子序列，如果s1[i]==s2[j]</description>
     </item>
     
     <item>
       <title>LeetCode 53</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-53/</link>
       <pubDate>Sat, 10 Dec 2022 15:39:44 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-53/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-53/</guid>
       <description>思路 三种思路： 动态规划 dp数组里放以该元素结尾的最大子数组和，可以由前面那个元素推出来，base case是dp[0] = nums[0]，可以优</description>
     </item>
     
     <item>
       <title>LeetCode 72</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-72/</link>
       <pubDate>Sat, 10 Dec 2022 15:01:28 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-72/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-72/</guid>
       <description>思路 利用动态规划的思想，dp数组里存*s1[0..i-1] 和 s2[0..j-1]*的编辑距离，可以由以下元素推出来： base case是第一行和第一</description>
     </item>
     
     <item>
       <title>LeetCode 931</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-931/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-931/</link>
       <pubDate>Fri, 09 Dec 2022 21:38:07 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-931/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-931/</guid>
       <description>思路 利用动态规划的思想，dp数组里放落到该位置的最小路径和，由上一行临近自己的三个元素最小值+自己元素的大小得到，base case是dp数组</description>
     </item>
     
     <item>
       <title>LeetCode 354</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-354/</link>
       <pubDate>Fri, 09 Dec 2022 20:39:25 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-354/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-354/</guid>
       <description>思路 本质上就是最长递增子序列问题，见LeetCode-300，只不过需要先对width升序排序，然后计算height的最长递增子序列即可 ps</description>
     </item>
     
     <item>
       <title>LeetCode 300</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-300/</link>
       <pubDate>Fri, 09 Dec 2022 19:57:21 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-300/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-300/</guid>
       <description>思路 两种解法： 动态规划 利用动态规划的思想，y=f(x)的x是数组的索引，y是以这个索引的元素结尾的最长递增子序列的长度，选择为x之前所有元素</description>
     </item>
     
     <item>
       <title>LeetCode Note 2</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-note-2/</link>
       <pubDate>Fri, 09 Dec 2022 19:25:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-2/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-note-2/</guid>
       <description>动态规划基本问题 解法 经典动态规划问题，详见思想篇章 题目 1. 斐波那契数 题解详见：https://blog.zhangmengyang.tk/po</description>
     </item>
     
     <item>
       <title>LeetCode 322</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-322/</link>
       <pubDate>Thu, 08 Dec 2022 22:42:46 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-322/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-322/</guid>
       <description>思路 经典动态规划问题，具有最优子结构性质，“状态”为金额，“选择”为硬币的面值，dp数组定义为dp[金额] = 取得该金额需要的最少硬币，”ba</description>
     </item>
     
     <item>
       <title>LeetCode 509</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-509/</link>
       <pubDate>Thu, 08 Dec 2022 22:42:39 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-509/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-509/</guid>
       <description>思路 状态转移方程很简单，注意一下直接递归会有重复子问题，所以可以使用数组备份一下（其实就是dp数组），又发现只会用到每个元素的前两个元素，所</description>
     </item>
     
     <item>
       <title>LeetCode 225</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-225/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-225/</link>
       <pubDate>Thu, 08 Dec 2022 12:21:22 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-225/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-225/</guid>
       <description>思路 直接套用队列实现栈的模板即可，详见思想篇章 代码 class MyStack { private Queue&amp;lt;Integer&amp;gt; q; private int topElem; public MyStack() { q = new LinkedList&amp;lt;&amp;gt;(); } public void push(int x) { q.offer(x); topElem = x; } public int pop() { int size = q.size(); while (size &amp;gt; 2) { q.offer(q.poll()); size--; } topElem =</description>
     </item>
     
     <item>
       <title>LeetCode 232</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-232/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-232/</link>
       <pubDate>Thu, 08 Dec 2022 12:09:36 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-232/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-232/</guid>
       <description>思路 直接套栈实现队列模板即可，详见思想篇章 代码 class MyQueue { private Stack&amp;lt;Integer&amp;gt; s1, s2; public MyQueue() { s1 = new Stack&amp;lt;&amp;gt;(); s2 = new Stack&amp;lt;&amp;gt;(); } public void push(int x) { s2.push(x); } public int pop() { peek(); return s1.pop(); } public int peek() { if (s1.isEmpty()) { while (!s2.isEmpty()) { s1.push(s2.pop()); } }</description>
     </item>
     
     <item>
       <title>LeetCode 239</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-239/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-239/</link>
       <pubDate>Wed, 07 Dec 2022 13:49:34 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-239/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-239/</guid>
       <description>思路 利用单调队列的思想即可，保持队列中为单调递减那么队头就是最大值，入栈时把小于两头的元素全部出队（因为这些元素不可能充当窗口内最大值的角色</description>
     </item>
     
     <item>
       <title>LeetCode 503</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-503/</link>
       <pubDate>Wed, 07 Dec 2022 11:08:46 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-503/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-503/</guid>
       <description>思路 利用单调栈的思想，同LeetCode-496，只不过牵扯到循环数组的问题，常用套路就是将数组长度翻倍，代码实现的时候也可以用i % nums</description>
     </item>
     
     <item>
       <title>LeetCode 739</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-739/</link>
       <pubDate>Wed, 07 Dec 2022 10:53:22 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-739/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-739/</guid>
       <description>思路 利用单调栈的思想即可，同LeetCode-496，只不过这次存的是索引而不是元素 代码 class Solution { public int[] dailyTemperatures(int[] temperatures) { int n = temperatures.length; Deque&amp;lt;Integer&amp;gt; stack = new ArrayDeque&amp;lt;&amp;gt;(); int[] res = new int[n]; for (int i =</description>
     </item>
     
     <item>
       <title>LeetCode 496</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-496/</link>
       <pubDate>Wed, 07 Dec 2022 10:35:40 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-496/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-496/</guid>
       <description>思路 利用单调栈的思想即可，倒着入栈，碰到栈顶比自己小就出栈直到比自己大，那么这么就把两个较大元素中间的小元素去除掉了，剩下的两个元素就可以充</description>
     </item>
     
     <item>
       <title>LeetCode 677</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-677/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-677/</link>
       <pubDate>Tue, 06 Dec 2022 21:48:51 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-677/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-677/</guid>
       <description>思路 经典TrieMap问题，不解释 代码 class MapSum { private TrieMap&amp;lt;Integer&amp;gt; trieMap; public MapSum() { this.trieMap = new TrieMap(); } public void insert(String key, int val) { trieMap.put(key, val); } public int sum(String prefix) { List&amp;lt;String&amp;gt; keys = trieMap.keysWithPrefix(prefix); int res = 0; for (String key : keys) { res += trieMap.get(key); } return res; } class</description>
     </item>
     
     <item>
       <title>LeetCode 295</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-295/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-295/</link>
       <pubDate>Tue, 06 Dec 2022 20:15:23 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-295/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-295/</guid>
       <description>思路 用两个优先队列（最大/小堆），等量的将数据流分成两部分，最大堆放小的那一部分，最小堆放大的那一部分，中位数就是堆顶的元素平均数，详见：h</description>
     </item>
     
     <item>
       <title>LeetCode 211</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-211/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-211/</link>
       <pubDate>Tue, 06 Dec 2022 17:05:05 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-211/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-211/</guid>
       <description>思路 利用Trie树的思想即可，详见思想篇章 代码 class WordDictionary { private TrieNode root; private static class TrieNode { boolean isEnd = false; TrieNode[] children = new TrieNode[26]; } public WordDictionary() { this.root = new TrieNode(); } public void addWord(String word) { this.root = put(root, word, 0); } private TrieNode put(TrieNode node, String word, int</description>
     </item>
     
     <item>
       <title>LeetCode 648</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-648/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-648/</link>
       <pubDate>Tue, 06 Dec 2022 16:58:09 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-648/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-648/</guid>
       <description>思路 经典前缀树（Trie）问题，只不过需要注意将dictionary添加进set即可（因为只添加进set的字符串才能充当前缀） 代码 class Solution { public String</description>
     </item>
     
     <item>
       <title>LeetCode 208</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-208/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-208/</link>
       <pubDate>Tue, 06 Dec 2022 16:41:25 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-208/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-208/</guid>
       <description>思路 经典前缀树（Trie）问题，直接套模板即可，详见思想篇章 代码 class Trie { private TrieSet trieSet; public Trie() { this.trieSet = new TrieSet(); } public void insert(String word) { trieSet.add(word); } public boolean search(String word) { return trieSet.contains(word); } public boolean startsWith(String prefix) { return trieSet.hasKeyWithPrefix(prefix); } class</description>
     </item>
     
     <item>
       <title>LeetCode 146</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-146/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-146/</link>
       <pubDate>Tue, 06 Dec 2022 15:02:34 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-146/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-146/</guid>
       <description>思路 两种做法： 手写LinkedHashMap 经典LRU缓存问题，直接套LRU模板即可，详见思想篇章 用Java自带的LinkedHashMap</description>
     </item>
     
     <item>
       <title>LeetCode 460</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-460/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-460/</link>
       <pubDate>Tue, 06 Dec 2022 14:58:18 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-460/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-460/</guid>
       <description>思路 经典LFU缓存问题，直接套LFU模板即可，详见思想篇章 代码 class LFUCache { private Map&amp;lt;Integer, Integer&amp;gt; keyToVal; private Map&amp;lt;Integer, Integer&amp;gt; keyToFreq; private Map&amp;lt;Integer, LinkedHashSet&amp;lt;Integer&amp;gt;&amp;gt; freqToKeys; private int minFreq; private int capacity; public LFUCache(int capacity) { keyToVal = new HashMap&amp;lt;&amp;gt;(); keyToFreq = new HashMap&amp;lt;&amp;gt;(); freqToKeys = new HashMap&amp;lt;&amp;gt;(); this.capacity =</description>
     </item>
     
     <item>
       <title>LeetCode 1584</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1584/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1584/</link>
       <pubDate>Mon, 05 Dec 2022 12:46:30 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1584/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1584/</guid>
       <description>思路 两种思路： kruskal 利用kruskal算法即可，只不过这里的边需要自己生成，详见思想章节 prim 利用prim算法即可，只不过这里的边需要自己生成，详见</description>
     </item>
     
     <item>
       <title>LeetCode 1514</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1514/</link>
       <pubDate>Sun, 04 Dec 2022 22:07:34 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1514/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1514/</guid>
       <description>思路 dijkstra问题的变种，利用dijkstra模板即可，主要有两个注意点： 首先需要构造图，构造图时注意无向图的一条边相当于两条有向边 w</description>
     </item>
     
     <item>
       <title>LeetCode 1631</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1631/</link>
       <pubDate>Sun, 04 Dec 2022 21:20:32 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1631/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1631/</guid>
       <description>思路 利用dijkstra的思想，只不过需要把矩阵里的每个元素当成一个结点，求一个结点的相邻结点与一般的图不同（即adj函数），而且最后求的体</description>
     </item>
     
     <item>
       <title>LeetCode 743</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-743/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-743/</link>
       <pubDate>Sun, 04 Dec 2022 20:17:02 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-743/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-743/</guid>
       <description>思路 经典dijkstra问题，利用dijkstra模板即可，详见思想章节 代码 class Solution { class State { int id; int distFromStart; public State(int id, int distFromStart) { this.id = id; this.distFromStart = distFromStart; } } private int[] dijkstra(List&amp;lt;int[]&amp;gt;[] graph, int start) { int[]</description>
     </item>
     
     <item>
       <title>LeetCode 990</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-990/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-990/</link>
       <pubDate>Thu, 03 Nov 2022 23:57:29 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-990/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-990/</guid>
       <description>思路 利用并查集的思想，先将相等的连接起来，然后再判断不相等的是否与并查集里的连通状态冲突 代码 class Solution { public boolean equationsPossible(String[] equations) { UF uf = new UF(26); for (String equation : equations) { if (equation.charAt(1) == &amp;#39;=&amp;#39;) {</description>
     </item>
     
     <item>
       <title>LeetCode 130</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-130/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-130/</link>
       <pubDate>Thu, 03 Nov 2022 23:38:17 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-130/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-130/</guid>
       <description>思路 利用并查集的思想，设置一个dummy结点，想办法把与边界的&amp;rsquo;O&amp;rsquo;相连的&amp;rsquo;O&amp;rsquo;加入到dum</description>
     </item>
     
     <item>
       <title>LeetCode 886</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-886/</link>
       <pubDate>Thu, 03 Nov 2022 16:58:49 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-886/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-886/</guid>
       <description>思路 经典二分图判断，只不过需要先构造一个图，详见思想章节 代码 class Solution { private boolean ok = true; private boolean[] color; private boolean[] visited; public boolean possibleBipartition(int n, int[][] dislikes) { color = new boolean[n + 1]; visited = new boolean[n + 1]; List&amp;lt;Integer&amp;gt;[] graph = buildGraph(n, dislikes); for (int</description>
     </item>
     
     <item>
       <title>LeetCode 785</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-785/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-785/</link>
       <pubDate>Thu, 03 Nov 2022 16:17:09 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-785/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-785/</guid>
       <description>思路 经典二分图判断问题，利用二分图判断模板即可，有dfs和bfs两种做法，详见思想章节 代码 DFS class Solution { private boolean ok = true; private boolean[] color; private boolean[] visited; public boolean isBipartite(int[][] graph) { int n = graph.length; color</description>
     </item>
     
     <item>
       <title>LeetCode 210</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-210/</link>
       <pubDate>Fri, 28 Oct 2022 21:47:32 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-210/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-210/</guid>
       <description>思路 寻找可行的选课顺序其实就是计算拓扑排序 思路一 利用图的DFS，只要是无环的有向图，就有拓扑排序，所以需要像207题一样判断是否有环，如果无</description>
     </item>
     
     <item>
       <title>LeetCode 207</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-207/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-207/</link>
       <pubDate>Fri, 28 Oct 2022 20:32:56 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-207/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-207/</guid>
       <description>思路 这道题其实就是检测图里是否有环 思路一 利用图的DFS，首先构建图，把prerequisites当成图的边，然后利用图的DFS遍历模板遍历该</description>
     </item>
     
     <item>
       <title>LeetCode 797</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-797/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-797/</link>
       <pubDate>Wed, 26 Oct 2022 23:21:47 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-797/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-797/</guid>
       <description>思路 经典图的遍历，只不过要同时记录路径 代码 class Solution { private List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; allPathsSourceTarget(int[][] graph) { LinkedList&amp;lt;Integer&amp;gt; path = new LinkedList&amp;lt;&amp;gt;(); traverse(graph, 0, path); return res; } private void traverse(int[][] graph, int s, LinkedList&amp;lt;Integer&amp;gt; path) { // 进入结点时 path.add(s); int n = graph.length - 1; if (s</description>
     </item>
     
     <item>
       <title>LeetCode 222</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-222/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-222/</link>
       <pubDate>Wed, 26 Oct 2022 22:38:25 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-222/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-222/</guid>
       <description>思路 普通二叉树需要对二叉树进行遍历才能统计结点个数，满二叉树只需要知道树的高度就可以计算出来，那么完全二叉树可以结合这两个的做法，如果左边和</description>
     </item>
     
     <item>
       <title>LeetCode 235</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-235/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-235/</link>
       <pubDate>Sat, 22 Oct 2022 23:19:23 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-235/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-235/</guid>
       <description>思路 跟236类似，只不过不需要一个一个遍历，因为是BST，可以根据结点的大小选择去左子树还是右子树，第一个在val1和val2之间的结点就是</description>
     </item>
     
     <item>
       <title>LeetCode 236</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-236/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-236/</link>
       <pubDate>Sat, 22 Oct 2022 22:47:12 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-236/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-236/</guid>
       <description>思路 使用二叉树遍历的思想，遍历每一个节点，当左子树找到了q或p，右子树也找到了的话，该节点就是LCA，直接返回即可，注意返回值只有可能是p或</description>
     </item>
     
     <item>
       <title>LeetCode 341</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-341/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-341/</link>
       <pubDate>Sat, 22 Oct 2022 21:57:50 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-341/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-341/</guid>
       <description>思路 思路一 将NestedInteger当成树的节点，list当成该节点的孩子，那么只需要遍历该树就可以完成迭代了，直接看代码 思路二 思路一会在</description>
     </item>
     
     <item>
       <title>LeetCode 95</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-95/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-95/</link>
       <pubDate>Fri, 14 Oct 2022 11:32:09 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-95/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-95/</guid>
       <description>思路 类似LeetCode 96，利用分解问题的思想，将原问题分解为：构造root+构造左子树+构造右子树即可，但是注意root不能重复利用 我的</description>
     </item>
     
     <item>
       <title>LeetCode 96</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-96/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-96/</link>
       <pubDate>Fri, 14 Oct 2022 11:08:45 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-96/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-96/</guid>
       <description>思路 三种思路： 递归思路 递归函数定义为n个结点可以组成几种BST，那么对于n个结点的BST的种类=将n个结点逐个当成root，左右子树的种类相</description>
     </item>
     
     <item>
       <title>LeetCode 504</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-504/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-504/</link>
       <pubDate>Fri, 14 Oct 2022 10:37:01 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-504/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-504/</guid>
       <description>思路 删除时先把删除的结点跟root比较，小于root在左子树中删除，大于root在右子树中删除，等于root时，需要删除root，有以下三种</description>
     </item>
     
     <item>
       <title>LeetCode 701</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-701/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-701/</link>
       <pubDate>Thu, 13 Oct 2022 16:21:01 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-701/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-701/</guid>
       <description>思路 类比构造二叉树，需要把问题分解为：构造root+构造左子树+构造右子树，注意只有root为null时需要构造 我的代码 class Solution { public TreeNode insertIntoBST(TreeNode root, int val) {</description>
     </item>
     
     <item>
       <title>LeetCode 700</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-700/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-700/</link>
       <pubDate>Thu, 13 Oct 2022 16:06:44 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-700/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-700/</guid>
       <description>思路 利用二分查找的思想，不解释了 我的代码 class Solution { public TreeNode searchBST(TreeNode root, int val) { if (root == null) { return null; } if (val &amp;gt; root.val) { return searchBST(root.right, val); } if (val &amp;lt; root.val) { return searchBST(root.left, val); } return root; } } References 1. 二叉搜索树中的搜</description>
     </item>
     
     <item>
       <title>LeetCode 98</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-98/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-98/</link>
       <pubDate>Thu, 13 Oct 2022 15:34:20 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-98/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-98/</guid>
       <description>思路 两种思路： 递归 利用二叉树的分解思想，将原问题分解为：root左边的的结点都比root小+右边的的结点都比root大+左子树是BST+右子</description>
     </item>
     
     <item>
       <title>LeetCode 538</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-538/</link>
       <pubDate>Thu, 13 Oct 2022 14:42:01 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-538/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-538/</guid>
       <description>思路 因为要累加比自己更大的结点的值，所以完全可以在升序序列里倒着遍历，把累加的值放到节点里去，所以这里采用中序遍历，但是是先右子树再左子树，</description>
     </item>
     
     <item>
       <title>LeetCode 230</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-230/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-230/</link>
       <pubDate>Thu, 13 Oct 2022 14:07:42 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-230/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-230/</guid>
       <description>思路 BST的中序遍历就是升序序列，所以先中序遍历，然后找第k大的就行了，但是可以优化一下，找到第k大的就直接return 我的代码 class Solution { private int rank</description>
     </item>
     
     <item>
       <title>LeetCode 297</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-297/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-297/</link>
       <pubDate>Wed, 12 Oct 2022 15:25:34 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-297/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-297/</guid>
       <description>思路 我的思路 序列化采用前序遍历即可，反序列化先把序列化的字符串分隔开，然后将分割的元素转换为结点，逐个加入栈中，并且判断栈顶是不是完整的树（</description>
     </item>
     
     <item>
       <title>LeetCode 889</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-889/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-889/</link>
       <pubDate>Wed, 12 Oct 2022 13:57:30 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-889/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-889/</guid>
       <description>思路 同LeetCode-105，就是改一下递归的参数，而且前序和后序无法唯一确定一棵树 详见：https://blog.zhangmengya</description>
     </item>
     
     <item>
       <title>LeetCode 106</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-106/</link>
       <pubDate>Wed, 12 Oct 2022 12:05:51 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-106/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-106/</guid>
       <description>思路 同LeetCode-105，就是改一下递归的参数 详见：https://blog.zhangmengyang.tk/posts/leetc</description>
     </item>
     
     <item>
       <title>LeetCode 105</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-105/</link>
       <pubDate>Wed, 12 Oct 2022 11:53:59 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-105/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-105/</guid>
       <description>思路 经典根据前中遍历序列构造树，利用分解问题的思想，将问题拆分为找出root+构造左子树+构造右子树，前序遍历第一个就是root，再根据ro</description>
     </item>
     
     <item>
       <title>LeetCode 654</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-654/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-654/</link>
       <pubDate>Wed, 12 Oct 2022 11:18:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-654/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-654/</guid>
       <description>思路 利用二叉树分解问题的思想，将原问题分解为找出root结点+构造左子树+构造右子树，找出root结点，遍历数组即可，构造左右子树递归调用即</description>
     </item>
     
     <item>
       <title>LeetCode 114</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-114/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-114/</link>
       <pubDate>Tue, 11 Oct 2022 15:09:41 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-114/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-114/</guid>
       <description>思路 由于题目要求原地转换为链表所以不能使用遍历的方法，一边遍历一遍新建一个链表，只能使用分解问题的思路 将该问题分解为：左子树展开+右子树展开</description>
     </item>
     
     <item>
       <title>LeetCode 116</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-116/</link>
       <pubDate>Tue, 11 Oct 2022 14:33:15 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-116/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-116/</guid>
       <description>思路 有两种思路，分别是层序遍历和把间隙看成结点的遍历 思路一 层序遍历，遍历一层就把这层的结点加上next，没什么好说的 思路二 把间隙看成结点，那</description>
     </item>
     
     <item>
       <title>LeetCode 226</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-226/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-226/</link>
       <pubDate>Tue, 11 Oct 2022 13:48:45 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-226/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-226/</guid>
       <description>思路 遍历方式和分解方式都可以 遍历思路 利用二叉树的遍历思想，遍历一遍，遍历的时候，将每个正在遍历的结点交换左右子树即可 分解思路 利用二叉树的分解</description>
     </item>
     
     <item>
       <title>LeetCode 543</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-543/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-543/</link>
       <pubDate>Mon, 10 Oct 2022 14:53:44 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-543/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-543/</guid>
       <description>思路 直径等于左子树的深度加右子树的深度，那么遍历一遍树，找出直径里的最大值即可，不过需要注意，因为要获得每个节点子树的深度，需要用后序遍历，</description>
     </item>
     
     <item>
       <title>LeetCode 104</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-104/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-104/</link>
       <pubDate>Mon, 10 Oct 2022 14:25:10 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-104/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-104/</guid>
       <description>思路 有两种思路，分别是分解问题和遍历二叉树 思路一 把当前问题分解为左子树和右子树中深度较大的那个子树的深度+1，就是当前树的深度 思路二 把二叉树</description>
     </item>
     
     <item>
       <title>LeetCode 周赛 314</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-314/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-314/</link>
       <pubDate>Sun, 09 Oct 2022 14:17:29 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-314/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-314/</guid>
       <description>思路 第一题 考察差分数组和模拟，差分之后数组的每个元素就是该任务所用的时间，找最大的即可 第二题 考察差分数组和异或的性质 由a^b=c &amp;mdash;&amp;gt; a^a^b=a^c &amp;mdash;&amp;gt; 0^b=a^c &amp;mdash;&amp;gt; b</description>
     </item>
     
     <item>
       <title>LeetCode 710</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-710/</link>
       <pubDate>Tue, 27 Sep 2022 15:05:11 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-710/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-710/</guid>
       <description>思路 既然要随机获取，那么肯定要用数组存，并且是紧凑的，由于有黑名单，所以我们应该想办法把不是黑名单的数组紧凑到前n - blacklist.le</description>
     </item>
     
     <item>
       <title>LeetCode 380</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-380/</link>
       <pubDate>Tue, 27 Sep 2022 14:35:51 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-380/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-380/</guid>
       <description>思路 为了随机选取元素，需要用到数组，并且得是紧凑的，但是数组增删不是O(1)的，所以再来个map，key是数组元素的值，value是数组的索</description>
     </item>
     
     <item>
       <title>LeetCode 528</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-528/</link>
       <pubDate>Mon, 26 Sep 2022 22:42:24 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-528/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-528/</guid>
       <description>思路 可以想象成一条线段，分成好几段，每段长度不一样，然后往上面撒石子，返回石子撒到了第几条线段上，直接把这个线段当成一个数组不现实，因为数值</description>
     </item>
     
     <item>
       <title>LeetCode 59</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-59/</link>
       <pubDate>Mon, 26 Sep 2022 21:53:13 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-59/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-59/</guid>
       <description>思路 同LeetCode-54，只不过这里是往里填元素，详见：https://blog.zhangmengyang.tk/posts/leet</description>
     </item>
     
     <item>
       <title>LeetCode 54</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-54/</link>
       <pubDate>Mon, 26 Sep 2022 21:39:37 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-54/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-54/</guid>
       <description>思路 解题的核心思路是按照右、下、左、上的顺序遍历数组，并使用四个变量圈定未遍历元素的边界： 需要注意水平遍历需要判断upperBound&amp;lt</description>
     </item>
     
     <item>
       <title>LeetCode 48</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-48/</link>
       <pubDate>Mon, 26 Sep 2022 11:12:45 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-48/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-48/</guid>
       <description>思路 先按对角线对折矩阵（注意对折矩阵时，只需要遍历矩阵的一半即可，如果整个矩阵都遍历，那矩阵不会有任何变化，相当于对折了两次），再反转矩阵的</description>
     </item>
     
     <item>
       <title>LeetCode 151</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-151/</link>
       <pubDate>Mon, 26 Sep 2022 10:45:08 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-151/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-151/</guid>
       <description>思路 可以split成单词，再reverse，再拼接，但是不够优雅，会使用了额外的空间，正确做法是先reverse整个数组，然后再revers</description>
     </item>
     
     <item>
       <title>LeetCode 1094</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1094/</link>
       <pubDate>Mon, 26 Sep 2022 00:32:18 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1094/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1094/</guid>
       <description>思路 利用差分数组的思想即可，这里把路程中各个地方的乘客数目当作数组的元素，每个trip相当于对这个数组的某一段进行加运算 代码 class Solution { public boolean carPooling(int[][] trips, int</description>
     </item>
     
     <item>
       <title>LeetCode 1109</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-1109/</link>
       <pubDate>Sun, 25 Sep 2022 23:57:09 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-1109/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-1109/</guid>
       <description>思路 标准差分数组，详见LeetCode-note 代码 class Solution { public int[] corpFlightBookings(int[][] bookings, int n) { int[] nums = new int[n]; Difference df = new Difference(nums); for (int[] booking : bookings) { df.increment(booking[0] - 1, booking[1] - 1, booking[2]); } return df.result(); } static class Difference { private int[] diff;</description>
     </item>
     
     <item>
       <title>LeetCode 304</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-304/</link>
       <pubDate>Sun, 25 Sep 2022 23:11:19 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-304/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-304/</guid>
       <description>思路 利用前缀和的思想轻松秒杀，需要注意在preSum中，第[n + 1, n+1]个元素存的是matrix前n*n个元素的和，整体往右下挪一位 还需要</description>
     </item>
     
     <item>
       <title>LeetCode 303</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-303/</link>
       <pubDate>Sun, 25 Sep 2022 22:41:54 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-303/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-303/</guid>
       <description>思路 利用前缀和的思想轻松秒杀，需要注意在preSum中，第n + 1个元素存的是nums前n个元素的和，整体往后挪一位 代码 class NumArray { int[] preSum; public NumArray(int[] nums) { preSum =</description>
     </item>
     
     <item>
       <title>LeetCode 3</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-3/</link>
       <pubDate>Sun, 25 Sep 2022 22:16:07 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-3/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-3/</guid>
       <description>思路 利用滑动窗口的思想，如果窗口内相同元素超过1个，那么就开始收缩直到相同元素被移出，此时窗口内必定没有重复元素，记录一下此时的窗口大小，找</description>
     </item>
     
     <item>
       <title>LeetCode 438</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-438/</link>
       <pubDate>Sun, 25 Sep 2022 21:52:06 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-438/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-438/</guid>
       <description>思路 同LeetCode-567，只不过找到子串后不直接返回而是存一下，同样是两种思路，详见：https://blog.zhangmengya</description>
     </item>
     
     <item>
       <title>LeetCode 567</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-567/</link>
       <pubDate>Sun, 25 Sep 2022 18:13:05 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-567/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-567/</guid>
       <description>思路 我的思路：利用滑动窗口的思想，移入窗口一个字符，就收缩窗口直到这个移入的字符在窗口里的数目与s1保持一致，换句话说，保证窗口内不存在非法</description>
     </item>
     
     <item>
       <title>LeetCode 76</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-76/</link>
       <pubDate>Sun, 25 Sep 2022 17:01:39 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-76/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-76/</guid>
       <description>思路 利用滑动窗口的思想，窗口内包含t的所有字符后收缩窗口，同时维护最小覆盖子串的两端的位置，详见LeetCode-note思想章节 代码 class Solution {</description>
     </item>
     
     <item>
       <title>LeetCode 周赛-312</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</link>
       <pubDate>Sun, 25 Sep 2022 15:22:34 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-%E5%91%A8%E8%B5%9B-312/</guid>
       <description>思路 第一题 排序，不解释 第二题 按位与只会越与越小，那既然要找最大的结果，那遍历一遍数组统计一下最大的数出现了几次就可以了 第三题 暴力会超时，利用</description>
     </item>
     
     <item>
       <title>LeetCode 34</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-34/</link>
       <pubDate>Sun, 25 Sep 2022 00:24:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-34/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-34/</guid>
       <description>思路 经典进阶版二分查找，寻找target的左右边界，在进阶版二分查找的二分阶段根据左边界或右边界的特征，选择合适的二分条件即可，来两次二分查</description>
     </item>
     
     <item>
       <title>LeetCode 704</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-704/</link>
       <pubDate>Sat, 24 Sep 2022 16:18:38 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-704/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-704/</guid>
       <description>思路 经典二分查找，不解释 详见：https://labuladong.gitee.io/algo/2/20/29/ 代码 class Solution { public int search(int[] nums, int target) { int left</description>
     </item>
     
     <item>
       <title>LeetCode 5</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-5/</link>
       <pubDate>Sat, 24 Sep 2022 15:30:02 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-5/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-5/</guid>
       <description>思路 两种思路： 中心扩展法 遍历一遍数组，同时从中心向两边寻找回文串，并且保存最长的即可。 动态规划 构建dp数组，数组的元素为[i&amp;hellip;</description>
     </item>
     
     <item>
       <title>LeetCode 344</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-344/</link>
       <pubDate>Sat, 24 Sep 2022 15:10:28 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-344/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-344/</guid>
       <description>思路 利用左右指针的思想，从两边向中间逼近，同时交换左右的值 代码 class Solution { public void reverseString(char[] s) { int left = 0, right = s.length -1 ; while (left &amp;lt; right) { char temp = s[left]; s[left] = s[right]; s[right] = temp; left++; right--; } } } References 1.</description>
     </item>
     
     <item>
       <title>LeetCode 167</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-167/</link>
       <pubDate>Sat, 24 Sep 2022 14:58:51 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-167/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-167/</guid>
       <description>思路 利用左右指针的思想，从两边向中间逼近，如果左右之和太大，那就right&amp;ndash;，否则left++，直到左右之和等于target。 代</description>
     </item>
     
     <item>
       <title>LeetCode 26&#43;83&#43;27&#43;283</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</link>
       <pubDate>Sat, 24 Sep 2022 14:13:53 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-26&#43;83&#43;27&#43;283/</guid>
       <description>思路 都属于快慢指针里的原地修改数组问题（数组元素去重问题） 26 慢指针指向当前已经去重的数据的最后一个，快指针去前面探路，碰到和slow不一样的</description>
     </item>
     
     <item>
       <title>LeetCode 234 快慢指针&#43;反转链表</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Sat, 24 Sep 2022 00:05:26 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-234-%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&#43;%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
       <description>思路 先用快慢指针找到链表的中点，从而找到回文串的后一半，然后将后一半反转，然后判断前后两部分是否相等就行了。 代码 class Solution { public boolean isPalindrome(ListNode head) { // 快慢指针找</description>
     </item>
     
     <item>
       <title>LeetCode 234 链表后序遍历</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:43 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-234-%E9%93%BE%E8%A1%A8%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
       <description>思路 链表也可以后序遍历，这道题只需要使用后序遍历，然后提前存一下head，从两边向中间逼近就可以了。 代码 class Solution { private ListNode left; public boolean isPalindrome(ListNode head) { left = head; return traverse(head); } private</description>
     </item>
     
     <item>
       <title>LeetCode 25</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-25/</link>
       <pubDate>Fri, 23 Sep 2022 23:21:30 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-25/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-25/</guid>
       <description>思路 1、先反转以 head 开头的 k 个元素。 2、将第 k + 1 个元素作为 head 递归调用 reverseKGroup 函数。 3、将上述两个过程的结果连接起来。 注意base case为最后元素</description>
     </item>
     
     <item>
       <title>LeetCode 92</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-92/</link>
       <pubDate>Fri, 23 Sep 2022 22:52:35 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-92/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-92/</guid>
       <description>思路 递归法 与反转链表前n个节点区别在于不是从第一个节点开始反转，而是从left开始，那么只需要利用递归一次head往后移一位，left和ri</description>
     </item>
     
     <item>
       <title>反转链表前n个节点</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
       <pubDate>Fri, 23 Sep 2022 22:20:19 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E5%89%8Dn%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
       <description>思路 解决思路和反转整个链表差不多，只要稍加修改即可： 1、base case 变为 n == 1，反转一个元素，就是它本身，同时要记录后驱节点。 2、刚才我们直接</description>
     </item>
     
     <item>
       <title>LeetCode 206</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-206/</link>
       <pubDate>Fri, 23 Sep 2022 22:01:54 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-206/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-206/</guid>
       <description>思路 两种思路： 递归 利用递归的思想，先反转head后面的，然后把head也反转即可。 迭代 利用头插法的思想即可，直接看代码 代码 递归 class Solution { public ListNode reverseList(ListNode head)</description>
     </item>
     
     <item>
       <title>LeetCode 160</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-160/</link>
       <pubDate>Fri, 23 Sep 2022 15:29:13 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-160/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-160/</guid>
       <description>思路 找到相交点的关键是将相交点之前的节点数凑成相等的，这样的话同时遍历，如果相等的话就是相交了。怎么凑呢？将两个链表连接一下，节点数不就想等</description>
     </item>
     
     <item>
       <title>LeetCode 142</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-142/</link>
       <pubDate>Fri, 23 Sep 2022 15:02:29 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-142/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-142/</guid>
       <description>思路 寻找环的起点，利用快慢指针的思想并且稍做分析，即可得出结论：当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次</description>
     </item>
     
     <item>
       <title>LeetCode 141</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-141/</link>
       <pubDate>Fri, 23 Sep 2022 14:49:25 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-141/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-141/</guid>
       <description>思路 利用快慢指针的思想，如果快指针为空，说明没有环，如果快慢指针相遇说明有环 代码 public class Solution { public boolean hasCycle(ListNode head) { ListNode slow = head, fast = head; // 快慢指针如果相遇，说明链表</description>
     </item>
     
     <item>
       <title>LeetCode 876</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-876/</link>
       <pubDate>Fri, 23 Sep 2022 14:18:22 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-876/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-876/</guid>
       <description>思路 利用快慢指针的思想，每当慢指针 slow 前进一步，快指针 fast 就前进两步，这样，当 fast 走到链表末尾时，slow 就指向了链表中点。 需要注意的是，如果链表</description>
     </item>
     
     <item>
       <title>LeetCode 19</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-19/</link>
       <pubDate>Fri, 23 Sep 2022 12:32:27 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-19/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-19/</guid>
       <description>思路 关键是找到倒数第n+1个节点，找到倒数第n个节点的做法：先让p1指针走n步，然后p1和p2指针一起动，当p1指针到头了的时候，p2指针指</description>
     </item>
     
     <item>
       <title>LeetCode 23</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-23/</link>
       <pubDate>Fri, 23 Sep 2022 10:47:55 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-23/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-23/</guid>
       <description>思路 每次取出一个最小的加到链表中去，那问题就是怎么高效的获取最小的节点，这很明显用优先队列（二叉堆）就可以解决这个问题。 代码 class Solution { public ListNode mergeKLists(ListNode[] lists) {</description>
     </item>
     
     <item>
       <title>LeetCode Note 1</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-1/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-note-1/</link>
       <pubDate>Fri, 23 Sep 2022 10:21:48 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-note-1/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-note-1/</guid>
       <description>链表 合并两个有序链表 解法 略 题目 1. 合并两个有序链表 题解详见：https://blog.zhangmengyang.tk/posts/leetc</description>
     </item>
     
     <item>
       <title>LeetCode 86</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-86/</link>
       <pubDate>Fri, 23 Sep 2022 00:09:37 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-86/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-86/</guid>
       <description>思路 从头到尾遍历一遍链表，将小于x的放到一个链表里，将大于等于x的放到一个链表里，最后再拼接这两个链表即可，注意dummy节点的使用。 代码 class</description>
     </item>
     
     <item>
       <title>LeetCode 21</title>
-      <link>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/</link>
+      <link>https://superz1999.github.io/blog/posts/leetcode/leetcode-21/</link>
       <pubDate>Thu, 22 Sep 2022 23:42:59 +0800</pubDate>
       
-      <guid>https://blog.zhangmengyang.tk/posts/leetcode/leetcode-21/</guid>
+      <guid>https://superz1999.github.io/blog/posts/leetcode/leetcode-21/</guid>
       <description>思路 两种思路： 迭代 不解释 递归 不解释 代码 迭代 class Solution { public ListNode mergeTwoLists(ListNode list1, ListNode list2) { ListNode dummy = new ListNode(-1), p = dummy; while (list1 != null &amp;amp;&amp;amp; list2 != null) { if (list1.val &amp;lt; list2.val) { p.next = list1; list1 = list1.next; } else { p.next = list2; list2 = list2.next; } p</description>
     </item>
     
