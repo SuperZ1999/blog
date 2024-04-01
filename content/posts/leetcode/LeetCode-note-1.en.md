@@ -1188,7 +1188,7 @@ class Solution {
             //int mid = left + (right - left + 1) / 2;
             // 下面是核心逻辑，分成两个区间是因为这样扩展性更强
             // 这块主要就是筛选不可能的区间，然后缩减搜索空间，具体问题具体分析，注意left没加一时mid要加一
-            // 左边界，记忆方式：左边界是小于等于，下面的语句是...=mid，第二个语句和第一个语句互补，left没加一时mid要加一
+            // 左边界，记忆方式：左边界是小于等于，右边界是大于等于，下面的语句是...=mid，第二个语句和第一个语句互补，left没加一时mid要加一
             /*if (target <= nums[mid]) {
                 right = mid;
             } else {
@@ -1206,7 +1206,7 @@ class Solution {
         // 排除了n-1个不可能的元素，还剩下[left, right]区间的元素，而left=right，就看剩下这个是不是要寻找的元素了
         // 如果该题一定存在指定的元素，那么下一步可以省略，直接return left就好了
         /* 如果查找与target相等的值 */
-        if (nums[left] == target) {
+        if (nums[left] != target) {
             return -1;
         }
         /* 如果查找target的左侧边界 */
